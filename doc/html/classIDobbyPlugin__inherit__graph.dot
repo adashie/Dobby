@@ -1,0 +1,17 @@
+digraph "IDobbyPlugin"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="IDobbyPlugin",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Interface that plugin libraries have to implement."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="PluginBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPluginBase.html",tooltip="Basic object that provides the default overrides for a plugin."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="EthanLogPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEthanLogPlugin.html",tooltip="Plugin library that create a DIAG logging pipe for a container."];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="MulticastSocketPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMulticastSocketPlugin.html",tooltip="Plugin used to setup multicast server and client sockets out of the container and passes their file d..."];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="OpenCDMPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOpenCDMPlugin.html",tooltip="Dobby plugin for creating the necessary OCDM buffers."];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="PerfettoPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPerfettoPlugin.html",tooltip="Dobby plugin for granting access to system perfetto tracing in the container."];
+}

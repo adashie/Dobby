@@ -1,0 +1,95 @@
+\hypertarget{classAICommon_1_1Notifier}{}\doxysection{AICommon\+::Notifier$<$ T $>$ Class Template Reference}
+\label{classAICommon_1_1Notifier}\index{AICommon::Notifier$<$ T $>$@{AICommon::Notifier$<$ T $>$}}
+
+
+A template of observable objects that send notifications defined in interface T.  
+
+
+
+
+{\ttfamily \#include $<$Notifier.\+h$>$}
+
+
+
+Inheritance diagram for AICommon\+::Notifier$<$ T $>$\+:
+% FIG 0
+
+
+Collaboration diagram for AICommon\+::Notifier$<$ T $>$\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_acde72c94e3045aededfded7f844563f2}\label{classAICommon_1_1Notifier_acde72c94e3045aededfded7f844563f2}} 
+void \mbox{\hyperlink{classAICommon_1_1Notifier_acde72c94e3045aededfded7f844563f2}{add\+Observer}} (const std\+::shared\+\_\+ptr$<$ T $>$ \&observer)
+\begin{DoxyCompactList}\small\item\em Register interest in receiving updates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_acb261788d98df66520a54c2dc6d3dc6f}\label{classAICommon_1_1Notifier_acb261788d98df66520a54c2dc6d3dc6f}} 
+void \mbox{\hyperlink{classAICommon_1_1Notifier_acb261788d98df66520a54c2dc6d3dc6f}{remove\+Observer}} (const std\+::shared\+\_\+ptr$<$ T $>$ \&observer)
+\begin{DoxyCompactList}\small\item\em Unregister from updates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAICommon_1_1Notifier_a3e22948530e076062212dd9c9f161bb0}{set\+Dispatcher}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IDispatcher}{IDispatcher}} $>$ \&dispatcher\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_aeed7724a773bc30266536e2b00a855ab}\label{classAICommon_1_1Notifier_aeed7724a773bc30266536e2b00a855ab}} 
+{\footnotesize template$<$typename F , typename... Args$>$ }\\void {\bfseries notify} (F f, Args \&\&... args)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_a6729916c0bea78598814ca1f687e88b7}\label{classAICommon_1_1Notifier_a6729916c0bea78598814ca1f687e88b7}} 
+{\footnotesize template$<$typename F $>$ }\\void {\bfseries notify} (F f)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_a0a58cd6d529a948e941f893f57eb7bed}\label{classAICommon_1_1Notifier_a0a58cd6d529a948e941f893f57eb7bed}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IDispatcher}{IDispatcher}} $>$ {\bfseries dispatcher}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_aa645a0fecb10d6b4172840a16a741327}\label{classAICommon_1_1Notifier_aa645a0fecb10d6b4172840a16a741327}} 
+void {\bfseries notify\+\_\+impl} (std\+::function$<$ void(const std\+::shared\+\_\+ptr$<$ T $>$ \&)$>$ fun)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_a38874d4292ca0324a6edb418ccd246f2}\label{classAICommon_1_1Notifier_a38874d4292ca0324a6edb418ccd246f2}} 
+std\+::mutex {\bfseries m}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_a666ab80abe7a000c6ac5378673f92cc8}\label{classAICommon_1_1Notifier_a666ab80abe7a000c6ac5378673f92cc8}} 
+std\+::deque$<$ std\+::weak\+\_\+ptr$<$ T $>$ $>$ {\bfseries observers}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_a567df1b5a3356058d63cc8228779337a}\label{classAICommon_1_1Notifier_a567df1b5a3356058d63cc8228779337a}} 
+std\+::condition\+\_\+variable {\bfseries cv}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_ac95a3a9db844d2e8ef0c01b0ef37693f}\label{classAICommon_1_1Notifier_ac95a3a9db844d2e8ef0c01b0ef37693f}} 
+bool {\bfseries notifying\+Observers}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Notifier_ae7a1b0eb6bafdb21f4f93af1b3107c4c}\label{classAICommon_1_1Notifier_ae7a1b0eb6bafdb21f4f93af1b3107c4c}} 
+unsigned int {\bfseries waitee\+Count}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class AICommon\+::\+Notifier$<$ T $>$}
+
+A template of observable objects that send notifications defined in interface T. 
+
+\begin{DoxyNote}{Note}
+Inherit to use, call notify() to send an update. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAICommon_1_1Notifier_a3e22948530e076062212dd9c9f161bb0}\label{classAICommon_1_1Notifier_a3e22948530e076062212dd9c9f161bb0}} 
+\index{AICommon::Notifier$<$ T $>$@{AICommon::Notifier$<$ T $>$}!setDispatcher@{setDispatcher}}
+\index{setDispatcher@{setDispatcher}!AICommon::Notifier$<$ T $>$@{AICommon::Notifier$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setDispatcher()}{setDispatcher()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classAICommon_1_1Notifier}{AICommon\+::\+Notifier}}$<$ T $>$\+::set\+Dispatcher (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IDispatcher}{IDispatcher}} $>$ \&}]{dispatcher\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set dispatcher which will be used for notification callbacks. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Public/\+Common/Notifier.\+h\end{DoxyCompactItemize}

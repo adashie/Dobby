@@ -1,0 +1,131 @@
+\hypertarget{classDobbyFactory}{}\doxysection{Dobby\+Factory Class Reference}
+\label{classDobbyFactory}\index{DobbyFactory@{DobbyFactory}}
+
+
+Factory that spawns the Dobby\+Daemon and supplies a proxy to it.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Factory.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyFactory_a2e9306c4836296fb305f24d28fa564d7}\label{classDobbyFactory_a2e9306c4836296fb305f24d28fa564d7}} 
+{\bfseries Dobby\+Factory} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ \&ipc\+Service)
+\item 
+\mbox{\Hypertarget{classDobbyFactory_af306037309fe9f1dc2ad14fe64e50e51}\label{classDobbyFactory_af306037309fe9f1dc2ad14fe64e50e51}} 
+void {\bfseries set\+Workspace\+Path} (const std\+::string \&path)
+\item 
+\mbox{\Hypertarget{classDobbyFactory_a56937771969229e7f084b6983fa37169}\label{classDobbyFactory_a56937771969229e7f084b6983fa37169}} 
+void {\bfseries set\+Flash\+Mount\+Path} (const std\+::string \&path)
+\item 
+\mbox{\Hypertarget{classDobbyFactory_aabd06c5e7b3539e25163dd3892c778ec}\label{classDobbyFactory_aabd06c5e7b3539e25163dd3892c778ec}} 
+void {\bfseries set\+Platform\+Ident} (const std\+::string \&platform\+Ident)
+\item 
+\mbox{\Hypertarget{classDobbyFactory_aa9d3638c0f1e0bf7578fd0f31acc8ca3}\label{classDobbyFactory_aa9d3638c0f1e0bf7578fd0f31acc8ca3}} 
+void {\bfseries set\+Platform\+Type} (const std\+::string \&platform\+Type)
+\item 
+\mbox{\Hypertarget{classDobbyFactory_af87fae910174a8601d42bf1b1e233058}\label{classDobbyFactory_af87fae910174a8601d42bf1b1e233058}} 
+void {\bfseries set\+Platform\+Model} (const std\+::string \&platform\+Model)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}} $>$ \mbox{\hyperlink{classDobbyFactory_a69f4116a1d27adb6b95c808c3264ae53}{get\+Proxy}} ()
+\begin{DoxyCompactList}\small\item\em Starts the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}Hypervisor\textquotesingle{} daemon and returns a proxy object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDobbyFactory_a548d409a26c5371328cfe8fbe68a8c27}{start\+Dobby\+Daemon}} ()
+\begin{DoxyCompactList}\small\item\em Starts the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}Hypervisor\textquotesingle{} daemon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyFactory_aac9e124e82d444456d9c9933105c80fe}{ping\+Dobby\+Daemon}} ()
+\begin{DoxyCompactList}\small\item\em Sends pings to the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}Hypervisor\textquotesingle{} daemon until a pong is received or we timeout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyFactory_a31d884ccabb4d0aa160a78f236b1f4c8}\label{classDobbyFactory_a31d884ccabb4d0aa160a78f236b1f4c8}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyFactory_a5a30ac54a9f87b96e18406b10a640ec4}\label{classDobbyFactory_a5a30ac54a9f87b96e18406b10a640ec4}} 
+std\+::string {\bfseries m\+Workspace\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyFactory_a61a32ef652f68d6a065c01bf173eb42c}\label{classDobbyFactory_a61a32ef652f68d6a065c01bf173eb42c}} 
+std\+::string {\bfseries m\+Flash\+Mount\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyFactory_a38661f8a2a8c4ab96d7a827dfe2a73b8}\label{classDobbyFactory_a38661f8a2a8c4ab96d7a827dfe2a73b8}} 
+std\+::string {\bfseries m\+Platform\+Ident}
+\item 
+\mbox{\Hypertarget{classDobbyFactory_aedf7c4f6995614817c4ed5a56a763bc7}\label{classDobbyFactory_aedf7c4f6995614817c4ed5a56a763bc7}} 
+std\+::string {\bfseries m\+Platform\+Type}
+\item 
+\mbox{\Hypertarget{classDobbyFactory_abbadb40e03a7126ceabffc3f3fe03852}\label{classDobbyFactory_abbadb40e03a7126ceabffc3f3fe03852}} 
+std\+::string {\bfseries m\+Platform\+Model}
+\item 
+\mbox{\Hypertarget{classDobbyFactory_a3e93e60014ce288efd3f18394f1fe8c8}\label{classDobbyFactory_a3e93e60014ce288efd3f18394f1fe8c8}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ {\bfseries m\+Ipc\+Service}
+\item 
+\mbox{\Hypertarget{classDobbyFactory_a4c3bbcbc1f54d48b57d103b844b93c5f}\label{classDobbyFactory_a4c3bbcbc1f54d48b57d103b844b93c5f}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}} $>$ {\bfseries m\+Proxy}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Factory that spawns the Dobby\+Daemon and supplies a proxy to it. 
+
+The setters on the factory should be called prior to the get\+Proxy call, this is because the paths and platform ident is passed to the daemon when it is launched. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyFactory_a69f4116a1d27adb6b95c808c3264ae53}\label{classDobbyFactory_a69f4116a1d27adb6b95c808c3264ae53}} 
+\index{DobbyFactory@{DobbyFactory}!getProxy@{getProxy}}
+\index{getProxy@{getProxy}!DobbyFactory@{DobbyFactory}}
+\doxysubsubsection{\texorpdfstring{getProxy()}{getProxy()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}} $>$ Dobby\+Factory\+::get\+Proxy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starts the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}Hypervisor\textquotesingle{} daemon and returns a proxy object. 
+
+The function first tries to the start the daemon using \mbox{\hyperlink{classUpstart}{Upstart}}, if this fails we\textquotesingle{}re in trouble and just returns an invalid proxy.
+
+If the daemon did start then we try and open a connection to it, if that was successful we wrap it in a proxy object and return that. The proxy is just a lightweight wrapper around the dbus method calls into the daemon.
+
+\begin{DoxyReturn}{Returns}
+a shared\+\_\+ptr to an \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}} object which allows you to start / stop containers, etc. On failure an empty shared\+\_\+ptr is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyFactory_aac9e124e82d444456d9c9933105c80fe}\label{classDobbyFactory_aac9e124e82d444456d9c9933105c80fe}} 
+\index{DobbyFactory@{DobbyFactory}!pingDobbyDaemon@{pingDobbyDaemon}}
+\index{pingDobbyDaemon@{pingDobbyDaemon}!DobbyFactory@{DobbyFactory}}
+\doxysubsubsection{\texorpdfstring{pingDobbyDaemon()}{pingDobbyDaemon()}}
+{\footnotesize\ttfamily bool Dobby\+Factory\+::ping\+Dobby\+Daemon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sends pings to the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}Hypervisor\textquotesingle{} daemon until a pong is received or we timeout. 
+
+This sends ping method calls to the daemon and waits for a second for a reply, we do this for 60 seconds before giving up.
+
+This method shouldn\textquotesingle{}t be required, but we\textquotesingle{}ve seen timeouts at start-\/up and this is an attempt to recover.
+
+\begin{DoxyReturn}{Returns}
+true if a ping / pong was received, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyFactory_a548d409a26c5371328cfe8fbe68a8c27}\label{classDobbyFactory_a548d409a26c5371328cfe8fbe68a8c27}} 
+\index{DobbyFactory@{DobbyFactory}!startDobbyDaemon@{startDobbyDaemon}}
+\index{startDobbyDaemon@{startDobbyDaemon}!DobbyFactory@{DobbyFactory}}
+\doxysubsubsection{\texorpdfstring{startDobbyDaemon()}{startDobbyDaemon()}}
+{\footnotesize\ttfamily bool Dobby\+Factory\+::start\+Dobby\+Daemon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Starts the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}Hypervisor\textquotesingle{} daemon. 
+
+The function tries to the start the daemon using \mbox{\hyperlink{classUpstart}{Upstart}}, if this fails we\textquotesingle{}re in trouble and just returns false.
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+client/lib/include/Dobby\+Factory.\+h\item 
+client/lib/source/Dobby\+Factory.\+cpp\end{DoxyCompactItemize}

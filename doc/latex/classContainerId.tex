@@ -1,0 +1,76 @@
+\hypertarget{classContainerId}{}\doxysection{Container\+Id Class Reference}
+\label{classContainerId}\index{ContainerId@{ContainerId}}
+
+
+A wrapper around a std\+::string, used to add some type definition to to an id and also to sanity check the characters that make up a container id.  
+
+
+
+
+{\ttfamily \#include $<$Container\+Id.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContainerId_a39aaaf928db01273781bc66bc1f2f19d}\label{classContainerId_a39aaaf928db01273781bc66bc1f2f19d}} 
+{\bfseries Container\+Id} (\mbox{\hyperlink{classContainerId}{Container\+Id}} \&\&)=default
+\item 
+\mbox{\Hypertarget{classContainerId_ab4d9f9fe9acd32d32b899873b4289c6e}\label{classContainerId_ab4d9f9fe9acd32d32b899873b4289c6e}} 
+{\bfseries Container\+Id} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&)=default
+\item 
+\mbox{\Hypertarget{classContainerId_ac997d8e9e16fd51def24283c7ea43151}\label{classContainerId_ac997d8e9e16fd51def24283c7ea43151}} 
+\mbox{\hyperlink{classContainerId}{Container\+Id}} \& {\bfseries operator=} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&)=default
+\item 
+\mbox{\Hypertarget{classContainerId_a7e195dc50ddb6ab038886a8524240873}\label{classContainerId_a7e195dc50ddb6ab038886a8524240873}} 
+\mbox{\hyperlink{classContainerId}{Container\+Id}} \& {\bfseries operator=} (\mbox{\hyperlink{classContainerId}{Container\+Id}} \&\&)=default
+\item 
+\mbox{\Hypertarget{classContainerId_ad2d884575fc688f51431e3da4b6cac7a}\label{classContainerId_ad2d884575fc688f51431e3da4b6cac7a}} 
+bool {\bfseries is\+Valid} () const
+\item 
+\mbox{\Hypertarget{classContainerId_a894555981ff66f2bba1f1940fd0371dc}\label{classContainerId_a894555981ff66f2bba1f1940fd0371dc}} 
+const std\+::string \& {\bfseries str} () const
+\item 
+\mbox{\Hypertarget{classContainerId_a42db412cab09b3baa6670e61cd62a6c3}\label{classContainerId_a42db412cab09b3baa6670e61cd62a6c3}} 
+const char $\ast$ {\bfseries c\+\_\+str} () const
+\item 
+\mbox{\Hypertarget{classContainerId_aa454db9b83de23d47e9e582eba9ba3f8}\label{classContainerId_aa454db9b83de23d47e9e582eba9ba3f8}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classContainerId_a002689f1683babc7af2967e46ec5b428}\label{classContainerId_a002689f1683babc7af2967e46ec5b428}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classContainerId_acfd6bdd00f8f8dc72ee61e534b463665}\label{classContainerId_acfd6bdd00f8f8dc72ee61e534b463665}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&rhs) const
+\item 
+\mbox{\Hypertarget{classContainerId_afb81d26650e541e8fa439529985024f4}\label{classContainerId_afb81d26650e541e8fa439529985024f4}} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&rhs) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContainerId_a978a201e0e1b7c41f777bcc4ba312bb1}\label{classContainerId_a978a201e0e1b7c41f777bcc4ba312bb1}} 
+static \mbox{\hyperlink{classContainerId}{Container\+Id}} {\bfseries create} (const std\+::string \&s)
+\item 
+\mbox{\Hypertarget{classContainerId_aeeab1a502e14437d76a8b9298e9f567f}\label{classContainerId_aeeab1a502e14437d76a8b9298e9f567f}} 
+static \mbox{\hyperlink{classContainerId}{Container\+Id}} {\bfseries create} (const char $\ast$s)
+\item 
+\mbox{\Hypertarget{classContainerId_a05b2a1e0d80899f1a5b62d321de73972}\label{classContainerId_a05b2a1e0d80899f1a5b62d321de73972}} 
+static \mbox{\hyperlink{classContainerId}{Container\+Id}} {\bfseries create} (const char $\ast$s, size\+\_\+t n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContainerId_aaa3f75b94114996bbb4c925c36417c3d}\label{classContainerId_aaa3f75b94114996bbb4c925c36417c3d}} 
+std\+::string {\bfseries m\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A wrapper around a std\+::string, used to add some type definition to to an id and also to sanity check the characters that make up a container id. 
+
+This class is modelled on the AICommon\+::\+App\+Id, however wanted to distinguish because this daemon can be used to launch non-\/app processes. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+utils/include/Container\+Id.\+h\item 
+utils/source/Container\+Id.\+cpp\end{DoxyCompactItemize}

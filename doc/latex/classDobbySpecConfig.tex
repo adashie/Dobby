@@ -1,0 +1,575 @@
+\hypertarget{classDobbySpecConfig}{}\doxysection{Dobby\+Spec\+Config Class Reference}
+\label{classDobbySpecConfig}\index{DobbySpecConfig@{DobbySpecConfig}}
+
+
+Takes a JSON formatted spec file in the constructor, parses it and extracts the relevant fields.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Spec\+Config.\+h$>$}
+
+
+
+Inheritance diagram for Dobby\+Spec\+Config\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Spec\+Config\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDobbySpecConfig_1_1__MountPoint}{\+\_\+\+Mount\+Point}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a8823aef447d59b2e73ffadc9b668601a}\label{classDobbySpecConfig_a8823aef447d59b2e73ffadc9b668601a}} 
+typedef struct \mbox{\hyperlink{structDobbySpecConfig_1_1__MountPoint}{Dobby\+Spec\+Config\+::\+\_\+\+Mount\+Point}} {\bfseries Mount\+Point}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDobbySpecConfig_a9e2bb3b703c2bee38dc5001291b76937}{Dobby\+Spec\+Config}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&settings, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&bundle, const std\+::string \&spec\+Json)
+\begin{DoxyCompactList}\small\item\em Constructor used to parse a \mbox{\hyperlink{classDobby}{Dobby}} spec file into an OCI config file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDobbySpecConfig_ad27e2484039d00a84081d2427223d13c}{Dobby\+Spec\+Config}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&settings, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&bundle, const std\+::string \&spec\+Json)
+\begin{DoxyCompactList}\small\item\em Constructor used to parse a \mbox{\hyperlink{classDobby}{Dobby}} spec file into an OCI config file. Used with bundle generation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbySpecConfig_abdda342640f7779b7b4ead19aada17e4}\label{classDobbySpecConfig_abdda342640f7779b7b4ead19aada17e4}} 
+bool \mbox{\hyperlink{classDobbySpecConfig_abdda342640f7779b7b4ead19aada17e4}{is\+Valid}} () const override
+\begin{DoxyCompactList}\small\item\em Getters used for plugins. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a5f78eaa0f4bf9c88285874e8cff0f3bb}\label{classDobbySpecConfig_a5f78eaa0f4bf9c88285874e8cff0f3bb}} 
+const std\+::string {\bfseries spec} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a80bdc14daef29ed3841f61d07346fa9e}\label{classDobbySpecConfig_a80bdc14daef29ed3841f61d07346fa9e}} 
+uid\+\_\+t {\bfseries user\+Id} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a2a6551a6d20992f53cde3cd847dea6b8}\label{classDobbySpecConfig_a2a6551a6d20992f53cde3cd847dea6b8}} 
+gid\+\_\+t {\bfseries group\+Id} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a062d129ff003fc4f7991b44314f1c397}\label{classDobbySpecConfig_a062d129ff003fc4f7991b44314f1c397}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries system\+Dbus} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_aa98f9175411ac0dfff1c5510692e6691}\label{classDobbySpecConfig_aa98f9175411ac0dfff1c5510692e6691}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries session\+Dbus} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a6c18b07fc18779d477862202356a49fc}\label{classDobbySpecConfig_a6c18b07fc18779d477862202356a49fc}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries debug\+Dbus} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_ac6207d217ac53900c2672395ea3ddf8d}\label{classDobbySpecConfig_ac6207d217ac53900c2672395ea3ddf8d}} 
+bool {\bfseries restart\+On\+Crash} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a5cf3da18d6785fd2837daf74f82e7bb0}\label{classDobbySpecConfig_a5cf3da18d6785fd2837daf74f82e7bb0}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries config} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a1fd88663eb7dc860d10ae06f33ab52ff}\label{classDobbySpecConfig_a1fd88663eb7dc860d10ae06f33ab52ff}} 
+const std\+::string \& {\bfseries etc\+Hosts} () const
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_af3e7f463f9a299bbc9d2ab54ad67de24}\label{classDobbySpecConfig_af3e7f463f9a299bbc9d2ab54ad67de24}} 
+const std\+::string \& {\bfseries etc\+Services} () const
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_abc64ff922db986b25c55cf15938ce6cf}\label{classDobbySpecConfig_abc64ff922db986b25c55cf15938ce6cf}} 
+const std\+::string \& {\bfseries etc\+Passwd} () const
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a2f173ce918249bd0229b4f9b989f8eb2}\label{classDobbySpecConfig_a2f173ce918249bd0229b4f9b989f8eb2}} 
+const std\+::string \& {\bfseries etc\+Group} () const
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_aaa03d617e24239e7237ffcf716bf8f07}\label{classDobbySpecConfig_aaa03d617e24239e7237ffcf716bf8f07}} 
+const std\+::string \& {\bfseries etc\+Ld\+So\+Preload} () const
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_aa7a0f6eb0e4ee1d674a7449ebe21868c}\label{classDobbySpecConfig_aa7a0f6eb0e4ee1d674a7449ebe21868c}} 
+bool {\bfseries console\+Disabled} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a939b09cd3aa7262fead8a083426539df}\label{classDobbySpecConfig_a939b09cd3aa7262fead8a083426539df}} 
+ssize\+\_\+t {\bfseries console\+Limit} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a0a2df70325834f323c44030340404ae1}\label{classDobbySpecConfig_a0a2df70325834f323c44030340404ae1}} 
+const std\+::string \& {\bfseries console\+Path} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a30de8497c8c06ebb6b05bcf1c1c92b36}\label{classDobbySpecConfig_a30de8497c8c06ebb6b05bcf1c1c92b36}} 
+const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \& {\bfseries legacy\+Plugins} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a80cb4b7bf958790d441b4b74ec607fb1}\label{classDobbySpecConfig_a80cb4b7bf958790d441b4b74ec607fb1}} 
+const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \& {\bfseries rdk\+Plugins} () const override
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a273837ee878326442566618022d479f5}\label{classDobbySpecConfig_a273837ee878326442566618022d479f5}} 
+std\+::vector$<$ \mbox{\hyperlink{structDobbySpecConfig_1_1__MountPoint}{Mount\+Point}} $>$ {\bfseries mount\+Points} () const
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_aae616eb4989e2fa5c7ff693637d1566a}\label{classDobbySpecConfig_aae616eb4989e2fa5c7ff693637d1566a}} 
+const std\+::string \& {\bfseries rootfs\+Path} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a49614fe33384cde154fb734d9867c67c}\label{classDobbySpecConfig_a49614fe33384cde154fb734d9867c67c}} 
+enum class {\bfseries Spec\+Version} \{ {\bfseries Unknown}
+, {\bfseries Version1\+\_\+0}
+, {\bfseries Version1\+\_\+1}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDobbySpecConfig_a501181d10613d58b6f203823a99f1ee9}{parse\+Spec}} (ctemplate\+::\+Template\+Dictionary $\ast$dictionary, const std\+::string \&json, int bundle\+Fd)
+\begin{DoxyCompactList}\small\item\em Generates the OCI. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbySpecConfig_ae8184ed202eb577f54d615e6cba3ba4d}\label{classDobbySpecConfig_ae8184ed202eb577f54d615e6cba3ba4d}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+App\+Id)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_ae0b6681dc90c143594cef501b7956760}\label{classDobbySpecConfig_ae0b6681dc90c143594cef501b7956760}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Env)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a801fa0e2452217505e828ea92302c020}\label{classDobbySpecConfig_a801fa0e2452217505e828ea92302c020}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Args)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a215ba9bb2ad58f13db538262b50981e5}\label{classDobbySpecConfig_a215ba9bb2ad58f13db538262b50981e5}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Cwd)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a1ca672674972890fb1235e73b2b8663b}\label{classDobbySpecConfig_a1ca672674972890fb1235e73b2b8663b}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Console)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a785b683dc8a54d4c76e7a2253babf95b}\label{classDobbySpecConfig_a785b683dc8a54d4c76e7a2253babf95b}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+User)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a0bd1a7d67698e06fcad6086df2091ceb}\label{classDobbySpecConfig_a0bd1a7d67698e06fcad6086df2091ceb}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+User\+Ns)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a6cd052367800117744eb3c37ab0ffd8e}\label{classDobbySpecConfig_a6cd052367800117744eb3c37ab0ffd8e}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Etc)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a6eeffd03389a55be804ce0455cd19541}\label{classDobbySpecConfig_a6eeffd03389a55be804ce0455cd19541}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Network)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a773b2683e7c93dc87236170b177c17a3}\label{classDobbySpecConfig_a773b2683e7c93dc87236170b177c17a3}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Rt\+Priority)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_aeeacbc407697ba6ae08d0292b1a9ca0a}\label{classDobbySpecConfig_aeeacbc407697ba6ae08d0292b1a9ca0a}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Restart\+On\+Crash)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_ad94e88cdf64623a79a8d661de8bbc638}\label{classDobbySpecConfig_ad94e88cdf64623a79a8d661de8bbc638}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Mounts)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a80185c0cc6b7611df1912ef9131069a4}\label{classDobbySpecConfig_a80185c0cc6b7611df1912ef9131069a4}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Legacy\+Plugins)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a50a0c920064613a76beda9eb8853cc9e}\label{classDobbySpecConfig_a50a0c920064613a76beda9eb8853cc9e}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Mem\+Limit)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_ac474720ca399060ce82b94060d29b38b}\label{classDobbySpecConfig_ac474720ca399060ce82b94060d29b38b}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Gpu)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a16c5e6cc3f45e1daa134f815fcdc3c34}\label{classDobbySpecConfig_a16c5e6cc3f45e1daa134f815fcdc3c34}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Vpu)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a046b24397b335923e62cd4a397846cfc}\label{classDobbySpecConfig_a046b24397b335923e62cd4a397846cfc}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Dbus)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a80a4a3a56f4c5e2d60ed244c0bec901a}\label{classDobbySpecConfig_a80a4a3a56f4c5e2d60ed244c0bec901a}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Syslog)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_aca75e894e46c17f4e122be2bbd312c61}\label{classDobbySpecConfig_aca75e894e46c17f4e122be2bbd312c61}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Cpu)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a3a34832980df1c86c0dfdf20ca92ebdd}\label{classDobbySpecConfig_a3a34832980df1c86c0dfdf20ca92ebdd}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Devices)
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a1439108a3fc740e0ee71bdff03376953}\label{classDobbySpecConfig_a1439108a3fc740e0ee71bdff03376953}} 
+{\bfseries JSON\+\_\+\+FIELD\+\_\+\+PROCESSOR} (process\+Capabilities)
+\item 
+bool \mbox{\hyperlink{classDobbySpecConfig_ab839ce99d8c42deac6723e733ffabcb2}{process\+Loop\+Mount}} (const Json\+::\+Value \&value, ctemplate\+::\+Template\+Dictionary $\ast$dictionary, Json\+::\+Value \&loop\+Mnt\+Data)
+\begin{DoxyCompactList}\small\item\em Processes a loop mount field of the json spec. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbySpecConfig_a4f5d5429bee39c9a06bca0f9be109bd8}{insert\+Into\+Rdk\+Plugin\+Json}} (const std\+::string \&plugin\+Name, const Json\+::\+Value \&plugin\+Data)
+\begin{DoxyCompactList}\small\item\em Inserts rdk\+Plugin json into existing json. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbySpecConfig_a8e23adb54674d19d6c7a4398fd6d4db4}{process\+Rdk\+Plugins}} (const Json\+::\+Value \&value, ctemplate\+::\+Template\+Dictionary $\ast$dictionary)
+\begin{DoxyCompactList}\small\item\em Processes the rdk\+Plugins field of the json spec. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\std\+::bitset$<$ N $>$ \mbox{\hyperlink{classDobbySpecConfig_aa099b3dd47edca56352f5f873ce3c43b}{parse\+Bitset}} (const std\+::string \&str) const
+\begin{DoxyCompactList}\small\item\em Parses a string to create a bitset for the appropriate bits set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbySpecConfig_a7dafccd016e3c756554d50387119d37f}{store\+Mount\+Point}} (const std\+::string \&type, const std\+::string \&source, const std\+::string \&destination)
+\begin{DoxyCompactList}\small\item\em Stores the mount point internally so it can be created by in the rootfs component. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbySpecConfig_a135c9a8e95d3549136f3f84780c4e49f}{json\+To\+String}} (const Json\+::\+Value \&json\+Object)
+\begin{DoxyCompactList}\small\item\em Use the Json\+Cpp streamwriter builder to convert a Json object into a string for use in ctemplate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classDobbySpecConfig_abeba57edace83c582cd741874ebc36ab}{add\+Gpu\+Dev\+Nodes}} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{IDobby\+Settings\+::\+Hardware\+Access\+Settings}} $>$ \&settings, ctemplate\+::\+Template\+Dictionary $\ast$dict)
+\begin{DoxyCompactList}\small\item\em Adds the GPU device nodes (if any) to supplied dictionary. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classDobbySpecConfig_aae0737229af801f6d945945ac447d469}{add\+Vpu\+Dev\+Nodes}} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{IDobby\+Settings\+::\+Hardware\+Access\+Settings}} $>$ \&settings, ctemplate\+::\+Template\+Dictionary $\ast$dict)
+\begin{DoxyCompactList}\small\item\em Adds the VPU device nodes (if any) to supplied dictionary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a4f3e7ed9cc4623733cb1059c44715134}\label{classDobbySpecConfig_a4f3e7ed9cc4623733cb1059c44715134}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a1da846b0769c9d6661eee75bd20bea5f}\label{classDobbySpecConfig_a1da846b0769c9d6661eee75bd20bea5f}} 
+const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{IDobby\+Settings\+::\+Hardware\+Access\+Settings}} $>$ {\bfseries m\+Gpu\+Settings}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a064f551fbc8b0fd89f391b4a6baaf5ec}\label{classDobbySpecConfig_a064f551fbc8b0fd89f391b4a6baaf5ec}} 
+const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{IDobby\+Settings\+::\+Hardware\+Access\+Settings}} $>$ {\bfseries m\+Vpu\+Settings}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_ad7708a92626541a89f61ef5ebd52b429}\label{classDobbySpecConfig_ad7708a92626541a89f61ef5ebd52b429}} 
+const std\+::vector$<$ std\+::string $>$ {\bfseries m\+Default\+Plugins}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a10b3acb1d0ef613c6b475c61e82bf0ea}\label{classDobbySpecConfig_a10b3acb1d0ef613c6b475c61e82bf0ea}} 
+bool {\bfseries m\+Valid}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a8b9b4563e5de6695c9e796e27136ba68}\label{classDobbySpecConfig_a8b9b4563e5de6695c9e796e27136ba68}} 
+ctemplate\+::\+Template\+Dictionary $\ast$ {\bfseries m\+Dictionary}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_aac4e9babd6c12e298d10aed1c6ec9ffd}\label{classDobbySpecConfig_aac4e9babd6c12e298d10aed1c6ec9ffd}} 
+Json\+::\+Value {\bfseries m\+Spec}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a3b2a6e211b07bccc59c4ae39ee0f2fa5}\label{classDobbySpecConfig_a3b2a6e211b07bccc59c4ae39ee0f2fa5}} 
+Json\+::\+Value {\bfseries m\+Rdk\+Plugins\+Json}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_acd4b462552f0826f7ed92efbdb124885}\label{classDobbySpecConfig_acd4b462552f0826f7ed92efbdb124885}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Conf}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a773e686e64f2da9e5172d7ce570d6f68}\label{classDobbySpecConfig_a773e686e64f2da9e5172d7ce570d6f68}} 
+enum Dobby\+Spec\+Config\+::\+Spec\+Version {\bfseries m\+Spec\+Version}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_aca20a6a81914c3d136a0bf80395ecbce}\label{classDobbySpecConfig_aca20a6a81914c3d136a0bf80395ecbce}} 
+uid\+\_\+t {\bfseries m\+User\+Id}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_ad608f7d49cdefd6264e46d8c5207b150}\label{classDobbySpecConfig_ad608f7d49cdefd6264e46d8c5207b150}} 
+gid\+\_\+t {\bfseries m\+Group\+Id}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_afd1cd1018962894f6831fc5d36e600cd}\label{classDobbySpecConfig_afd1cd1018962894f6831fc5d36e600cd}} 
+bool {\bfseries m\+Restart\+On\+Crash}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a1601855ded97161cc3de4220c304bed4}\label{classDobbySpecConfig_a1601855ded97161cc3de4220c304bed4}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries m\+System\+Dbus}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a81f25eb534764b77e2b5be9731ac1b2f}\label{classDobbySpecConfig_a81f25eb534764b77e2b5be9731ac1b2f}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries m\+Session\+Dbus}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a2c9440bd5f95bda4cbd998adc52ee4cc}\label{classDobbySpecConfig_a2c9440bd5f95bda4cbd998adc52ee4cc}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries m\+Debug\+Dbus}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a4dd9cf1eec380afdcad98d94ea452197}\label{classDobbySpecConfig_a4dd9cf1eec380afdcad98d94ea452197}} 
+bool {\bfseries m\+Console\+Disabled}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a7ca056fcd02fa6af5979847eea6f7e6b}\label{classDobbySpecConfig_a7ca056fcd02fa6af5979847eea6f7e6b}} 
+std\+::string {\bfseries m\+Console\+Path}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a2bd80023cbe13c215fd4dc5764a48ca1}\label{classDobbySpecConfig_a2bd80023cbe13c215fd4dc5764a48ca1}} 
+ssize\+\_\+t {\bfseries m\+Console\+Limit}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a7bec37975b51df6668c382bd628800e0}\label{classDobbySpecConfig_a7bec37975b51df6668c382bd628800e0}} 
+std\+::map$<$ std\+::string, Json\+::\+Value $>$ {\bfseries m\+Legacy\+Plugins}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a91ebec382648be8185b6458feaea9236}\label{classDobbySpecConfig_a91ebec382648be8185b6458feaea9236}} 
+std\+::map$<$ std\+::string, Json\+::\+Value $>$ {\bfseries m\+Rdk\+Plugins}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a21b819729ba8d5b9c1f4ac1fc219a452}\label{classDobbySpecConfig_a21b819729ba8d5b9c1f4ac1fc219a452}} 
+std\+::vector$<$ \mbox{\hyperlink{structDobbySpecConfig_1_1__MountPoint}{Mount\+Point}} $>$ {\bfseries m\+Mount\+Points}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a0b07c2cea2314cc3a8301763cbd6dce4}\label{classDobbySpecConfig_a0b07c2cea2314cc3a8301763cbd6dce4}} 
+std\+::string {\bfseries m\+Etc\+Hosts}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_ac00c68a4cf2c1b7e96ecead7aa0287f2}\label{classDobbySpecConfig_ac00c68a4cf2c1b7e96ecead7aa0287f2}} 
+std\+::string {\bfseries m\+Etc\+Services}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a72d88454e29f072b181bda38692a4589}\label{classDobbySpecConfig_a72d88454e29f072b181bda38692a4589}} 
+std\+::string {\bfseries m\+Etc\+Passwd}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_abea480526c5251db260db5a767647fe7}\label{classDobbySpecConfig_abea480526c5251db260db5a767647fe7}} 
+std\+::string {\bfseries m\+Etc\+Group}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_aa6103da05b1d0c127fe0db33dc8065d3}\label{classDobbySpecConfig_aa6103da05b1d0c127fe0db33dc8065d3}} 
+std\+::string {\bfseries m\+Etc\+Ld\+So\+Preload}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a15f9e79b6a20e1f3b308faeb6accda50}\label{classDobbySpecConfig_a15f9e79b6a20e1f3b308faeb6accda50}} 
+std\+::string {\bfseries m\+Rootfs\+Path}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbySpecConfig_a3523de0bce3607a08413e596875395e9}\label{classDobbySpecConfig_a3523de0bce3607a08413e596875395e9}} 
+static int {\bfseries m\+Num\+Cores} = -\/1
+\item 
+static const std\+::map$<$ std\+::string, int $>$ {\bfseries m\+Allowed\+Caps}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Takes a JSON formatted spec file in the constructor, parses it and extracts the relevant fields. 
+
+The JSON should be in our custom \textquotesingle{}dobby\textquotesingle{} container format, this includes extra custom fields for things like /etc files, plugin configurations and so forth.
+
+It\textquotesingle{}s main purpose is to convert the dobby spec file to a OCI conformant JSON file. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDobbySpecConfig_a9e2bb3b703c2bee38dc5001291b76937}\label{classDobbySpecConfig_a9e2bb3b703c2bee38dc5001291b76937}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!DobbySpecConfig@{DobbySpecConfig}}
+\index{DobbySpecConfig@{DobbySpecConfig}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{DobbySpecConfig()}{DobbySpecConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Dobby\+Spec\+Config\+::\+Dobby\+Spec\+Config (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&}]{settings,  }\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&}]{bundle,  }\item[{const std\+::string \&}]{spec\+Json }\end{DoxyParamCaption})}
+
+
+
+Constructor used to parse a \mbox{\hyperlink{classDobby}{Dobby}} spec file into an OCI config file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & The daemon utils object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em settings} & \mbox{\hyperlink{classDobby}{Dobby}} settings object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & Container ID. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle} & an instance of the \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} object \\
+\hline
+\mbox{\texttt{ in}}  & {\em spec\+Json} & JSON containing the \mbox{\hyperlink{classDobby}{Dobby}} spec \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbySpecConfig_ad27e2484039d00a84081d2427223d13c}\label{classDobbySpecConfig_ad27e2484039d00a84081d2427223d13c}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!DobbySpecConfig@{DobbySpecConfig}}
+\index{DobbySpecConfig@{DobbySpecConfig}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{DobbySpecConfig()}{DobbySpecConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Dobby\+Spec\+Config\+::\+Dobby\+Spec\+Config (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&}]{settings,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&}]{bundle,  }\item[{const std\+::string \&}]{spec\+Json }\end{DoxyParamCaption})}
+
+
+
+Constructor used to parse a \mbox{\hyperlink{classDobby}{Dobby}} spec file into an OCI config file. Used with bundle generation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & The daemon utils object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em settings} & \mbox{\hyperlink{classDobby}{Dobby}} settings object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle} & an instance of the \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} object \\
+\hline
+\mbox{\texttt{ in}}  & {\em spec\+Json} & JSON containing the \mbox{\hyperlink{classDobby}{Dobby}} spec \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbySpecConfig_abeba57edace83c582cd741874ebc36ab}\label{classDobbySpecConfig_abeba57edace83c582cd741874ebc36ab}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!addGpuDevNodes@{addGpuDevNodes}}
+\index{addGpuDevNodes@{addGpuDevNodes}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{addGpuDevNodes()}{addGpuDevNodes()}}
+{\footnotesize\ttfamily void Dobby\+Spec\+Config\+::add\+Gpu\+Dev\+Nodes (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{IDobby\+Settings\+::\+Hardware\+Access\+Settings}} $>$ \&}]{settings,  }\item[{ctemplate\+::\+Template\+Dictionary $\ast$}]{dictionary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Adds the GPU device nodes (if any) to supplied dictionary. 
+
+This function gathers the dev node details from the settings and system the first time it runs, for all subsequent times it uses the initial cached details.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em settings} & The settings containing the list of dev nodes paths or glob patterns. Only used the first time called. \\
+\hline
+\mbox{\texttt{ in}}  & {\em dictionary} & The dictionary to add the details to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbySpecConfig_aae0737229af801f6d945945ac447d469}\label{classDobbySpecConfig_aae0737229af801f6d945945ac447d469}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!addVpuDevNodes@{addVpuDevNodes}}
+\index{addVpuDevNodes@{addVpuDevNodes}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{addVpuDevNodes()}{addVpuDevNodes()}}
+{\footnotesize\ttfamily void Dobby\+Spec\+Config\+::add\+Vpu\+Dev\+Nodes (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{IDobby\+Settings\+::\+Hardware\+Access\+Settings}} $>$ \&}]{settings,  }\item[{ctemplate\+::\+Template\+Dictionary $\ast$}]{dictionary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Adds the VPU device nodes (if any) to supplied dictionary. 
+
+This function gathers the dev node details from the settings and system the first time it runs, for all subsequent times it uses the initial cached details.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em settings} & The settings containing the list of dev nodes paths or glob patterns. Only used the first time called. \\
+\hline
+\mbox{\texttt{ in}}  & {\em dictionary} & The dictionary to add the details to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbySpecConfig_a4f5d5429bee39c9a06bca0f9be109bd8}\label{classDobbySpecConfig_a4f5d5429bee39c9a06bca0f9be109bd8}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!insertIntoRdkPluginJson@{insertIntoRdkPluginJson}}
+\index{insertIntoRdkPluginJson@{insertIntoRdkPluginJson}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{insertIntoRdkPluginJson()}{insertIntoRdkPluginJson()}}
+{\footnotesize\ttfamily void Dobby\+Spec\+Config\+::insert\+Into\+Rdk\+Plugin\+Json (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name,  }\item[{const Json\+::\+Value \&}]{plugin\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Inserts rdk\+Plugin json into existing json. 
+
+Instead of blindly overwriting the plugin data, we only overwrite sections of the plugin data that have been set in the rdk\+Plugin field of the spec.
+
+This allows us to set smaller portions of the plugin data and merge them with the data set by the processor methods.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The rdk\+Plugins field from the json spec \\
+\hline
+\mbox{\texttt{ in}}  & {\em dictionary} & Pointer to the OCI dictionary to populate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if correctly processed the value, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbySpecConfig_a135c9a8e95d3549136f3f84780c4e49f}\label{classDobbySpecConfig_a135c9a8e95d3549136f3f84780c4e49f}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!jsonToString@{jsonToString}}
+\index{jsonToString@{jsonToString}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{jsonToString()}{jsonToString()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Spec\+Config\+::json\+To\+String (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{json\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Use the Json\+Cpp streamwriter builder to convert a Json object into a string for use in ctemplate. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em json\+Object} & object to convert to string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+JSON string of the input object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbySpecConfig_aa099b3dd47edca56352f5f873ce3c43b}\label{classDobbySpecConfig_aa099b3dd47edca56352f5f873ce3c43b}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!parseBitset@{parseBitset}}
+\index{parseBitset@{parseBitset}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{parseBitset()}{parseBitset()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+std\+::bitset$<$ N $>$ Dobby\+Spec\+Config\+::parse\+Bitset (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parses a string to create a bitset for the appropriate bits set. 
+
+\begin{DoxyNote}{Note}
+This code has been borrowed from the linux kernel\textquotesingle{}s \+\_\+\+\_\+bitmap\+\_\+parselist function.
+\end{DoxyNote}
+Input format is a comma-\/separated list of decimal numbers and ranges. Consecutively set bits are shown as two hyphen-\/separated decimal numbers, the smallest and largest bit numbers set in the range.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em str} & The string containing the bits set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the set of bits in the string, in case of an error an empty bitset will be returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbySpecConfig_a501181d10613d58b6f203823a99f1ee9}\label{classDobbySpecConfig_a501181d10613d58b6f203823a99f1ee9}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!parseSpec@{parseSpec}}
+\index{parseSpec@{parseSpec}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{parseSpec()}{parseSpec()}}
+{\footnotesize\ttfamily bool Dobby\+Spec\+Config\+::parse\+Spec (\begin{DoxyParamCaption}\item[{ctemplate\+::\+Template\+Dictionary $\ast$}]{dictionary,  }\item[{const std\+::string \&}]{json,  }\item[{int}]{bundle\+Fd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generates the OCI. 
+
+This function will only work once, subsequent attempts to set the workspace path will fail. The function is atomic, therefore it returns true you can guarantee it suck and will be set for the lifetime of the function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dictionary} & Pointer to the OCI dictionary to populate \\
+\hline
+\mbox{\texttt{ in}}  & {\em json} & The json spec document from the client \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle\+Fd} & File descriptor of the bundle directory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the path was set, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbySpecConfig_ab839ce99d8c42deac6723e733ffabcb2}\label{classDobbySpecConfig_ab839ce99d8c42deac6723e733ffabcb2}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!processLoopMount@{processLoopMount}}
+\index{processLoopMount@{processLoopMount}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{processLoopMount()}{processLoopMount()}}
+{\footnotesize\ttfamily bool Dobby\+Spec\+Config\+::process\+Loop\+Mount (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{value,  }\item[{ctemplate\+::\+Template\+Dictionary $\ast$}]{dictionary,  }\item[{Json\+::\+Value \&}]{loop\+Mnt\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Processes a loop mount field of the json spec. 
+
+Example json\+: \begin{DoxyVerb}{
+    "destination": "/home/private",
+    "type": "loop",
+    "fstype": "ext4",
+    "source": "/mnt/apps/data.img",
+    "options": [ "nosuid", "nodev", "noexec", "strictatime" ]
+}
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The json spec document from the client \\
+\hline
+\mbox{\texttt{ in}}  & {\em dictionary} & Ignored\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if correctly processed the value, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbySpecConfig_a8e23adb54674d19d6c7a4398fd6d4db4}\label{classDobbySpecConfig_a8e23adb54674d19d6c7a4398fd6d4db4}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!processRdkPlugins@{processRdkPlugins}}
+\index{processRdkPlugins@{processRdkPlugins}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{processRdkPlugins()}{processRdkPlugins()}}
+{\footnotesize\ttfamily bool Dobby\+Spec\+Config\+::process\+Rdk\+Plugins (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{value,  }\item[{ctemplate\+::\+Template\+Dictionary $\ast$}]{dictionary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Processes the rdk\+Plugins field of the json spec. 
+
+The format is a 1-\/to-\/1 match with the actual OCI config file\textquotesingle{}s rdk\+Plugin section.
+
+If any rdk\+Plugin has been added to m\+Rdk\+Plugins\+Json by the processX methods, the plugin\textquotesingle{}s data fields will be overwritten if the same data member exists in the rdk\+Plugins field.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The rdk\+Plugins field from the json spec \\
+\hline
+\mbox{\texttt{ in}}  & {\em dictionary} & Pointer to the OCI dictionary to populate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if correctly processed the value, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbySpecConfig_a7dafccd016e3c756554d50387119d37f}\label{classDobbySpecConfig_a7dafccd016e3c756554d50387119d37f}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!storeMountPoint@{storeMountPoint}}
+\index{storeMountPoint@{storeMountPoint}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{storeMountPoint()}{storeMountPoint()}}
+{\footnotesize\ttfamily void Dobby\+Spec\+Config\+::store\+Mount\+Point (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{type,  }\item[{const std\+::string \&}]{source,  }\item[{const std\+::string \&}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the mount point internally so it can be created by in the rootfs component. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em type} & The type of the mount. \\
+\hline
+\mbox{\texttt{ in}}  & {\em source} & The mount source. \\
+\hline
+\mbox{\texttt{ in}}  & {\em source} & The mount destination within the rootfs. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classDobbySpecConfig_aaedc1cfc9d1e85260178eb356002918a}\label{classDobbySpecConfig_aaedc1cfc9d1e85260178eb356002918a}} 
+\index{DobbySpecConfig@{DobbySpecConfig}!mAllowedCaps@{mAllowedCaps}}
+\index{mAllowedCaps@{mAllowedCaps}!DobbySpecConfig@{DobbySpecConfig}}
+\doxysubsubsection{\texorpdfstring{mAllowedCaps}{mAllowedCaps}}
+{\footnotesize\ttfamily const std\+::map$<$ std\+::string, int $>$ Dobby\+Spec\+Config\+::m\+Allowed\+Caps\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{ \textcolor{stringliteral}{"{}CAP\_NET\_BIND\_SERVICE"{}},   CAP\_NET\_BIND\_SERVICE    \},}
+\DoxyCodeLine{    \{ \textcolor{stringliteral}{"{}CAP\_NET\_BROADCAST"{}},      CAP\_NET\_BROADCAST       \},}
+\DoxyCodeLine{    \{ \textcolor{stringliteral}{"{}CAP\_NET\_RAW"{}},            CAP\_NET\_RAW             \},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bundle/lib/include/Dobby\+Spec\+Config.\+h\item 
+bundle/lib/source/Dobby\+Spec\+Config.\+cpp\end{DoxyCompactItemize}

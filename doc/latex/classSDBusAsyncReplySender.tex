@@ -1,0 +1,78 @@
+\hypertarget{classSDBusAsyncReplySender}{}\doxysection{SDBus\+Async\+Reply\+Sender Class Reference}
+\label{classSDBusAsyncReplySender}\index{SDBusAsyncReplySender@{SDBusAsyncReplySender}}
+
+
+Inheritance diagram for SDBus\+Async\+Reply\+Sender\+:
+% FIG 0
+
+
+Collaboration diagram for SDBus\+Async\+Reply\+Sender\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_af38c8df51d8ad072cd0b3475e15fd03b}\label{classSDBusAsyncReplySender_af38c8df51d8ad072cd0b3475e15fd03b}} 
+{\bfseries SDBus\+Async\+Reply\+Sender} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSDBusIpcService}{SDBus\+Ipc\+Service}} $>$ \&ipc\+Service, uint32\+\_\+t reply\+Id, const char $\ast$sender\+Name, uid\+\_\+t sender\+User\+Id, AI\+\_\+\+IPC\+::\+Variant\+List \&\&args)
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_a05fa44ba5b9d33f7faace7488fb44bea}\label{classSDBusAsyncReplySender_a05fa44ba5b9d33f7faace7488fb44bea}} 
+AI\+\_\+\+IPC\+::\+Variant\+List \mbox{\hyperlink{classSDBusAsyncReplySender_a05fa44ba5b9d33f7faace7488fb44bea}{get\+Method\+Call\+Arguments}} () const override
+\begin{DoxyCompactList}\small\item\em Get method call arguments. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSDBusAsyncReplySender_a7b430b90b429fd5a45bb45f29c10a9c8}{send\+Reply}} (const AI\+\_\+\+IPC\+::\+Variant\+List \&reply\+Args) override
+\begin{DoxyCompactList}\small\item\em Send reply. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_a10b096e1a71f85c7e39bd9788d016eb5}\label{classSDBusAsyncReplySender_a10b096e1a71f85c7e39bd9788d016eb5}} 
+uid\+\_\+t \mbox{\hyperlink{classSDBusAsyncReplySender_a10b096e1a71f85c7e39bd9788d016eb5}{get\+Sender\+Uid}} () const override
+\begin{DoxyCompactList}\small\item\em Get Id of the user (unix user Id) who invoked the method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_ad470e9b86960f5e6539c56f0afbd5a89}\label{classSDBusAsyncReplySender_ad470e9b86960f5e6539c56f0afbd5a89}} 
+std\+::string \mbox{\hyperlink{classSDBusAsyncReplySender_ad470e9b86960f5e6539c56f0afbd5a89}{get\+Sender\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the unique name of the connection which originated this message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_a5f0f0c26e72e059660c524ba32878870}\label{classSDBusAsyncReplySender_a5f0f0c26e72e059660c524ba32878870}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classSDBusIpcService}{SDBus\+Ipc\+Service}} $>$ {\bfseries m\+Ipc\+Service}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_ab2d4c5c434fdc4e27f15350804ffc776}\label{classSDBusAsyncReplySender_ab2d4c5c434fdc4e27f15350804ffc776}} 
+bool {\bfseries m\+Reply\+Sent}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_a5717a8ab3cc8df3392ac858fb368506e}\label{classSDBusAsyncReplySender_a5717a8ab3cc8df3392ac858fb368506e}} 
+const uint32\+\_\+t {\bfseries m\+Reply\+Id}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_aa0b96c0296da729ae35a9012427f2ea4}\label{classSDBusAsyncReplySender_aa0b96c0296da729ae35a9012427f2ea4}} 
+const std\+::string {\bfseries m\+Sender\+Name}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_ac02d4fd688256b75278237a363189899}\label{classSDBusAsyncReplySender_ac02d4fd688256b75278237a363189899}} 
+const AI\+\_\+\+IPC\+::\+Variant\+List {\bfseries m\+Args}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplySender_addd5b31e3c3df2e747f389f10d413aea}\label{classSDBusAsyncReplySender_addd5b31e3c3df2e747f389f10d413aea}} 
+std\+::atomic$<$ uid\+\_\+t $>$ {\bfseries m\+Sender\+Uid}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSDBusAsyncReplySender_a7b430b90b429fd5a45bb45f29c10a9c8}\label{classSDBusAsyncReplySender_a7b430b90b429fd5a45bb45f29c10a9c8}} 
+\index{SDBusAsyncReplySender@{SDBusAsyncReplySender}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!SDBusAsyncReplySender@{SDBusAsyncReplySender}}
+\doxysubsubsection{\texorpdfstring{sendReply()}{sendReply()}}
+{\footnotesize\ttfamily bool SDBus\+Async\+Reply\+Sender\+::send\+Reply (\begin{DoxyParamCaption}\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{reply\+Args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Send reply. 
+
+@parameter\mbox{[}in\mbox{]} reply\+Args This is the return value of the method call
+
+\begin{DoxyReturn}{Returns}
+On success\+: TRUE 
+
+On failure\+: FALSE 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplySender_a8ef310825ae2afec1e23717342fa5bc6}{AI\+\_\+\+IPC\+::\+IAsync\+Reply\+Sender}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/sdbus/SDBus\+Async\+Reply\+Sender.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/sdbus/SDBus\+Async\+Reply\+Sender.\+cpp\end{DoxyCompactItemize}

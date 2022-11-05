@@ -1,0 +1,188 @@
+\hypertarget{classDobbyRdkPluginDependencySolver}{}\doxysection{Dobby\+Rdk\+Plugin\+Dependency\+Solver Class Reference}
+\label{classDobbyRdkPluginDependencySolver}\index{DobbyRdkPluginDependencySolver@{DobbyRdkPluginDependencySolver}}
+
+
+Class that tracks dependencies between plugins.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Rdk\+Plugin\+Dependency\+Solver.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginDependencySolver_ac42e211dfa79dec85a10df08ccf9fd94}{add\+Plugin}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Adds a plugin to the solver. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginDependencySolver_a867c226fdfaa4414a7b43ae95e47db1f}{add\+Dependency}} (const std\+::string \&plugin\+Name, const std\+::string \&dependency\+Name)
+\begin{DoxyCompactList}\small\item\em Adds a dependency between two plugins to the solver. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classDobbyRdkPluginDependencySolver_a615fbaad7a32c11e06e17173eeef950b}{get\+Order\+Of\+Dependency}} () const
+\begin{DoxyCompactList}\small\item\em Gets the names of the plugins in order of their dependency. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classDobbyRdkPluginDependencySolver_afc085ddefec7bc16239ac5141847867f}{get\+Reversed\+Order\+Of\+Dependency}} () const
+\begin{DoxyCompactList}\small\item\em Gets the names of the plugins in reversed order of their dependency. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_a6c3dd17b4d64010a3ab6c730a5f67d49}\label{classDobbyRdkPluginDependencySolver_a6c3dd17b4d64010a3ab6c730a5f67d49}} 
+using {\bfseries Vertex\+Index\+Property} = boost\+::property$<$ boost\+::vertex\+\_\+index\+\_\+t, std\+::size\+\_\+t $>$
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_add4b917470b6a00a5d56f5e991320196}\label{classDobbyRdkPluginDependencySolver_add4b917470b6a00a5d56f5e991320196}} 
+using {\bfseries Vertex\+Name\+Property} = boost\+::property$<$ boost\+::vertex\+\_\+name\+\_\+t, std\+::string, Vertex\+Index\+Property $>$
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_ab44188bad8962160382f16bf225e1a25}\label{classDobbyRdkPluginDependencySolver_ab44188bad8962160382f16bf225e1a25}} 
+using {\bfseries Graph} = boost\+::adjacency\+\_\+list$<$ boost\+::setS, boost\+::vecS, boost\+::directedS, Vertex\+Name\+Property $>$
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_a69d587e422d787f67ae9cd0acbeb0b1c}\label{classDobbyRdkPluginDependencySolver_a69d587e422d787f67ae9cd0acbeb0b1c}} 
+using {\bfseries Vertex\+Descriptor} = Graph\+::vertex\+\_\+descriptor
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_ad362fd42c0d23d064e31c34b142f966d}\label{classDobbyRdkPluginDependencySolver_ad362fd42c0d23d064e31c34b142f966d}} 
+using {\bfseries String\+Vertex\+Descriptor\+Map} = std\+::map$<$ std\+::string, Vertex\+Descriptor $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_a5b4000e573eeebccc2fe99b45c49a76a}\label{classDobbyRdkPluginDependencySolver_a5b4000e573eeebccc2fe99b45c49a76a}} 
+Graph {\bfseries m\+Dependency\+Graph}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_a9933e4797f85d8ae3049475546f0ec35}\label{classDobbyRdkPluginDependencySolver_a9933e4797f85d8ae3049475546f0ec35}} 
+String\+Vertex\+Descriptor\+Map {\bfseries m\+Descriptor\+Map}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that tracks dependencies between plugins. 
+
+It can be used to get the order in which the plugins should be launched. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_a867c226fdfaa4414a7b43ae95e47db1f}\label{classDobbyRdkPluginDependencySolver_a867c226fdfaa4414a7b43ae95e47db1f}} 
+\index{DobbyRdkPluginDependencySolver@{DobbyRdkPluginDependencySolver}!addDependency@{addDependency}}
+\index{addDependency@{addDependency}!DobbyRdkPluginDependencySolver@{DobbyRdkPluginDependencySolver}}
+\doxysubsubsection{\texorpdfstring{addDependency()}{addDependency()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Dependency\+Solver\+::add\+Dependency (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name,  }\item[{const std\+::string \&}]{dependency\+Name }\end{DoxyParamCaption})}
+
+
+
+Adds a dependency between two plugins to the solver. 
+
+If plugin A depends on plugin B, then the call is\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_a867c226fdfaa4414a7b43ae95e47db1f}{addDependency}}(A, B); }
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & The name of the plugin which depends on {\ttfamily dependency\+Name}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em dependency\+Name} & The name of the plugin on which {\ttfamily plugin\+Name} depends.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the dependency has been added successfully, false otherwise (one of the plugins had not been added to the solver). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_ac42e211dfa79dec85a10df08ccf9fd94}\label{classDobbyRdkPluginDependencySolver_ac42e211dfa79dec85a10df08ccf9fd94}} 
+\index{DobbyRdkPluginDependencySolver@{DobbyRdkPluginDependencySolver}!addPlugin@{addPlugin}}
+\index{addPlugin@{addPlugin}!DobbyRdkPluginDependencySolver@{DobbyRdkPluginDependencySolver}}
+\doxysubsubsection{\texorpdfstring{addPlugin()}{addPlugin()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Dependency\+Solver\+::add\+Plugin (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Adds a plugin to the solver. 
+
+Each plugin must be known to the solver -\/ added by this method before its dependencies are tracked.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & Name of the plugin\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the plugin has been added successfully, false otherwise (the plugin had already been added). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_a615fbaad7a32c11e06e17173eeef950b}\label{classDobbyRdkPluginDependencySolver_a615fbaad7a32c11e06e17173eeef950b}} 
+\index{DobbyRdkPluginDependencySolver@{DobbyRdkPluginDependencySolver}!getOrderOfDependency@{getOrderOfDependency}}
+\index{getOrderOfDependency@{getOrderOfDependency}!DobbyRdkPluginDependencySolver@{DobbyRdkPluginDependencySolver}}
+\doxysubsubsection{\texorpdfstring{getOrderOfDependency()}{getOrderOfDependency()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Dobby\+Rdk\+Plugin\+Dependency\+Solver\+::get\+Order\+Of\+Dependency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the names of the plugins in order of their dependency. 
+
+\char`\"{}\+Order of dependency\char`\"{} here means that if plugin A depends on plugin B, plugin B will be placed before plugin A in the returned vector, e.\+g. with this code\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classDobbyRdkPluginDependencySolver}{DobbyRdkPluginDependencySolver}} solver;}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_ac42e211dfa79dec85a10df08ccf9fd94}{addPlugin}}(\textcolor{stringliteral}{"{}AppServices"{}});}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_ac42e211dfa79dec85a10df08ccf9fd94}{addPlugin}}(\textcolor{stringliteral}{"{}Networking"{}});}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_ac42e211dfa79dec85a10df08ccf9fd94}{addPlugin}}(\textcolor{stringliteral}{"{}IPC"{}});}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_a867c226fdfaa4414a7b43ae95e47db1f}{addDependency}}(\textcolor{stringliteral}{"{}AppServices"{}}, \textcolor{stringliteral}{"{}Networking"{}});}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_a867c226fdfaa4414a7b43ae95e47db1f}{addDependency}}(\textcolor{stringliteral}{"{}Networking"{}}, \textcolor{stringliteral}{"{}IPC"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const} std::vector<std::string> inOrder = solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_a615fbaad7a32c11e06e17173eeef950b}{getOrderOfDependency}}();}
+
+\end{DoxyCode}
+, 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{inOrder }
+
+\end{DoxyCode}
+ is
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{ \textcolor{stringliteral}{"{}IPC"{}}, \textcolor{stringliteral}{"{}Networking"{}}, \textcolor{stringliteral}{"{}AppServices"{}} \} }
+
+\end{DoxyCode}
+.
+
+If there is a dependency cycle, an error message is printed and the function returns an empty vector.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins in order of dependency. Empty vector if no plugins have been added or a dependency cycle has been detected. Vector with plugin names in the same order in which they were added if no dependencies have been added). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginDependencySolver_afc085ddefec7bc16239ac5141847867f}\label{classDobbyRdkPluginDependencySolver_afc085ddefec7bc16239ac5141847867f}} 
+\index{DobbyRdkPluginDependencySolver@{DobbyRdkPluginDependencySolver}!getReversedOrderOfDependency@{getReversedOrderOfDependency}}
+\index{getReversedOrderOfDependency@{getReversedOrderOfDependency}!DobbyRdkPluginDependencySolver@{DobbyRdkPluginDependencySolver}}
+\doxysubsubsection{\texorpdfstring{getReversedOrderOfDependency()}{getReversedOrderOfDependency()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Dobby\+Rdk\+Plugin\+Dependency\+Solver\+::get\+Reversed\+Order\+Of\+Dependency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the names of the plugins in reversed order of their dependency. 
+
+\char`\"{}\+Reversed order of dependency\char`\"{} here means that if plugin A depends on plugin B, plugin B will be placed after plugin A in the returned vector, e.\+g. with this code\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classDobbyRdkPluginDependencySolver}{DobbyRdkPluginDependencySolver}} solver;}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_ac42e211dfa79dec85a10df08ccf9fd94}{addPlugin}}(\textcolor{stringliteral}{"{}AppServices"{}});}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_ac42e211dfa79dec85a10df08ccf9fd94}{addPlugin}}(\textcolor{stringliteral}{"{}Networking"{}});}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_ac42e211dfa79dec85a10df08ccf9fd94}{addPlugin}}(\textcolor{stringliteral}{"{}IPC"{}});}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_a867c226fdfaa4414a7b43ae95e47db1f}{addDependency}}(\textcolor{stringliteral}{"{}AppServices"{}}, \textcolor{stringliteral}{"{}Networking"{}});}
+\DoxyCodeLine{solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_a867c226fdfaa4414a7b43ae95e47db1f}{addDependency}}(\textcolor{stringliteral}{"{}Networking"{}}, \textcolor{stringliteral}{"{}IPC"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const} std::vector<std::string> inReversedOrder = solver.\mbox{\hyperlink{classDobbyRdkPluginDependencySolver_afc085ddefec7bc16239ac5141847867f}{getReversedOrderOfDependency}}();}
+
+\end{DoxyCode}
+, 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{inOrder }
+
+\end{DoxyCode}
+ is
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{ \textcolor{stringliteral}{"{}AppServices"{}}, \textcolor{stringliteral}{"{}Networking"{}}, \textcolor{stringliteral}{"{}IPC"{}} \} }
+
+\end{DoxyCode}
+.
+
+If there is a dependency cycle, an error message is printed and the function returns an empty vector.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins in reversed order of dependency. Empty vector if no plugins have been added or a dependency cycle has been detected. Vector with plugin names in the same order in which they were added if no dependencies have been added). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugin\+Launcher/lib/source/Dobby\+Rdk\+Plugin\+Dependency\+Solver.\+h\item 
+plugin\+Launcher/lib/source/Dobby\+Rdk\+Plugin\+Dependency\+Solver.\+cpp\end{DoxyCompactItemize}

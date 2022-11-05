@@ -1,0 +1,114 @@
+\hypertarget{classIDobbyProxy}{}\doxysection{IDobby\+Proxy Interface Reference}
+\label{classIDobbyProxy}\index{IDobbyProxy@{IDobbyProxy}}
+
+
+Wrapper around an \mbox{\hyperlink{classIpcService}{Ipc\+Service}} object that provides simpler method calls to the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}hypervisor\textquotesingle{} daemon.  
+
+
+
+
+{\ttfamily \#include $<$IDobby\+Proxy.\+h$>$}
+
+
+
+Inheritance diagram for IDobby\+Proxy\+:
+% FIG 0
+
+
+Collaboration diagram for IDobby\+Proxy\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a2b9e6af29cf85f86acc7e74d7972ec34}\label{classIDobbyProxy_a2b9e6af29cf85f86acc7e74d7972ec34}} 
+typedef std\+::function$<$ void(int32\+\_\+t, const std\+::string \&, IDobby\+Proxy\+Events\+::\+Container\+State, const void $\ast$)$>$ {\bfseries State\+Change\+Listener}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a6997aa33c68220b57d6a4ee2265503a1}\label{classIDobbyProxy_a6997aa33c68220b57d6a4ee2265503a1}} 
+virtual bool {\bfseries shutdown} () const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a1a08bf5892c79b55dc31a1e707603da6}\label{classIDobbyProxy_a1a08bf5892c79b55dc31a1e707603da6}} 
+virtual bool {\bfseries ping} () const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a78b3b7f18f310cc0bec43e0a8ab85024}\label{classIDobbyProxy_a78b3b7f18f310cc0bec43e0a8ab85024}} 
+virtual bool {\bfseries is\+Alive} (const std\+::chrono\+::milliseconds \&timeout) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a97096e824126d9d3115a973abfaddcf6}\label{classIDobbyProxy_a97096e824126d9d3115a973abfaddcf6}} 
+virtual bool {\bfseries set\+Log\+Method} (uint32\+\_\+t method, int pipe\+Fd) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a61093396831ec2b0451e7b492faeaefc}\label{classIDobbyProxy_a61093396831ec2b0451e7b492faeaefc}} 
+virtual bool {\bfseries set\+Log\+Level} (int level) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_aef9a34493b6e9bc4bbd067f6a9722c20}\label{classIDobbyProxy_aef9a34493b6e9bc4bbd067f6a9722c20}} 
+virtual bool {\bfseries set\+AIDbus\+Address} (bool private\+Bus, const std\+::string \&address) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_afc10dff95856dc5a59ecee731e62ba97}\label{classIDobbyProxy_afc10dff95856dc5a59ecee731e62ba97}} 
+bool {\bfseries is\+Alive} () const
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_afa373001a3a2f8cbeaa375f47d06fc1d}\label{classIDobbyProxy_afa373001a3a2f8cbeaa375f47d06fc1d}} 
+int32\+\_\+t {\bfseries set\+Log\+Method} (uint32\+\_\+t method) const
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a411bc1dc79fc36c74a50ae8e1e8fe125}\label{classIDobbyProxy_a411bc1dc79fc36c74a50ae8e1e8fe125}} 
+virtual int32\+\_\+t {\bfseries start\+Container\+From\+Spec} (const std\+::string \&id, const std\+::string \&json\+Spec, const std\+::list$<$ int $>$ \&files, const std\+::string \&command=\char`\"{}\char`\"{}, const std\+::string \&display\+Socket=\char`\"{}\char`\"{}, const std\+::vector$<$ std\+::string $>$ \&env\+Vars=std\+::vector$<$ std\+::string $>$()) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_aa224de3412aedd58de8cc7f32cd88d2f}\label{classIDobbyProxy_aa224de3412aedd58de8cc7f32cd88d2f}} 
+virtual int32\+\_\+t {\bfseries start\+Container\+From\+Bundle} (const std\+::string \&id, const std\+::string \&bundle\+Path, const std\+::list$<$ int $>$ \&files, const std\+::string \&command=\char`\"{}\char`\"{}, const std\+::string \&display\+Socket=\char`\"{}\char`\"{}, const std\+::vector$<$ std\+::string $>$ \&env\+Vars=std\+::vector$<$ std\+::string $>$()) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a53bba7a812fe43e57b158dce32ecfed9}\label{classIDobbyProxy_a53bba7a812fe43e57b158dce32ecfed9}} 
+virtual bool {\bfseries stop\+Container} (int32\+\_\+t descriptor, bool with\+Prejudice) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_afb3c26f62e2683a87f0d3c59a9db2228}\label{classIDobbyProxy_afb3c26f62e2683a87f0d3c59a9db2228}} 
+virtual bool {\bfseries pause\+Container} (int32\+\_\+t descriptor) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a5247074dadce72bee94743b9f325da5c}\label{classIDobbyProxy_a5247074dadce72bee94743b9f325da5c}} 
+virtual bool {\bfseries resume\+Container} (int32\+\_\+t descriptor) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a8db8cb2ccb8f45f572867c058ae15f2c}\label{classIDobbyProxy_a8db8cb2ccb8f45f572867c058ae15f2c}} 
+virtual bool {\bfseries exec\+In\+Container} (int32\+\_\+t cd, const std\+::string \&options, const std\+::string \&command) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a63172ec5da62596706d214d4ce059274}\label{classIDobbyProxy_a63172ec5da62596706d214d4ce059274}} 
+virtual int {\bfseries get\+Container\+State} (int32\+\_\+t descriptor) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_af8c0f9796676019e04ce3588f67bbd79}\label{classIDobbyProxy_af8c0f9796676019e04ce3588f67bbd79}} 
+virtual std\+::string {\bfseries get\+Container\+Info} (int32\+\_\+t descriptor) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a9c98360a1a9f7eb08137112c7894aae1}\label{classIDobbyProxy_a9c98360a1a9f7eb08137112c7894aae1}} 
+virtual std\+::list$<$ std\+::pair$<$ int32\+\_\+t, std\+::string $>$ $>$ {\bfseries list\+Containers} () const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_add6c868428d538b19b3a1193e2ebf6b8}\label{classIDobbyProxy_add6c868428d538b19b3a1193e2ebf6b8}} 
+int32\+\_\+t {\bfseries start\+Container\+From\+Spec} (const std\+::string \&id, const std\+::string \&json\+Spec) const
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a0bf17639f6c6b1d5cbaea67949790c59}\label{classIDobbyProxy_a0bf17639f6c6b1d5cbaea67949790c59}} 
+int32\+\_\+t {\bfseries start\+Container\+From\+Bundle} (const std\+::string \&id, const std\+::string \&bundle\+Path) const
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a4247e33aeb5ffc854050791f4a79d282}\label{classIDobbyProxy_a4247e33aeb5ffc854050791f4a79d282}} 
+bool {\bfseries stop\+Container} (int32\+\_\+t descriptor) const
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_aaa15b7d85b93792fb6407a0bbe3efd1a}\label{classIDobbyProxy_aaa15b7d85b93792fb6407a0bbe3efd1a}} 
+virtual int {\bfseries register\+Listener} (const State\+Change\+Listener \&listener, const void $\ast$cb\+Params)=0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a63449719a79310c7e83b96268c2d1288}\label{classIDobbyProxy_a63449719a79310c7e83b96268c2d1288}} 
+virtual void {\bfseries unregister\+Listener} (int tag)=0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a5772c2a98b7905768df40a39e3df4285}\label{classIDobbyProxy_a5772c2a98b7905768df40a39e3df4285}} 
+virtual bool {\bfseries create\+Bundle} (const std\+::string \&id, const std\+::string \&json\+Spec) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a215db0a96d40ba89438fe070fcaba5d7}\label{classIDobbyProxy_a215db0a96d40ba89438fe070fcaba5d7}} 
+virtual std\+::string {\bfseries get\+Spec} (int32\+\_\+t descriptor) const =0
+\item 
+\mbox{\Hypertarget{classIDobbyProxy_a8bdbb8d142005c973b887adbd67a4774}\label{classIDobbyProxy_a8bdbb8d142005c973b887adbd67a4774}} 
+virtual std\+::string {\bfseries get\+OCIConfig} (int32\+\_\+t descriptor) const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Wrapper around an \mbox{\hyperlink{classIpcService}{Ipc\+Service}} object that provides simpler method calls to the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}hypervisor\textquotesingle{} daemon. 
+
+All the methods are constant because the class doesn\textquotesingle{}t have any internal state. 
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Public/\+Dobby/IDobby\+Proxy.\+h\end{DoxyCompactItemize}

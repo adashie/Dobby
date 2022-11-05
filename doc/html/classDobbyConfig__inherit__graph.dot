@@ -1,0 +1,11 @@
+digraph "DobbyConfig"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="DobbyConfig",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Interface that configuration file parser classes have to implement."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="DobbyBundleConfig",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDobbyBundleConfig.html",tooltip="Takes a JSON formatted OCI bundle configuration file in the constructor, parses it and extracts the r..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="DobbySpecConfig",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDobbySpecConfig.html",tooltip="Takes a JSON formatted spec file in the constructor, parses it and extracts the relevant fields."];
+}

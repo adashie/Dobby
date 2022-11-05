@@ -1,0 +1,114 @@
+\hypertarget{classAICommon_1_1Timer}{}\doxysection{AICommon\+::Timer Class Reference}
+\label{classAICommon_1_1Timer}\index{AICommon::Timer@{AICommon::Timer}}
+
+
+Collaboration diagram for AICommon\+::Timer\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename F , typename... Args$>$ }\\\mbox{\hyperlink{classAICommon_1_1Timer_a60388ad025b595d78fa5bc0937e7aed3}{Timer}} (const std\+::chrono\+::milliseconds \&timeout, F f, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Starts a timer that will expire after timeout and execute action. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_a46d1eaaa23585c837f7c361a7f4a5d8b}\label{classAICommon_1_1Timer_a46d1eaaa23585c837f7c361a7f4a5d8b}} 
+{\footnotesize template$<$typename F , typename... Args$>$ }\\{\bfseries Timer} (const std\+::chrono\+::milliseconds \&timeout, Timer\+Type type, Timer\+Thread\+Priority prio, F f, Args \&\&... args)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_a60761db39b344d880b76e4cdf9ebdcfa}\label{classAICommon_1_1Timer_a60761db39b344d880b76e4cdf9ebdcfa}} 
+{\bfseries Timer} (\mbox{\hyperlink{classAICommon_1_1Timer}{Timer}} \&\&other)=delete
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_afc316dcba99969739c3f318687e90d88}\label{classAICommon_1_1Timer_afc316dcba99969739c3f318687e90d88}} 
+{\bfseries Timer} (const \mbox{\hyperlink{classAICommon_1_1Timer}{Timer}} \&)=delete
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_ae4cfa9102fec0c4a20115e9ab4b114b6}\label{classAICommon_1_1Timer_ae4cfa9102fec0c4a20115e9ab4b114b6}} 
+\mbox{\hyperlink{classAICommon_1_1Timer}{Timer}} \& {\bfseries operator=} (\mbox{\hyperlink{classAICommon_1_1Timer}{Timer}} \&\&other)=delete
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_af520f0afb17239588107b8a44ee0e7f6}\label{classAICommon_1_1Timer_af520f0afb17239588107b8a44ee0e7f6}} 
+\mbox{\hyperlink{classAICommon_1_1Timer}{Timer}} \& {\bfseries operator=} (const \mbox{\hyperlink{classAICommon_1_1Timer}{Timer}} \&other)=delete
+\item 
+\mbox{\hyperlink{classAICommon_1_1Timer_a14fa469c4c295c5fa6e66a4ad1092146}{$\sim$\+Timer}} ()
+\begin{DoxyCompactList}\small\item\em The destructor cancels the timer if it\textquotesingle{}s still not expired. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAICommon_1_1Timer_a4042fa5500be5a7cb2fa8c7d82a6b64c}{cancel}} ()
+\begin{DoxyCompactList}\small\item\em Cancels the timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_a7d34a350f610c48f73aa2f1c7b673d4a}\label{classAICommon_1_1Timer_a7d34a350f610c48f73aa2f1c7b673d4a}} 
+void {\bfseries start} (const std\+::chrono\+::milliseconds \&timeout, Timer\+Type type, Timer\+Thread\+Priority prio, const std\+::function$<$ void()$>$ \&callback)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_ab99d443c76668944bf694c403aa7a9b7}\label{classAICommon_1_1Timer_ab99d443c76668944bf694c403aa7a9b7}} 
+void {\bfseries single\+Shot\+Timer} (Timer\+Thread\+Priority prio, const std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \&deadline)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_a488461e952c51e8be0a3494466fd2f85}\label{classAICommon_1_1Timer_a488461e952c51e8be0a3494466fd2f85}} 
+void {\bfseries recurring\+Timer} (Timer\+Thread\+Priority prio, const std\+::chrono\+::milliseconds \&interval)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_a9a702e3a1046cadd8d9e86df2bd57f9e}\label{classAICommon_1_1Timer_a9a702e3a1046cadd8d9e86df2bd57f9e}} 
+std\+::function$<$ void()$>$ {\bfseries m\+Callback}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_ae8190806b7620a127c60bec794ea177e}\label{classAICommon_1_1Timer_ae8190806b7620a127c60bec794ea177e}} 
+std\+::thread {\bfseries m\+Timer\+Thread}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_a182e460d7570ef5f5972c4fe246b2f6a}\label{classAICommon_1_1Timer_a182e460d7570ef5f5972c4fe246b2f6a}} 
+\mbox{\hyperlink{classAICommon_1_1Mutex}{Mutex}} {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_a134acf3a9b42cd59c1f1328876297078}\label{classAICommon_1_1Timer_a134acf3a9b42cd59c1f1328876297078}} 
+\mbox{\hyperlink{classAICommon_1_1ConditionVariable}{Condition\+Variable}} {\bfseries m\+Cond}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Timer_af21fe55c1f3a8aa3311f8dbae9792f3a}\label{classAICommon_1_1Timer_af21fe55c1f3a8aa3311f8dbae9792f3a}} 
+bool {\bfseries m\+Cancel}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAICommon_1_1Timer_a60388ad025b595d78fa5bc0937e7aed3}\label{classAICommon_1_1Timer_a60388ad025b595d78fa5bc0937e7aed3}} 
+\index{AICommon::Timer@{AICommon::Timer}!Timer@{Timer}}
+\index{Timer@{Timer}!AICommon::Timer@{AICommon::Timer}}
+\doxysubsubsection{\texorpdfstring{Timer()}{Timer()}}
+{\footnotesize\ttfamily template$<$typename F , typename... Args$>$ \\
+AICommon\+::\+Timer\+::\+Timer (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::milliseconds \&}]{timeout,  }\item[{F}]{f,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Starts a timer that will expire after timeout and execute action. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & second parameter is a function to be called on expiry, and third an later are (optional) arguments to it. eg.\+: auto t1 = \mbox{\hyperlink{classAICommon_1_1Timer}{Timer}}(minutes(30), order\+Beer, 5, \char`\"{}\+Fursty Ferret\char`\"{}); auto t2 = Timer(hours(3), leave\+Pub); \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAICommon_1_1Timer_a14fa469c4c295c5fa6e66a4ad1092146}\label{classAICommon_1_1Timer_a14fa469c4c295c5fa6e66a4ad1092146}} 
+\index{AICommon::Timer@{AICommon::Timer}!````~Timer@{$\sim$Timer}}
+\index{````~Timer@{$\sim$Timer}!AICommon::Timer@{AICommon::Timer}}
+\doxysubsubsection{\texorpdfstring{$\sim$Timer()}{~Timer()}}
+{\footnotesize\ttfamily Timer\+::$\sim$\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The destructor cancels the timer if it\textquotesingle{}s still not expired. 
+
+\begin{DoxyNote}{Note}
+If the action is executing it will block until it finishes. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAICommon_1_1Timer_a4042fa5500be5a7cb2fa8c7d82a6b64c}\label{classAICommon_1_1Timer_a4042fa5500be5a7cb2fa8c7d82a6b64c}} 
+\index{AICommon::Timer@{AICommon::Timer}!cancel@{cancel}}
+\index{cancel@{cancel}!AICommon::Timer@{AICommon::Timer}}
+\doxysubsubsection{\texorpdfstring{cancel()}{cancel()}}
+{\footnotesize\ttfamily void Timer\+::cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cancels the timer. 
+
+\begin{DoxyNote}{Note}
+if you call it more than once, subsequent calls will be ignored. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Common/include/Timer.\+h\item 
+App\+Infrastructure/\+Common/source/Timer.\+cpp\end{DoxyCompactItemize}

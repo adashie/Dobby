@@ -1,0 +1,38 @@
+\hypertarget{classAICommon_1_1IPollLoop}{}\doxysection{AICommon\+::IPoll\+Loop Class Reference}
+\label{classAICommon_1_1IPollLoop}\index{AICommon::IPollLoop@{AICommon::IPollLoop}}
+
+
+Inheritance diagram for AICommon\+::IPoll\+Loop\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IPollLoop_af5318b96cc08aa6b128ce6e2f6c8d188}\label{classAICommon_1_1IPollLoop_af5318b96cc08aa6b128ce6e2f6c8d188}} 
+virtual bool {\bfseries start} (int priority=-\/1)=0
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IPollLoop_a735a46836b77e1231e4a2aac781f03f0}\label{classAICommon_1_1IPollLoop_a735a46836b77e1231e4a2aac781f03f0}} 
+virtual void {\bfseries stop} ()=0
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IPollLoop_af690888302ee4b6d5ce2985d428c045d}\label{classAICommon_1_1IPollLoop_af690888302ee4b6d5ce2985d428c045d}} 
+virtual std\+::thread\+::id {\bfseries thread\+Id} () const =0
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IPollLoop_a50b0cd78238e5f66f2e98de8b57f4d97}\label{classAICommon_1_1IPollLoop_a50b0cd78238e5f66f2e98de8b57f4d97}} 
+virtual pid\+\_\+t {\bfseries gettid} () const =0
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IPollLoop_a302c5379ad1b9780d61427e46845e9dc}\label{classAICommon_1_1IPollLoop_a302c5379ad1b9780d61427e46845e9dc}} 
+virtual bool {\bfseries add\+Source} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&source, int fd, uint32\+\_\+t events)=0
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IPollLoop_ac7d0667f358fc8458deef7cc4ec9e64f}\label{classAICommon_1_1IPollLoop_ac7d0667f358fc8458deef7cc4ec9e64f}} 
+virtual bool {\bfseries mod\+Source} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&source, uint32\+\_\+t events)=0
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IPollLoop_ac6ff121ccb1c00fddb86326891e3205c}\label{classAICommon_1_1IPollLoop_ac6ff121ccb1c00fddb86326891e3205c}} 
+virtual void {\bfseries del\+Source} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&source, int fd=-\/1)=0
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IPollLoop_ad039d0b53852144dcd5629bb9bae3c11}\label{classAICommon_1_1IPollLoop_ad039d0b53852144dcd5629bb9bae3c11}} 
+virtual bool {\bfseries has\+Source} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&source)=0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Common/include/IPoll\+Loop.\+h\end{DoxyCompactItemize}

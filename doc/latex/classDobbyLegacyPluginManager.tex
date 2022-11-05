@@ -1,0 +1,285 @@
+\hypertarget{classDobbyLegacyPluginManager}{}\doxysection{Dobby\+Legacy\+Plugin\+Manager Class Reference}
+\label{classDobbyLegacyPluginManager}\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+
+
+Class that manages all the plugin hook libraries.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Legacy\+Plugin\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_a2064bdcade60cb705f9668a57a1c6bf7}\label{classDobbyLegacyPluginManager_a2064bdcade60cb705f9668a57a1c6bf7}} 
+{\bfseries Dobby\+Legacy\+Plugin\+Manager} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&env, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils, const std\+::string \&path=std\+::string(DEFAULT\+\_\+\+PLUGIN\+\_\+\+PATH))
+\item 
+void \mbox{\hyperlink{classDobbyLegacyPluginManager_a7b8472ca680e2e6bd1161fb8f65241db}{refresh\+Plugins}} (const std\+::string \&path=std\+::string(DEFAULT\+\_\+\+PLUGIN\+\_\+\+PATH))
+\begin{DoxyCompactList}\small\item\em (re)loads all the plugin libraries found at the given path \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyLegacyPluginManager_a76a877ffe63ca6d83ea6dc196763086a}{execute\+Post\+Construction\+Hooks}} (const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&plugins, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&startup\+State, const std\+::string \&rootfs\+Path) const
+\begin{DoxyCompactList}\small\item\em Calls the post\+Construction method for the given plugins. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyLegacyPluginManager_a044692fb553882a3129191f3bc825fa5}{execute\+Pre\+Start\+Hooks}} (const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&plugins, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, pid\+\_\+t pid, const std\+::string \&rootfs\+Path) const
+\begin{DoxyCompactList}\small\item\em Calls the pre\+Start method for the given plugins. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyLegacyPluginManager_ab9cac112378e900a814781e30c2b9a35}{execute\+Post\+Start\+Hooks}} (const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&plugins, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, pid\+\_\+t pid, const std\+::string \&rootfs\+Path) const
+\begin{DoxyCompactList}\small\item\em Calls the post\+Start method for the given plugins. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyLegacyPluginManager_ae935b7f61689a7a5d0e2c82505c9fcc4}{execute\+Post\+Stop\+Hooks}} (const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&plugins, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&rootfs\+Path) const
+\begin{DoxyCompactList}\small\item\em Calls the post\+Stop method for the given plugins. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyLegacyPluginManager_a07c851c58614559b36a7f62a31e651c4}{execute\+Pre\+Destruction\+Hooks}} (const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&plugins, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&rootfs\+Path) const
+\begin{DoxyCompactList}\small\item\em Calls the pre\+Destruction method for the given plugins. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_aa1cd76a15424270ff60b53f550562f3b}\label{classDobbyLegacyPluginManager_aa1cd76a15424270ff60b53f550562f3b}} 
+typedef std\+::function$<$ bool(\mbox{\hyperlink{classIDobbyPlugin}{IDobby\+Plugin}} $\ast$, const Json\+::\+Value \&)$>$ {\bfseries Hook\+Fn}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDobbyLegacyPluginManager_a0f509341dc4c62e05ecc776701c6694a}{execute\+Hooks}} (const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&plugins, const Hook\+Fn \&hook\+Fn, unsigned async\+Flag, unsigned sync\+Flag) const
+\begin{DoxyCompactList}\small\item\em Calls the supplied hook function for the plugins in the list. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyPlugin}{IDobby\+Plugin}} $>$ \mbox{\hyperlink{classDobbyLegacyPluginManager_af1cc0242031766842956abb715bf1a40}{get\+Plugin}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Get the plugin with the name, or nullptr if no plugin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyLegacyPluginManager_ad0c6acb64f36d977af629151084639cd}{load\+Plugins}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Scans the given path for any shared objects that implement the plugin entry points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_a90c0fe857cb6c7adcb48273bc07d6d55}\label{classDobbyLegacyPluginManager_a90c0fe857cb6c7adcb48273bc07d6d55}} 
+pthread\+\_\+rwlock\+\_\+t {\bfseries m\+Rw\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_a69afd04e071647ec18cd4bc1b87a5615}\label{classDobbyLegacyPluginManager_a69afd04e071647ec18cd4bc1b87a5615}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ {\bfseries m\+Environment}
+\item 
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_a4508054610bbd02f6ef58ef4667f530e}\label{classDobbyLegacyPluginManager_a4508054610bbd02f6ef58ef4667f530e}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_ad5b82397765bec10ff4c004fe5e93f35}\label{classDobbyLegacyPluginManager_ad5b82397765bec10ff4c004fe5e93f35}} 
+std\+::map$<$ std\+::string, std\+::pair$<$ void $\ast$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyPlugin}{IDobby\+Plugin}} $>$ $>$ $>$ {\bfseries m\+Plugins}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that manages all the plugin hook libraries. 
+
+This class doesn\textquotesingle{}t manage the system hooks, they are setup in the \mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} class (we should probably change this ... TBD)
+
+At creation time it loads all the plugin libraries from /opt/libexec. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_a0f509341dc4c62e05ecc776701c6694a}\label{classDobbyLegacyPluginManager_a0f509341dc4c62e05ecc776701c6694a}} 
+\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}!executeHooks@{executeHooks}}
+\index{executeHooks@{executeHooks}!DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+\doxysubsubsection{\texorpdfstring{executeHooks()}{executeHooks()}}
+{\footnotesize\ttfamily bool Dobby\+Legacy\+Plugin\+Manager\+::execute\+Hooks (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&}]{plugins,  }\item[{const Hook\+Fn \&}]{hook\+Fn,  }\item[{unsigned}]{async\+Flag,  }\item[{unsigned}]{sync\+Flag }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calls the supplied hook function for the plugins in the list. 
+
+Because the process of executing plugin hooks is the same for all hooks, we use this function to do the work, supplying it with (effectively) a function pointer of the hook we want to execute.
+
+This function will iterate over the plugins and call the function pointer on each plugin object.
+
+The plugins themselves provide a bit-\/field indicating which hooks need to be executed, and if they should be executed whether they run in a separate thread or in the calling thread. These hints are queried before executing the supplied hook function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugins} & A map of plugin names and their data to execute \\
+\hline
+\mbox{\texttt{ in}}  & {\em hook\+Fn} & The hook method to call on the plugin \\
+\hline
+\mbox{\texttt{ in}}  & {\em async\+Flag} & The bit flag that if the plugin has set indicates the hook method should be called asynchronously \\
+\hline
+\mbox{\texttt{ in}}  & {\em sync\+Flag} & The bit flag that if the plugin has set indicates the hook method should be called synchronously\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all plugins executed the hook method without failure, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_a76a877ffe63ca6d83ea6dc196763086a}\label{classDobbyLegacyPluginManager_a76a877ffe63ca6d83ea6dc196763086a}} 
+\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}!executePostConstructionHooks@{executePostConstructionHooks}}
+\index{executePostConstructionHooks@{executePostConstructionHooks}!DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+\doxysubsubsection{\texorpdfstring{executePostConstructionHooks()}{executePostConstructionHooks()}}
+{\footnotesize\ttfamily bool Dobby\+Legacy\+Plugin\+Manager\+::execute\+Post\+Construction\+Hooks (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&}]{plugins,  }\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&}]{startup\+State,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption}) const}
+
+
+
+Calls the post\+Construction method for the given plugins. 
+
+The function iterates over the list of plugins and their data and calls the plugin\textquotesingle{}s post\+Construction method. Each plugin provides hints as to whether the hook method should be executed at all or synchronously or asynchronously.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugins} & A map of plugin names and their data to execute. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em startup\+State} & The start-\/up state of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The path of the rootfs of the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all plugins executed the hook method without failure, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_ab9cac112378e900a814781e30c2b9a35}\label{classDobbyLegacyPluginManager_ab9cac112378e900a814781e30c2b9a35}} 
+\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}!executePostStartHooks@{executePostStartHooks}}
+\index{executePostStartHooks@{executePostStartHooks}!DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+\doxysubsubsection{\texorpdfstring{executePostStartHooks()}{executePostStartHooks()}}
+{\footnotesize\ttfamily bool Dobby\+Legacy\+Plugin\+Manager\+::execute\+Post\+Start\+Hooks (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&}]{plugins,  }\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{pid\+\_\+t}]{pid,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption}) const}
+
+
+
+Calls the post\+Start method for the given plugins. 
+
+The function iterates over the list of plugins and their data and calls the plugin\textquotesingle{}s post\+Start method. Each plugin provides hints as to whether the hook method should be executed; at all or synchronously or asynchronously.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugins} & A map of plugin names and their data to execute. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em pid} & The pid of the init process inside the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The path of the rootfs of the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all plugins executed the hook method without failure, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_ae935b7f61689a7a5d0e2c82505c9fcc4}\label{classDobbyLegacyPluginManager_ae935b7f61689a7a5d0e2c82505c9fcc4}} 
+\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}!executePostStopHooks@{executePostStopHooks}}
+\index{executePostStopHooks@{executePostStopHooks}!DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+\doxysubsubsection{\texorpdfstring{executePostStopHooks()}{executePostStopHooks()}}
+{\footnotesize\ttfamily bool Dobby\+Legacy\+Plugin\+Manager\+::execute\+Post\+Stop\+Hooks (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&}]{plugins,  }\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption}) const}
+
+
+
+Calls the post\+Stop method for the given plugins. 
+
+The function iterates over the list of plugins and their data and calls the plugin\textquotesingle{}s post\+Stop method. Each plugin provides hints as to whether the hook method should be executed; at all or synchronously or asynchronously.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugins} & A map of plugin names and their data to execute. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The path of the rootfs of the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all plugins executed the hook method without failure, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_a07c851c58614559b36a7f62a31e651c4}\label{classDobbyLegacyPluginManager_a07c851c58614559b36a7f62a31e651c4}} 
+\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}!executePreDestructionHooks@{executePreDestructionHooks}}
+\index{executePreDestructionHooks@{executePreDestructionHooks}!DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+\doxysubsubsection{\texorpdfstring{executePreDestructionHooks()}{executePreDestructionHooks()}}
+{\footnotesize\ttfamily bool Dobby\+Legacy\+Plugin\+Manager\+::execute\+Pre\+Destruction\+Hooks (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&}]{plugins,  }\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption}) const}
+
+
+
+Calls the pre\+Destruction method for the given plugins. 
+
+The function iterates over the list of plugins and their data and calls the plugin\textquotesingle{}s pre\+Destruction method. Each plugin provides hints as to whether the hook method should be executed; at all or synchronously or asynchronously.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugins} & A map of plugin names and their data to execute. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The path of the rootfs of the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all plugins executed the hook method without failure, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_a044692fb553882a3129191f3bc825fa5}\label{classDobbyLegacyPluginManager_a044692fb553882a3129191f3bc825fa5}} 
+\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}!executePreStartHooks@{executePreStartHooks}}
+\index{executePreStartHooks@{executePreStartHooks}!DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+\doxysubsubsection{\texorpdfstring{executePreStartHooks()}{executePreStartHooks()}}
+{\footnotesize\ttfamily bool Dobby\+Legacy\+Plugin\+Manager\+::execute\+Pre\+Start\+Hooks (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \&}]{plugins,  }\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{pid\+\_\+t}]{pid,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption}) const}
+
+
+
+Calls the pre\+Start method for the given plugins. 
+
+The function iterates over the list of plugins and their data and calls the plugin\textquotesingle{}s pre\+Start method. Each plugin provides hints as to whether the hook method should be executed; at all or synchronously or asynchronously.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugins} & A map of plugin names and their data to execute. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em pid} & The pid of the init process inside the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The path of the rootfs of the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all plugins executed the hook method without failure, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_af1cc0242031766842956abb715bf1a40}\label{classDobbyLegacyPluginManager_af1cc0242031766842956abb715bf1a40}} 
+\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}!getPlugin@{getPlugin}}
+\index{getPlugin@{getPlugin}!DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+\doxysubsubsection{\texorpdfstring{getPlugin()}{getPlugin()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyPlugin}{IDobby\+Plugin}} $>$ Dobby\+Legacy\+Plugin\+Manager\+::get\+Plugin (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Get the plugin with the name, or nullptr if no plugin. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The name of the plugin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The plugin interface shared pointer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_ad0c6acb64f36d977af629151084639cd}\label{classDobbyLegacyPluginManager_ad0c6acb64f36d977af629151084639cd}} 
+\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}!loadPlugins@{loadPlugins}}
+\index{loadPlugins@{loadPlugins}!DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+\doxysubsubsection{\texorpdfstring{loadPlugins()}{loadPlugins()}}
+{\footnotesize\ttfamily void Dobby\+Legacy\+Plugin\+Manager\+::load\+Plugins (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Scans the given path for any shared objects that implement the plugin entry points. 
+
+This calls dlopen() on all the executable files in the given path (although it doesn\textquotesingle{}t recurse into subdirs), if the file has symbols create\+IDobby\+Plugin and destroy\+IDobby\+Plugin then it\textquotesingle{}s deemed to be a \textquotesingle{}dobby\textquotesingle{} plugin.
+
+If loaded successfully the plugins are stored in an internal map, keyed off the plugin name.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & The path to scan for hook libraries. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyLegacyPluginManager_a7b8472ca680e2e6bd1161fb8f65241db}\label{classDobbyLegacyPluginManager_a7b8472ca680e2e6bd1161fb8f65241db}} 
+\index{DobbyLegacyPluginManager@{DobbyLegacyPluginManager}!refreshPlugins@{refreshPlugins}}
+\index{refreshPlugins@{refreshPlugins}!DobbyLegacyPluginManager@{DobbyLegacyPluginManager}}
+\doxysubsubsection{\texorpdfstring{refreshPlugins()}{refreshPlugins()}}
+{\footnotesize\ttfamily void Dobby\+Legacy\+Plugin\+Manager\+::refresh\+Plugins (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path = {\ttfamily std\+:\+:string(DEFAULT\+\_\+PLUGIN\+\_\+PATH)} }\end{DoxyParamCaption})}
+
+
+
+(re)loads all the plugin libraries found at the given path 
+
+Intended for debugging / developing plugins as it allows for reloading libraries.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & The path to scan for plugins libraries. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Legacy\+Plugin\+Manager.\+h\item 
+daemon/lib/source/Dobby\+Legacy\+Plugin\+Manager.\+cpp\end{DoxyCompactItemize}

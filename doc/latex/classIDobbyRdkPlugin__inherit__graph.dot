@@ -1,0 +1,44 @@
+digraph "IDobbyRdkPlugin"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="IDobbyRdkPlugin",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Interface that plugin libraries have to implement."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="IDobbyRdkLoggingPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIDobbyRdkLoggingPlugin.html",tooltip="Interface that plugin libraries have to implement."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="DobbyLoggerBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDobbyLoggerBase.html",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="LoggingPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLoggingPlugin.html",tooltip="Dobby Logging plugin."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="RdkPluginBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRdkPluginBase.html",tooltip="Basic object that provides the default overrides for a plugin."];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="AppServicesRdkPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAppServicesRdkPlugin.html",tooltip="Plugin just used to map in access for AS services."];
+  Node5 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="DeviceMapperPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDeviceMapperPlugin.html",tooltip=" "];
+  Node5 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="GpuPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGpuPlugin.html",tooltip="Dobby GPU plugin."];
+  Node5 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="HttpProxyPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHttpProxyPlugin.html",tooltip="Used to set http proxy environment variables and optionally add additional root ca certificates to th..."];
+  Node5 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="IonMemoryPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIonMemoryPlugin.html",tooltip="Plugin used to setup the ION cgroup controller for the container."];
+  Node5 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="IpcPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIpcPlugin.html",tooltip="IPC Plugin."];
+  Node5 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="LocalTimePlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLocalTimePlugin.html",tooltip="Dobby LocalTime plugin."];
+  Node5 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="Minidump",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMinidump.html",tooltip="Dobby RDK Minidump Plugin."];
+  Node5 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="NetworkingPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNetworkingPlugin.html",tooltip=" "];
+  Node5 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="OOMCrash",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOOMCrash.html",tooltip="Dobby RDK OOMCrash Plugin."];
+  Node5 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node16 [label="RtSchedulingPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRtSchedulingPlugin.html",tooltip="Dobby RtScheduling plugin."];
+  Node5 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node17 [label="Storage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classStorage.html",tooltip="Dobby RDK Storage Plugin."];
+  Node5 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node18 [label="TestRdkPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTestRdkPlugin.html",tooltip="Simple Dobby RDK Plugin."];
+  Node5 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node19 [label="ThunderPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classThunderPlugin.html",tooltip="Plugin used to map in the wpeframework (aka thunder) server."];
+}

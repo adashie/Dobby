@@ -1,0 +1,201 @@
+\hypertarget{classPluginBase}{}\doxysection{Plugin\+Base Class Reference}
+\label{classPluginBase}\index{PluginBase@{PluginBase}}
+
+
+Basic object that provides the default overrides for a plugin.  
+
+
+
+
+{\ttfamily \#include $<$Plugin\+Base.\+h$>$}
+
+
+
+Inheritance diagram for Plugin\+Base\+:
+% FIG 0
+
+
+Collaboration diagram for Plugin\+Base\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classPluginBase_ae713819ad289f213ce5b5a9cb099f9b7}{post\+Construction}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&startup\+State, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) override
+\begin{DoxyCompactList}\small\item\em Hook function called after the rootfs has been created, but before the container is launched. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classPluginBase_ae684b4cb9b9180474184687c493d4f84}{pre\+Start}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, pid\+\_\+t pid, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) override
+\begin{DoxyCompactList}\small\item\em Hook function called after the container is setup, but before the init process is executed. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classPluginBase_a208cf211e3c53dfc2bdf52841fd573be}{post\+Start}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, pid\+\_\+t pid, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) override
+\begin{DoxyCompactList}\small\item\em Hook function called after the container is started and the init process is now running. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classPluginBase_af402d32b6f76fb26bf195c1888ca7bb1}{post\+Stop}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) override
+\begin{DoxyCompactList}\small\item\em Hook function called after the container has stopped. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classPluginBase_a621b37e0667f739486573fbaa5b6c723}{pre\+Destruction}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) override
+\begin{DoxyCompactList}\small\item\em Hook function called just before the rootfs is deleted, this is called even if there was an error starting the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Basic object that provides the default overrides for a plugin. 
+
+This class just saves the plugins from having to implement hook functions that are not needed. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPluginBase_ae713819ad289f213ce5b5a9cb099f9b7}\label{classPluginBase_ae713819ad289f213ce5b5a9cb099f9b7}} 
+\index{PluginBase@{PluginBase}!postConstruction@{postConstruction}}
+\index{postConstruction@{postConstruction}!PluginBase@{PluginBase}}
+\doxysubsubsection{\texorpdfstring{postConstruction()}{postConstruction()}}
+{\footnotesize\ttfamily virtual bool Plugin\+Base\+::post\+Construction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&}]{startup\+State,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Hook function called after the rootfs has been created, but before the container is launched. 
+
+At this point you can setup mounts that the container will see as it hasn\textquotesingle{}t yet created the namespaces. This is typically used to mount something that wouldn\textquotesingle{}t be allowed inside a userns, then once mounted you can hook the prestart phase to move mount it into the container\textquotesingle{}s namespace. \begin{DoxySeeAlso}{See also}
+Loop\+Mounter\+Hook class for where this is used.
+\end{DoxySeeAlso}
+You can also hook this point to allow you to add extra environment variables or pass in additional file descriptors via the {\itshape startup\+State} class.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The string id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em startup\+State} & A utility object with methods that allow you to tweak the parameters of the container before it is launched. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The absolute path to the rootfs of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Data} & The json data from the spec file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_a4fc473cf40fe3cfc1faf38b15e3e7ff1}{IDobby\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPerfettoPlugin_a02a36777b71b6083d19d76040ae4844a}{Perfetto\+Plugin}}, \mbox{\hyperlink{classOpenCDMPlugin_a76eb88625736e186937c6b1dec4b04a4}{Open\+CDMPlugin}}, \mbox{\hyperlink{classMulticastSocketPlugin_ae5bb65019c289b22672e7ec484af8dc6}{Multicast\+Socket\+Plugin}}, and \mbox{\hyperlink{classEthanLogPlugin_ae3c0386ad9e4afc57f54e24f286d20e2}{Ethan\+Log\+Plugin}}.
+
+\mbox{\Hypertarget{classPluginBase_a208cf211e3c53dfc2bdf52841fd573be}\label{classPluginBase_a208cf211e3c53dfc2bdf52841fd573be}} 
+\index{PluginBase@{PluginBase}!postStart@{postStart}}
+\index{postStart@{postStart}!PluginBase@{PluginBase}}
+\doxysubsubsection{\texorpdfstring{postStart()}{postStart()}}
+{\footnotesize\ttfamily virtual bool Plugin\+Base\+::post\+Start (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{pid\+\_\+t}]{pid,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Hook function called after the container is started and the init process is now running. 
+
+This hook is not particularly useful, although it can be used to inform clients that a container has started successifully.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container (string) \\
+\hline
+\mbox{\texttt{ in}}  & {\em pid} & The pid of the init process in the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The absolute path to the rootfs. \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Data} & The json data for the hook specified in the container spec file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_a320346565acb5770d9331eb21ea3371a}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classPluginBase_af402d32b6f76fb26bf195c1888ca7bb1}\label{classPluginBase_af402d32b6f76fb26bf195c1888ca7bb1}} 
+\index{PluginBase@{PluginBase}!postStop@{postStop}}
+\index{postStop@{postStop}!PluginBase@{PluginBase}}
+\doxysubsubsection{\texorpdfstring{postStop()}{postStop()}}
+{\footnotesize\ttfamily virtual bool Plugin\+Base\+::post\+Stop (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Hook function called after the container has stopped. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container (string) \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The absolute path to the rootfs. \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Data} & The json data for the hook specified in the container spec file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_ac495ff9bb9b081c46e50911ef5c1a6b5}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classPluginBase_a621b37e0667f739486573fbaa5b6c723}\label{classPluginBase_a621b37e0667f739486573fbaa5b6c723}} 
+\index{PluginBase@{PluginBase}!preDestruction@{preDestruction}}
+\index{preDestruction@{preDestruction}!PluginBase@{PluginBase}}
+\doxysubsubsection{\texorpdfstring{preDestruction()}{preDestruction()}}
+{\footnotesize\ttfamily virtual bool Plugin\+Base\+::pre\+Destruction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Hook function called just before the rootfs is deleted, this is called even if there was an error starting the container. 
+
+This hook is called at a very similar place to post\+Stop, but it will be called even if the container failed to start (but as long as post\+Construction was called).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The string id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The absolute path to the rootfs of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Data} & The json data from the spec file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_a41832591e92649ea66d8e542e98d735d}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classPluginBase_ae684b4cb9b9180474184687c493d4f84}\label{classPluginBase_ae684b4cb9b9180474184687c493d4f84}} 
+\index{PluginBase@{PluginBase}!preStart@{preStart}}
+\index{preStart@{preStart}!PluginBase@{PluginBase}}
+\doxysubsubsection{\texorpdfstring{preStart()}{preStart()}}
+{\footnotesize\ttfamily virtual bool Plugin\+Base\+::pre\+Start (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{pid\+\_\+t}]{pid,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Hook function called after the container is setup, but before the init process is executed. 
+
+The hooks are run after the mounts are setup, but before we switch to the new root, so that the old root is still available in the hooks for any mount manipulations.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The string id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em pid} & The pid owner of the namespace to enter, typically the pid of the process in the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ns\+Type} & The type of the namespace to enter, see above. \\
+\hline
+\mbox{\texttt{ in}}  & {\em func} & The actual function to execute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_a07c91bd4df686becea7c35100cb085c1}{IDobby\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classEthanLogPlugin_a01a8ce5f46b59e13eb286c1b5037b441}{Ethan\+Log\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Common/include/Plugin\+Base.\+h\end{DoxyCompactItemize}

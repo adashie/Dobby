@@ -1,0 +1,281 @@
+\hypertarget{classStorage}{}\doxysection{Storage Class Reference}
+\label{classStorage}\index{Storage@{Storage}}
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} RDK \mbox{\hyperlink{classStorage}{Storage}} Plugin.  
+
+
+
+
+{\ttfamily \#include $<$Storage.\+h$>$}
+
+
+
+Inheritance diagram for Storage\+:
+% FIG 0
+
+
+Collaboration diagram for Storage\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStorage_a7504e8376164015c414861ffcd1816cf}{Storage}} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ called when plugin is loaded by Plugin\+Launcher. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classStorage_a1223e90fc2e58dcef9b6a7782d5fb72b}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStorage_a282998f873e3dfdbc2861262a9faa5f1}\label{classStorage_a282998f873e3dfdbc2861262a9faa5f1}} 
+unsigned \mbox{\hyperlink{classStorage_a282998f873e3dfdbc2861262a9faa5f1}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStorage_a7a3fac5ce3fb766173ce31fb96317d01}\label{classStorage_a7a3fac5ce3fb766173ce31fb96317d01}} 
+bool \mbox{\hyperlink{classStorage_a7a3fac5ce3fb766173ce31fb96317d01}{pre\+Creation}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in host namespace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStorage_aaef2df60bad911ca680d49d9c0d8dd15}\label{classStorage_aaef2df60bad911ca680d49d9c0d8dd15}} 
+bool \mbox{\hyperlink{classStorage_aaef2df60bad911ca680d49d9c0d8dd15}{create\+Runtime}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in host namespace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStorage_a2f26667ffc56a7a31bd770b6a3a3f002}\label{classStorage_a2f26667ffc56a7a31bd770b6a3a3f002}} 
+bool \mbox{\hyperlink{classStorage_a2f26667ffc56a7a31bd770b6a3a3f002}{create\+Container}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in container namespace. Paths resolve to host namespace. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classStorage_a2ded5d67acaa99fd83b4d03b509191dc}{post\+Start}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in container namespace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStorage_a0146ddc4690b86a74c074e3586d465ce}\label{classStorage_a0146ddc4690b86a74c074e3586d465ce}} 
+bool \mbox{\hyperlink{classStorage_a0146ddc4690b86a74c074e3586d465ce}{post\+Stop}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in host namespace. Confusing name -\/ is run when a container is DELETED. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classStorage_aa33a351063ee71ca6576b23e3cc82bf9}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct__LoopMountProperties}{Loop\+Mount\+Properties}} $>$ \mbox{\hyperlink{classStorage_a99fecb3201b1dd1abfa96005f14f8ec3}{get\+Loop\+Mounts}} () const
+\begin{DoxyCompactList}\small\item\em Reads container config and creates all loop mounts in Loop\+Mount\+Properties type objects. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classLoopMountDetails}{Loop\+Mount\+Details}} $>$ $>$ \mbox{\hyperlink{classStorage_a2aa58851e5632d2d6a9b9e50280f1e34}{get\+Loop\+Mount\+Details}} () const
+\begin{DoxyCompactList}\small\item\em Create loop mount details vector from all loopback mounts in config. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct__DynamicMountProperties}{Dynamic\+Mount\+Properties}} $>$ \mbox{\hyperlink{classStorage_ae4cea1f09e2516d22858ecd4f0633091}{get\+Dynamic\+Mounts}} () const
+\begin{DoxyCompactList}\small\item\em Reads container config and creates all dynamic mounts in Dynamic\+Mount\+Properties type objects. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDynamicMountDetails}{Dynamic\+Mount\+Details}} $>$ $>$ \mbox{\hyperlink{classStorage_ab0619cbc64a66eded8f2124f7daf5129}{get\+Dynamic\+Mount\+Details}} () const
+\begin{DoxyCompactList}\small\item\em Create dynamic mount details vector from all dynamic mounts in config. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct__MountOwnerProperties}{Mount\+Owner\+Properties}} $>$ \mbox{\hyperlink{classStorage_a6ac60a6965e27d0867eb6583c311b891}{get\+Mount\+Owners}} () const
+\begin{DoxyCompactList}\small\item\em Reads container config to obtain source path on host, user\+Id, group\+Id and recursive options. These will be used later to change ownership of the source path based on user\+Id and group\+Id within the host namespace. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMountOwnerDetails}{Mount\+Owner\+Details}} $>$ $>$ \mbox{\hyperlink{classStorage_abce85be9193c3d63b13f9a4fb2fb0ade}{get\+Mount\+Owner\+Details}} () const
+\begin{DoxyCompactList}\small\item\em Create mount owner details vector from all mount owners in config. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStorage_a5c52a77716e4c4e1a8f344987c353dc7}{setup\+Owner\+Ids}} (uid\+\_\+t \&uid, gid\+\_\+t \&gid) const
+\begin{DoxyCompactList}\small\item\em Gets user\+Id and group\+Id. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classStorage_ab7c28d80792ed77c212974aa84b1f2ab}{get\+Mapped\+Id}} (uint32\+\_\+t id, rt\+\_\+defs\+\_\+id\+\_\+mapping $\ast$$\ast$mapping, size\+\_\+t mapping\+\_\+len) const
+\begin{DoxyCompactList}\small\item\em Gets user\+Id or group\+Id based on mappings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStorage_accc8d449b824c7d9de0d2191a283bc83}\label{classStorage_accc8d449b824c7d9de0d2191a283bc83}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classStorage_a956aa57f98739a99af8c1aa6542780bc}\label{classStorage_a956aa57f98739a99af8c1aa6542780bc}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classStorage_a0f078b1dda70af7901b0876f6221215a}\label{classStorage_a0f078b1dda70af7901b0876f6221215a}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classStorage_aed6766c80a54aef681fab9a9f45f9a4c}\label{classStorage_aed6766c80a54aef681fab9a9f45f9a4c}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDobby}{Dobby}} RDK \mbox{\hyperlink{classStorage}{Storage}} Plugin. 
+
+Manages loop mount devices for containers 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStorage_a7504e8376164015c414861ffcd1816cf}\label{classStorage_a7504e8376164015c414861ffcd1816cf}} 
+\index{Storage@{Storage}!Storage@{Storage}}
+\index{Storage@{Storage}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{Storage()}{Storage()}}
+{\footnotesize\ttfamily Storage\+::\+Storage (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&}]{container\+Spec,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption})}
+
+
+
+Constructor -\/ called when plugin is loaded by Plugin\+Launcher. 
+
+Do not change the parameters for this constructor -\/ must match C methods created by REGISTER\+\_\+\+RDK\+\_\+\+PLUGIN macro
+
+Note plugin name is not case sensitive 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStorage_aa33a351063ee71ca6576b23e3cc82bf9}\label{classStorage_aa33a351063ee71ca6576b23e3cc82bf9}} 
+\index{Storage@{Storage}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Storage\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classStorage_ab0619cbc64a66eded8f2124f7daf5129}\label{classStorage_ab0619cbc64a66eded8f2124f7daf5129}} 
+\index{Storage@{Storage}!getDynamicMountDetails@{getDynamicMountDetails}}
+\index{getDynamicMountDetails@{getDynamicMountDetails}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{getDynamicMountDetails()}{getDynamicMountDetails()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDynamicMountDetails}{Dynamic\+Mount\+Details}} $>$ $>$ Storage\+::get\+Dynamic\+Mount\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create dynamic mount details vector from all dynamic mounts in config. 
+
+\begin{DoxyReturn}{Returns}
+vector of \mbox{\hyperlink{classDynamicMountDetails}{Dynamic\+Mount\+Details}} that were in the config 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStorage_ae4cea1f09e2516d22858ecd4f0633091}\label{classStorage_ae4cea1f09e2516d22858ecd4f0633091}} 
+\index{Storage@{Storage}!getDynamicMounts@{getDynamicMounts}}
+\index{getDynamicMounts@{getDynamicMounts}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{getDynamicMounts()}{getDynamicMounts()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct__DynamicMountProperties}{Dynamic\+Mount\+Properties}} $>$ Storage\+::get\+Dynamic\+Mounts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads container config and creates all dynamic mounts in Dynamic\+Mount\+Properties type objects. 
+
+\begin{DoxyReturn}{Returns}
+vector of Dynamic\+Mount\+Properties that were in the config 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStorage_a2aa58851e5632d2d6a9b9e50280f1e34}\label{classStorage_a2aa58851e5632d2d6a9b9e50280f1e34}} 
+\index{Storage@{Storage}!getLoopMountDetails@{getLoopMountDetails}}
+\index{getLoopMountDetails@{getLoopMountDetails}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{getLoopMountDetails()}{getLoopMountDetails()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classLoopMountDetails}{Loop\+Mount\+Details}} $>$ $>$ Storage\+::get\+Loop\+Mount\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create loop mount details vector from all loopback mounts in config. 
+
+\begin{DoxyReturn}{Returns}
+vector of \mbox{\hyperlink{classLoopMountDetails}{Loop\+Mount\+Details}} that were in the config 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStorage_a99fecb3201b1dd1abfa96005f14f8ec3}\label{classStorage_a99fecb3201b1dd1abfa96005f14f8ec3}} 
+\index{Storage@{Storage}!getLoopMounts@{getLoopMounts}}
+\index{getLoopMounts@{getLoopMounts}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{getLoopMounts()}{getLoopMounts()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct__LoopMountProperties}{Loop\+Mount\+Properties}} $>$ Storage\+::get\+Loop\+Mounts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads container config and creates all loop mounts in Loop\+Mount\+Properties type objects. 
+
+\begin{DoxyReturn}{Returns}
+vector of Loop\+Mount\+Properties that were in the config 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStorage_ab7c28d80792ed77c212974aa84b1f2ab}\label{classStorage_ab7c28d80792ed77c212974aa84b1f2ab}} 
+\index{Storage@{Storage}!getMappedId@{getMappedId}}
+\index{getMappedId@{getMappedId}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{getMappedId()}{getMappedId()}}
+{\footnotesize\ttfamily uint32\+\_\+t Storage\+::get\+Mapped\+Id (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id,  }\item[{rt\+\_\+defs\+\_\+id\+\_\+mapping $\ast$$\ast$}]{mapping,  }\item[{size\+\_\+t}]{mapping\+\_\+len }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets user\+Id or group\+Id based on mappings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & Id we want to map \\
+\hline
+\mbox{\texttt{ in}}  & {\em mapping} & Mapping that should be used \\
+\hline
+\mbox{\texttt{ in}}  & {\em mapping\+\_\+len} & Length of mapping\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if found mapped id, if not found initial id 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStorage_abce85be9193c3d63b13f9a4fb2fb0ade}\label{classStorage_abce85be9193c3d63b13f9a4fb2fb0ade}} 
+\index{Storage@{Storage}!getMountOwnerDetails@{getMountOwnerDetails}}
+\index{getMountOwnerDetails@{getMountOwnerDetails}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{getMountOwnerDetails()}{getMountOwnerDetails()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classMountOwnerDetails}{Mount\+Owner\+Details}} $>$ $>$ Storage\+::get\+Mount\+Owner\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create mount owner details vector from all mount owners in config. 
+
+\begin{DoxyReturn}{Returns}
+vector of \mbox{\hyperlink{classMountOwnerDetails}{Mount\+Owner\+Details}} that were in the config 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStorage_a6ac60a6965e27d0867eb6583c311b891}\label{classStorage_a6ac60a6965e27d0867eb6583c311b891}} 
+\index{Storage@{Storage}!getMountOwners@{getMountOwners}}
+\index{getMountOwners@{getMountOwners}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{getMountOwners()}{getMountOwners()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct__MountOwnerProperties}{Mount\+Owner\+Properties}} $>$ Storage\+::get\+Mount\+Owners (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads container config to obtain source path on host, user\+Id, group\+Id and recursive options. These will be used later to change ownership of the source path based on user\+Id and group\+Id within the host namespace. 
+
+\begin{DoxyReturn}{Returns}
+vector of Mount\+Owner\+Properties that were in the config 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStorage_a1223e90fc2e58dcef9b6a7782d5fb72b}\label{classStorage_a1223e90fc2e58dcef9b6a7782d5fb72b}} 
+\index{Storage@{Storage}!name@{name}}
+\index{name@{name}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Storage\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classStorage_a2ded5d67acaa99fd83b4d03b509191dc}\label{classStorage_a2ded5d67acaa99fd83b4d03b509191dc}} 
+\index{Storage@{Storage}!postStart@{postStart}}
+\index{postStart@{postStart}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{postStart()}{postStart()}}
+{\footnotesize\ttfamily bool Storage\+::post\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+OCI Hook -\/ Run in container namespace. 
+
+OCI Hook -\/ Run in host namespace once container has started 
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_af2e1681da85f73cbe1ea59325ec5c651}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classStorage_a5c52a77716e4c4e1a8f344987c353dc7}\label{classStorage_a5c52a77716e4c4e1a8f344987c353dc7}} 
+\index{Storage@{Storage}!setupOwnerIds@{setupOwnerIds}}
+\index{setupOwnerIds@{setupOwnerIds}!Storage@{Storage}}
+\doxysubsubsection{\texorpdfstring{setupOwnerIds()}{setupOwnerIds()}}
+{\footnotesize\ttfamily void Storage\+::setup\+Owner\+Ids (\begin{DoxyParamCaption}\item[{uid\+\_\+t \&}]{uid,  }\item[{gid\+\_\+t \&}]{gid }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets user\+Id and group\+Id. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & Id we want to map \\
+\hline
+\mbox{\texttt{ in}}  & {\em mapping} & Mapping that should be used \\
+\hline
+\mbox{\texttt{ in}}  & {\em mapping\+\_\+len} & Length of mapping\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if found mapped id, if not found initial id 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Storage/source/Storage.\+h\item 
+rdk\+Plugins/\+Storage/source/Storage.\+cpp\end{DoxyCompactItemize}

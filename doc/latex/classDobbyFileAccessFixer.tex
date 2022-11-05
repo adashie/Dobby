@@ -1,0 +1,113 @@
+\hypertarget{classDobbyFileAccessFixer}{}\doxysection{Dobby\+File\+Access\+Fixer Class Reference}
+\label{classDobbyFileAccessFixer}\index{DobbyFileAccessFixer@{DobbyFileAccessFixer}}
+
+
+Utility object to fix the various incorrectly \textquotesingle{}hardened\textquotesingle{} file permissions.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+File\+Access\+Fixer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyFileAccessFixer_a1b93bc07117bd60c9d54162cd00e2704}\label{classDobbyFileAccessFixer_a1b93bc07117bd60c9d54162cd00e2704}} 
+bool {\bfseries fix\+It} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDobbyFileAccessFixer_a2d28f6d35e08f891cb0bbe81e1705d30}{fix\+Dobby\+Init\+Perms}} () const
+\begin{DoxyCompactList}\small\item\em Fixes the access perms on /opt/libexec/\+Dobby\+Init. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyFileAccessFixer_ad4741097cf908c68fadfa527164a2864}{fix\+Opt\+Runtime\+Perms}} () const
+\begin{DoxyCompactList}\small\item\em Fixes the access perms on everything in /opt/runtimes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyFileAccessFixer_a3ae312a9105483f1f89ada39d726def9}{fix\+Gfx\+Driver\+Perms}} () const
+\begin{DoxyCompactList}\small\item\em Fixes the perms on the opengl dev nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyFileAccessFixer_a85364aa958858fdc46dea88ac2cb44c4}\label{classDobbyFileAccessFixer_a85364aa958858fdc46dea88ac2cb44c4}} 
+bool \mbox{\hyperlink{classDobbyFileAccessFixer_a85364aa958858fdc46dea88ac2cb44c4}{fix\+Core\+Dump\+Filter}} () const
+\begin{DoxyCompactList}\small\item\em Fixes the core pattern filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyFileAccessFixer_abaa49a9e2bbbbfc57916283caf50d197}\label{classDobbyFileAccessFixer_abaa49a9e2bbbbfc57916283caf50d197}} 
+static void {\bfseries chmod\+File} (const char $\ast$file\+Path, mode\+\_\+t old\+Perms, mode\+\_\+t new\+Perms)
+\item 
+static int \mbox{\hyperlink{classDobbyFileAccessFixer_a8c382e8a9e9c74ab86fa7bd6998eb89d}{fix\+Runtime\+Perms}} (const char $\ast$file\+Path, const struct stat $\ast$stat\+Buf, int type\+Flag, struct FTW $\ast$ftwbuf)
+\begin{DoxyCompactList}\small\item\em Callback from the nftw() function for the directory walk. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility object to fix the various incorrectly \textquotesingle{}hardened\textquotesingle{} file permissions. 
+
+The \textquotesingle{}hardening\textquotesingle{} process continuously \textquotesingle{}over hardens\textquotesingle{} various files to the point where things become unusable. This object is used to go through and fix-\/up the files before launching the Dobby\+Daemon.
+
+This method only has one method, fix\+It() that applies all the know file perms fixups.
+
+Hopefully in the future we can remove all these hacks and have just the correct perms from the start. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyFileAccessFixer_a2d28f6d35e08f891cb0bbe81e1705d30}\label{classDobbyFileAccessFixer_a2d28f6d35e08f891cb0bbe81e1705d30}} 
+\index{DobbyFileAccessFixer@{DobbyFileAccessFixer}!fixDobbyInitPerms@{fixDobbyInitPerms}}
+\index{fixDobbyInitPerms@{fixDobbyInitPerms}!DobbyFileAccessFixer@{DobbyFileAccessFixer}}
+\doxysubsubsection{\texorpdfstring{fixDobbyInitPerms()}{fixDobbyInitPerms()}}
+{\footnotesize\ttfamily bool Dobby\+File\+Access\+Fixer\+::fix\+Dobby\+Init\+Perms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Fixes the access perms on /opt/libexec/\+Dobby\+Init. 
+
+Dobby\+Init needs to be executable by everyone as it\textquotesingle{}s the init process of all containers. \mbox{\Hypertarget{classDobbyFileAccessFixer_a3ae312a9105483f1f89ada39d726def9}\label{classDobbyFileAccessFixer_a3ae312a9105483f1f89ada39d726def9}} 
+\index{DobbyFileAccessFixer@{DobbyFileAccessFixer}!fixGfxDriverPerms@{fixGfxDriverPerms}}
+\index{fixGfxDriverPerms@{fixGfxDriverPerms}!DobbyFileAccessFixer@{DobbyFileAccessFixer}}
+\doxysubsubsection{\texorpdfstring{fixGfxDriverPerms()}{fixGfxDriverPerms()}}
+{\footnotesize\ttfamily bool Dobby\+File\+Access\+Fixer\+::fix\+Gfx\+Driver\+Perms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Fixes the perms on the opengl dev nodes. 
+
+The opengl dev nodes for both the ST and Broadcom currently have perms that don\textquotesingle{}t allow un-\/privilaged apps to access them.
+
+This code walks through them all and changes the access perms to allow \textquotesingle{}others\textquotesingle{} to read and write. The preferred solution is to put those nodes into a \textquotesingle{}graphics\textquotesingle{} group and run the apps with that as a supplementary group option. \mbox{\Hypertarget{classDobbyFileAccessFixer_ad4741097cf908c68fadfa527164a2864}\label{classDobbyFileAccessFixer_ad4741097cf908c68fadfa527164a2864}} 
+\index{DobbyFileAccessFixer@{DobbyFileAccessFixer}!fixOptRuntimePerms@{fixOptRuntimePerms}}
+\index{fixOptRuntimePerms@{fixOptRuntimePerms}!DobbyFileAccessFixer@{DobbyFileAccessFixer}}
+\doxysubsubsection{\texorpdfstring{fixOptRuntimePerms()}{fixOptRuntimePerms()}}
+{\footnotesize\ttfamily bool Dobby\+File\+Access\+Fixer\+::fix\+Opt\+Runtime\+Perms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Fixes the access perms on everything in /opt/runtimes. 
+
+Everything in here needs to be readable by everyone, in addition anything marked as executable needs to be executable by everyone. \mbox{\Hypertarget{classDobbyFileAccessFixer_a8c382e8a9e9c74ab86fa7bd6998eb89d}\label{classDobbyFileAccessFixer_a8c382e8a9e9c74ab86fa7bd6998eb89d}} 
+\index{DobbyFileAccessFixer@{DobbyFileAccessFixer}!fixRuntimePerms@{fixRuntimePerms}}
+\index{fixRuntimePerms@{fixRuntimePerms}!DobbyFileAccessFixer@{DobbyFileAccessFixer}}
+\doxysubsubsection{\texorpdfstring{fixRuntimePerms()}{fixRuntimePerms()}}
+{\footnotesize\ttfamily int Dobby\+File\+Access\+Fixer\+::fix\+Runtime\+Perms (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Path,  }\item[{const struct stat $\ast$}]{stat\+Buf,  }\item[{int}]{type\+Flag,  }\item[{struct FTW $\ast$}]{ftwbuf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Callback from the nftw() function for the directory walk. 
+
+This is called for every entry in the /opt/runtimes dir, it will set the dirs and executable file perms to 0555 and ordinary files have 0444.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Path} & The path to the file or directory \\
+\hline
+\mbox{\texttt{ in}}  & {\em stat\+Buf} & The struct stat of the file or directory \\
+\hline
+\mbox{\texttt{ in}}  & {\em type\+Flag} & The type of entry (file, dir, symlink, etc) \\
+\hline
+\mbox{\texttt{ in}}  & {\em ftwbuf} & Ignored\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+always returns 0 to keep the walk going. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+utils/include/Dobby\+File\+Access\+Fixer.\+h\item 
+utils/source/Dobby\+File\+Access\+Fixer.\+cpp\end{DoxyCompactItemize}

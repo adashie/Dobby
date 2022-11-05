@@ -1,0 +1,724 @@
+\hypertarget{classDobbyProxy}{}\doxysection{Dobby\+Proxy Class Reference}
+\label{classDobbyProxy}\index{DobbyProxy@{DobbyProxy}}
+
+
+Wrapper around an \mbox{\hyperlink{classIpcService}{Ipc\+Service}} object that provides simpler method calls to the dobby daemon.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Proxy.\+h$>$}
+
+
+
+Inheritance diagram for Dobby\+Proxy\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Proxy\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDobbyProxy_1_1StateChangeEvent}{State\+Change\+Event}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_aa2608761a4991a31910565111a74f8f5}\label{classDobbyProxy_aa2608761a4991a31910565111a74f8f5}} 
+\mbox{\hyperlink{classDobbyProxy_aa2608761a4991a31910565111a74f8f5}{Dobby\+Proxy}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ \&ipc\+Service, const std\+::string \&service\+Name, const std\+::string \&object\+Name)
+\begin{DoxyCompactList}\small\item\em Registers the signal handlers and sets up a threaded dispatcher for started / stopped events. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyProxy_a6fdaac6096ef49e19304adff80c61fdc}\label{classDobbyProxy_a6fdaac6096ef49e19304adff80c61fdc}} 
+\mbox{\hyperlink{classDobbyProxy_a6fdaac6096ef49e19304adff80c61fdc}{$\sim$\+Dobby\+Proxy}} () final
+\begin{DoxyCompactList}\small\item\em Unregisters the signal listeners and flushes the ipc connection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_adb2caf66e375428571472df2b7784ff6}{shutdown}} () const override
+\begin{DoxyCompactList}\small\item\em Asks the daemon to shut itself down. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_a5f768b3632f2f990878c872dd645470a}{ping}} () const override
+\begin{DoxyCompactList}\small\item\em Asks the daemon to send back a pong message. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_a53db8681c2ac3ab16ea46e9b40c5531e}{is\+Alive}} (const std\+::chrono\+::milliseconds \&timeout) const override
+\begin{DoxyCompactList}\small\item\em Checks if the daemon is alive. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_afeba0730527740c51aeb67fcc3da0b79}{set\+Log\+Method}} (uint32\+\_\+t method, int pipe\+Fd) const override
+\begin{DoxyCompactList}\small\item\em Sets the logging method used by the daemon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_aa7af0151e6e5e9f1ecd0ffa874cb567f}{set\+Log\+Level}} (int level) const override
+\begin{DoxyCompactList}\small\item\em Simply sets the log level in the daemon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_aaba48df151c644a10401ea8730cb42d5}{set\+AIDbus\+Address}} (bool private\+Bus, const std\+::string \&address) const override
+\begin{DoxyCompactList}\small\item\em Sets the AI dbus address for use by the containeriser. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classDobbyProxy_ad3dcdb24d55934fe0c801f254f2d0562}{start\+Container\+From\+Spec}} (const std\+::string \&id, const std\+::string \&json\+Spec, const std\+::list$<$ int $>$ \&files, const std\+::string \&command=\char`\"{}\char`\"{}, const std\+::string \&display\+Socket=\char`\"{}\char`\"{}, const std\+::vector$<$ std\+::string $>$ \&env\+Vars=std\+::vector$<$ std\+::string $>$()) const override
+\begin{DoxyCompactList}\small\item\em Starts a container with the given id, json spec file and the list of files. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classDobbyProxy_a4a3e69c29c230829a80d13653ec6f782}{start\+Container\+From\+Bundle}} (const std\+::string \&id, const std\+::string \&bundle\+Path, const std\+::list$<$ int $>$ \&files, const std\+::string \&command=\char`\"{}\char`\"{}, const std\+::string \&display\+Socket=\char`\"{}\char`\"{}, const std\+::vector$<$ std\+::string $>$ \&env\+Vars=std\+::vector$<$ std\+::string $>$()) const override
+\begin{DoxyCompactList}\small\item\em Starts a container with the given id, bundle path and the list of files. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_a9aee125b40e6052f53735a349803aa55}{stop\+Container}} (int32\+\_\+t cd, bool with\+Prejudice) const override
+\begin{DoxyCompactList}\small\item\em Stops the container with the descriptor (container integer id) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_a6443ae93e0ada41201b4d4fa6b84ee84}{pause\+Container}} (int32\+\_\+t cd) const override
+\begin{DoxyCompactList}\small\item\em Pauses the container with the descriptor (container integer id) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_abef77688fce01e6629e3278e620e3fc8}{resume\+Container}} (int32\+\_\+t cd) const override
+\begin{DoxyCompactList}\small\item\em Resumes the container with the descriptor (container integer id) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_a174c6ee0fc05b11b900f4b0bece96b88}{exec\+In\+Container}} (int32\+\_\+t cd, const std\+::string \&options, const std\+::string \&command) const override
+\begin{DoxyCompactList}\small\item\em Executes a command in the given container. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDobbyProxy_a2feab5106e69414974bcf5d1edaf3fc0}{get\+Container\+State}} (int32\+\_\+t cd) const override
+\begin{DoxyCompactList}\small\item\em Returns the current state of a container. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDobbyProxy_a1a9706fc5d20064e94094290893da6b3}{register\+Listener}} (const State\+Change\+Listener \&listener, const void $\ast$cb\+Params) override
+\begin{DoxyCompactList}\small\item\em Installs a callback \textquotesingle{}listener\textquotesingle{} to be notified of changes to the state of the containers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyProxy_a04ef305552bbaf59ecfd4b93a9f1d0bb}{unregister\+Listener}} (int tag) override
+\begin{DoxyCompactList}\small\item\em Unregisters a listener previously registered. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyProxy_a38647703d5513a2f474fab91f7aadcd2}{get\+Container\+Info}} (int32\+\_\+t descriptor) const override
+\begin{DoxyCompactList}\small\item\em Gets the stats / info for the given container. \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::pair$<$ int32\+\_\+t, std\+::string $>$ $>$ \mbox{\hyperlink{classDobbyProxy_a7452c38ae573c622054284d366cb6bbe}{list\+Containers}} () const override
+\begin{DoxyCompactList}\small\item\em Returns a list of containers. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_a44e1169ba602329256a2446a940b201a}{create\+Bundle}} (const std\+::string \&id, const std\+::string \&json\+Spec) const override
+\begin{DoxyCompactList}\small\item\em Debugging utility that can be used to create a bundle based on a dobby spec file. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyProxy_a525dfe85a7bdb6637cf2328ac1f7f4e5}{get\+Spec}} (int32\+\_\+t descriptor) const override
+\begin{DoxyCompactList}\small\item\em Debugging utility to retrieve the original spec file for a running container (i.\+e. like the \textquotesingle{}virsh dumpxml\textquotesingle{} command). \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyProxy_a9d37b23554716f0cf50510f378d2b3c4}{get\+OCIConfig}} (int32\+\_\+t descriptor) const override
+\begin{DoxyCompactList}\small\item\em Debugging utility to retrieve the config.\+json file for a running container (i.\+e. like the \textquotesingle{}virsh dumpxml\textquotesingle{} command). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDobbyProxy_a2a8fa1aa8ba441348fefaa723dc69c63}{on\+Container\+Started\+Event}} (const AI\+\_\+\+IPC\+::\+Variant\+List \&args)
+\begin{DoxyCompactList}\small\item\em Called when a org.\+rdk.\+dobby.\+ctrl1.\+Started event is received from the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}hypervisor\textquotesingle{} daemon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyProxy_afa636b7c9bedc4804e41956b62bb1b5f}{on\+Container\+Stopped\+Event}} (const AI\+\_\+\+IPC\+::\+Variant\+List \&args)
+\begin{DoxyCompactList}\small\item\em Called when a org.\+rdk.\+dobby.\+ctrl1.\+Stopped event is received from the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}hypervisor\textquotesingle{} daemon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyProxy_a7b7aa19a048e6b747e29a41cbf8a7083}{invoke\+Method}} (const char $\ast$interface\+\_\+, const char $\ast$method\+\_\+, const AI\+\_\+\+IPC\+::\+Variant\+List \&params\+\_\+, AI\+\_\+\+IPC\+::\+Variant\+List \&returns\+\_\+) const
+\begin{DoxyCompactList}\small\item\em Invokes a dbus method on the daemon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyProxy_a299bdef1240360d87163c856f808d653}{container\+State\+Change\+Thread}} ()
+\begin{DoxyCompactList}\small\item\em Thread function that receives notifications on container state changes and then calls the install handler(s). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_a719d4089d4fca1bb16ea423bb4bc4a6e}\label{classDobbyProxy_a719d4089d4fca1bb16ea423bb4bc4a6e}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ {\bfseries m\+Ipc\+Service}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_af91f109b9f83d5c6e8d53befff19b94a}\label{classDobbyProxy_af91f109b9f83d5c6e8d53befff19b94a}} 
+const std\+::string {\bfseries m\+Service\+Name}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_a93eb81eba2bd65d577d2a5ca8ed4cb0b}\label{classDobbyProxy_a93eb81eba2bd65d577d2a5ca8ed4cb0b}} 
+const std\+::string {\bfseries m\+Object\+Name}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_a30522e108ed72c251cebfab97e787b81}\label{classDobbyProxy_a30522e108ed72c251cebfab97e787b81}} 
+std\+::string {\bfseries m\+Container\+Started\+Signal}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_aaf0a8c790192e5b4a959d0df59e02294}\label{classDobbyProxy_aaf0a8c790192e5b4a959d0df59e02294}} 
+std\+::string {\bfseries m\+Container\+Stopped\+Signal}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_ae8ec44bffcb20a0914c765bd9f5adafe}\label{classDobbyProxy_ae8ec44bffcb20a0914c765bd9f5adafe}} 
+std\+::thread {\bfseries m\+State\+Change\+Thread}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_a570400c76df54d26c1865c6adccb63eb}\label{classDobbyProxy_a570400c76df54d26c1865c6adccb63eb}} 
+std\+::mutex {\bfseries m\+State\+Change\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_aa95bf81cb4062d1bfce281caac06d35e}\label{classDobbyProxy_aa95bf81cb4062d1bfce281caac06d35e}} 
+std\+::condition\+\_\+variable {\bfseries m\+State\+Change\+Cond}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_a2b8e4af469875169b3a897210917874e}\label{classDobbyProxy_a2b8e4af469875169b3a897210917874e}} 
+std\+::deque$<$ \mbox{\hyperlink{structDobbyProxy_1_1StateChangeEvent}{State\+Change\+Event}} $>$ {\bfseries m\+State\+Change\+Queue}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_a4a90ed8f6d5a31f4cf5c4c24891a0cff}\label{classDobbyProxy_a4a90ed8f6d5a31f4cf5c4c24891a0cff}} 
+std\+::mutex {\bfseries m\+Listeners\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_a07990982d02f43fa4b45c7cbf5f8b369}\label{classDobbyProxy_a07990982d02f43fa4b45c7cbf5f8b369}} 
+\mbox{\hyperlink{classAICommon_1_1IDGenerator}{AICommon\+::\+IDGenerator}}$<$ 8 $>$ {\bfseries m\+Listener\+Id\+Gen}
+\item 
+\mbox{\Hypertarget{classDobbyProxy_a1442c573e1eec6bea8249815902020ac}\label{classDobbyProxy_a1442c573e1eec6bea8249815902020ac}} 
+std\+::map$<$ int, std\+::pair$<$ State\+Change\+Listener, const void $\ast$ $>$ $>$ {\bfseries m\+Listeners}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Wrapper around an \mbox{\hyperlink{classIpcService}{Ipc\+Service}} object that provides simpler method calls to the dobby daemon. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyProxy_a299bdef1240360d87163c856f808d653}\label{classDobbyProxy_a299bdef1240360d87163c856f808d653}} 
+\index{DobbyProxy@{DobbyProxy}!containerStateChangeThread@{containerStateChangeThread}}
+\index{containerStateChangeThread@{containerStateChangeThread}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{containerStateChangeThread()}{containerStateChangeThread()}}
+{\footnotesize\ttfamily void Dobby\+Proxy\+::container\+State\+Change\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Thread function that receives notifications on container state changes and then calls the install handler(s). 
+
+We use a separate thread to notify of container changes because we don\textquotesingle{}t want to block the \mbox{\hyperlink{classIpcService}{Ipc\+Service}} thread for long periods of time while code does stuff based on container state change. \mbox{\Hypertarget{classDobbyProxy_a44e1169ba602329256a2446a940b201a}\label{classDobbyProxy_a44e1169ba602329256a2446a940b201a}} 
+\index{DobbyProxy@{DobbyProxy}!createBundle@{createBundle}}
+\index{createBundle@{createBundle}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{createBundle()}{createBundle()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::create\+Bundle (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id,  }\item[{const std\+::string \&}]{json\+Spec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Debugging utility that can be used to create a bundle based on a dobby spec file. 
+
+This can be useful for debugging container issues, as it allows the daemon to create the bundle but not actually run it, and therefore it can be run manually from the command line.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The name of the bundle to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Spec} & The json spec for the bundle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a174c6ee0fc05b11b900f4b0bece96b88}\label{classDobbyProxy_a174c6ee0fc05b11b900f4b0bece96b88}} 
+\index{DobbyProxy@{DobbyProxy}!execInContainer@{execInContainer}}
+\index{execInContainer@{execInContainer}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{execInContainer()}{execInContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::exec\+In\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd,  }\item[{const std\+::string \&}]{options,  }\item[{const std\+::string \&}]{command }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes a command in the given container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container descriptor. \\
+\hline
+\mbox{\texttt{ in}}  & {\em options} & The options to execute the command with. \\
+\hline
+\mbox{\texttt{ in}}  & {\em command} & The command to execute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a38647703d5513a2f474fab91f7aadcd2}\label{classDobbyProxy_a38647703d5513a2f474fab91f7aadcd2}} 
+\index{DobbyProxy@{DobbyProxy}!getContainerInfo@{getContainerInfo}}
+\index{getContainerInfo@{getContainerInfo}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{getContainerInfo()}{getContainerInfo()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Proxy\+::get\+Container\+Info (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the stats / info for the given container. 
+
+This method returns a string containing info / stats on the given container in json format. The json should look something like the following \begin{DoxyVerb}{
+    "id": "blah",
+    "pids": [ 2046, 2064 ],
+    "cpu": {
+        "usage": {
+            "total":734236982,
+            "percpu":[348134887,386102095]
+        }
+    },
+    "memory":{
+        "user": {
+            "limit":41943040,
+            "usage":356352,
+            "max":524288,
+            "failcnt":0
+        }
+    }
+    "gpu":{
+        "memory": {
+            "limit":41943040,
+            "usage":356352,
+            "max":524288,
+            "failcnt":0
+        }
+    }
+    ...
+}
+\end{DoxyVerb}
+ But be warned it may change over time.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container descriptor, which is the value returned by start\+Container call.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the json string on success, on failure an empty string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a2feab5106e69414974bcf5d1edaf3fc0}\label{classDobbyProxy_a2feab5106e69414974bcf5d1edaf3fc0}} 
+\index{DobbyProxy@{DobbyProxy}!getContainerState@{getContainerState}}
+\index{getContainerState@{getContainerState}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{getContainerState()}{getContainerState()}}
+{\footnotesize\ttfamily int Dobby\+Proxy\+::get\+Container\+State (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the current state of a container. 
+
+The container state will be one of the following values CONTAINER\+\_\+\+STATE\+\_\+\+INVALID CONTAINER\+\_\+\+STATE\+\_\+\+STARTING CONTAINER\+\_\+\+STATE\+\_\+\+RUNNING CONTAINER\+\_\+\+STATE\+\_\+\+STOPPING CONTAINER\+\_\+\+STATE\+\_\+\+PAUSED
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container descriptor, which is the value returned by start\+Container call.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success a positive state value, on failure -\/1. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a9d37b23554716f0cf50510f378d2b3c4}\label{classDobbyProxy_a9d37b23554716f0cf50510f378d2b3c4}} 
+\index{DobbyProxy@{DobbyProxy}!getOCIConfig@{getOCIConfig}}
+\index{getOCIConfig@{getOCIConfig}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{getOCIConfig()}{getOCIConfig()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Proxy\+::get\+OCIConfig (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Debugging utility to retrieve the config.\+json file for a running container (i.\+e. like the \textquotesingle{}virsh dumpxml\textquotesingle{} command). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container descriptor, which is the value returned by start\+Container call.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string containing the config.\+json, on failure an empty string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a525dfe85a7bdb6637cf2328ac1f7f4e5}\label{classDobbyProxy_a525dfe85a7bdb6637cf2328ac1f7f4e5}} 
+\index{DobbyProxy@{DobbyProxy}!getSpec@{getSpec}}
+\index{getSpec@{getSpec}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{getSpec()}{getSpec()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Proxy\+::get\+Spec (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Debugging utility to retrieve the original spec file for a running container (i.\+e. like the \textquotesingle{}virsh dumpxml\textquotesingle{} command). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container descriptor, which is the value returned by start\+Container call.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string containing the spec json, on failure an empty string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a7b7aa19a048e6b747e29a41cbf8a7083}\label{classDobbyProxy_a7b7aa19a048e6b747e29a41cbf8a7083}} 
+\index{DobbyProxy@{DobbyProxy}!invokeMethod@{invokeMethod}}
+\index{invokeMethod@{invokeMethod}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{invokeMethod()}{invokeMethod()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::invoke\+Method (\begin{DoxyParamCaption}\item[{const char $\ast$}]{interface\+\_\+,  }\item[{const char $\ast$}]{method\+\_\+,  }\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{params\+\_\+,  }\item[{AI\+\_\+\+IPC\+::\+Variant\+List \&}]{returns\+\_\+ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Invokes a dbus method on the daemon. 
+
+The method is invoked with the service name and object name that was set in the constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em interface\+\_\+} & The dbus interface name of the method \\
+\hline
+\mbox{\texttt{ in}}  & {\em method\+\_\+} & The dbus method name to invoke \\
+\hline
+\mbox{\texttt{ in}}  & {\em params\+\_\+} & The list of args to apply \\
+\hline
+\mbox{\texttt{ in}}  & {\em returns\+\_\+} & Reference variable that the results will be put in on success.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyProxy_a53db8681c2ac3ab16ea46e9b40c5531e}\label{classDobbyProxy_a53db8681c2ac3ab16ea46e9b40c5531e}} 
+\index{DobbyProxy@{DobbyProxy}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::is\+Alive (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::milliseconds \&}]{timeout }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks if the daemon is alive. 
+
+This function just polls on the service becoming available on the bus, the poll period is 20ms and it will keep polling until either the service is present or the timeout is exceeded.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timeout} & The number of milliseconds to wait for the service.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a7452c38ae573c622054284d366cb6bbe}\label{classDobbyProxy_a7452c38ae573c622054284d366cb6bbe}} 
+\index{DobbyProxy@{DobbyProxy}!listContainers@{listContainers}}
+\index{listContainers@{listContainers}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{listContainers()}{listContainers()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::pair$<$ int32\+\_\+t, std\+::string $>$ $>$ Dobby\+Proxy\+::list\+Containers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns a list of containers. 
+
+Each element in the returned list is a pair of container descriptor (integer) and the string id of the container.
+
+This returns a list of containers the daemon knows about, this is not necessarily only running containers, it will include containers that are in the starting and stopping states. To determine the state of a container use the {\itshape \mbox{\hyperlink{classDobbyProxy_a2feab5106e69414974bcf5d1edaf3fc0}{Dobby\+Proxy\+::get\+Container\+State}}} method.
+
+\begin{DoxyReturn}{Returns}
+a list of all known containers. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a2a8fa1aa8ba441348fefaa723dc69c63}\label{classDobbyProxy_a2a8fa1aa8ba441348fefaa723dc69c63}} 
+\index{DobbyProxy@{DobbyProxy}!onContainerStartedEvent@{onContainerStartedEvent}}
+\index{onContainerStartedEvent@{onContainerStartedEvent}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{onContainerStartedEvent()}{onContainerStartedEvent()}}
+{\footnotesize\ttfamily void Dobby\+Proxy\+::on\+Container\+Started\+Event (\begin{DoxyParamCaption}\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called when a org.\+rdk.\+dobby.\+ctrl1.\+Started event is received from the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}hypervisor\textquotesingle{} daemon. 
+
+We parse the event data and if it makes sense we bounce this event up to any listeners using the Notifier / Observer pattern.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em args} & The args sent with the event. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyProxy_afa636b7c9bedc4804e41956b62bb1b5f}\label{classDobbyProxy_afa636b7c9bedc4804e41956b62bb1b5f}} 
+\index{DobbyProxy@{DobbyProxy}!onContainerStoppedEvent@{onContainerStoppedEvent}}
+\index{onContainerStoppedEvent@{onContainerStoppedEvent}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{onContainerStoppedEvent()}{onContainerStoppedEvent()}}
+{\footnotesize\ttfamily void Dobby\+Proxy\+::on\+Container\+Stopped\+Event (\begin{DoxyParamCaption}\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called when a org.\+rdk.\+dobby.\+ctrl1.\+Stopped event is received from the \mbox{\hyperlink{classDobby}{Dobby}} \textquotesingle{}hypervisor\textquotesingle{} daemon. 
+
+We parse the event data and if it makes sense we bounce this event up to any listeners using the Notifier / Observer pattern.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em args} & The args sent with the event. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyProxy_a6443ae93e0ada41201b4d4fa6b84ee84}\label{classDobbyProxy_a6443ae93e0ada41201b4d4fa6b84ee84}} 
+\index{DobbyProxy@{DobbyProxy}!pauseContainer@{pauseContainer}}
+\index{pauseContainer@{pauseContainer}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{pauseContainer()}{pauseContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::pause\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Pauses the container with the descriptor (container integer id) 
+
+\begin{DoxyWarning}{Warning}
+A positive response doesn\textquotesingle{}t mean the container has paused, rather it means the container has successfully been asked to pause. To determine when a container has paused you need to observe the container status events.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container descriptor, which is the value returned by start\+Container call.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a5f768b3632f2f990878c872dd645470a}\label{classDobbyProxy_a5f768b3632f2f990878c872dd645470a}} 
+\index{DobbyProxy@{DobbyProxy}!ping@{ping}}
+\index{ping@{ping}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{ping()}{ping()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::ping (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Asks the daemon to send back a pong message. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a1a9706fc5d20064e94094290893da6b3}\label{classDobbyProxy_a1a9706fc5d20064e94094290893da6b3}} 
+\index{DobbyProxy@{DobbyProxy}!registerListener@{registerListener}}
+\index{registerListener@{registerListener}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{registerListener()}{registerListener()}}
+{\footnotesize\ttfamily int Dobby\+Proxy\+::register\+Listener (\begin{DoxyParamCaption}\item[{const State\+Change\+Listener \&}]{listener,  }\item[{const void $\ast$}]{cb\+Params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Installs a callback \textquotesingle{}listener\textquotesingle{} to be notified of changes to the state of the containers. 
+
+On success a positive id value will be returned for the listener, this should then be passed to unregister\+Listener(...) to release the listener.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em listener} & The callback to install. \\
+\hline
+\mbox{\texttt{ in}}  & {\em cb\+Params} & Pointer to custom parameters. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_abef77688fce01e6629e3278e620e3fc8}\label{classDobbyProxy_abef77688fce01e6629e3278e620e3fc8}} 
+\index{DobbyProxy@{DobbyProxy}!resumeContainer@{resumeContainer}}
+\index{resumeContainer@{resumeContainer}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{resumeContainer()}{resumeContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::resume\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Resumes the container with the descriptor (container integer id) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container descriptor, which is the value returned by start\+Container call.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_aaba48df151c644a10401ea8730cb42d5}\label{classDobbyProxy_aaba48df151c644a10401ea8730cb42d5}} 
+\index{DobbyProxy@{DobbyProxy}!setAIDbusAddress@{setAIDbusAddress}}
+\index{setAIDbusAddress@{setAIDbusAddress}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{setAIDbusAddress()}{setAIDbusAddress()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::set\+AIDbus\+Address (\begin{DoxyParamCaption}\item[{bool}]{private\+Bus,  }\item[{const std\+::string \&}]{address }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the AI dbus address for use by the containeriser. 
+
+The dobby daemon itself doesn\textquotesingle{}t use the AI dbuses, rather it stores them and provides the addresses to any plugins and any container that requested them in it\textquotesingle{}s spec file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em private\+Bus} & true if the address is for the AI private bus, otherwise the AI public bus. \\
+\hline
+\mbox{\texttt{ in}}  & {\em address} & The dbus address to set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_aa7af0151e6e5e9f1ecd0ffa874cb567f}\label{classDobbyProxy_aa7af0151e6e5e9f1ecd0ffa874cb567f}} 
+\index{DobbyProxy@{DobbyProxy}!setLogLevel@{setLogLevel}}
+\index{setLogLevel@{setLogLevel}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{setLogLevel()}{setLogLevel()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::set\+Log\+Level (\begin{DoxyParamCaption}\item[{int}]{level }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Simply sets the log level in the daemon. 
+
+The value should be one of the constants from the \mbox{\hyperlink{Logging_8h_source}{Logging.\+h}} header, i.\+e. \begin{DoxyVerb}AI_DEBUG_LEVEL_FATAL
+AI_DEBUG_LEVEL_ERROR
+AI_DEBUG_LEVEL_WARNING
+AI_DEBUG_LEVEL_MILESTONE
+AI_DEBUG_LEVEL_INFO
+AI_DEBUG_LEVEL_DEBUG
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em level} & The log level to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_afeba0730527740c51aeb67fcc3da0b79}\label{classDobbyProxy_afeba0730527740c51aeb67fcc3da0b79}} 
+\index{DobbyProxy@{DobbyProxy}!setLogMethod@{setLogMethod}}
+\index{setLogMethod@{setLogMethod}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{setLogMethod()}{setLogMethod()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::set\+Log\+Method (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{method,  }\item[{int}]{pipe\+Fd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the logging method used by the daemon. 
+
+By default the dobby daemon logs to syslog, by sending a valid pipe fd to the daemon it will switch to routing all it\textquotesingle{}s logs via the supplied pipe.
+
+This is typically called by \mbox{\hyperlink{classDobbyFactory}{Dobby\+Factory}} right after the daemon is launched.
+
+The log {\itshape method} should be one of the following values\+: \begin{DoxyVerb}DOBBY_LOG_NULL     : disable all diag based log output
+DOBBY_LOG_SYSLOG   : route diag logging to syslog
+DOBBY_LOG_ETHANLOG : route diag logging to the supplied pipe
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em method} & The log method to use. \\
+\hline
+\mbox{\texttt{ in}}  & {\em pipe\+Fd} & The write fd of the pipe.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_adb2caf66e375428571472df2b7784ff6}\label{classDobbyProxy_adb2caf66e375428571472df2b7784ff6}} 
+\index{DobbyProxy@{DobbyProxy}!shutdown@{shutdown}}
+\index{shutdown@{shutdown}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{shutdown()}{shutdown()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Asks the daemon to shut itself down. 
+
+The daemon is expected to reply with a value before shutting down.
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a4a3e69c29c230829a80d13653ec6f782}\label{classDobbyProxy_a4a3e69c29c230829a80d13653ec6f782}} 
+\index{DobbyProxy@{DobbyProxy}!startContainerFromBundle@{startContainerFromBundle}}
+\index{startContainerFromBundle@{startContainerFromBundle}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{startContainerFromBundle()}{startContainerFromBundle()}}
+{\footnotesize\ttfamily int32\+\_\+t Dobby\+Proxy\+::start\+Container\+From\+Bundle (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id,  }\item[{const std\+::string \&}]{bundle\+Path,  }\item[{const std\+::list$<$ int $>$ \&}]{files,  }\item[{const std\+::string \&}]{command = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const std\+::string \&}]{display\+Socket = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{env\+Vars = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Starts a container with the given id, bundle path and the list of files. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The string id of the container, this should not have any spaces and only container alphanumeric characters plus \textquotesingle{}.\textquotesingle{} and \textquotesingle{}-\/\textquotesingle{}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle\+Path} & Path to the container bundle. \\
+\hline
+\mbox{\texttt{ in}}  & {\em files} & An array of file descriptors to pass into the container construction, can be empty. \\
+\hline
+\mbox{\texttt{ in}}  & {\em command} & Custom command to run inside the container, overriding the args in the config file \\
+\hline
+\mbox{\texttt{ in}}  & {\em display\+Socket} & Path to the westeros display socket to mount into the container\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success a container descriptor which is a number greater than 0, on failure a negative error code. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_ad3dcdb24d55934fe0c801f254f2d0562}\label{classDobbyProxy_ad3dcdb24d55934fe0c801f254f2d0562}} 
+\index{DobbyProxy@{DobbyProxy}!startContainerFromSpec@{startContainerFromSpec}}
+\index{startContainerFromSpec@{startContainerFromSpec}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{startContainerFromSpec()}{startContainerFromSpec()}}
+{\footnotesize\ttfamily int32\+\_\+t Dobby\+Proxy\+::start\+Container\+From\+Spec (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id,  }\item[{const std\+::string \&}]{json\+Spec,  }\item[{const std\+::list$<$ int $>$ \&}]{files,  }\item[{const std\+::string \&}]{command = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const std\+::string \&}]{display\+Socket = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{env\+Vars = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Starts a container with the given id, json spec file and the list of files. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The string id of the container, this should not have any spaces and only container alphanumeric characters plus \textquotesingle{}.\textquotesingle{} and \textquotesingle{}-\/\textquotesingle{}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Spec} & The (large) string containing the json formatted container spec. \\
+\hline
+\mbox{\texttt{ in}}  & {\em files} & An array of file descriptors to pass into the container construction, can be empty. \\
+\hline
+\mbox{\texttt{ in}}  & {\em command} & Custom command to run inside the container, overriding the args in the config file \\
+\hline
+\mbox{\texttt{ in}}  & {\em display\+Socket} & Path to the westeros display socket to mount into the container\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success a container descriptor which is a number greater than 0, on failure a negative error code. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a9aee125b40e6052f53735a349803aa55}\label{classDobbyProxy_a9aee125b40e6052f53735a349803aa55}} 
+\index{DobbyProxy@{DobbyProxy}!stopContainer@{stopContainer}}
+\index{stopContainer@{stopContainer}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{stopContainer()}{stopContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Proxy\+::stop\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd,  }\item[{bool}]{with\+Prejudice }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Stops the container with the descriptor (container integer id) 
+
+\begin{DoxyWarning}{Warning}
+A positive response doesn\textquotesingle{}t mean the container has stopped, rather it means the container has successfully been asked to stop. To determine when a container has stopped you need to observe the container status events.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container descriptor, which is the value returned by start\+Container call. \\
+\hline
+\mbox{\texttt{ in}}  & {\em with\+Prejudice} & If true the container is terminated using a SIGKILL, the default is false in which case the container is asked to close with a SIGTERM.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+\mbox{\Hypertarget{classDobbyProxy_a04ef305552bbaf59ecfd4b93a9f1d0bb}\label{classDobbyProxy_a04ef305552bbaf59ecfd4b93a9f1d0bb}} 
+\index{DobbyProxy@{DobbyProxy}!unregisterListener@{unregisterListener}}
+\index{unregisterListener@{unregisterListener}!DobbyProxy@{DobbyProxy}}
+\doxysubsubsection{\texorpdfstring{unregisterListener()}{unregisterListener()}}
+{\footnotesize\ttfamily void Dobby\+Proxy\+::unregister\+Listener (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Unregisters a listener previously registered. 
+
+Do no call this from the context of a listener callback.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the listener returned by register\+Listener. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIDobbyProxy}{IDobby\+Proxy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+client/lib/include/Dobby\+Proxy.\+h\item 
+client/lib/source/Dobby\+Proxy.\+cpp\end{DoxyCompactItemize}

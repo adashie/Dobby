@@ -1,0 +1,45 @@
+\hypertarget{structIDobbySettings_1_1HardwareAccessSettings}{}\doxysection{IDobby\+Settings\+::Hardware\+Access\+Settings Struct Reference}
+\label{structIDobbySettings_1_1HardwareAccessSettings}\index{IDobbySettings::HardwareAccessSettings@{IDobbySettings::HardwareAccessSettings}}
+
+
+{\ttfamily \#include $<$IDobby\+Settings.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structIDobbySettings_1_1HardwareAccessSettings_af5e50e5397accb19265fe237c7f4acc0}\label{structIDobbySettings_1_1HardwareAccessSettings_af5e50e5397accb19265fe237c7f4acc0}} 
+std\+::list$<$ std\+::string $>$ {\bfseries device\+Nodes}
+\item 
+\mbox{\Hypertarget{structIDobbySettings_1_1HardwareAccessSettings_aa6722a5d328ee9669b28cb9e5afe01b3}\label{structIDobbySettings_1_1HardwareAccessSettings_aa6722a5d328ee9669b28cb9e5afe01b3}} 
+std\+::set$<$ int $>$ {\bfseries group\+Ids}
+\item 
+\mbox{\Hypertarget{structIDobbySettings_1_1HardwareAccessSettings_a4e3b1b1d41895c18c11633b14553df35}\label{structIDobbySettings_1_1HardwareAccessSettings_a4e3b1b1d41895c18c11633b14553df35}} 
+std\+::list$<$ \mbox{\hyperlink{structIDobbySettings_1_1ExtraMount}{Extra\+Mount}} $>$ {\bfseries extra\+Mounts}
+\item 
+\mbox{\Hypertarget{structIDobbySettings_1_1HardwareAccessSettings_a361ec0bb1edb596fe4e061c6141ef5ab}\label{structIDobbySettings_1_1HardwareAccessSettings_a361ec0bb1edb596fe4e061c6141ef5ab}} 
+std\+::map$<$ std\+::string, std\+::string $>$ {\bfseries extra\+Env\+Variables}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Describes the details of anything extra needed to enable access to certain hardware blocks, like the GPU or VPU. \begin{DoxyVerb}- deviceNodes
+    List of extra device nodes that need to be mapped into
+    the container to allow the apps to use the H/W.
+- groupIds
+    The group id that the app needs to be in to access the
+    H/W device nodes. If not empty then the containered app will be
+    in that supplementary group(s).
+- extraMounts
+    The details of any additional mounts required to access
+    the H/W. For example this is used on nexus platforms to map in
+    the nexus server socket.  This can also be used to map in
+    extra files / sockets used by the software.
+- extraEnvVariables
+    A list of extra environment variables that will be set for all
+    containers if the given H/W access is requested.
+\end{DoxyVerb}
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+settings/include/IDobby\+Settings.\+h\end{DoxyCompactItemize}

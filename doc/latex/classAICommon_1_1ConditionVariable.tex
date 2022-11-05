@@ -1,0 +1,64 @@
+\hypertarget{classAICommon_1_1ConditionVariable}{}\doxysection{AICommon\+::Condition\+Variable Class Reference}
+\label{classAICommon_1_1ConditionVariable}\index{AICommon::ConditionVariable@{AICommon::ConditionVariable}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a632bea61a03658c0b01faf91ecb8b819}\label{classAICommon_1_1ConditionVariable_a632bea61a03658c0b01faf91ecb8b819}} 
+typedef pthread\+\_\+cond\+\_\+t $\ast$ {\bfseries native\+\_\+handle\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_ab851a60ad0479e1efdbcc25d56afb7af}\label{classAICommon_1_1ConditionVariable_ab851a60ad0479e1efdbcc25d56afb7af}} 
+{\bfseries Condition\+Variable} (const \mbox{\hyperlink{classAICommon_1_1ConditionVariable}{Condition\+Variable}} \&)=delete
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a65f8b35ead69c0e416eddf319748dc48}\label{classAICommon_1_1ConditionVariable_a65f8b35ead69c0e416eddf319748dc48}} 
+{\bfseries Condition\+Variable} (const \mbox{\hyperlink{classAICommon_1_1ConditionVariable}{Condition\+Variable}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_ad802445fa0055c3303a0a27a37b3662e}\label{classAICommon_1_1ConditionVariable_ad802445fa0055c3303a0a27a37b3662e}} 
+void {\bfseries notify\+\_\+one} ()
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a2e00feda14cbdcee2b69b74b043fb4bc}\label{classAICommon_1_1ConditionVariable_a2e00feda14cbdcee2b69b74b043fb4bc}} 
+void {\bfseries notify\+\_\+all} ()
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a0bcf5ef814ef7e626051699f171645f9}\label{classAICommon_1_1ConditionVariable_a0bcf5ef814ef7e626051699f171645f9}} 
+void {\bfseries wait} (std\+::unique\+\_\+lock$<$ \mbox{\hyperlink{classAICommon_1_1Mutex}{AICommon\+::\+Mutex}} $>$ \&lock)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a39b12fcd961345ae79577a86142b86a8}\label{classAICommon_1_1ConditionVariable_a39b12fcd961345ae79577a86142b86a8}} 
+{\footnotesize template$<$class Predicate $>$ }\\void {\bfseries wait} (std\+::unique\+\_\+lock$<$ \mbox{\hyperlink{classAICommon_1_1Mutex}{AICommon\+::\+Mutex}} $>$ \&lock, Predicate pred)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a080a1e1cbeb05d45697fee8fc233b28f}\label{classAICommon_1_1ConditionVariable_a080a1e1cbeb05d45697fee8fc233b28f}} 
+{\footnotesize template$<$class Rep , class Period $>$ }\\std\+::cv\+\_\+status {\bfseries wait\+\_\+for} (std\+::unique\+\_\+lock$<$ \mbox{\hyperlink{classAICommon_1_1Mutex}{AICommon\+::\+Mutex}} $>$ \&lock, const std\+::chrono\+::duration$<$ Rep, Period $>$ \&rel\+\_\+time)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a634b17e76b0ba4bcc0f2e17edc9aa78a}\label{classAICommon_1_1ConditionVariable_a634b17e76b0ba4bcc0f2e17edc9aa78a}} 
+{\footnotesize template$<$class Rep , class Period , class Predicate $>$ }\\bool {\bfseries wait\+\_\+for} (std\+::unique\+\_\+lock$<$ \mbox{\hyperlink{classAICommon_1_1Mutex}{AICommon\+::\+Mutex}} $>$ \&lock, const std\+::chrono\+::duration$<$ Rep, Period $>$ \&rel\+\_\+time, Predicate pred)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_ad88c6e78b079cc88cda3e66f0fc05938}\label{classAICommon_1_1ConditionVariable_ad88c6e78b079cc88cda3e66f0fc05938}} 
+std\+::cv\+\_\+status {\bfseries wait\+\_\+until} (std\+::unique\+\_\+lock$<$ \mbox{\hyperlink{classAICommon_1_1Mutex}{AICommon\+::\+Mutex}} $>$ \&lock, const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::steady\+\_\+clock $>$ \&timeout\+\_\+time)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a3c884f260a058344c1380a445b94e65d}\label{classAICommon_1_1ConditionVariable_a3c884f260a058344c1380a445b94e65d}} 
+{\footnotesize template$<$class Predicate $>$ }\\bool {\bfseries wait\+\_\+until} (std\+::unique\+\_\+lock$<$ \mbox{\hyperlink{classAICommon_1_1Mutex}{AICommon\+::\+Mutex}} $>$ \&lock, const std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::steady\+\_\+clock $>$ \&timeout\+\_\+time, Predicate pred)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a41f807069c69bdff6bcd45412ef1601f}\label{classAICommon_1_1ConditionVariable_a41f807069c69bdff6bcd45412ef1601f}} 
+native\+\_\+handle\+\_\+type {\bfseries native\+\_\+handle} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a321a895f205e7b65a56a5dd4ffc99d9b}\label{classAICommon_1_1ConditionVariable_a321a895f205e7b65a56a5dd4ffc99d9b}} 
+struct timespec {\bfseries calc\+Timeout\+Abs} (const std\+::chrono\+::nanoseconds \&rel\+\_\+time)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a8e6c80d8adef3c8a7e8792dfcc5bf830}\label{classAICommon_1_1ConditionVariable_a8e6c80d8adef3c8a7e8792dfcc5bf830}} 
+struct timespec {\bfseries calc\+Timeout\+Rel} (const std\+::chrono\+::nanoseconds \&rel\+\_\+time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1ConditionVariable_a0da5e7c573d7f73ec0759307363ca759}\label{classAICommon_1_1ConditionVariable_a0da5e7c573d7f73ec0759307363ca759}} 
+pthread\+\_\+cond\+\_\+t {\bfseries m\+Cond}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Common/include/Condition\+Variable.\+h\end{DoxyCompactItemize}

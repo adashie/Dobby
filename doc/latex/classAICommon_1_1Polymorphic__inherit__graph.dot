@@ -1,0 +1,26 @@
+digraph "AICommon::Polymorphic"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="AICommon::Polymorphic",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Inherit from this from all types that have virtual functions."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="AICommon::Notifier\l\< StateEvents \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1Notifier.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Observee",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObservee.html",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="AICommon::Notifier\l\< IDobbyProxyEvents \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1Notifier.html",tooltip=" "];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="IDobbyProxy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIDobbyProxy.html",tooltip="Wrapper around an IpcService object that provides simpler method calls to the Dobby 'hypervisor' daem..."];
+  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="DobbyProxy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDobbyProxy.html",tooltip="Wrapper around an IpcService object that provides simpler method calls to the dobby daemon."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="AICommon::IDispatcher",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1IDispatcher.html",tooltip="A dispatcher interface."];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="AICommon::ThreadedDispatcher",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1ThreadedDispatcher.html",tooltip="A dispatcher that does all the work on a single, separate thread started in constructor."];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="DobbyProxyNotifyDispatcher",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDobbyProxyNotifyDispatcher.html",tooltip=" "];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="AICommon::Notifier\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1Notifier.html",tooltip="A template of observable objects that send notifications defined in interface T."];
+}

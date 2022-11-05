@@ -1,0 +1,186 @@
+\hypertarget{classLoopMountDetails}{}\doxysection{Loop\+Mount\+Details Class Reference}
+\label{classLoopMountDetails}\index{LoopMountDetails@{LoopMountDetails}}
+
+
+Class that represents a single loop mount within a container.  
+
+
+
+
+{\ttfamily \#include $<$Loop\+Mount\+Details.\+h$>$}
+
+
+
+Collaboration diagram for Loop\+Mount\+Details\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_ac5b032e50150d20c34d387369249c885}\label{classLoopMountDetails_ac5b032e50150d20c34d387369249c885}} 
+{\bfseries Loop\+Mount\+Details} (\mbox{\hyperlink{classLoopMountDetails}{Loop\+Mount\+Details}} \&)=delete
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_a346c607a94dfeb8584166f09cb5bcfbd}\label{classLoopMountDetails_a346c607a94dfeb8584166f09cb5bcfbd}} 
+{\bfseries Loop\+Mount\+Details} (\mbox{\hyperlink{classLoopMountDetails}{Loop\+Mount\+Details}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_aea7fb5d43a4c895363cc03e622e4edce}\label{classLoopMountDetails_aea7fb5d43a4c895363cc03e622e4edce}} 
+{\bfseries Loop\+Mount\+Details} (const std\+::string \&rootfs\+Path, const \mbox{\hyperlink{struct__LoopMountProperties}{Loop\+Mount\+Properties}} \&mount, const uid\+\_\+t \&user\+Id, const gid\+\_\+t \&group\+Id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils)
+\item 
+bool \mbox{\hyperlink{classLoopMountDetails_a5b00cd8196c0174f5ff0eec33124b535}{do\+Loop\+Mount}} (const std\+::string \&loop\+Device)
+\begin{DoxyCompactList}\small\item\em Performs the loop mount, this should be called prior to the container being runned. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLoopMountDetails_a1ab48c62fd8bf65e0387fe3d06a9304e}{on\+Pre\+Create}} ()
+\begin{DoxyCompactList}\small\item\em Opens the data.\+img file and mounts it to temp location inside container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLoopMountDetails_a2513f26829fab31e743c50ca7637af6b}{set\+Permissions}} ()
+\begin{DoxyCompactList}\small\item\em Sets permissions for container to access directories. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLoopMountDetails_aba61aa0c59bd6c0584bbdf1f7b170c11}{remount\+Temp\+Directory}} ()
+\begin{DoxyCompactList}\small\item\em Mounts temp directory into desired one, then cleans old files. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLoopMountDetails_acf691babb6b8516111837cea391583e8}{cleanup\+Temp\+Directory}} ()
+\begin{DoxyCompactList}\small\item\em Cleans up temp mount and directory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLoopMountDetails_a2819746616555df4237276a89169b5c6}{remove\+Non\+Persistent\+Image}} ()
+\begin{DoxyCompactList}\small\item\em Checks if image should be non persistent and if so remove it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRefCountFile}{Ref\+Count\+File}} $>$ \mbox{\hyperlink{classLoopMountDetails_aed9bac69f57ed6dba728df38ec5d31d9}{get\+Ref\+Count\+File}} ()
+\begin{DoxyCompactList}\small\item\em Open the reference count file for the data.\+img file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_a3aa54b63c9b1c77ca2a0fb02cded70d8}\label{classLoopMountDetails_a3aa54b63c9b1c77ca2a0fb02cded70d8}} 
+std\+::string {\bfseries m\+Mount\+Point\+Inside\+Container}
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_a8ad66a36568b8eb04fa30f1d399eb319}\label{classLoopMountDetails_a8ad66a36568b8eb04fa30f1d399eb319}} 
+std\+::string {\bfseries m\+Temp\+Mount\+Point\+Outside\+Container}
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_a1cdc320ec63fe48968c2e3e8e6fdbbbb}\label{classLoopMountDetails_a1cdc320ec63fe48968c2e3e8e6fdbbbb}} 
+\mbox{\hyperlink{struct__LoopMountProperties}{Loop\+Mount\+Properties}} {\bfseries m\+Mount}
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_a87edcc634651b4ebbfe4f31490db6219}\label{classLoopMountDetails_a87edcc634651b4ebbfe4f31490db6219}} 
+uid\+\_\+t {\bfseries m\+User\+Id}
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_a58cb80e66b6e313aaf3d4448b92ba200}\label{classLoopMountDetails_a58cb80e66b6e313aaf3d4448b92ba200}} 
+gid\+\_\+t {\bfseries m\+Group\+Id}
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_ac4887d883e1bbd52cdf2d5d015757a71}\label{classLoopMountDetails_ac4887d883e1bbd52cdf2d5d015757a71}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLoopMountDetails_ab647623b3295040f83d3afb2a502a223}\label{classLoopMountDetails_ab647623b3295040f83d3afb2a502a223}} 
+class {\bfseries Storage}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that represents a single loop mount within a container. 
+
+This class is only intended to be used internally by \mbox{\hyperlink{classStorage}{Storage}} plugin do not use from external code.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classStorage}{Storage}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLoopMountDetails_acf691babb6b8516111837cea391583e8}\label{classLoopMountDetails_acf691babb6b8516111837cea391583e8}} 
+\index{LoopMountDetails@{LoopMountDetails}!cleanupTempDirectory@{cleanupTempDirectory}}
+\index{cleanupTempDirectory@{cleanupTempDirectory}!LoopMountDetails@{LoopMountDetails}}
+\doxysubsubsection{\texorpdfstring{cleanupTempDirectory()}{cleanupTempDirectory()}}
+{\footnotesize\ttfamily bool Loop\+Mount\+Details\+::cleanup\+Temp\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cleans up temp mount and directory. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoopMountDetails_a5b00cd8196c0174f5ff0eec33124b535}\label{classLoopMountDetails_a5b00cd8196c0174f5ff0eec33124b535}} 
+\index{LoopMountDetails@{LoopMountDetails}!doLoopMount@{doLoopMount}}
+\index{doLoopMount@{doLoopMount}!LoopMountDetails@{LoopMountDetails}}
+\doxysubsubsection{\texorpdfstring{doLoopMount()}{doLoopMount()}}
+{\footnotesize\ttfamily bool Loop\+Mount\+Details\+::do\+Loop\+Mount (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{loop\+Device }\end{DoxyParamCaption})}
+
+
+
+Performs the loop mount, this should be called prior to the container being runned. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em loop\+Device} & The loop device to mount.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoopMountDetails_aed9bac69f57ed6dba728df38ec5d31d9}\label{classLoopMountDetails_aed9bac69f57ed6dba728df38ec5d31d9}} 
+\index{LoopMountDetails@{LoopMountDetails}!getRefCountFile@{getRefCountFile}}
+\index{getRefCountFile@{getRefCountFile}!LoopMountDetails@{LoopMountDetails}}
+\doxysubsubsection{\texorpdfstring{getRefCountFile()}{getRefCountFile()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classRefCountFile}{Ref\+Count\+File}} $>$ Loop\+Mount\+Details\+::get\+Ref\+Count\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Open the reference count file for the data.\+img file. 
+
+\begin{DoxyReturn}{Returns}
+unique\+\_\+ptr to reference count file, nullptr on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoopMountDetails_a1ab48c62fd8bf65e0387fe3d06a9304e}\label{classLoopMountDetails_a1ab48c62fd8bf65e0387fe3d06a9304e}} 
+\index{LoopMountDetails@{LoopMountDetails}!onPreCreate@{onPreCreate}}
+\index{onPreCreate@{onPreCreate}!LoopMountDetails@{LoopMountDetails}}
+\doxysubsubsection{\texorpdfstring{onPreCreate()}{onPreCreate()}}
+{\footnotesize\ttfamily bool Loop\+Mount\+Details\+::on\+Pre\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Opens the data.\+img file and mounts it to temp location inside container. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoopMountDetails_aba61aa0c59bd6c0584bbdf1f7b170c11}\label{classLoopMountDetails_aba61aa0c59bd6c0584bbdf1f7b170c11}} 
+\index{LoopMountDetails@{LoopMountDetails}!remountTempDirectory@{remountTempDirectory}}
+\index{remountTempDirectory@{remountTempDirectory}!LoopMountDetails@{LoopMountDetails}}
+\doxysubsubsection{\texorpdfstring{remountTempDirectory()}{remountTempDirectory()}}
+{\footnotesize\ttfamily bool Loop\+Mount\+Details\+::remount\+Temp\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Mounts temp directory into desired one, then cleans old files. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoopMountDetails_a2819746616555df4237276a89169b5c6}\label{classLoopMountDetails_a2819746616555df4237276a89169b5c6}} 
+\index{LoopMountDetails@{LoopMountDetails}!removeNonPersistentImage@{removeNonPersistentImage}}
+\index{removeNonPersistentImage@{removeNonPersistentImage}!LoopMountDetails@{LoopMountDetails}}
+\doxysubsubsection{\texorpdfstring{removeNonPersistentImage()}{removeNonPersistentImage()}}
+{\footnotesize\ttfamily bool Loop\+Mount\+Details\+::remove\+Non\+Persistent\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if image should be non persistent and if so remove it. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoopMountDetails_a2513f26829fab31e743c50ca7637af6b}\label{classLoopMountDetails_a2513f26829fab31e743c50ca7637af6b}} 
+\index{LoopMountDetails@{LoopMountDetails}!setPermissions@{setPermissions}}
+\index{setPermissions@{setPermissions}!LoopMountDetails@{LoopMountDetails}}
+\doxysubsubsection{\texorpdfstring{setPermissions()}{setPermissions()}}
+{\footnotesize\ttfamily bool Loop\+Mount\+Details\+::set\+Permissions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets permissions for container to access directories. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Storage/source/Loop\+Mount\+Details.\+h\item 
+rdk\+Plugins/\+Storage/source/Loop\+Mount\+Details.\+cpp\end{DoxyCompactItemize}

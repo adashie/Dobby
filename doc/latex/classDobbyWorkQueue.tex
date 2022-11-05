@@ -1,0 +1,162 @@
+\hypertarget{classDobbyWorkQueue}{}\doxysection{Dobby\+Work\+Queue Class Reference}
+\label{classDobbyWorkQueue}\index{DobbyWorkQueue@{DobbyWorkQueue}}
+
+
+Collaboration diagram for Dobby\+Work\+Queue\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDobbyWorkQueue_1_1WorkItem}{Work\+Item}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_a6cc5a70954e7680e155db1245b18e1f8}\label{classDobbyWorkQueue_a6cc5a70954e7680e155db1245b18e1f8}} 
+using {\bfseries Work\+Func} = std\+::function$<$ void()$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDobbyWorkQueue_ab3fbfcdf38375c192283d13bd1a31d0b}{run}} ()
+\begin{DoxyCompactList}\small\item\em Runs the event loop. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyWorkQueue_af3d60b56633fc65144c9415b9f22e027}{run\+For}} (const std\+::chrono\+::milliseconds \&msecs)
+\begin{DoxyCompactList}\small\item\em Runs the event loop for msecs milliseconds. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyWorkQueue_a88ce57845b728cb1e1a2e35089ce77f2}{run\+Until}} (const std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \&deadline)
+\begin{DoxyCompactList}\small\item\em Runs the event loop until the deadline time passes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_a4be37ea8c2d1936c4fe65f39b6cc6648}\label{classDobbyWorkQueue_a4be37ea8c2d1936c4fe65f39b6cc6648}} 
+void \mbox{\hyperlink{classDobbyWorkQueue_a4be37ea8c2d1936c4fe65f39b6cc6648}{exit}} ()
+\begin{DoxyCompactList}\small\item\em Unblocks the run\+XXX functions. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyWorkQueue_adda78023759c3d7e4d4e44583055d506}{do\+Work}} (Work\+Func \&\&work)
+\begin{DoxyCompactList}\small\item\em Posts a work job onto the queue and waits till it completes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyWorkQueue_abcefeb1b430b1eccd2213103e9f58c97}{post\+Work}} (Work\+Func \&\&work)
+\begin{DoxyCompactList}\small\item\em Posts a work job onto the queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_a5eb88ce2b43422641ab9f0d819862904}\label{classDobbyWorkQueue_a5eb88ce2b43422641ab9f0d819862904}} 
+uint64\+\_\+t {\bfseries m\+Work\+Counter}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_a351cf5f60f21e4099dd38fe742f20c0a}\label{classDobbyWorkQueue_a351cf5f60f21e4099dd38fe742f20c0a}} 
+bool {\bfseries m\+Exit\+Requested}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_ac2eb0278a4b1f41246190852fb002d5b}\label{classDobbyWorkQueue_ac2eb0278a4b1f41246190852fb002d5b}} 
+std\+::atomic$<$ std\+::thread\+::id $>$ {\bfseries m\+Running\+Thread\+Id}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_a9138ab7ea229dcbca3272600a50dbcb6}\label{classDobbyWorkQueue_a9138ab7ea229dcbca3272600a50dbcb6}} 
+\mbox{\hyperlink{classAICommon_1_1Mutex}{AICommon\+::\+Mutex}} {\bfseries m\+Work\+Queue\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_ae087bc9f2ab00368f870d0e087d202a6}\label{classDobbyWorkQueue_ae087bc9f2ab00368f870d0e087d202a6}} 
+\mbox{\hyperlink{classAICommon_1_1ConditionVariable}{AICommon\+::\+Condition\+Variable}} {\bfseries m\+Work\+Queue\+Cond}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_a95f8d80c242fb269ef0f8672b0af8d4a}\label{classDobbyWorkQueue_a95f8d80c242fb269ef0f8672b0af8d4a}} 
+std\+::queue$<$ \mbox{\hyperlink{structDobbyWorkQueue_1_1WorkItem}{Work\+Item}} $>$ {\bfseries m\+Work\+Queue}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_ad9b331c06cd2d62b57a044db916bee25}\label{classDobbyWorkQueue_ad9b331c06cd2d62b57a044db916bee25}} 
+\mbox{\hyperlink{classAICommon_1_1Mutex}{AICommon\+::\+Mutex}} {\bfseries m\+Work\+Complete\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_a54507ee30187c5802258cde8f455bb35}\label{classDobbyWorkQueue_a54507ee30187c5802258cde8f455bb35}} 
+\mbox{\hyperlink{classAICommon_1_1ConditionVariable}{AICommon\+::\+Condition\+Variable}} {\bfseries m\+Work\+Complete\+Cond}
+\item 
+\mbox{\Hypertarget{classDobbyWorkQueue_ac352dfbdf16e495f01475c758233e4b0}\label{classDobbyWorkQueue_ac352dfbdf16e495f01475c758233e4b0}} 
+uint64\+\_\+t {\bfseries m\+Work\+Complete\+Counter}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyWorkQueue_adda78023759c3d7e4d4e44583055d506}\label{classDobbyWorkQueue_adda78023759c3d7e4d4e44583055d506}} 
+\index{DobbyWorkQueue@{DobbyWorkQueue}!doWork@{doWork}}
+\index{doWork@{doWork}!DobbyWorkQueue@{DobbyWorkQueue}}
+\doxysubsubsection{\texorpdfstring{doWork()}{doWork()}}
+{\footnotesize\ttfamily bool Dobby\+Work\+Queue\+::do\+Work (\begin{DoxyParamCaption}\item[{Work\+Func \&\&}]{work }\end{DoxyParamCaption})}
+
+
+
+Posts a work job onto the queue and waits till it completes. 
+
+This queues the work item and then returns. It is thread safe, it is safe to call from the thread running the event loop or from another thread.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em work} & The work function to execute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyWorkQueue_abcefeb1b430b1eccd2213103e9f58c97}\label{classDobbyWorkQueue_abcefeb1b430b1eccd2213103e9f58c97}} 
+\index{DobbyWorkQueue@{DobbyWorkQueue}!postWork@{postWork}}
+\index{postWork@{postWork}!DobbyWorkQueue@{DobbyWorkQueue}}
+\doxysubsubsection{\texorpdfstring{postWork()}{postWork()}}
+{\footnotesize\ttfamily bool Dobby\+Work\+Queue\+::post\+Work (\begin{DoxyParamCaption}\item[{Work\+Func \&\&}]{work }\end{DoxyParamCaption})}
+
+
+
+Posts a work job onto the queue. 
+
+This just queues the work item and then returns. It is thread safe, it is safe to call from the thread running the event loop or from another thread.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em work} & The work function to execute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyWorkQueue_ab3fbfcdf38375c192283d13bd1a31d0b}\label{classDobbyWorkQueue_ab3fbfcdf38375c192283d13bd1a31d0b}} 
+\index{DobbyWorkQueue@{DobbyWorkQueue}!run@{run}}
+\index{run@{run}!DobbyWorkQueue@{DobbyWorkQueue}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Dobby\+Work\+Queue\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Runs the event loop. 
+
+This will block -\/ running the event loop until \mbox{\hyperlink{classDobbyWorkQueue_a4be37ea8c2d1936c4fe65f39b6cc6648}{exit()}} is called. \mbox{\Hypertarget{classDobbyWorkQueue_af3d60b56633fc65144c9415b9f22e027}\label{classDobbyWorkQueue_af3d60b56633fc65144c9415b9f22e027}} 
+\index{DobbyWorkQueue@{DobbyWorkQueue}!runFor@{runFor}}
+\index{runFor@{runFor}!DobbyWorkQueue@{DobbyWorkQueue}}
+\doxysubsubsection{\texorpdfstring{runFor()}{runFor()}}
+{\footnotesize\ttfamily bool Dobby\+Work\+Queue\+::run\+For (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::milliseconds \&}]{msecs }\end{DoxyParamCaption})}
+
+
+
+Runs the event loop for msecs milliseconds. 
+
+This will block -\/ running the event loop for a fixed amount of time. This will return when either the timeout expires or \mbox{\hyperlink{classDobbyWorkQueue_a4be37ea8c2d1936c4fe65f39b6cc6648}{exit()}} is called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em deadline} & The deadline time.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyWorkQueue_a88ce57845b728cb1e1a2e35089ce77f2}\label{classDobbyWorkQueue_a88ce57845b728cb1e1a2e35089ce77f2}} 
+\index{DobbyWorkQueue@{DobbyWorkQueue}!runUntil@{runUntil}}
+\index{runUntil@{runUntil}!DobbyWorkQueue@{DobbyWorkQueue}}
+\doxysubsubsection{\texorpdfstring{runUntil()}{runUntil()}}
+{\footnotesize\ttfamily bool Dobby\+Work\+Queue\+::run\+Until (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \&}]{deadline }\end{DoxyParamCaption})}
+
+
+
+Runs the event loop until the deadline time passes. 
+
+This will block -\/ running the event loop for a fixed amount of time. This will return when either the timeout expires or \mbox{\hyperlink{classDobbyWorkQueue_a4be37ea8c2d1936c4fe65f39b6cc6648}{exit()}} is called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em deadline} & The deadline time.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Work\+Queue.\+h\item 
+daemon/lib/source/Dobby\+Work\+Queue.\+cpp\end{DoxyCompactItemize}

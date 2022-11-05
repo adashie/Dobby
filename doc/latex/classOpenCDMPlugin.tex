@@ -1,0 +1,185 @@
+\hypertarget{classOpenCDMPlugin}{}\doxysection{Open\+CDMPlugin Class Reference}
+\label{classOpenCDMPlugin}\index{OpenCDMPlugin@{OpenCDMPlugin}}
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} plugin for creating the necessary OCDM buffers.  
+
+
+
+
+{\ttfamily \#include $<$Open\+CDMPlugin.\+h$>$}
+
+
+
+Inheritance diagram for Open\+CDMPlugin\+:
+% FIG 0
+
+
+Collaboration diagram for Open\+CDMPlugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOpenCDMPlugin_a486a17f1f02ad0f7afeb959d46c405de}\label{classOpenCDMPlugin_a486a17f1f02ad0f7afeb959d46c405de}} 
+{\bfseries Open\+CDMPlugin} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&env, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils)
+\item 
+std\+::string \mbox{\hyperlink{classOpenCDMPlugin_abf8fce644dea919860c1ddb097ff38c3}{name}} () const final
+\begin{DoxyCompactList}\small\item\em Boilerplate that just returns the name of the hook. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classOpenCDMPlugin_a9a551002f32f9bca161ecb1be4a93081}{hook\+Hints}} () const final
+\begin{DoxyCompactList}\small\item\em Indicates which hook points we want and whether to run the asynchronously or synchronously with the other hooks. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classOpenCDMPlugin_a76eb88625736e186937c6b1dec4b04a4}{post\+Construction}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&startup\+State, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) final
+\begin{DoxyCompactList}\small\item\em Creates the required temp files for WPE browser to launch and decrypt content. The files are created in the host filesystem and then mounted into the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classOpenCDMPlugin_a5e3a7b2ca95f8c6ee519512713b2a590}{ocdm\+Buffer\+Path}} (unsigned buffer\+Num) const
+\begin{DoxyCompactList}\small\item\em Returns the file path of the OCDMBuffer corresponding to the specified buffer number. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classOpenCDMPlugin_a1f1406aa3b32696eedd31313c19e9ca2}{ocdm\+Buffer\+Admin\+Path}} (unsigned buffer\+Num) const
+\begin{DoxyCompactList}\small\item\em Returns the file path of the OCDM admin Buffer corresponding to the specified buffer number. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classOpenCDMPlugin_aa9af36b96ec56e82507d49a6d41334fb}{write\+File\+If\+Not\+Exists}} (const std\+::string \&file\+Path) const
+\begin{DoxyCompactList}\small\item\em Checks if the specified file exists then creates a blank file with permissions 0760 it if it doesn\textquotesingle{}t exist. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classOpenCDMPlugin_abdec6f9601dd4395d1bd6ec68147cd8f}{enable\+Tmp\+OCDMDir}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&startup\+State) const
+\begin{DoxyCompactList}\small\item\em Ensures the /tmp/\+OCDM directory exists and has permissions so accessible by apps but not (directory) writeable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOpenCDMPlugin_ad1e1be4f8dfcd8917f103f759894a9b6}\label{classOpenCDMPlugin_ad1e1be4f8dfcd8917f103f759894a9b6}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classOpenCDMPlugin_affbe3654ef3c04aac96fa00d2b25bb9d}\label{classOpenCDMPlugin_affbe3654ef3c04aac96fa00d2b25bb9d}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classOpenCDMPlugin_aade44e9492d22c4137e4f555d221aa9f}\label{classOpenCDMPlugin_aade44e9492d22c4137e4f555d221aa9f}} 
+const gid\+\_\+t {\bfseries m\+Apps\+Group\+Id}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDobby}{Dobby}} plugin for creating the necessary OCDM buffers. 
+
+To launch the WPE runtime, various Open\+CDM temporary files and sockets are needed inside the /tmp directory to allow decryption of DRM content to take place using the OCDMi plugin.
+
+RunC cannot mount files that don\textquotesingle{}t exist, so we need to create the files before we can launch the container 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOpenCDMPlugin_abdec6f9601dd4395d1bd6ec68147cd8f}\label{classOpenCDMPlugin_abdec6f9601dd4395d1bd6ec68147cd8f}} 
+\index{OpenCDMPlugin@{OpenCDMPlugin}!enableTmpOCDMDir@{enableTmpOCDMDir}}
+\index{enableTmpOCDMDir@{enableTmpOCDMDir}!OpenCDMPlugin@{OpenCDMPlugin}}
+\doxysubsubsection{\texorpdfstring{enableTmpOCDMDir()}{enableTmpOCDMDir()}}
+{\footnotesize\ttfamily bool Open\+CDMPlugin\+::enable\+Tmp\+OCDMDir (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&}]{startup\+State }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ensures the /tmp/\+OCDM directory exists and has permissions so accessible by apps but not (directory) writeable. 
+
+This is added because on newer OCDM builds they\textquotesingle{}ve switched the directories around. \mbox{\Hypertarget{classOpenCDMPlugin_a9a551002f32f9bca161ecb1be4a93081}\label{classOpenCDMPlugin_a9a551002f32f9bca161ecb1be4a93081}} 
+\index{OpenCDMPlugin@{OpenCDMPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!OpenCDMPlugin@{OpenCDMPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Open\+CDMPlugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Indicates which hook points we want and whether to run the asynchronously or synchronously with the other hooks. 
+
+For Netflix, the mounts should be created pre\+Start 
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_ad44f4df1de4848fa3d43066760329e3a}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classOpenCDMPlugin_abf8fce644dea919860c1ddb097ff38c3}\label{classOpenCDMPlugin_abf8fce644dea919860c1ddb097ff38c3}} 
+\index{OpenCDMPlugin@{OpenCDMPlugin}!name@{name}}
+\index{name@{name}!OpenCDMPlugin@{OpenCDMPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Open\+CDMPlugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Boilerplate that just returns the name of the hook. 
+
+This string needs to match the name specified in the container spec json. 
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_adf25d402500239a690246da6fc312a7b}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classOpenCDMPlugin_a1f1406aa3b32696eedd31313c19e9ca2}\label{classOpenCDMPlugin_a1f1406aa3b32696eedd31313c19e9ca2}} 
+\index{OpenCDMPlugin@{OpenCDMPlugin}!ocdmBufferAdminPath@{ocdmBufferAdminPath}}
+\index{ocdmBufferAdminPath@{ocdmBufferAdminPath}!OpenCDMPlugin@{OpenCDMPlugin}}
+\doxysubsubsection{\texorpdfstring{ocdmBufferAdminPath()}{ocdmBufferAdminPath()}}
+{\footnotesize\ttfamily std\+::string Open\+CDMPlugin\+::ocdm\+Buffer\+Admin\+Path (\begin{DoxyParamCaption}\item[{unsigned}]{buffer\+Num }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns the file path of the OCDM admin Buffer corresponding to the specified buffer number. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buffer\+Num} & Number of buffer to create \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOpenCDMPlugin_a5e3a7b2ca95f8c6ee519512713b2a590}\label{classOpenCDMPlugin_a5e3a7b2ca95f8c6ee519512713b2a590}} 
+\index{OpenCDMPlugin@{OpenCDMPlugin}!ocdmBufferPath@{ocdmBufferPath}}
+\index{ocdmBufferPath@{ocdmBufferPath}!OpenCDMPlugin@{OpenCDMPlugin}}
+\doxysubsubsection{\texorpdfstring{ocdmBufferPath()}{ocdmBufferPath()}}
+{\footnotesize\ttfamily std\+::string Open\+CDMPlugin\+::ocdm\+Buffer\+Path (\begin{DoxyParamCaption}\item[{unsigned}]{buffer\+Num }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns the file path of the OCDMBuffer corresponding to the specified buffer number. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buffer\+Num} & Number of buffer to create \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOpenCDMPlugin_a76eb88625736e186937c6b1dec4b04a4}\label{classOpenCDMPlugin_a76eb88625736e186937c6b1dec4b04a4}} 
+\index{OpenCDMPlugin@{OpenCDMPlugin}!postConstruction@{postConstruction}}
+\index{postConstruction@{postConstruction}!OpenCDMPlugin@{OpenCDMPlugin}}
+\doxysubsubsection{\texorpdfstring{postConstruction()}{postConstruction()}}
+{\footnotesize\ttfamily bool Open\+CDMPlugin\+::post\+Construction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&}]{startup\+State,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Creates the required temp files for WPE browser to launch and decrypt content. The files are created in the host filesystem and then mounted into the container. 
+
+For now, the files to create are hard coded, but could be passed in via JSON in the future -\/ FIXME
+
+The JSON for the plugin should be formatted like so\+: \begin{DoxyVerb} {
+     "name": "OpenCDM",
+ }
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em startup\+State} & The mutable start-\/up state of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The absolute path to the rootfs of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Data} & The parsed json data from the container spec file. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classPluginBase_ae713819ad289f213ce5b5a9cb099f9b7}{Plugin\+Base}}.
+
+\mbox{\Hypertarget{classOpenCDMPlugin_aa9af36b96ec56e82507d49a6d41334fb}\label{classOpenCDMPlugin_aa9af36b96ec56e82507d49a6d41334fb}} 
+\index{OpenCDMPlugin@{OpenCDMPlugin}!writeFileIfNotExists@{writeFileIfNotExists}}
+\index{writeFileIfNotExists@{writeFileIfNotExists}!OpenCDMPlugin@{OpenCDMPlugin}}
+\doxysubsubsection{\texorpdfstring{writeFileIfNotExists()}{writeFileIfNotExists()}}
+{\footnotesize\ttfamily bool Open\+CDMPlugin\+::write\+File\+If\+Not\+Exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if the specified file exists then creates a blank file with permissions 0760 it if it doesn\textquotesingle{}t exist. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Path} & The file to create \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Open\+CDM/source/Open\+CDMPlugin.\+h\item 
+plugins/\+Open\+CDM/source/Open\+CDMPlugin.\+cpp\end{DoxyCompactItemize}

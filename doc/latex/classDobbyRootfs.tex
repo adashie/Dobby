@@ -1,0 +1,109 @@
+\hypertarget{classDobbyRootfs}{}\doxysection{Dobby\+Rootfs Class Reference}
+\label{classDobbyRootfs}\index{DobbyRootfs@{DobbyRootfs}}
+
+
+Creates a directory populated with rootfs based on the supplied container config.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Rootfs.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDobbyRootfs_a67a3808500a57cb805421ce0d5b76be4}{Dobby\+Rootfs}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&bundle, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundleConfig}{Dobby\+Bundle\+Config}} $>$ \&config)
+\begin{DoxyCompactList}\small\item\em Constructor that populates the object\textquotesingle{}s member variables required internally by \mbox{\hyperlink{classDobby}{Dobby}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyRootfs_aedbdc315def08f68d49a4ea71b942900}\label{classDobbyRootfs_aedbdc315def08f68d49a4ea71b942900}} 
+bool {\bfseries is\+Valid} () const
+\item 
+\mbox{\Hypertarget{classDobbyRootfs_a6cb06ed1d125be885e0f3568e67a3750}\label{classDobbyRootfs_a6cb06ed1d125be885e0f3568e67a3750}} 
+const std\+::string \& {\bfseries path} () const
+\item 
+\mbox{\Hypertarget{classDobbyRootfs_a3c1371294243661bf45b3ade7d6040d7}\label{classDobbyRootfs_a3c1371294243661bf45b3ade7d6040d7}} 
+int {\bfseries dir\+Fd} () const
+\item 
+\mbox{\Hypertarget{classDobbyRootfs_ad8df2e5eb59647f85056be6682ab9579}\label{classDobbyRootfs_ad8df2e5eb59647f85056be6682ab9579}} 
+void {\bfseries set\+Persistence} (bool persist)
+\item 
+void \mbox{\hyperlink{classDobbyRootfs_a72c29bd59ba50b86ef77638c3e99a96c}{unmount\+All\+At}} (const std\+::string \&path\+Prefix)
+\begin{DoxyCompactList}\small\item\em Unmounts anything mounted at the given path prefix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRootfs_aee9ddcf16090489bbc51eed7789845fd}\label{classDobbyRootfs_aee9ddcf16090489bbc51eed7789845fd}} 
+void \mbox{\hyperlink{classDobbyRootfs_aee9ddcf16090489bbc51eed7789845fd}{clean\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Removes the rootfs directory and all it\textquotesingle{}s contents if set persistence set to false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRootfs_a5ab3107df803db0ca8705315bef611c4}\label{classDobbyRootfs_a5ab3107df803db0ca8705315bef611c4}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classDobbyRootfs_a3680506f3431525b93af31dc253297a7}\label{classDobbyRootfs_a3680506f3431525b93af31dc253297a7}} 
+const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ {\bfseries m\+Bundle}
+\item 
+\mbox{\Hypertarget{classDobbyRootfs_a1431c5d51e9d4c9592c373dd8ac94093}\label{classDobbyRootfs_a1431c5d51e9d4c9592c373dd8ac94093}} 
+std\+::string {\bfseries m\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyRootfs_afffa153d8eace5032f9154b664c42775}\label{classDobbyRootfs_afffa153d8eace5032f9154b664c42775}} 
+int {\bfseries m\+Dir\+Fd}
+\item 
+\mbox{\Hypertarget{classDobbyRootfs_ab0973ee885c0e3a3d33d73d9c4a34f62}\label{classDobbyRootfs_ab0973ee885c0e3a3d33d73d9c4a34f62}} 
+bool {\bfseries m\+Persist}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Creates a directory populated with rootfs based on the supplied container config. 
+
+At construction time a directory is created within the bundle named \textquotesingle{}rootfs\textquotesingle{}
+
+It is then populated with any static files as indicated by the container config object.
+
+At destruction time the rootfs and all it\textquotesingle{}s contents are deleted. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDobbyRootfs_a67a3808500a57cb805421ce0d5b76be4}\label{classDobbyRootfs_a67a3808500a57cb805421ce0d5b76be4}} 
+\index{DobbyRootfs@{DobbyRootfs}!DobbyRootfs@{DobbyRootfs}}
+\index{DobbyRootfs@{DobbyRootfs}!DobbyRootfs@{DobbyRootfs}}
+\doxysubsubsection{\texorpdfstring{DobbyRootfs()}{DobbyRootfs()}}
+{\footnotesize\ttfamily Dobby\+Rootfs\+::\+Dobby\+Rootfs (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&}]{bundle,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundleConfig}{Dobby\+Bundle\+Config}} $>$ \&}]{config }\end{DoxyParamCaption})}
+
+
+
+Constructor that populates the object\textquotesingle{}s member variables required internally by \mbox{\hyperlink{classDobby}{Dobby}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & The daemon utils object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle} & An instance of \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em config} & An instance of \mbox{\hyperlink{classDobbyBundleConfig}{Dobby\+Bundle\+Config}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyRootfs_a72c29bd59ba50b86ef77638c3e99a96c}\label{classDobbyRootfs_a72c29bd59ba50b86ef77638c3e99a96c}} 
+\index{DobbyRootfs@{DobbyRootfs}!unmountAllAt@{unmountAllAt}}
+\index{unmountAllAt@{unmountAllAt}!DobbyRootfs@{DobbyRootfs}}
+\doxysubsubsection{\texorpdfstring{unmountAllAt()}{unmountAllAt()}}
+{\footnotesize\ttfamily void Dobby\+Rootfs\+::unmount\+All\+At (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path\+Prefix }\end{DoxyParamCaption})}
+
+
+
+Unmounts anything mounted at the given path prefix. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path\+Prefix} & The path prefix to check against the mount points. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bundle/lib/include/Dobby\+Rootfs.\+h\item 
+bundle/lib/source/Dobby\+Rootfs.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\hypertarget{classSDBusAsyncReplyGetter}{}\doxysection{SDBus\+Async\+Reply\+Getter Class Reference}
+\label{classSDBusAsyncReplyGetter}\index{SDBusAsyncReplyGetter@{SDBusAsyncReplyGetter}}
+
+
+Implements the IAsync\+Reply\+Getter getter interface to provide an API to get the results to a method call.  
+
+
+
+
+Inheritance diagram for SDBus\+Async\+Reply\+Getter\+:
+% FIG 0
+
+
+Collaboration diagram for SDBus\+Async\+Reply\+Getter\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classSDBusAsyncReplyGetter_a5437fd07d67a81bc60dabc6be71cfdee}{get\+Reply}} (AI\+\_\+\+IPC\+::\+Variant\+List \&arg\+List) override
+\item 
+void \mbox{\hyperlink{classSDBusAsyncReplyGetter_a91a0122c8597e1d5e7bd4fbb5a2f6e85}{set\+Reply}} (bool succeeded, AI\+\_\+\+IPC\+::\+Variant\+List \&\&arg\+List)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplyGetter_a46faa4edf72e17347a953b3331a41ebc}\label{classSDBusAsyncReplyGetter_a46faa4edf72e17347a953b3331a41ebc}} 
+bool {\bfseries m\+Finished}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplyGetter_a4a3dac3f993a2006bf0c7327d13faa90}\label{classSDBusAsyncReplyGetter_a4a3dac3f993a2006bf0c7327d13faa90}} 
+bool {\bfseries m\+Succeeded}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplyGetter_a7c95e5ea11b3694d715102e23e870e60}\label{classSDBusAsyncReplyGetter_a7c95e5ea11b3694d715102e23e870e60}} 
+AI\+\_\+\+IPC\+::\+Variant\+List {\bfseries m\+Args}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplyGetter_a0c67a0844987cfce34e8c41d8eff4284}\label{classSDBusAsyncReplyGetter_a0c67a0844987cfce34e8c41d8eff4284}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classSDBusAsyncReplyGetter_a8eb6a5f9ce95ee0f2695eb3bc4875396}\label{classSDBusAsyncReplyGetter_a8eb6a5f9ce95ee0f2695eb3bc4875396}} 
+std\+::condition\+\_\+variable {\bfseries m\+Cond}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the IAsync\+Reply\+Getter getter interface to provide an API to get the results to a method call. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSDBusAsyncReplyGetter_a5437fd07d67a81bc60dabc6be71cfdee}\label{classSDBusAsyncReplyGetter_a5437fd07d67a81bc60dabc6be71cfdee}} 
+\index{SDBusAsyncReplyGetter@{SDBusAsyncReplyGetter}!getReply@{getReply}}
+\index{getReply@{getReply}!SDBusAsyncReplyGetter@{SDBusAsyncReplyGetter}}
+\doxysubsubsection{\texorpdfstring{getReply()}{getReply()}}
+{\footnotesize\ttfamily bool SDBus\+Async\+Reply\+Getter\+::get\+Reply (\begin{DoxyParamCaption}\item[{AI\+\_\+\+IPC\+::\+Variant\+List \&}]{arg\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Blocking call that clients make when they want to get the reply to a method call. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplyGetter_af07eba80037f0bc2623b4ecf7473c301}{AI\+\_\+\+IPC\+::\+IAsync\+Reply\+Getter}}.
+
+\mbox{\Hypertarget{classSDBusAsyncReplyGetter_a91a0122c8597e1d5e7bd4fbb5a2f6e85}\label{classSDBusAsyncReplyGetter_a91a0122c8597e1d5e7bd4fbb5a2f6e85}} 
+\index{SDBusAsyncReplyGetter@{SDBusAsyncReplyGetter}!setReply@{setReply}}
+\index{setReply@{setReply}!SDBusAsyncReplyGetter@{SDBusAsyncReplyGetter}}
+\doxysubsubsection{\texorpdfstring{setReply()}{setReply()}}
+{\footnotesize\ttfamily void SDBus\+Async\+Reply\+Getter\+::set\+Reply (\begin{DoxyParamCaption}\item[{bool}]{succeeded,  }\item[{AI\+\_\+\+IPC\+::\+Variant\+List \&\&}]{arg\+List }\end{DoxyParamCaption})}
+
+Called by the \mbox{\hyperlink{classSDBusIpcService}{SDBus\+Ipc\+Service}} class when a reply is received for the method call. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/sdbus/SDBus\+Async\+Reply\+Getter.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/sdbus/SDBus\+Async\+Reply\+Getter.\+cpp\end{DoxyCompactItemize}

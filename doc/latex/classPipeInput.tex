@@ -1,0 +1,59 @@
+\hypertarget{classPipeInput}{}\doxysection{Pipe\+Input Class Reference}
+\label{classPipeInput}\index{PipeInput@{PipeInput}}
+
+
+Object that reads a read end of a pipe and sends the data received on it to ethanlog.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPipeInput_acccf500ce047d43c6765d1678e853242}\label{classPipeInput_acccf500ce047d43c6765d1678e853242}} 
+{\bfseries Pipe\+Input} (int fd, int log\+Level, const char $\ast$filename)
+\item 
+\mbox{\Hypertarget{classPipeInput_a004f03e5019b622de2e334e7629ff5ae}\label{classPipeInput_a004f03e5019b622de2e334e7629ff5ae}} 
+bool {\bfseries is\+Valid} () const
+\item 
+\mbox{\Hypertarget{classPipeInput_ae74ff2a2dd71e9fbf40a036784dcd2fd}\label{classPipeInput_ae74ff2a2dd71e9fbf40a036784dcd2fd}} 
+void {\bfseries on\+Read\+Ready} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPipeInput_a57500ae95c964ba4f8e9eefe73d176d5}\label{classPipeInput_a57500ae95c964ba4f8e9eefe73d176d5}} 
+void {\bfseries process\+Buffer} ()
+\item 
+\mbox{\Hypertarget{classPipeInput_a4ce461fbb66a5e94e44f55e19da016b9}\label{classPipeInput_a4ce461fbb66a5e94e44f55e19da016b9}} 
+void {\bfseries log\+Message} (const char $\ast$message, int message\+Len) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPipeInput_a6e681781a46193db1119e3e875bc0cef}\label{classPipeInput_a6e681781a46193db1119e3e875bc0cef}} 
+const int {\bfseries m\+Fd}
+\item 
+\mbox{\Hypertarget{classPipeInput_aed1a5d6319c0b9a1f4a4d7ff2a88f324}\label{classPipeInput_aed1a5d6319c0b9a1f4a4d7ff2a88f324}} 
+const int {\bfseries m\+Log\+Level}
+\item 
+\mbox{\Hypertarget{classPipeInput_ab34cdb171c35f48461885bb89d540e92}\label{classPipeInput_ab34cdb171c35f48461885bb89d540e92}} 
+const std\+::string {\bfseries m\+File\+Name}
+\item 
+\mbox{\Hypertarget{classPipeInput_a14d932dbb8a1af45198fd13245dc6f4c}\label{classPipeInput_a14d932dbb8a1af45198fd13245dc6f4c}} 
+bool {\bfseries m\+Valid}
+\item 
+\mbox{\Hypertarget{classPipeInput_af4be69ceaefd10bb71e209974394ecdf}\label{classPipeInput_af4be69ceaefd10bb71e209974394ecdf}} 
+char {\bfseries m\+Buffer} \mbox{[}1024\mbox{]}
+\item 
+\mbox{\Hypertarget{classPipeInput_ac12c726c5c71acd766506191c2ee98d6}\label{classPipeInput_ac12c726c5c71acd766506191c2ee98d6}} 
+int {\bfseries m\+Buffer\+Offset}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object that reads a read end of a pipe and sends the data received on it to ethanlog. 
+
+This attempts to split the data into newline separated log messages. It also parses the first 3 lines of the message to see if it contains the explicit log level. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Ethan\+Log/client/cat/ethanlog-\/cat.\+cpp\end{DoxyCompactItemize}

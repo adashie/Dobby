@@ -1,0 +1,46 @@
+\hypertarget{classJournaldSink}{}\doxysection{Journald\+Sink Class Reference}
+\label{classJournaldSink}\index{JournaldSink@{JournaldSink}}
+
+
+Inheritance diagram for Journald\+Sink\+:
+% FIG 0
+
+
+Collaboration diagram for Journald\+Sink\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJournaldSink_a73056b7a182561d04d9a6ba9be870285}\label{classJournaldSink_a73056b7a182561d04d9a6ba9be870285}} 
+{\bfseries Journald\+Sink} (const std\+::string \&container\+Id, std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config)
+\item 
+\mbox{\Hypertarget{classJournaldSink_ae06de0acd85842446cad79e83767ce7c}\label{classJournaldSink_ae06de0acd85842446cad79e83767ce7c}} 
+void {\bfseries Dump\+Log} (const int buffer\+Fd) override
+\item 
+\mbox{\Hypertarget{classJournaldSink_adc0a1f6f26194c2b1538fd500f0e5cd1}\label{classJournaldSink_adc0a1f6f26194c2b1538fd500f0e5cd1}} 
+void {\bfseries process} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&poll\+Loop, epoll\+\_\+event event) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJournaldSink_a5893911ca9ee0e7475e85509a11e74e9}\label{classJournaldSink_a5893911ca9ee0e7475e85509a11e74e9}} 
+int {\bfseries m\+Journald\+Steam\+Fd}
+\item 
+\mbox{\Hypertarget{classJournaldSink_a105f03b04b46f5dd5cd7dd446768f8e2}\label{classJournaldSink_a105f03b04b46f5dd5cd7dd446768f8e2}} 
+const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classJournaldSink_a520b7b968b6be6043833893a809efb5a}\label{classJournaldSink_a520b7b968b6be6043833893a809efb5a}} 
+const std\+::string {\bfseries m\+Container\+Id}
+\item 
+\mbox{\Hypertarget{classJournaldSink_a65b6fcb6ab716327133e9e995d127b1c}\label{classJournaldSink_a65b6fcb6ab716327133e9e995d127b1c}} 
+char {\bfseries m\+Buf} \mbox{[}PTY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\item 
+\mbox{\Hypertarget{classJournaldSink_a8ef8f3c96e30975e7eb6e80efd5ce58c}\label{classJournaldSink_a8ef8f3c96e30975e7eb6e80efd5ce58c}} 
+std\+::mutex {\bfseries m\+Lock}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Logging/source/Journald\+Sink.\+h\item 
+rdk\+Plugins/\+Logging/source/Journald\+Sink.\+cpp\end{DoxyCompactItemize}

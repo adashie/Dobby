@@ -1,0 +1,13 @@
+digraph "IDobbyUtils_v1"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="IDobbyUtils_v1",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Interface that exports some utilities that plugins may find useful."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="IDobbyUtils_v2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIDobbyUtils__v2.html",tooltip="Second version of the interface containing extra functions for working with iptables."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="IDobbyUtils_v3",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIDobbyUtils__v3.html",tooltip="Third version of the interface containing extra functions for working with ebtables."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="DobbyUtils",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDobbyUtils.html",tooltip="Utility methods for hooks and the general containiser daemon."];
+}

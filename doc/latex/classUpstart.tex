@@ -1,0 +1,183 @@
+\hypertarget{classUpstart}{}\doxysection{Upstart Class Reference}
+\label{classUpstart}\index{Upstart@{Upstart}}
+
+
+Wrapper for the upstart-\/dbus-\/bridge interface that allows starting and stopping system services.  
+
+
+
+
+{\ttfamily \#include $<$Upstart.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUpstart_ae0383dc8f701d8695bbf6b67a8b53aec}\label{classUpstart_ae0383dc8f701d8695bbf6b67a8b53aec}} 
+{\bfseries Upstart} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ \&ipc\+Service)
+\item 
+bool \mbox{\hyperlink{classUpstart_ad536239846cbc0260cd02c1b10bbce55}{start}} (const std\+::string \&name, const std\+::vector$<$ std\+::string $>$ \&env=std\+::vector$<$ std\+::string $>$(), bool wait=true) const
+\begin{DoxyCompactList}\small\item\em Attempts to start the service with the given name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUpstart_a47ec4dca862ca9046e1ee94c8b160661}{restart}} (const std\+::string \&name, const std\+::vector$<$ std\+::string $>$ \&env=std\+::vector$<$ std\+::string $>$(), bool wait=true) const
+\begin{DoxyCompactList}\small\item\em Attempts to perform a stop and a start on the service with the given name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUpstart_a1d2cbbf6a1c1588d94d7030678934971}{stop}} (const std\+::string \&name, bool wait=true) const
+\begin{DoxyCompactList}\small\item\em Attempts to stop the service with the given name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classUpstart_a45eff28f2d9fa4786f1748c3af0df572}{invoke\+Method}} (const std\+::string \&method, const std\+::string \&name, const std\+::vector$<$ std\+::string $>$ \&env, bool wait) const
+\begin{DoxyCompactList}\small\item\em Requests a start or a restart of a service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUpstart_a9abeef3112b266fae9443ec72bccce07}\label{classUpstart_a9abeef3112b266fae9443ec72bccce07}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ \& {\bfseries m\+Ipc\+Service}
+\item 
+\mbox{\Hypertarget{classUpstart_a9d750b9ca38b4fede3b2b382d6a04c55}\label{classUpstart_a9d750b9ca38b4fede3b2b382d6a04c55}} 
+const std\+::string {\bfseries m\+Service}
+\item 
+\mbox{\Hypertarget{classUpstart_a1585cf57dfc4339c4d7171ffd8678a4a}\label{classUpstart_a1585cf57dfc4339c4d7171ffd8678a4a}} 
+const std\+::string {\bfseries m\+Interface}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper for the upstart-\/dbus-\/bridge interface that allows starting and stopping system services. 
+
+\mbox{\hyperlink{classUpstart}{Upstart}} is the init process of the system, it is responsible for starting things like mesh, the system dbus and others. It is an open source project run by ubuntu; \href{http://upstart.ubuntu.com/}{\texttt{ http\+://upstart.\+ubuntu.\+com/}}.
+
+This class is just a wrapper around it\textquotesingle{}s dbus interface, the best documentation on the interface I found is here\+: \href{https://github.com/bernd/ruby-upstart/blob/master/UPSTART-DBUS.md}{\texttt{ https\+://github.\+com/bernd/ruby-\/upstart/blob/master/\+UPSTART-\/\+DBUS.\+md}}
+
+\begin{DoxyWarning}{Warning}
+At the time of writing we are only allowed to start a single service (\textquotesingle{}sky\+Dobby\+Daemon\textquotesingle{}), this is due to the deliberately restrictive dbus policy as specified at the following location on the STB \begin{DoxyVerb}/DBUS/etc/dbus-1/system.d/Upstart.conf
+\end{DoxyVerb}
+ 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUpstart_a45eff28f2d9fa4786f1748c3af0df572}\label{classUpstart_a45eff28f2d9fa4786f1748c3af0df572}} 
+\index{Upstart@{Upstart}!invokeMethod@{invokeMethod}}
+\index{invokeMethod@{invokeMethod}!Upstart@{Upstart}}
+\doxysubsubsection{\texorpdfstring{invokeMethod()}{invokeMethod()}}
+{\footnotesize\ttfamily bool Upstart\+::invoke\+Method (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{method,  }\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{env,  }\item[{bool}]{wait }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Requests a start or a restart of a service. 
+
+Since the Start and Restart methods are near identical in the way they are called over dbus, this function performs either based on the method argument.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em method} & The method, should be either \textquotesingle{}Start\textquotesingle{}, \textquotesingle{}Restart\textquotesingle{} or \textquotesingle{}Stop\textquotesingle{}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em name} & The name of the service to start. \\
+\hline
+\mbox{\texttt{ in}}  & {\em env} & Any extra environment variables to pass to the service being started \\
+\hline
+\mbox{\texttt{ in}}  & {\em wait} & Waits till the service is running before returning.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the service was started, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUpstart_a47ec4dca862ca9046e1ee94c8b160661}\label{classUpstart_a47ec4dca862ca9046e1ee94c8b160661}} 
+\index{Upstart@{Upstart}!restart@{restart}}
+\index{restart@{restart}!Upstart@{Upstart}}
+\doxysubsubsection{\texorpdfstring{restart()}{restart()}}
+{\footnotesize\ttfamily bool Upstart\+::restart (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{env = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()},  }\item[{bool}]{wait = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Attempts to perform a stop and a start on the service with the given name. 
+
+This issues the a Restart command on the dbus interface for the service with the given name. The equivalent on the command line would look like this\+: \begin{DoxyVerb}dbus-send \
+    --system \
+    --print-reply \
+    --dest=com.ubuntu.Upstart \
+    /com/ubuntu/Upstart/jobs/<name> \
+    com.ubuntu.Upstart0_6.Job.Restart \
+    array:string:<env> boolean:<wait>
+\end{DoxyVerb}
+ Note this function will return an error if the service wasn\textquotesingle{}t running prior to the call.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The name of the service to restart. \\
+\hline
+\mbox{\texttt{ in}}  & {\em env} & Any extra environment variables to pass to the service being restarted \\
+\hline
+\mbox{\texttt{ in}}  & {\em wait} & Waits till the service is running before returning.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the service was restarted, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUpstart_ad536239846cbc0260cd02c1b10bbce55}\label{classUpstart_ad536239846cbc0260cd02c1b10bbce55}} 
+\index{Upstart@{Upstart}!start@{start}}
+\index{start@{start}!Upstart@{Upstart}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool Upstart\+::start (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{env = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()},  }\item[{bool}]{wait = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Attempts to start the service with the given name. 
+
+This issues the a Start command on the dbus interface for the service with the given name. The equivalent on the command line would look like this\+: \begin{DoxyVerb}dbus-send \
+    --system \
+    --print-reply \
+    --dest=com.ubuntu.Upstart \
+    /com/ubuntu/Upstart/jobs/<name> \
+    com.ubuntu.Upstart0_6.Job.Start \
+    array:string:<env> boolean:<wait>
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The name of the service to start. \\
+\hline
+\mbox{\texttt{ in}}  & {\em env} & Any extra environment variables to pass to the service being started \\
+\hline
+\mbox{\texttt{ in}}  & {\em wait} & Waits till the service is running before returning.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the service was started, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUpstart_a1d2cbbf6a1c1588d94d7030678934971}\label{classUpstart_a1d2cbbf6a1c1588d94d7030678934971}} 
+\index{Upstart@{Upstart}!stop@{stop}}
+\index{stop@{stop}!Upstart@{Upstart}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily bool Upstart\+::stop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{bool}]{wait = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Attempts to stop the service with the given name. 
+
+This issues the a Stop command on the dbus interface for the service with the given name. The equivalent on the command line would look like this\+: \begin{DoxyVerb}dbus-send \
+    --system \
+    --print-reply \
+    --dest=com.ubuntu.Upstart \
+    /com/ubuntu/Upstart/jobs/<name> \
+    com.ubuntu.Upstart0_6.Job.Stop \
+    array:string:'' boolean:<wait>
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The name of the service to stop. \\
+\hline
+\mbox{\texttt{ in}}  & {\em wait} & Waits till the service is stopped before returning.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the service was stopped, otherwise false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+client/lib/source/Upstart.\+h\item 
+client/lib/source/Upstart.\+cpp\end{DoxyCompactItemize}

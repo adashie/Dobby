@@ -1,0 +1,286 @@
+\hypertarget{classDobby}{}\doxysection{Dobby Class Reference}
+\label{classDobby}\index{Dobby@{Dobby}}
+
+
+The root \mbox{\hyperlink{classDobby}{Dobby}} object, runs the dbus loop.  
+
+
+
+
+{\ttfamily \#include $<$Dobby.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobby_abb0498cf029d8206cecbcf894cfb59c8}\label{classDobby_abb0498cf029d8206cecbcf894cfb59c8}} 
+enum {\bfseries Log\+Target} \+: unsigned \{ {\bfseries Console} = 0x1
+, {\bfseries Sys\+Log} = 0x2
+, {\bfseries Ethan\+Log} = 0x4
+, {\bfseries Journald} = 0x8
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobby_a345b3601061ae5be79b74696118bb909}\label{classDobby_a345b3601061ae5be79b74696118bb909}} 
+{\bfseries Dobby} (const std\+::string \&dbus\+Address, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ \&ipc\+Service, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&settings)
+\item 
+\mbox{\Hypertarget{classDobby_ae688c1a719da01f6fd37dddcda6e0b2e}\label{classDobby_ae688c1a719da01f6fd37dddcda6e0b2e}} 
+void \mbox{\hyperlink{classDobby_ae688c1a719da01f6fd37dddcda6e0b2e}{run}} () const
+\begin{DoxyCompactList}\small\item\em Issues a \textquotesingle{}ready\textquotesingle{} signal over dbus and then blocks until either a shutdown request is received or SIGTERM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobby_a7d948b6d319d60f08648bdd00655e191}{set\+Default\+AIDbus\+Addresses}} (const std\+::string \&ai\+Private\+Bus\+Address, const std\+::string \&ai\+Public\+Bus\+Address)
+\begin{DoxyCompactList}\small\item\em Debugging function for manually setting the AI dbus addresses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classDobby_a60ad2ca7285bdf3290d5d2199c038eaa}{config\+Signals}} ()
+\begin{DoxyCompactList}\small\item\em Utility function that MUST be called at startup from the main thread before any other threads are spawned. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classDobby_a40f5e95206e7c6f0d5b5773ae300bd7a}{setup\+Logging}} (unsigned targets=Log\+Target\+::\+Console)
+\begin{DoxyCompactList}\small\item\em Static method must be called early in the startup before object is instantiated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobby_afce28f733edd41df4aed9906351250a2}\label{classDobby_afce28f733edd41df4aed9906351250a2}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (ping)
+\item 
+\mbox{\Hypertarget{classDobby_a1fc5fad94cc3eddf5f141a4f174d3727}\label{classDobby_a1fc5fad94cc3eddf5f141a4f174d3727}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (shutdown)
+\item 
+\mbox{\Hypertarget{classDobby_af89239e56f20cf16999c898f613533bf}\label{classDobby_af89239e56f20cf16999c898f613533bf}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (set\+Log\+Method)
+\item 
+\mbox{\Hypertarget{classDobby_a130fe723044b510978db72b177d149a0}\label{classDobby_a130fe723044b510978db72b177d149a0}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (set\+Log\+Level)
+\item 
+\mbox{\Hypertarget{classDobby_a76c593eb756dcd41220f58ea2d55c54a}\label{classDobby_a76c593eb756dcd41220f58ea2d55c54a}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (set\+AIDbus\+Address)
+\item 
+\mbox{\Hypertarget{classDobby_a5669a1d97ea5ee7d4761f86c23ac6e39}\label{classDobby_a5669a1d97ea5ee7d4761f86c23ac6e39}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (start\+From\+Spec)
+\item 
+\mbox{\Hypertarget{classDobby_a970b6f2e4facedac9ca9e8b36bbda462}\label{classDobby_a970b6f2e4facedac9ca9e8b36bbda462}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (start\+From\+Bundle)
+\item 
+\mbox{\Hypertarget{classDobby_a00053214fdc8692696c07aaf9d99d13a}\label{classDobby_a00053214fdc8692696c07aaf9d99d13a}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (stop)
+\item 
+\mbox{\Hypertarget{classDobby_ae59b4ab7702432a9b1fe8dd634edb1a4}\label{classDobby_ae59b4ab7702432a9b1fe8dd634edb1a4}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (pause)
+\item 
+\mbox{\Hypertarget{classDobby_a759ed699ca130f14b6e5f40479ed3605}\label{classDobby_a759ed699ca130f14b6e5f40479ed3605}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (resume)
+\item 
+\mbox{\Hypertarget{classDobby_a3d4ba7746f00ad7b612d3e335f827437}\label{classDobby_a3d4ba7746f00ad7b612d3e335f827437}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (exec)
+\item 
+\mbox{\Hypertarget{classDobby_a12effd0b97f8efc6fdbb5583438e4b6b}\label{classDobby_a12effd0b97f8efc6fdbb5583438e4b6b}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (list)
+\item 
+\mbox{\Hypertarget{classDobby_a4369b949e04859e90e8940778d4f8c39}\label{classDobby_a4369b949e04859e90e8940778d4f8c39}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (get\+State)
+\item 
+\mbox{\Hypertarget{classDobby_a5ca9614158802a0405c6f6ba6f145858}\label{classDobby_a5ca9614158802a0405c6f6ba6f145858}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (get\+Info)
+\item 
+\mbox{\Hypertarget{classDobby_a4f3b1a9b48ed1e7e00819a2a231af8cd}\label{classDobby_a4f3b1a9b48ed1e7e00819a2a231af8cd}} 
+{\bfseries DOBBY\+\_\+\+DBUS\+\_\+\+METHOD} (get\+OCIConfig)
+\item 
+\mbox{\Hypertarget{classDobby_a86cdff9df9bd8008ea941f35f15dbe6c}\label{classDobby_a86cdff9df9bd8008ea941f35f15dbe6c}} 
+void \mbox{\hyperlink{classDobby_a86cdff9df9bd8008ea941f35f15dbe6c}{init\+Ipc\+Methods}} ()
+\begin{DoxyCompactList}\small\item\em Installs handlers for all the dbus/ipc methods. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobby_a9f40cd875b8eb9a6515df44fac218c41}{on\+Container\+Started}} (int32\+\_\+t cd, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id)
+\begin{DoxyCompactList}\small\item\em Called by the \mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} code when a container has started. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobby_a5da0529a1a610aad3335bb7ed96c7c8e}{on\+Container\+Stopped}} (int32\+\_\+t cd, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, int status)
+\begin{DoxyCompactList}\small\item\em Called by the \mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} code when a container has stopped. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobby_a6e99035b5f378381a6c15108944dccf5}\label{classDobby_a6e99035b5f378381a6c15108944dccf5}} 
+void \mbox{\hyperlink{classDobby_a6e99035b5f378381a6c15108944dccf5}{run\+Work\+Queue}} () const
+\begin{DoxyCompactList}\small\item\em Runs the \mbox{\hyperlink{classDobby}{Dobby}} work queue to handle API calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classDobby_aa885c84c135bb4bf1deeeee39a13e80e}{null\+Sig\+Child\+Handler}} (int sig\+Num, siginfo\+\_\+t $\ast$info, void $\ast$context)
+\begin{DoxyCompactList}\small\item\em Signal handler that does nothing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobby_a60e1011e4a161498eb700094f9636e40}\label{classDobby_a60e1011e4a161498eb700094f9636e40}} 
+static void \mbox{\hyperlink{classDobby_a60e1011e4a161498eb700094f9636e40}{sig\+Term\+Handler}} (int sig\+Num)
+\begin{DoxyCompactList}\small\item\em Signal handler for SIGTERM. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classDobby_a6cd7d4d711e129b57e43fd83121b4a2d}{log\+Printer}} (int level, const char $\ast$file, const char $\ast$func, int line, const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Logging callback, called every time a log message needs to be emitted. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classDobby_ac9e9f95c42a9614ab7337063a2c79de3}{log\+Console\+Printer}} (int level, const char $\ast$file, const char $\ast$func, int line, const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Writes logging output to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobby_a3f6848cc6de432c9fbd4ff3df53b8dd3}\label{classDobby_a3f6848cc6de432c9fbd4ff3df53b8dd3}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyEnv}{Dobby\+Env}} $>$ {\bfseries m\+Environment}
+\item 
+\mbox{\Hypertarget{classDobby_afd34a3a76917c1f0b632354f85f17d96}\label{classDobby_afd34a3a76917c1f0b632354f85f17d96}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyUtils}{Dobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classDobby_a1670d1464307f575d1559c089f49212b}\label{classDobby_a1670d1464307f575d1559c089f49212b}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyIPCUtils}{Dobby\+IPCUtils}} $>$ {\bfseries m\+IPCUtilities}
+\item 
+\mbox{\Hypertarget{classDobby_ae32d20a921bab893893a0754bb0dd60a}\label{classDobby_ae32d20a921bab893893a0754bb0dd60a}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} $>$ {\bfseries m\+Manager}
+\item 
+\mbox{\Hypertarget{classDobby_ae31b2e0db73a55c7684a92c7d01dd6ac}\label{classDobby_ae31b2e0db73a55c7684a92c7d01dd6ac}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyWorkQueue}{Dobby\+Work\+Queue}} $>$ {\bfseries m\+Work\+Queue}
+\item 
+\mbox{\Hypertarget{classDobby_a24bbc90ea16ed1807c5bea3200f6189c}\label{classDobby_a24bbc90ea16ed1807c5bea3200f6189c}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ {\bfseries m\+Ipc\+Service}
+\item 
+\mbox{\Hypertarget{classDobby_ac7e817723a22b074ae1ee4e2a4825874}\label{classDobby_ac7e817723a22b074ae1ee4e2a4825874}} 
+const std\+::string {\bfseries m\+Service}
+\item 
+\mbox{\Hypertarget{classDobby_aa11b61b80498e058bbcb60ca2c2fa931}\label{classDobby_aa11b61b80498e058bbcb60ca2c2fa931}} 
+const std\+::string {\bfseries m\+Object\+Path}
+\item 
+\mbox{\Hypertarget{classDobby_a5b0369ee80ef6d5ffc022b8061e80d59}\label{classDobby_a5b0369ee80ef6d5ffc022b8061e80d59}} 
+std\+::list$<$ std\+::string $>$ {\bfseries m\+Handlers}
+\item 
+\mbox{\Hypertarget{classDobby_a844c337cb29c776a99e7a742ec04358b}\label{classDobby_a844c337cb29c776a99e7a742ec04358b}} 
+std\+::atomic$<$ bool $>$ {\bfseries m\+Shutdown}
+\item 
+\mbox{\Hypertarget{classDobby_a0c2f835c4032a37d2565afd3b92c3541}\label{classDobby_a0c2f835c4032a37d2565afd3b92c3541}} 
+int {\bfseries m\+Watchdog\+Timer\+Id}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobby_a69e49170af415954b12819691d0c50bd}\label{classDobby_a69e49170af415954b12819691d0c50bd}} 
+static volatile sig\+\_\+atomic\+\_\+t {\bfseries m\+Sig\+Term} = 0
+\item 
+\mbox{\Hypertarget{classDobby_a12d562429299a2e730662ecfa5d8df40}\label{classDobby_a12d562429299a2e730662ecfa5d8df40}} 
+static std\+::atomic$<$ unsigned $>$ \mbox{\hyperlink{classDobby_a12d562429299a2e730662ecfa5d8df40}{m\+Log\+Targets}}
+\begin{DoxyCompactList}\small\item\em The target for logging, can be dynamically changed via dbus. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classDobby_a774401971d14e4d591bcfa4e52e352b5}{m\+Ethan\+Log\+Pipe\+Fd}} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The root \mbox{\hyperlink{classDobby}{Dobby}} object, runs the dbus loop. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobby_a60ad2ca7285bdf3290d5d2199c038eaa}\label{classDobby_a60ad2ca7285bdf3290d5d2199c038eaa}} 
+\index{Dobby@{Dobby}!configSignals@{configSignals}}
+\index{configSignals@{configSignals}!Dobby@{Dobby}}
+\doxysubsubsection{\texorpdfstring{configSignals()}{configSignals()}}
+{\footnotesize\ttfamily void Dobby\+::config\+Signals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Utility function that MUST be called at startup from the main thread before any other threads are spawned. 
+
+This is needed to fix a bunch of quirks relating to how signals are handled, in particular the SIGCHLD signal. \mbox{\Hypertarget{classDobby_ac9e9f95c42a9614ab7337063a2c79de3}\label{classDobby_ac9e9f95c42a9614ab7337063a2c79de3}} 
+\index{Dobby@{Dobby}!logConsolePrinter@{logConsolePrinter}}
+\index{logConsolePrinter@{logConsolePrinter}!Dobby@{Dobby}}
+\doxysubsubsection{\texorpdfstring{logConsolePrinter()}{logConsolePrinter()}}
+{\footnotesize\ttfamily void Dobby\+::log\+Console\+Printer (\begin{DoxyParamCaption}\item[{int}]{level,  }\item[{const char $\ast$}]{file,  }\item[{const char $\ast$}]{func,  }\item[{int}]{line,  }\item[{const char $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Writes logging output to the console. 
+
+This duplicates code in the Logging component, but unfortunately we can\textquotesingle{}t use the function there without messing up the API for all other things that use it. \mbox{\Hypertarget{classDobby_a6cd7d4d711e129b57e43fd83121b4a2d}\label{classDobby_a6cd7d4d711e129b57e43fd83121b4a2d}} 
+\index{Dobby@{Dobby}!logPrinter@{logPrinter}}
+\index{logPrinter@{logPrinter}!Dobby@{Dobby}}
+\doxysubsubsection{\texorpdfstring{logPrinter()}{logPrinter()}}
+{\footnotesize\ttfamily void Dobby\+::log\+Printer (\begin{DoxyParamCaption}\item[{int}]{level,  }\item[{const char $\ast$}]{file,  }\item[{const char $\ast$}]{func,  }\item[{int}]{line,  }\item[{const char $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Logging callback, called every time a log message needs to be emitted. 
+
+Depending on the log method, this will either send the message to syslog or the ethanlog library.
+
+Note that this function is called after any processing in the Logger component, meaning that you can still print log messages on the console by using the AI\+\_\+\+LOG\+\_\+\+CHANNELS env var. \mbox{\Hypertarget{classDobby_aa885c84c135bb4bf1deeeee39a13e80e}\label{classDobby_aa885c84c135bb4bf1deeeee39a13e80e}} 
+\index{Dobby@{Dobby}!nullSigChildHandler@{nullSigChildHandler}}
+\index{nullSigChildHandler@{nullSigChildHandler}!Dobby@{Dobby}}
+\doxysubsubsection{\texorpdfstring{nullSigChildHandler()}{nullSigChildHandler()}}
+{\footnotesize\ttfamily void Dobby\+::null\+Sig\+Child\+Handler (\begin{DoxyParamCaption}\item[{int}]{sig\+Num,  }\item[{siginfo\+\_\+t $\ast$}]{info,  }\item[{void $\ast$}]{context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Signal handler that does nothing. 
+
+This is needed to ensure SIGCHLD signals are actually delivered and detected by sigwaitinfo \mbox{\Hypertarget{classDobby_a9f40cd875b8eb9a6515df44fac218c41}\label{classDobby_a9f40cd875b8eb9a6515df44fac218c41}} 
+\index{Dobby@{Dobby}!onContainerStarted@{onContainerStarted}}
+\index{onContainerStarted@{onContainerStarted}!Dobby@{Dobby}}
+\doxysubsubsection{\texorpdfstring{onContainerStarted()}{onContainerStarted()}}
+{\footnotesize\ttfamily void Dobby\+::on\+Container\+Started (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd,  }\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called by the \mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} code when a container has started. 
+
+This is typically called from \mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} in response to a Dobby\+Manager\+::on\+Post\+Start\+Hook, so just beware it\textquotesingle{}s recursive from the dbus thread POV.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container unique descriptor. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & The string id / name of the container. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobby_a5da0529a1a610aad3335bb7ed96c7c8e}\label{classDobby_a5da0529a1a610aad3335bb7ed96c7c8e}} 
+\index{Dobby@{Dobby}!onContainerStopped@{onContainerStopped}}
+\index{onContainerStopped@{onContainerStopped}!Dobby@{Dobby}}
+\doxysubsubsection{\texorpdfstring{onContainerStopped()}{onContainerStopped()}}
+{\footnotesize\ttfamily void Dobby\+::on\+Container\+Stopped (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd,  }\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{int}]{status }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called by the \mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} code when a container has stopped. 
+
+This is typically called from an internal thread in the \mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} so be careful of any threading issues.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container unique descriptor. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & The string id / name of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em status} & The status result of the container\textquotesingle{}s runc process. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobby_a7d948b6d319d60f08648bdd00655e191}\label{classDobby_a7d948b6d319d60f08648bdd00655e191}} 
+\index{Dobby@{Dobby}!setDefaultAIDbusAddresses@{setDefaultAIDbusAddresses}}
+\index{setDefaultAIDbusAddresses@{setDefaultAIDbusAddresses}!Dobby@{Dobby}}
+\doxysubsubsection{\texorpdfstring{setDefaultAIDbusAddresses()}{setDefaultAIDbusAddresses()}}
+{\footnotesize\ttfamily void Dobby\+::set\+Default\+AIDbus\+Addresses (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ai\+Private\+Bus\+Address,  }\item[{const std\+::string \&}]{ai\+Public\+Bus\+Address }\end{DoxyParamCaption})}
+
+
+
+Debugging function for manually setting the AI dbus addresses. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ai\+Private\+Bus\+Address} & The AI private dbus address \\
+\hline
+\mbox{\texttt{ in}}  & {\em ai\+Public\+Bus\+Address} & The AI public dbus address \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobby_a40f5e95206e7c6f0d5b5773ae300bd7a}\label{classDobby_a40f5e95206e7c6f0d5b5773ae300bd7a}} 
+\index{Dobby@{Dobby}!setupLogging@{setupLogging}}
+\index{setupLogging@{setupLogging}!Dobby@{Dobby}}
+\doxysubsubsection{\texorpdfstring{setupLogging()}{setupLogging()}}
+{\footnotesize\ttfamily void Dobby\+::setup\+Logging (\begin{DoxyParamCaption}\item[{unsigned}]{targets = {\ttfamily LogTarget\+:\+:Console} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Static method must be called early in the startup before object is instantiated. 
+
+If the function detects the ETHAN\+\_\+\+LOGGING\+\_\+\+PIPE env var then it sets the default logging method to \textquotesingle{}ethan log\textquotesingle{}, otherwise it defaults to syslog. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classDobby_a774401971d14e4d591bcfa4e52e352b5}\label{classDobby_a774401971d14e4d591bcfa4e52e352b5}} 
+\index{Dobby@{Dobby}!mEthanLogPipeFd@{mEthanLogPipeFd}}
+\index{mEthanLogPipeFd@{mEthanLogPipeFd}!Dobby@{Dobby}}
+\doxysubsubsection{\texorpdfstring{mEthanLogPipeFd}{mEthanLogPipeFd}}
+{\footnotesize\ttfamily int Dobby\+::m\+Ethan\+Log\+Pipe\+Fd = -\/1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+The fd of the ethan logging pipe, starts off pointing to /dev/null but can changed dynamically via dbus 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/include/Dobby.\+h\item 
+daemon/lib/source/Dobby.\+cpp\end{DoxyCompactItemize}

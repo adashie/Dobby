@@ -1,0 +1,112 @@
+\hypertarget{classImageManager}{}\doxysection{Image\+Manager Class Reference}
+\label{classImageManager}\index{ImageManager@{ImageManager}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classImageManager_adff40c41dbf8563a18abbe8240e360d4}{check\+FSImage}} (const std\+::string \&filepath, uid\+\_\+t user\+Id, const std\+::string \&fs, bool fix=true)
+\begin{DoxyCompactList}\small\item\em Checks if the given fs image exists and is mountable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classImageManager_a1dfe1c3e4e124ba20ab28d84ad4a4660}\label{classImageManager_a1dfe1c3e4e124ba20ab28d84ad4a4660}} 
+static bool {\bfseries check\+FSImage\+At} (int dir\+Fd, const std\+::string \&filepath, uid\+\_\+t user\+Id, const std\+::string \&fs, bool fix=true)
+\item 
+static bool \mbox{\hyperlink{classImageManager_abeee0330a87fb530fb5fe361479140e3}{create\+FSImage}} (const std\+::string \&filepath, uid\+\_\+t user\+Id, size\+\_\+t size, const std\+::string \&fs)
+\begin{DoxyCompactList}\small\item\em Create a filesystem image of the given size and format. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classImageManager_ac2a98bddc7b11a97e4aded9eeac50b92}\label{classImageManager_ac2a98bddc7b11a97e4aded9eeac50b92}} 
+static bool {\bfseries create\+FSImage\+At} (int dir\+Fd, const std\+::string \&filepath, uid\+\_\+t user\+Id, size\+\_\+t size, const std\+::string \&fs)
+\item 
+static void \mbox{\hyperlink{classImageManager_a97e7fc48f229fc3f05ea936afbd8fbf8}{delete\+FSImage}} (const std\+::string \&filepath)
+\begin{DoxyCompactList}\small\item\em Removes a package\textquotesingle{}s private data image file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classImageManager_ad606e8aaf193d3e2b86f6cd170683136}\label{classImageManager_ad606e8aaf193d3e2b86f6cd170683136}} 
+static void {\bfseries delete\+FSImage\+At} (int dir\+Fd, const std\+::string \&filepath)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classImageManager_ad57d576954744de9ec6e83303550e6fe}\label{classImageManager_ad57d576954744de9ec6e83303550e6fe}} 
+static const std\+::string {\bfseries x\+Attr\+User\+Id\+Name} = \char`\"{}user.\+storage.\+plugin\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classImageManager_adff40c41dbf8563a18abbe8240e360d4}\label{classImageManager_adff40c41dbf8563a18abbe8240e360d4}} 
+\index{ImageManager@{ImageManager}!checkFSImage@{checkFSImage}}
+\index{checkFSImage@{checkFSImage}!ImageManager@{ImageManager}}
+\doxysubsubsection{\texorpdfstring{checkFSImage()}{checkFSImage()}}
+{\footnotesize\ttfamily bool Image\+Manager\+::check\+FSImage (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath,  }\item[{uid\+\_\+t}]{user\+Id,  }\item[{const std\+::string \&}]{fs,  }\item[{bool}]{fix = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks if the given fs image exists and is mountable. 
+
+The function will fail in the following cases\+:
+\begin{DoxyItemize}
+\item the image file doesn\textquotesingle{}t exist
+\item xattr are supported and the value for the \char`\"{}user.\+storage.\+plugin\char`\"{} doesn\textquotesingle{}t match the supplied user\+Id
+\item the image file exists but fsck.\+ext failed and it couldn\textquotesingle{}t correct the errors
+\end{DoxyItemize}
+
+If the file system image existed and fsck validated (or repaired) it, true is returned.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filepath} & The fully qualified path to the filesystem image \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+Id} & The expected user id set in the xattr of the image file \\
+\hline
+\mbox{\texttt{ in}}  & {\em fix} & If true and the filesystem image exists but is corrupt it will attempt to fix the corruption.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success and false on the failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classImageManager_abeee0330a87fb530fb5fe361479140e3}\label{classImageManager_abeee0330a87fb530fb5fe361479140e3}} 
+\index{ImageManager@{ImageManager}!createFSImage@{createFSImage}}
+\index{createFSImage@{createFSImage}!ImageManager@{ImageManager}}
+\doxysubsubsection{\texorpdfstring{createFSImage()}{createFSImage()}}
+{\footnotesize\ttfamily bool Image\+Manager\+::create\+FSImage (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath,  }\item[{uid\+\_\+t}]{user\+Id,  }\item[{size\+\_\+t}]{size,  }\item[{const std\+::string \&}]{fs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create a filesystem image of the given size and format. 
+
+This function creates an empty file of the given size and then uses one of the mkfs tools to write a file system structure into the file.
+
+\begin{DoxyWarning}{Warning}
+If this function aborts in the middle of the process there is a possibility it could leak temporary files. Some sort of clean-\/up needs be down at start-\/up to remove previous temporary files.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filepath} & The fully qualified path to the filesystem image \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+Id} & The user id to set set in the xattr of the image \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & This size of the image to create in bytes \\
+\hline
+\mbox{\texttt{ in}}  & {\em fs} & The filesystem type of image file (ext4)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success and false on the failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classImageManager_a97e7fc48f229fc3f05ea936afbd8fbf8}\label{classImageManager_a97e7fc48f229fc3f05ea936afbd8fbf8}} 
+\index{ImageManager@{ImageManager}!deleteFSImage@{deleteFSImage}}
+\index{deleteFSImage@{deleteFSImage}!ImageManager@{ImageManager}}
+\doxysubsubsection{\texorpdfstring{deleteFSImage()}{deleteFSImage()}}
+{\footnotesize\ttfamily void Image\+Manager\+::delete\+FSImage (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filepath }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Removes a package\textquotesingle{}s private data image file. 
+
+Simply a wrapper around the unlink call.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filepath} & The fully qualified path to the filesystem image \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Storage/source/Image\+Manager.\+h\item 
+rdk\+Plugins/\+Storage/source/Image\+Manager.\+cpp\end{DoxyCompactItemize}

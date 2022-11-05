@@ -1,0 +1,19 @@
+\hypertarget{classIpcFileDescriptor}{}\doxysection{Ipc\+File\+Descriptor Class Reference}
+\label{classIpcFileDescriptor}\index{IpcFileDescriptor@{IpcFileDescriptor}}
+
+
+Light wrapper around a file descriptor so it can be used safely with dbus.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Light wrapper around a file descriptor so it can be used safely with dbus. 
+
+Why do we need this? Because we want to safely pass a file descriptor around using the DBus\+Message class.
+
+Why not just use an integer? Because although it\textquotesingle{}s obviously fine to pass an integer around, the life time of the file descriptor can get lost. This class uses {\ttfamily dup(2)} to ensure that if the object was created with a valid file descriptor in the first place then it and all copy constructed objects will have a valid file descriptor. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/common/Ipc\+File\+Descriptor.\+cpp\end{DoxyCompactItemize}

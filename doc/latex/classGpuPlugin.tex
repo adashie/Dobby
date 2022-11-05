@@ -1,0 +1,220 @@
+\hypertarget{classGpuPlugin}{}\doxysection{Gpu\+Plugin Class Reference}
+\label{classGpuPlugin}\index{GpuPlugin@{GpuPlugin}}
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} GPU plugin.  
+
+
+
+
+{\ttfamily \#include $<$Gpu\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Gpu\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Gpu\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGpuPlugin_a86e04772994a73939f82dce29add369c}\label{classGpuPlugin_a86e04772994a73939f82dce29add369c}} 
+{\bfseries Gpu\+Plugin} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\item 
+std\+::string \mbox{\hyperlink{classGpuPlugin_abcfe03aa369ae6718bab521e0ec5a2b0}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classGpuPlugin_ae5d647695cc99b829fc24292ef37f1bf}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Should return a bitfield of the hook points implemented by the plugin. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGpuPlugin_a6bf193cd25f56ebed0c35c325081827f}{create\+Runtime}} () override
+\begin{DoxyCompactList}\small\item\em we use the create\+Runtime point to create a cgroup and put the containered process into it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGpuPlugin_a0e8b9b5273ed9211a5e80cd0f3cbe34d}{post\+Stop}} () override
+\begin{DoxyCompactList}\small\item\em We use the post\+Stop point to remove the cgroup directory created in the create\+Runtime phase. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classGpuPlugin_a0d7e104c74449d084c0e43223e4daca4}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classGpuPlugin_a5686ef524f81d23baffb7003a42a5c1e}{get\+Gpu\+Cgroup\+Mount\+Point}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to get the mount point of the gpu cgroup filesystem. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classGpuPlugin_a66bab618561c94dc4bb094e1815d1e4d}{setup\+Container\+Gpu\+Limit}} (const std\+::string cgroup\+Dir\+Path, pid\+\_\+t container\+Pid, int memory\+Limit)
+\begin{DoxyCompactList}\small\item\em Creates a gpu cgroup for the container and moves the container into it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGpuPlugin_ac00cceb9f0a3d92ae3b3a6daeecbeb9f}\label{classGpuPlugin_ac00cceb9f0a3d92ae3b3a6daeecbeb9f}} 
+bool {\bfseries bind\+Mount\+Gpu\+Cgroup} (const std\+::string \&source, const std\+::string \&target)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGpuPlugin_aa0a45d9141af07636332ec2486d3060f}\label{classGpuPlugin_aa0a45d9141af07636332ec2486d3060f}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classGpuPlugin_a43db97a2a74f00f8efd5c46b51b058d4}\label{classGpuPlugin_a43db97a2a74f00f8efd5c46b51b058d4}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classGpuPlugin_aba1f887b5ebb274e3e22514bef130d9e}\label{classGpuPlugin_aba1f887b5ebb274e3e22514bef130d9e}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classGpuPlugin_a4532419e319f1ba08c6ac4eea2003ed4}\label{classGpuPlugin_a4532419e319f1ba08c6ac4eea2003ed4}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDobby}{Dobby}} GPU plugin. 
+
+Sets the gpu memory limits for a given container.
+
+This plugin simply creates a gpu cgroup for the container, sets the limit and then moves the containered process into it.
+
+This is effectively what crun does for all the other limits, but it doesn\textquotesingle{}t know about the custom gpu cgroup as that is an extension to the default cgroups. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGpuPlugin_a6bf193cd25f56ebed0c35c325081827f}\label{classGpuPlugin_a6bf193cd25f56ebed0c35c325081827f}} 
+\index{GpuPlugin@{GpuPlugin}!createRuntime@{createRuntime}}
+\index{createRuntime@{createRuntime}!GpuPlugin@{GpuPlugin}}
+\doxysubsubsection{\texorpdfstring{createRuntime()}{createRuntime()}}
+{\footnotesize\ttfamily bool Gpu\+Plugin\+::create\+Runtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+we use the create\+Runtime point to create a cgroup and put the containered process into it. 
+
+The amount of memory to assign is read from the plugin\textquotesingle{}s data section in the bundle config.
+
+The cgroup is given the same name as the container.
+
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_af00763b74d9b809a46bbf025e485d010}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classGpuPlugin_a0d7e104c74449d084c0e43223e4daca4}\label{classGpuPlugin_a0d7e104c74449d084c0e43223e4daca4}} 
+\index{GpuPlugin@{GpuPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!GpuPlugin@{GpuPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Gpu\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classGpuPlugin_a5686ef524f81d23baffb7003a42a5c1e}\label{classGpuPlugin_a5686ef524f81d23baffb7003a42a5c1e}} 
+\index{GpuPlugin@{GpuPlugin}!getGpuCgroupMountPoint@{getGpuCgroupMountPoint}}
+\index{getGpuCgroupMountPoint@{getGpuCgroupMountPoint}!GpuPlugin@{GpuPlugin}}
+\doxysubsubsection{\texorpdfstring{getGpuCgroupMountPoint()}{getGpuCgroupMountPoint()}}
+{\footnotesize\ttfamily std\+::string Gpu\+Plugin\+::get\+Gpu\+Cgroup\+Mount\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to get the mount point of the gpu cgroup filesystem. 
+
+This scans the mount table looking for the cgroups mount, if this fails it\textquotesingle{}s pretty fatal.
+
+This is typically \char`\"{}/sys/fs/cgroup/gpu\char`\"{}.
+
+\begin{DoxyReturn}{Returns}
+a string to the gpu cgroup path. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGpuPlugin_ae5d647695cc99b829fc24292ef37f1bf}\label{classGpuPlugin_ae5d647695cc99b829fc24292ef37f1bf}} 
+\index{GpuPlugin@{GpuPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!GpuPlugin@{GpuPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Gpu\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return a bitfield of the hook points implemented by the plugin. 
+
+Only bits that are set will be called as hooks. This is to optimise the implementation of the hook code to ensure we don\textquotesingle{}t waste time trying to run hooks that don\textquotesingle{}t do anything
+
+The value returned should be constant for the lifetime of the class
+
+\begin{DoxyReturn}{Returns}
+bitmask of the Hint\+Flags bits. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classGpuPlugin_abcfe03aa369ae6718bab521e0ec5a2b0}\label{classGpuPlugin_abcfe03aa369ae6718bab521e0ec5a2b0}} 
+\index{GpuPlugin@{GpuPlugin}!name@{name}}
+\index{name@{name}!GpuPlugin@{GpuPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Gpu\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classGpuPlugin_a0e8b9b5273ed9211a5e80cd0f3cbe34d}\label{classGpuPlugin_a0e8b9b5273ed9211a5e80cd0f3cbe34d}} 
+\index{GpuPlugin@{GpuPlugin}!postStop@{postStop}}
+\index{postStop@{postStop}!GpuPlugin@{GpuPlugin}}
+\doxysubsubsection{\texorpdfstring{postStop()}{postStop()}}
+{\footnotesize\ttfamily bool Gpu\+Plugin\+::post\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+We use the post\+Stop point to remove the cgroup directory created in the create\+Runtime phase. 
+
+The directory will have the same name as the container id.
+
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a5f6d9df3768beed63fe0361af3bb050c}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classGpuPlugin_a66bab618561c94dc4bb094e1815d1e4d}\label{classGpuPlugin_a66bab618561c94dc4bb094e1815d1e4d}} 
+\index{GpuPlugin@{GpuPlugin}!setupContainerGpuLimit@{setupContainerGpuLimit}}
+\index{setupContainerGpuLimit@{setupContainerGpuLimit}!GpuPlugin@{GpuPlugin}}
+\doxysubsubsection{\texorpdfstring{setupContainerGpuLimit()}{setupContainerGpuLimit()}}
+{\footnotesize\ttfamily bool Gpu\+Plugin\+::setup\+Container\+Gpu\+Limit (\begin{DoxyParamCaption}\item[{const std\+::string}]{cgroup\+Dir\+Path,  }\item[{pid\+\_\+t}]{container\+Pid,  }\item[{int}]{memory\+Limit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a gpu cgroup for the container and moves the container into it. 
+
+The cgroup is given the same name as the container.
+
+\begin{DoxyWarning}{Warning}
+This requires a version of crun with the following PR\+: \href{https://github.com/containers/crun/pull/609}{\texttt{ https\+://github.\+com/containers/crun/pull/609}} to ensure cgroup controllers are correctly mounted. Without the PR applied, the GPU cgroup is mounted incorrectly, see \href{https://github.com/containers/crun/issues/625}{\texttt{ https\+://github.\+com/containers/crun/issues/625}} for more info
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cgroup\+Dir\+Path} & Path to the gpu cgroup directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Pid} & The pid of the process in the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em memory\+Limit} & The memory limit set in the bundle config.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+GPU/source/Gpu\+Plugin.\+h\item 
+rdk\+Plugins/\+GPU/source/Gpu\+Plugin.\+cpp\end{DoxyCompactItemize}

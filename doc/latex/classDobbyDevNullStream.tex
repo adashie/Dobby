@@ -1,0 +1,64 @@
+\hypertarget{classDobbyDevNullStream}{}\doxysection{Dobby\+Dev\+Null\+Stream Class Reference}
+\label{classDobbyDevNullStream}\index{DobbyDevNullStream@{DobbyDevNullStream}}
+
+
+Stream that just redirects all the input to /dev/null.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Stream.\+h$>$}
+
+
+
+Inheritance diagram for Dobby\+Dev\+Null\+Stream\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Dev\+Null\+Stream\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classDobbyDevNullStream_adf10c25d29997cc7d858a418e555c2cd}{dup\+Write\+FD}} (int new\+Fd, bool close\+Exec) const override
+\begin{DoxyCompactList}\small\item\em Returns a dup\textquotesingle{}d file descriptor for the write side of the stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stream that just redirects all the input to /dev/null. 
+
+This simply returns the fd for /dev/null in the dup\+Write\+FD call. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyDevNullStream_adf10c25d29997cc7d858a418e555c2cd}\label{classDobbyDevNullStream_adf10c25d29997cc7d858a418e555c2cd}} 
+\index{DobbyDevNullStream@{DobbyDevNullStream}!dupWriteFD@{dupWriteFD}}
+\index{dupWriteFD@{dupWriteFD}!DobbyDevNullStream@{DobbyDevNullStream}}
+\doxysubsubsection{\texorpdfstring{dupWriteFD()}{dupWriteFD()}}
+{\footnotesize\ttfamily int Dobby\+Dev\+Null\+Stream\+::dup\+Write\+FD (\begin{DoxyParamCaption}\item[{int}]{new\+Fd,  }\item[{bool}]{close\+Exec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns a dup\textquotesingle{}d file descriptor for the write side of the stream. 
+
+If the file descriptor {\itshape newfd} was previously open, it is silently closed before being reused. If {\itshape new\+Fd} is -\/1 then the lowest-\/numbered unused file descriptor number is used.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+Fd} & The number to give the new file descriptor. \\
+\hline
+\mbox{\texttt{ in}}  & {\em close\+Exec} & If true the O\+\_\+\+CLOEXEC flag is set on the new fd\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new file descriptor, on error -\/1. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Stream.\+h\item 
+daemon/lib/source/Dobby\+Stream.\+cpp\end{DoxyCompactItemize}

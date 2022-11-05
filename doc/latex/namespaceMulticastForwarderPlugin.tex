@@ -1,0 +1,13 @@
+\hypertarget{namespaceMulticastForwarderPlugin}{}\doxysection{Multicast\+Forwarder\+Plugin Namespace Reference}
+\label{namespaceMulticastForwarderPlugin}\index{MulticastForwarderPlugin@{MulticastForwarderPlugin}}
+
+
+Used to add iptables firewall rules, ebtables and smcroute rules to allow containered processes to receive multicast traffic.  
+
+
+
+
+\doxysubsection{Detailed Description}
+Used to add iptables firewall rules, ebtables and smcroute rules to allow containered processes to receive multicast traffic. 
+
+This plugin adds the necessary rules to iptables, ebtables and smcroute when the container is started and deletes them again when the container is stopped. All the rules are tagged (via an iptables comment) with the name of the container, this should ensure rules are correctly added and removed. 

@@ -1,0 +1,471 @@
+\hypertarget{classAI__IPC_1_1DbusConnection}{}\doxysection{AI\+\_\+\+IPC\+::Dbus\+Connection Class Reference}
+\label{classAI__IPC_1_1DbusConnection}\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+
+
+Wraps a dbus connection pointer and runs the dispatch loop for it.  
+
+
+
+
+{\ttfamily \#include $<$Dbus\+Connection.\+h$>$}
+
+
+
+Collaboration diagram for AI\+\_\+\+IPC\+::Dbus\+Connection\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAI__IPC_1_1DbusConnection_1_1__ReplyContext}{\+\_\+\+Reply\+Context}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_afccaa27855f367dea75efc3bbce7b3db}{connect}} (DBus\+Bus\+Type bus\+Type, const std\+::string \&service\+Name=std\+::string())
+\begin{DoxyCompactList}\small\item\em Attempts to connect to one of the known buses and optionally reserve the given service name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_a4fa7712088bdc0c622241951c5cbac2c}{connect}} (const std\+::string \&address, const std\+::string \&service\+Name=std\+::string())
+\begin{DoxyCompactList}\small\item\em Attempts to connect to the bus and optionally reserve the given service name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_a8c7617ee673c9ba3402763900dbddd8b}{disconnect}} ()
+\begin{DoxyCompactList}\small\item\em Disconnect from the bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_afc1c713f9e1b18c87f019a148899ce33}{register\+Message\+Handler}} (const std\+::function$<$ DBus\+Handler\+Result(DBus\+Message $\ast$)$>$ \&handler)
+\begin{DoxyCompactList}\small\item\em Registers a handler to be called when any message (method call or signal) is received. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_ac55f6f7576484b8f1a21e5b0ecb3f923}{send\+Message\+No\+Reply}} (DBus\+Message $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Sends a message on the connection without expecting a reply. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_a3b652bf356a5dcc7af7e2e9e2c867483}{send\+Message\+With\+Reply}} (DBus\+Message $\ast$msg, int timeout)
+\begin{DoxyCompactList}\small\item\em Sends a dbus message out the connection. \end{DoxyCompactList}\item 
+DBus\+Message $\ast$ \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_aa7a9d82378f12acd35c7da12eed0a722}{get\+Reply}} (uint64\+\_\+t token)
+\begin{DoxyCompactList}\small\item\em Gets the reply for the given request. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_ae9a7b7885d1edc047dc9bcbe9024fd78}{cancel\+Reply}} (uint64\+\_\+t token)
+\begin{DoxyCompactList}\small\item\em Cancels waiting for the reply. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_ad61a5344d199b936b8e9c0fa949816f6}{name\+Has\+Owner}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Returns true if the supplied name exists on the bus. \end{DoxyCompactList}\item 
+uid\+\_\+t \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_a94564838b505498a5ce39d582fe71718}{get\+Unix\+User}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Returns the unix user id of the named client. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_adcaedd5820721a539d8dd6f9a2d9a029}{add\+Match}} (const std\+::string \&rule)
+\begin{DoxyCompactList}\small\item\em Adds a match rule for the connection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_af19069fce53c39f0b40385c3c31565c4}{remove\+Match}} (const std\+::string \&rule)
+\begin{DoxyCompactList}\small\item\em Removes a match rule from the connection. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a8893bd2a53fc9c8ae56aab26f982dfd4}\label{classAI__IPC_1_1DbusConnection_a8893bd2a53fc9c8ae56aab26f982dfd4}} 
+std\+::string {\bfseries get\+Address} ()
+\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_afccd07bbee82e1b7d9c9741bbc395fad}{flush\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Flushes the dbus connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_adaed87ad4103688b23bc90734d8fee75}\label{classAI__IPC_1_1DbusConnection_adaed87ad4103688b23bc90734d8fee75}} 
+typedef std\+::function$<$ DBus\+Handler\+Result(DBus\+Message $\ast$)$>$ {\bfseries Message\+Handler}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a7e58b6f957ce030d88b17a37b918b383}\label{classAI__IPC_1_1DbusConnection_a7e58b6f957ce030d88b17a37b918b383}} 
+typedef struct \mbox{\hyperlink{structAI__IPC_1_1DbusConnection_1_1__ReplyContext}{AI\+\_\+\+IPC\+::\+Dbus\+Connection\+::\+\_\+\+Reply\+Context}} {\bfseries Reply\+Context}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_af02a561c8880ff58dc7f76e09e1f0b16}{complete\+Connect}} (DBus\+Connection $\ast$conn, const std\+::string \&service\+Name)
+\begin{DoxyCompactList}\small\item\em Completes the initialisation of the dbus connection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_acd0c9614e62a865225bf14e88f4af037}{reserve\+Service\+Name}} (DBus\+Connection $\ast$dbus\+Connection, const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Attempts to reserve a service name on dbus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static DBus\+Handler\+Result \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_a8214b917884ce98ad8c27c908f71b8d2}{handle\+Dbus\+Message\+Cb}} (DBus\+Connection $\ast$connection, DBus\+Message $\ast$message, void $\ast$user\+Data)
+\begin{DoxyCompactList}\small\item\em Callback from the libdbus in the context of the event / dispatcher thread. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_ac8da5995a43f2f675e0bc5acde4fad71}{pending\+Call\+Notify\+Fcn}} (DBus\+Pending\+Call $\ast$pending, void $\ast$user\+Data)
+\begin{DoxyCompactList}\small\item\em Callback from libdus when either a reply is received for a pending call or the timeout expires. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_a8f6ecaebe44aadc59174d9950da11ed5}{pending\+Call\+Free\+Fcn}} (void $\ast$user\+Data)
+\begin{DoxyCompactList}\small\item\em Callback from libdus when a pending call notifier is being destroyed and we should clean up the context data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_aa9e4607d0b8edb7dee29a3d1c92c2334}\label{classAI__IPC_1_1DbusConnection_aa9e4607d0b8edb7dee29a3d1c92c2334}} 
+DBus\+Connection $\ast$ {\bfseries m\+Dbus\+Connection}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a57b8cf86a2e37544b81ede77152c9544}\label{classAI__IPC_1_1DbusConnection_a57b8cf86a2e37544b81ede77152c9544}} 
+\mbox{\hyperlink{classAI__IPC_1_1DbusEventDispatcher}{Dbus\+Event\+Dispatcher}} {\bfseries m\+Event\+Dispacher}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a58bf6e765d52e69b8ad80f98ce098c2c}\label{classAI__IPC_1_1DbusConnection_a58bf6e765d52e69b8ad80f98ce098c2c}} 
+Message\+Handler {\bfseries m\+Handler}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_adc5dede5e3310593aea7f18153e0ad8f}\label{classAI__IPC_1_1DbusConnection_adc5dede5e3310593aea7f18153e0ad8f}} 
+\mbox{\hyperlink{classAICommon_1_1Spinlock}{AICommon\+::\+Spinlock}} {\bfseries m\+Handler\+Lock}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a8c5f418220fab01b0c1fda544697b22c}\label{classAI__IPC_1_1DbusConnection_a8c5f418220fab01b0c1fda544697b22c}} 
+std\+::string {\bfseries m\+Service\+Name}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_aba094953662f499b63799b5a81688272}\label{classAI__IPC_1_1DbusConnection_aba094953662f499b63799b5a81688272}} 
+std\+::atomic$<$ uint64\+\_\+t $>$ {\bfseries m\+Token\+Counter}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a045f5a597731aee3d16292c04c34a371}\label{classAI__IPC_1_1DbusConnection_a045f5a597731aee3d16292c04c34a371}} 
+\mbox{\hyperlink{classAICommon_1_1Mutex}{AICommon\+::\+Mutex}} {\bfseries m\+Replies\+Lock}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_af30eb59f335146834afd79d3b95687f9}\label{classAI__IPC_1_1DbusConnection_af30eb59f335146834afd79d3b95687f9}} 
+\mbox{\hyperlink{classAICommon_1_1ConditionVariable}{AICommon\+::\+Condition\+Variable}} {\bfseries m\+Replies\+Cond\+Var}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a273c1006004a8756005b5ac80346a0eb}\label{classAI__IPC_1_1DbusConnection_a273c1006004a8756005b5ac80346a0eb}} 
+std\+::map$<$ uint64\+\_\+t, DBus\+Message $\ast$ $>$ {\bfseries m\+Replies}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wraps a dbus connection pointer and runs the dispatch loop for it. 
+
+This class was added to force all libdus calls that take a DBus\+Connection$\ast$ pointer as an argument to be routed through a single event loop thread. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_adcaedd5820721a539d8dd6f9a2d9a029}\label{classAI__IPC_1_1DbusConnection_adcaedd5820721a539d8dd6f9a2d9a029}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!addMatch@{addMatch}}
+\index{addMatch@{addMatch}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{addMatch()}{addMatch()}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::add\+Match (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{rule }\end{DoxyParamCaption})}
+
+
+
+Adds a match rule for the connection. 
+
+This calls dbus\+\_\+bus\+\_\+add\+\_\+match(...), from the context of the dispatch thread loop.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rule} & The dbus match rule to add\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_ae9a7b7885d1edc047dc9bcbe9024fd78}\label{classAI__IPC_1_1DbusConnection_ae9a7b7885d1edc047dc9bcbe9024fd78}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!cancelReply@{cancelReply}}
+\index{cancelReply@{cancelReply}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{cancelReply()}{cancelReply()}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::cancel\+Reply (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{token }\end{DoxyParamCaption})}
+
+
+
+Cancels waiting for the reply. 
+
+This frees the memory reserved for storing the reply.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em token} & The token returned by the send\+Message\+With\+Reply(...) method.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_af02a561c8880ff58dc7f76e09e1f0b16}\label{classAI__IPC_1_1DbusConnection_af02a561c8880ff58dc7f76e09e1f0b16}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!completeConnect@{completeConnect}}
+\index{completeConnect@{completeConnect}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{completeConnect()}{completeConnect()}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::complete\+Connect (\begin{DoxyParamCaption}\item[{DBus\+Connection $\ast$}]{conn,  }\item[{const std\+::string \&}]{service\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Completes the initialisation of the dbus connection. 
+
+If an error occurs the supplied connection will be closed and unref\textquotesingle{}ed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em conn} & Pointer to the newly opened dbus connection. \\
+\hline
+\mbox{\texttt{ in}}  & {\em service\+Name} & Service name to use for the connection.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a4fa7712088bdc0c622241951c5cbac2c}\label{classAI__IPC_1_1DbusConnection_a4fa7712088bdc0c622241951c5cbac2c}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!connect@{connect}}
+\index{connect@{connect}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::connect (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{address,  }\item[{const std\+::string \&}]{service\+Name = {\ttfamily std\+:\+:string()} }\end{DoxyParamCaption})}
+
+
+
+Attempts to connect to the bus and optionally reserve the given service name. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em address} & The dbus address to connected to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em service\+Name} & Optional service name to use for the connection.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_afccaa27855f367dea75efc3bbce7b3db}\label{classAI__IPC_1_1DbusConnection_afccaa27855f367dea75efc3bbce7b3db}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!connect@{connect}}
+\index{connect@{connect}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::connect (\begin{DoxyParamCaption}\item[{DBus\+Bus\+Type}]{bus\+Type,  }\item[{const std\+::string \&}]{service\+Name = {\ttfamily std\+:\+:string()} }\end{DoxyParamCaption})}
+
+
+
+Attempts to connect to one of the known buses and optionally reserve the given service name. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bus\+Type} & Must be either; DBUS\+\_\+\+BUS\+\_\+\+SESSION or DBUS\+\_\+\+BUS\+\_\+\+SYSTEM \\
+\hline
+\mbox{\texttt{ in}}  & {\em service\+Name} & Optional service name to use for the connection.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a8c7617ee673c9ba3402763900dbddd8b}\label{classAI__IPC_1_1DbusConnection_a8c7617ee673c9ba3402763900dbddd8b}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily void Dbus\+Connection\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disconnect from the bus. 
+
+This will also cancel any pending method calls. \mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_afccd07bbee82e1b7d9c9741bbc395fad}\label{classAI__IPC_1_1DbusConnection_afccd07bbee82e1b7d9c9741bbc395fad}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!flushConnection@{flushConnection}}
+\index{flushConnection@{flushConnection}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{flushConnection()}{flushConnection()}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::flush\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Flushes the dbus connection. 
+
+This calls dbus\+\_\+connection\+\_\+flush(...), from the context of the dispatch thread loop.
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_aa7a9d82378f12acd35c7da12eed0a722}\label{classAI__IPC_1_1DbusConnection_aa7a9d82378f12acd35c7da12eed0a722}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!getReply@{getReply}}
+\index{getReply@{getReply}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{getReply()}{getReply()}}
+{\footnotesize\ttfamily DBus\+Message $\ast$ Dbus\+Connection\+::get\+Reply (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{token }\end{DoxyParamCaption})}
+
+
+
+Gets the reply for the given request. 
+
+This method blocks until a reply or timeout has been received. The timeout time is set when the message was originally sent (by send\+Message\+With\+Reply). However there is a maximum timeout value of 120 seconds, this should never be hit in normal operation, if it is then it indicates a problem with the timeout code in libdbus.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em token} & The token returned by the send\+Message\+With\+Reply(...) method.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success the reply message, it is the callers responsbility to call dbus\+\_\+message\+\_\+unref on the message object. On failure a nullptr is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a94564838b505498a5ce39d582fe71718}\label{classAI__IPC_1_1DbusConnection_a94564838b505498a5ce39d582fe71718}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!getUnixUser@{getUnixUser}}
+\index{getUnixUser@{getUnixUser}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{getUnixUser()}{getUnixUser()}}
+{\footnotesize\ttfamily uid\+\_\+t Dbus\+Connection\+::get\+Unix\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Returns the unix user id of the named client. 
+
+This calls dbus\+\_\+bus\+\_\+get\+\_\+unix\+\_\+user(...), from the context of the dispatch thread loop.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The client name to get the user id of.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+positive user id if the name exists on the bus, -\/1 on error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a8214b917884ce98ad8c27c908f71b8d2}\label{classAI__IPC_1_1DbusConnection_a8214b917884ce98ad8c27c908f71b8d2}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!handleDbusMessageCb@{handleDbusMessageCb}}
+\index{handleDbusMessageCb@{handleDbusMessageCb}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{handleDbusMessageCb()}{handleDbusMessageCb()}}
+{\footnotesize\ttfamily DBus\+Handler\+Result Dbus\+Connection\+::handle\+Dbus\+Message\+Cb (\begin{DoxyParamCaption}\item[{DBus\+Connection $\ast$}]{connection,  }\item[{DBus\+Message $\ast$}]{message,  }\item[{void $\ast$}]{user\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Callback from the libdbus in the context of the event / dispatcher thread. 
+
+This callback is installed right after we\textquotesingle{}ve connected, we hook this point so we can pass it onto the handler installed with {\itshape register\+Message\+Handler} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em connection} & The connection dbus connection. \\
+\hline
+\mbox{\texttt{ in}}  & {\em message} & The message received. \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+Data} & User data, in our case a pointer to this\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if no handler is installed then DBUS\+\_\+\+HANDLER\+\_\+\+RESULT\+\_\+\+NOT\+\_\+\+YET\+\_\+\+HANDLED is returned, otherwise the result returned by installed handler. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_ad61a5344d199b936b8e9c0fa949816f6}\label{classAI__IPC_1_1DbusConnection_ad61a5344d199b936b8e9c0fa949816f6}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!nameHasOwner@{nameHasOwner}}
+\index{nameHasOwner@{nameHasOwner}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{nameHasOwner()}{nameHasOwner()}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::name\+Has\+Owner (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Returns true if the supplied name exists on the bus. 
+
+This calls dbus\+\_\+bus\+\_\+name\+\_\+has\+\_\+owner(...), from the context of the dispatch thread loop.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The service name to search for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the name exists on the bus, false on error or if the name is not on the bus. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a8f6ecaebe44aadc59174d9950da11ed5}\label{classAI__IPC_1_1DbusConnection_a8f6ecaebe44aadc59174d9950da11ed5}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!pendingCallFreeFcn@{pendingCallFreeFcn}}
+\index{pendingCallFreeFcn@{pendingCallFreeFcn}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{pendingCallFreeFcn()}{pendingCallFreeFcn()}}
+{\footnotesize\ttfamily void Dbus\+Connection\+::pending\+Call\+Free\+Fcn (\begin{DoxyParamCaption}\item[{void $\ast$}]{user\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Callback from libdus when a pending call notifier is being destroyed and we should clean up the context data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em user\+Data} & Pointer to the data to free. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_ac8da5995a43f2f675e0bc5acde4fad71}\label{classAI__IPC_1_1DbusConnection_ac8da5995a43f2f675e0bc5acde4fad71}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!pendingCallNotifyFcn@{pendingCallNotifyFcn}}
+\index{pendingCallNotifyFcn@{pendingCallNotifyFcn}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{pendingCallNotifyFcn()}{pendingCallNotifyFcn()}}
+{\footnotesize\ttfamily void Dbus\+Connection\+::pending\+Call\+Notify\+Fcn (\begin{DoxyParamCaption}\item[{DBus\+Pending\+Call $\ast$}]{pending,  }\item[{void $\ast$}]{user\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Callback from libdus when either a reply is received for a pending call or the timeout expires. 
+
+The timeout for the call is set when the method call request is queued (i.\+e. with the {\itshape \mbox{\hyperlink{classAI__IPC_1_1DbusConnection_a3b652bf356a5dcc7af7e2e9e2c867483}{send\+Message\+With\+Reply()}}} method).
+
+This is the point were we get the reply message (which could be a timeout message) and assign it against the token value stored in the map.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pending} & The pending call object that has completed \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+Data} & User data, in our case a pointer to a Reply\+Context object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_afc1c713f9e1b18c87f019a148899ce33}\label{classAI__IPC_1_1DbusConnection_afc1c713f9e1b18c87f019a148899ce33}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!registerMessageHandler@{registerMessageHandler}}
+\index{registerMessageHandler@{registerMessageHandler}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{registerMessageHandler()}{registerMessageHandler()}}
+{\footnotesize\ttfamily void Dbus\+Connection\+::register\+Message\+Handler (\begin{DoxyParamCaption}\item[{const std\+::function$<$ DBus\+Handler\+Result(DBus\+Message $\ast$)$>$ \&}]{handler }\end{DoxyParamCaption})}
+
+
+
+Registers a handler to be called when any message (method call or signal) is received. 
+
+Only one handler can be installed at a time, to remove the handler pass nullptr.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em handler} & Function to call on receiving a message \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_af19069fce53c39f0b40385c3c31565c4}\label{classAI__IPC_1_1DbusConnection_af19069fce53c39f0b40385c3c31565c4}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!removeMatch@{removeMatch}}
+\index{removeMatch@{removeMatch}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{removeMatch()}{removeMatch()}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::remove\+Match (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{rule }\end{DoxyParamCaption})}
+
+
+
+Removes a match rule from the connection. 
+
+This calls dbus\+\_\+bus\+\_\+remove\+\_\+match(...), from the context of the dispatch thread loop.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rule} & The dbus match rule to remove.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_acd0c9614e62a865225bf14e88f4af037}\label{classAI__IPC_1_1DbusConnection_acd0c9614e62a865225bf14e88f4af037}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!reserveServiceName@{reserveServiceName}}
+\index{reserveServiceName@{reserveServiceName}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{reserveServiceName()}{reserveServiceName()}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::reserve\+Service\+Name (\begin{DoxyParamCaption}\item[{DBus\+Connection $\ast$}]{dbus\+Connection,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to reserve a service name on dbus. 
+
+Service names must be unique (per dbus) so if the name is already owned by another dbus client then this function will fail.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dbus\+Connection} & The dbus connection we want to reserve the name on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em name} & The name we\textquotesingle{}re trying to reserve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_ac55f6f7576484b8f1a21e5b0ecb3f923}\label{classAI__IPC_1_1DbusConnection_ac55f6f7576484b8f1a21e5b0ecb3f923}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!sendMessageNoReply@{sendMessageNoReply}}
+\index{sendMessageNoReply@{sendMessageNoReply}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{sendMessageNoReply()}{sendMessageNoReply()}}
+{\footnotesize\ttfamily bool Dbus\+Connection\+::send\+Message\+No\+Reply (\begin{DoxyParamCaption}\item[{DBus\+Message $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Sends a message on the connection without expecting a reply. 
+
+This is typically used for emitting a signal, however can be used for a method call that is not expecting a reply.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em msg} & The message to send out the bus.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusConnection_a3b652bf356a5dcc7af7e2e9e2c867483}\label{classAI__IPC_1_1DbusConnection_a3b652bf356a5dcc7af7e2e9e2c867483}} 
+\index{AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}!sendMessageWithReply@{sendMessageWithReply}}
+\index{sendMessageWithReply@{sendMessageWithReply}!AI\_IPC::DbusConnection@{AI\_IPC::DbusConnection}}
+\doxysubsubsection{\texorpdfstring{sendMessageWithReply()}{sendMessageWithReply()}}
+{\footnotesize\ttfamily uint64\+\_\+t Dbus\+Connection\+::send\+Message\+With\+Reply (\begin{DoxyParamCaption}\item[{DBus\+Message $\ast$}]{msg,  }\item[{int}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Sends a dbus message out the connection. 
+
+This calls dbus\+\_\+connection\+\_\+send\+\_\+with\+\_\+reply(...), from the context of the dispatch thread loop. If that succeeds it installs a notifier on the pending call result and allocates a reply token that the caller should use for getting the reply.
+
+The returned token MUST be consumed by calling either {\itshape get\+Reply} or {\itshape cancel\+Reply}, if this is not done then the reply will be stored until the connection is disconnected.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em msg} & The message to send, it should be a method call. \\
+\hline
+\mbox{\texttt{ in}}  & {\em timeout} & The timeout in milliseconds to wait for a response, if -\/1 then a \textquotesingle{}sensible\textquotesingle{} default is used, typically 30 seconds.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a unique 64-\/bit token value to use for getting the reply message, on error 0 will be returned. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+Connection.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+Connection.\+cpp\end{DoxyCompactItemize}

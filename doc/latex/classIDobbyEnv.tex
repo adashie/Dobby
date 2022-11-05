@@ -1,0 +1,149 @@
+\hypertarget{classIDobbyEnv}{}\doxysection{IDobby\+Env Class Reference}
+\label{classIDobbyEnv}\index{IDobbyEnv@{IDobbyEnv}}
+
+
+\mbox{\hyperlink{structInterface}{Interface}} that exports the environment of the daemon to plugins.  
+
+
+
+
+{\ttfamily \#include $<$IDobby\+Env.\+h$>$}
+
+
+
+Inheritance diagram for IDobby\+Env\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDobbyEnv_a5ee49cc1fb04cd8f730aa10946690c3d}\label{classIDobbyEnv_a5ee49cc1fb04cd8f730aa10946690c3d}} 
+enum class {\bfseries Cgroup} \{ \newline
+{\bfseries Freezer}
+, {\bfseries Memory}
+, {\bfseries Cpu}
+, {\bfseries Cpu\+Acct}
+, \newline
+{\bfseries Cpu\+Set}
+, {\bfseries Devices}
+, {\bfseries Gpu}
+, {\bfseries Net\+Cls}
+, \newline
+{\bfseries Blkio}
+, {\bfseries Ion}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbyEnv_a89e1d27b2338cf19db6cfe485912c910}{workspace\+Mount\+Path}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the absolute AI workspace mount point path. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbyEnv_a926d20a348eac6f581d135eb2138ee2b}{flash\+Mount\+Path}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the absolute path to the AI area on flash. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbyEnv_af38a17c90a878c2c90efd0220ff79317}{plugins\+Workspace\+Path}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the path to directory that plugins can write to. \end{DoxyCompactList}\item 
+virtual uint16\+\_\+t \mbox{\hyperlink{classIDobbyEnv_ace7562b3e6f2d415720ba78a907cf90e}{platform\+Ident}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the two byte platform identification number. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbyEnv_a1af7ebfbb60a41133de6514ad61bb008}{cgroup\+Mount\+Path}} (Cgroup cgroup) const =0
+\begin{DoxyCompactList}\small\item\em Returns the absolute path to the cgroup mount point for the given cgroup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structInterface}{Interface}} that exports the environment of the daemon to plugins. 
+
+A const instance of this interface is given to plugins when they are installed, it provides some basic information about the location of mount points and the system.
+
+The interface is only expected to contain static values, it is not expected that values returned via getters will change over the lifetime of the object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIDobbyEnv_a1af7ebfbb60a41133de6514ad61bb008}\label{classIDobbyEnv_a1af7ebfbb60a41133de6514ad61bb008}} 
+\index{IDobbyEnv@{IDobbyEnv}!cgroupMountPath@{cgroupMountPath}}
+\index{cgroupMountPath@{cgroupMountPath}!IDobbyEnv@{IDobbyEnv}}
+\doxysubsubsection{\texorpdfstring{cgroupMountPath()}{cgroupMountPath()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Env\+::cgroup\+Mount\+Path (\begin{DoxyParamCaption}\item[{Cgroup}]{cgroup }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the absolute path to the cgroup mount point for the given cgroup. 
+
+This is typically \char`\"{}/sys/fs/cgroup/$<$cgroup$>$\char`\"{} 
+
+Implemented in \mbox{\hyperlink{classDobbyEnv_a7d59f697f700d25c7790d11d77f6b3f9}{Dobby\+Env}}.
+
+\mbox{\Hypertarget{classIDobbyEnv_a926d20a348eac6f581d135eb2138ee2b}\label{classIDobbyEnv_a926d20a348eac6f581d135eb2138ee2b}} 
+\index{IDobbyEnv@{IDobbyEnv}!flashMountPath@{flashMountPath}}
+\index{flashMountPath@{flashMountPath}!IDobbyEnv@{IDobbyEnv}}
+\doxysubsubsection{\texorpdfstring{flashMountPath()}{flashMountPath()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Env\+::flash\+Mount\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the absolute path to the AI area on flash. 
+
+This is the flash mount used to store things like package widget files and any other sort of persistent data.
+
+The path changes depending on the platform, but the following is typical \char`\"{}/mnt/nds/dev\+\_\+17/part\+\_\+0/appmanager\char`\"{} 
+
+Implemented in \mbox{\hyperlink{classDobbyEnv_af902994d91f902922610d9a5dcf1aaf9}{Dobby\+Env}}.
+
+\mbox{\Hypertarget{classIDobbyEnv_ace7562b3e6f2d415720ba78a907cf90e}\label{classIDobbyEnv_ace7562b3e6f2d415720ba78a907cf90e}} 
+\index{IDobbyEnv@{IDobbyEnv}!platformIdent@{platformIdent}}
+\index{platformIdent@{platformIdent}!IDobbyEnv@{IDobbyEnv}}
+\doxysubsubsection{\texorpdfstring{platformIdent()}{platformIdent()}}
+{\footnotesize\ttfamily virtual uint16\+\_\+t IDobby\+Env\+::platform\+Ident (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the two byte platform identification number. 
+
+The following list the platforms at time of writing, for a complete list refer to \href{https://www.stb.bskyb.com/confluence/display/SKYQ/Sky+Q+Hardware}{\texttt{ https\+://www.\+stb.\+bskyb.\+com/confluence/display/\+SKYQ/\+Sky+\+Q+\+Hardware}} \begin{DoxyVerb}32B0  :  Falcon (broadcom 7445)
+32B1  :  FalconV2 UK (ST 419 Gateway)
+32B2  :  Titan (Broadcom 7278 Gateway)
+32C0  :  X-Wing (ST 412 Gateway)
+32C1  :  HIP Box (SKYH412 X-Wing)
+32D0  :  MR Box (ST 412 IP-Client)
+7D67  :  Amidala (ST 418 Gateway Satellite)
+3400  :  Amidala (ST 418 Gateway Cable)
+6763  :  Amidala (ST 418 GW Satellite & Cable)
+32C2  :  AX2 m-star 64bit platform
+\end{DoxyVerb}
+ 
+
+Implemented in \mbox{\hyperlink{classDobbyEnv_ab1d6b875d7bb3d1084754f5d03394b29}{Dobby\+Env}}.
+
+\mbox{\Hypertarget{classIDobbyEnv_af38a17c90a878c2c90efd0220ff79317}\label{classIDobbyEnv_af38a17c90a878c2c90efd0220ff79317}} 
+\index{IDobbyEnv@{IDobbyEnv}!pluginsWorkspacePath@{pluginsWorkspacePath}}
+\index{pluginsWorkspacePath@{pluginsWorkspacePath}!IDobbyEnv@{IDobbyEnv}}
+\doxysubsubsection{\texorpdfstring{pluginsWorkspacePath()}{pluginsWorkspacePath()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Env\+::plugins\+Workspace\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the path to directory that plugins can write to. 
+
+This is non-\/persistent storage and is just a subdirectory of the workspace. Plugins should use this to store any temporary files, mount points, etc.
+
+The path is typically \char`\"{}/mnt/nds/tmpfs/\+APPLICATIONS\+\_\+\+WORKSPACE/plugins\char`\"{} 
+
+Implemented in \mbox{\hyperlink{classDobbyEnv_adbc91b490efd9e88ba6dfd9de34fe504}{Dobby\+Env}}.
+
+\mbox{\Hypertarget{classIDobbyEnv_a89e1d27b2338cf19db6cfe485912c910}\label{classIDobbyEnv_a89e1d27b2338cf19db6cfe485912c910}} 
+\index{IDobbyEnv@{IDobbyEnv}!workspaceMountPath@{workspaceMountPath}}
+\index{workspaceMountPath@{workspaceMountPath}!IDobbyEnv@{IDobbyEnv}}
+\doxysubsubsection{\texorpdfstring{workspaceMountPath()}{workspaceMountPath()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Env\+::workspace\+Mount\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the absolute AI workspace mount point path. 
+
+This is the tmpfs mount used by all AI code as a place to store non-\/persistent files.
+
+The path is typically \char`\"{}/mnt/nds/tmpfs/\+APPLICATIONS\+\_\+\+WORKSPACE\char`\"{} 
+
+Implemented in \mbox{\hyperlink{classDobbyEnv_afd71956854459463409cd194a6a36191}{Dobby\+Env}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+utils/include/IDobby\+Env.\+h\end{DoxyCompactItemize}

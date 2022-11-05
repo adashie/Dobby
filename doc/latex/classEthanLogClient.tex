@@ -1,0 +1,500 @@
+\hypertarget{classEthanLogClient}{}\doxysection{Ethan\+Log\+Client Class Reference}
+\label{classEthanLogClient}\index{EthanLogClient@{EthanLogClient}}
+
+
+Collaboration diagram for Ethan\+Log\+Client\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEthanLogClient_1_1TokenBucket}{Token\+Bucket}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEthanLogClient_a1c68c83db2ab6501bbe6e7bcf81bd4d3}{Ethan\+Log\+Client}} (sd\+\_\+event $\ast$loop, \mbox{\hyperlink{classContainerId}{Container\+Id}} \&\&id, std\+::string \&\&name, int fd, unsigned allowed\+Levels, unsigned rate, unsigned burst\+Size, const std\+::string \&mem\+Cgroup\+Mount\+Point)
+\begin{DoxyCompactList}\small\item\em Constructs a logging client which represents one pipe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEthanLogClient_ae1c47b9e1479d36ed6a3807f9c85f87a}\label{classEthanLogClient_ae1c47b9e1479d36ed6a3807f9c85f87a}} 
+{\bfseries Ethan\+Log\+Client} (const \mbox{\hyperlink{classEthanLogClient}{Ethan\+Log\+Client}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a7007955577f03ca23572db439faa6d15}\label{classEthanLogClient_a7007955577f03ca23572db439faa6d15}} 
+{\bfseries Ethan\+Log\+Client} (\mbox{\hyperlink{classEthanLogClient}{Ethan\+Log\+Client}} \&\&other)=delete
+\item 
+\mbox{\Hypertarget{classEthanLogClient_ade9e04fd33abc4ad0f93183cb2c5374d}\label{classEthanLogClient_ade9e04fd33abc4ad0f93183cb2c5374d}} 
+\mbox{\hyperlink{classEthanLogClient}{Ethan\+Log\+Client}} \& {\bfseries operator=} (const \mbox{\hyperlink{classEthanLogClient}{Ethan\+Log\+Client}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a5a8fe62ce7efa8359b37459babd717fd}\label{classEthanLogClient_a5a8fe62ce7efa8359b37459babd717fd}} 
+\mbox{\hyperlink{classEthanLogClient}{Ethan\+Log\+Client}} \& {\bfseries operator=} (\mbox{\hyperlink{classEthanLogClient}{Ethan\+Log\+Client}} \&\&other)=delete
+\item 
+void \mbox{\hyperlink{classEthanLogClient_a1dbd307d7ddafd972a576c6dd3ba2057}{set\+Container\+Pid}} (pid\+\_\+t pid)
+\begin{DoxyCompactList}\small\item\em Sets the base pid for the client\textquotesingle{}s container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEthanLogClient_a48346acb63e4e2d20f3a5011f3587c8d}\label{classEthanLogClient_a48346acb63e4e2d20f3a5011f3587c8d}} 
+bool {\bfseries closed} () const
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a3c7992521eb3fc307218dc86206bcec1}\label{classEthanLogClient_a3c7992521eb3fc307218dc86206bcec1}} 
+\mbox{\hyperlink{classContainerId}{Container\+Id}} {\bfseries id} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a24a574a5903066e31303145b6f011309}\label{classEthanLogClient_a24a574a5903066e31303145b6f011309}} 
+static constexpr unsigned {\bfseries LOG\+\_\+\+LEVEL\+\_\+\+FATAL} = (0x1 $<$$<$ 0)
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a029fdac9b583d494082c220e7e60e1c0}\label{classEthanLogClient_a029fdac9b583d494082c220e7e60e1c0}} 
+static constexpr unsigned {\bfseries LOG\+\_\+\+LEVEL\+\_\+\+ERROR} = (0x1 $<$$<$ 1)
+\item 
+\mbox{\Hypertarget{classEthanLogClient_af84c610f8503356d6593e9bc1b47eb21}\label{classEthanLogClient_af84c610f8503356d6593e9bc1b47eb21}} 
+static constexpr unsigned {\bfseries LOG\+\_\+\+LEVEL\+\_\+\+WARNING} = (0x1 $<$$<$ 2)
+\item 
+\mbox{\Hypertarget{classEthanLogClient_adac1e14682f959e2a3fde6a1e8412e21}\label{classEthanLogClient_adac1e14682f959e2a3fde6a1e8412e21}} 
+static constexpr unsigned {\bfseries LOG\+\_\+\+LEVEL\+\_\+\+MILESTONE} = (0x1 $<$$<$ 3)
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a0a02f64d76edd84cae338b9d5746a53c}\label{classEthanLogClient_a0a02f64d76edd84cae338b9d5746a53c}} 
+static constexpr unsigned {\bfseries LOG\+\_\+\+LEVEL\+\_\+\+INFO} = (0x1 $<$$<$ 4)
+\item 
+\mbox{\Hypertarget{classEthanLogClient_ae80b1f403cb538702d2b8e54eef41123}\label{classEthanLogClient_ae80b1f403cb538702d2b8e54eef41123}} 
+static constexpr unsigned {\bfseries LOG\+\_\+\+LEVEL\+\_\+\+DEBUG} = (0x1 $<$$<$ 5)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classEthanLogClient_a1f0ab598ebb8af3a6bdd346773e32089}{pipe\+Fd\+Handler}} (uint32\+\_\+t revents)
+\begin{DoxyCompactList}\small\item\em Callback called when data to read on the logging pipe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthanLogClient_a9d9cd8db4d7a224a6d5ee6d43546fcba}{process\+Log\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Process some log data from a client pipe. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthanLogClient_abbb56bf291e4884b61edc6ca3acb424a}{process\+Log\+Level}} (const char $\ast$field, ssize\+\_\+t len, struct iovec $\ast$iov) const
+\begin{DoxyCompactList}\small\item\em Process the log level field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthanLogClient_a0f95fdaf1a9f01ec5e520e3a35e7586e}{process\+Pid}} (const char $\ast$field, ssize\+\_\+t len, struct iovec $\ast$iov) const
+\begin{DoxyCompactList}\small\item\em Process the pid field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthanLogClient_a2e2fbabc5ef8b17dd9c85e8dc11e5251}{process\+Timestamp}} (const char $\ast$field, ssize\+\_\+t len, struct iovec $\ast$iov) const
+\begin{DoxyCompactList}\small\item\em Process the timestamp field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthanLogClient_a57d33cd6b6beaa75bd685f6adb7afa3f}{process\+Thread\+Name}} (const char $\ast$field, ssize\+\_\+t len, struct iovec $\ast$iov) const
+\begin{DoxyCompactList}\small\item\em Process the thread name field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthanLogClient_ac85d5f6ab8491ac542ccb04ea02e9100}{process\+Code\+File}} (const char $\ast$field, ssize\+\_\+t len, struct iovec $\ast$iov) const
+\begin{DoxyCompactList}\small\item\em Process the function name field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthanLogClient_a2936a02e89fbe59f5927a7906c59d2d6}{process\+Code\+Function}} (const char $\ast$field, ssize\+\_\+t len, struct iovec $\ast$iov) const
+\begin{DoxyCompactList}\small\item\em Process the function name field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthanLogClient_a726488feac55de4c53969d309c71e952}{process\+Code\+Line}} (const char $\ast$field, ssize\+\_\+t len, struct iovec $\ast$iov) const
+\begin{DoxyCompactList}\small\item\em Process the line number field. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEthanLogClient_a5c39fd255580f9ebee2e3ca26fe23cbb}{process\+Message}} (const char $\ast$field, ssize\+\_\+t len, struct iovec $\ast$iov) const
+\begin{DoxyCompactList}\small\item\em Process the message field. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEthanLogClient_abeffc06e26728fe35e39b00ba99c8901}{should\+Drop}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the message should be dropped due to rate limiting. \end{DoxyCompactList}\item 
+pid\+\_\+t \mbox{\hyperlink{classEthanLogClient_a947234949035767ef198d0e25e9458e0}{find\+Real\+Pid}} (pid\+\_\+t ns\+Pid) const
+\begin{DoxyCompactList}\small\item\em Attempts to find the pid number in the root pid namespace from a pid in the containers namespace. \end{DoxyCompactList}\item 
+std\+::set$<$ pid\+\_\+t $>$ \mbox{\hyperlink{classEthanLogClient_a4193bd950cbff560ebee96ff9a7e87da}{get\+All\+Container\+Pids}} () const
+\begin{DoxyCompactList}\small\item\em Reads the set of all pids within the client\textquotesingle{}s container. \end{DoxyCompactList}\item 
+pid\+\_\+t \mbox{\hyperlink{classEthanLogClient_a624f529a9e81c6760e1a05afce5763c6}{read\+Ns\+Pid\+From\+Proc}} (pid\+\_\+t pid) const
+\begin{DoxyCompactList}\small\item\em Given a pid (in global namespace) tries to find what it\textquotesingle{}s namespace pid is. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classEthanLogClient_a45b797a7c88c04dd671799c4ffcd07fc}{pipe\+Fd\+Handler}} (sd\+\_\+event\+\_\+source $\ast$source, int fd, uint32\+\_\+t revents, void $\ast$user\+Data)
+\begin{DoxyCompactList}\small\item\em Callback called when data to read on the logging pipe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a0f105df3a820eadd13d29ef6bf85cc92}\label{classEthanLogClient_a0f105df3a820eadd13d29ef6bf85cc92}} 
+const \mbox{\hyperlink{classContainerId}{Container\+Id}} {\bfseries m\+Container\+Id}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a3ee2d0309ca0fb75c91306b06eea6a16}\label{classEthanLogClient_a3ee2d0309ca0fb75c91306b06eea6a16}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a1bfb71dc1923a1c044bee3d2fe28fbe5}\label{classEthanLogClient_a1bfb71dc1923a1c044bee3d2fe28fbe5}} 
+const int {\bfseries m\+Pipe\+Fd}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a4e183463e1f989b6d6cf1f3464b42dd9}\label{classEthanLogClient_a4e183463e1f989b6d6cf1f3464b42dd9}} 
+const unsigned {\bfseries m\+Allowed\+Levels}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a65142ef4c85063b9a918043e6f025b53}\label{classEthanLogClient_a65142ef4c85063b9a918043e6f025b53}} 
+sd\+\_\+event\+\_\+source $\ast$ {\bfseries m\+Source}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a509780502dcbd4f6f4c577d800af8941}\label{classEthanLogClient_a509780502dcbd4f6f4c577d800af8941}} 
+std\+::string {\bfseries m\+Identifier}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_ae3fb8f36ee0329cd554c7643cb765361}\label{classEthanLogClient_ae3fb8f36ee0329cd554c7643cb765361}} 
+char {\bfseries m\+Msg\+Buf} \mbox{[}(MAX\+\_\+\+LOG\+\_\+\+MSG\+\_\+\+LENGTH $\ast$2)\mbox{]}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_ac0ed765873b42b9d41ea16843cf28c8f}\label{classEthanLogClient_ac0ed765873b42b9d41ea16843cf28c8f}} 
+size\+\_\+t {\bfseries m\+Msg\+Len}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a4494f00f49a0916400241d6058a9cb66}\label{classEthanLogClient_a4494f00f49a0916400241d6058a9cb66}} 
+bool {\bfseries m\+Rate\+Limiting\+Enabled}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a93060efe63942a1f60e020b38e8e8503}\label{classEthanLogClient_a93060efe63942a1f60e020b38e8e8503}} 
+struct \mbox{\hyperlink{structEthanLogClient_1_1TokenBucket}{Ethan\+Log\+Client\+::\+Token\+Bucket}} {\bfseries m\+Token\+Bucket}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a834c105c5df270cc4d6a24f20b8df995}\label{classEthanLogClient_a834c105c5df270cc4d6a24f20b8df995}} 
+unsigned int {\bfseries m\+Dropped}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a6a1c727fb2c5b9d5c0b00c388f847aa5}\label{classEthanLogClient_a6a1c727fb2c5b9d5c0b00c388f847aa5}} 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point {\bfseries m\+First\+Dropped}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_ae74f98e3b676d3db662eac289f4fcf27}\label{classEthanLogClient_ae74f98e3b676d3db662eac289f4fcf27}} 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point {\bfseries m\+Last\+Dropped}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a68391fa881f06cbf6a9b06a134e66279}\label{classEthanLogClient_a68391fa881f06cbf6a9b06a134e66279}} 
+std\+::string {\bfseries m\+Default\+Object\+Pid}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_af9250a09c20b29a4aec8e8c0129c2e64}\label{classEthanLogClient_af9250a09c20b29a4aec8e8c0129c2e64}} 
+std\+::string {\bfseries m\+Default\+Syslog\+Pid}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_aec9233da0fcd643bf09e8a3ac80f4ccc}\label{classEthanLogClient_aec9233da0fcd643bf09e8a3ac80f4ccc}} 
+std\+::string {\bfseries m\+Cgroup\+Pids\+Path}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_ad9f14a907f5c0ae31bd9a5c1fc7fc0a5}\label{classEthanLogClient_ad9f14a907f5c0ae31bd9a5c1fc7fc0a5}} 
+std\+::map$<$ pid\+\_\+t, pid\+\_\+t $>$ {\bfseries m\+Ns\+To\+Real\+Pid\+Mapping}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a866097594d9035eb300eb179efbceb90}\label{classEthanLogClient_a866097594d9035eb300eb179efbceb90}} 
+static constexpr ssize\+\_\+t {\bfseries MAX\+\_\+\+LOG\+\_\+\+MSG\+\_\+\+LENGTH} = 512
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a49f56c91a3957048aa5489163c4dd0f4}\label{classEthanLogClient_a49f56c91a3957048aa5489163c4dd0f4}} 
+static constexpr char {\bfseries RECORD\+\_\+\+DELIM} = \textquotesingle{}\textbackslash{}x1e\textquotesingle{}
+\item 
+\mbox{\Hypertarget{classEthanLogClient_a4d26e7c0bff3b036ae9d7e28799f96ed}\label{classEthanLogClient_a4d26e7c0bff3b036ae9d7e28799f96ed}} 
+static constexpr char {\bfseries FIELD\+\_\+\+DELIM} = \textquotesingle{}\textbackslash{}x1f\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEthanLogClient_a1c68c83db2ab6501bbe6e7bcf81bd4d3}\label{classEthanLogClient_a1c68c83db2ab6501bbe6e7bcf81bd4d3}} 
+\index{EthanLogClient@{EthanLogClient}!EthanLogClient@{EthanLogClient}}
+\index{EthanLogClient@{EthanLogClient}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{EthanLogClient()}{EthanLogClient()}}
+{\footnotesize\ttfamily Ethan\+Log\+Client\+::\+Ethan\+Log\+Client (\begin{DoxyParamCaption}\item[{sd\+\_\+event $\ast$}]{loop,  }\item[{\mbox{\hyperlink{classContainerId}{Container\+Id}} \&\&}]{id,  }\item[{std\+::string \&\&}]{name,  }\item[{int}]{fd,  }\item[{unsigned}]{allowed\+Levels,  }\item[{unsigned}]{rate,  }\item[{unsigned}]{burst\+Size,  }\item[{const std\+::string \&}]{mem\+Cgrp\+Mount\+Point }\end{DoxyParamCaption})}
+
+
+
+Constructs a logging client which represents one pipe. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em loop} & The systemd event loop the plugin is running \\
+\hline
+\mbox{\texttt{ in}}  & {\em name} & The name of the container, used to tag all log messages \\
+\hline
+\mbox{\texttt{ in}}  & {\em fd} & The pipe fd, this class takes ownership of the pipe and closes it in the destructor \\
+\hline
+\mbox{\texttt{ in}}  & {\em allowed\+Levels} & Bitmask of the allowed log levels. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rate} & The number of log messages allowed per second. \\
+\hline
+\mbox{\texttt{ in}}  & {\em burst} & The maximum number of messages allowed in a burst. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mem\+Cgrp\+Mount\+Point} & Used to lookup the pids within a container for mapping namespaced pids to real pids. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEthanLogClient_a947234949035767ef198d0e25e9458e0}\label{classEthanLogClient_a947234949035767ef198d0e25e9458e0}} 
+\index{EthanLogClient@{EthanLogClient}!findRealPid@{findRealPid}}
+\index{findRealPid@{findRealPid}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{findRealPid()}{findRealPid()}}
+{\footnotesize\ttfamily pid\+\_\+t Ethan\+Log\+Client\+::find\+Real\+Pid (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{ns\+Pid }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to find the pid number in the root pid namespace from a pid in the containers namespace. 
+
+It\textquotesingle{}s tricky getting the real pid of a process in a namespace, see the below link for more information\+: \href{https://blogs.oracle.com/linux/translating-process-id-between-namespaces}{\texttt{ https\+://blogs.\+oracle.\+com/linux/translating-\/process-\/id-\/between-\/namespaces}}
+
+However we can make some assumptions about our containers which make it slightly easier; the first is that we always have a memory cgroup setup for them, and secondly there aren\textquotesingle{}t typically going to be lots of processes in our containers. So what we do is read the /sys/fs/cgroup/memory/$<$id$>$/cgroup.procs file to get all the processes within the container, then we read each of their /proc/$<$pid$>$/status files to extract the NSpid fields and then match them up.
+
+To speed up the process, everytime this method is called and we don\textquotesingle{}t have an existing mapping, then we re-\/create the full mapping. This helps flush out dead processes from the cache and also speed up subsequent lookups. However this could result in a bit of load in \mbox{\hyperlink{classDobby}{Dobby}}, if the client constantly sent invalid pid numbers to us ... or more likely there are lots of transient processes that log just a single line, like a shell script or something ... not sure what the solution for that is.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ns\+Pid} & The pid in the namespace of the container. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \textquotesingle{}real\textquotesingle{} pid in the global namespace. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a4193bd950cbff560ebee96ff9a7e87da}\label{classEthanLogClient_a4193bd950cbff560ebee96ff9a7e87da}} 
+\index{EthanLogClient@{EthanLogClient}!getAllContainerPids@{getAllContainerPids}}
+\index{getAllContainerPids@{getAllContainerPids}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{getAllContainerPids()}{getAllContainerPids()}}
+{\footnotesize\ttfamily std\+::set$<$ pid\+\_\+t $>$ Ethan\+Log\+Client\+::get\+All\+Container\+Pids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads the set of all pids within the client\textquotesingle{}s container. 
+
+This reads the cgroup.\+pids file from the memory cgroup for the container.
+
+\begin{DoxyReturn}{Returns}
+Set of all the real pids within the container. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a45b797a7c88c04dd671799c4ffcd07fc}\label{classEthanLogClient_a45b797a7c88c04dd671799c4ffcd07fc}} 
+\index{EthanLogClient@{EthanLogClient}!pipeFdHandler@{pipeFdHandler}}
+\index{pipeFdHandler@{pipeFdHandler}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{pipeFdHandler()}{pipeFdHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::pipe\+Fd\+Handler (\begin{DoxyParamCaption}\item[{sd\+\_\+event\+\_\+source $\ast$}]{source,  }\item[{int}]{fd,  }\item[{uint32\+\_\+t}]{revents,  }\item[{void $\ast$}]{user\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Callback called when data to read on the logging pipe. 
+
+Checks if the pipe is closed, if not then reads a block from the pipe. \mbox{\Hypertarget{classEthanLogClient_a1f0ab598ebb8af3a6bdd346773e32089}\label{classEthanLogClient_a1f0ab598ebb8af3a6bdd346773e32089}} 
+\index{EthanLogClient@{EthanLogClient}!pipeFdHandler@{pipeFdHandler}}
+\index{pipeFdHandler@{pipeFdHandler}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{pipeFdHandler()}{pipeFdHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::pipe\+Fd\+Handler (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{revents }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Callback called when data to read on the logging pipe. 
+
+Checks if the pipe is closed, if not then reads a block from the pipe. \mbox{\Hypertarget{classEthanLogClient_ac85d5f6ab8491ac542ccb04ea02e9100}\label{classEthanLogClient_ac85d5f6ab8491ac542ccb04ea02e9100}} 
+\index{EthanLogClient@{EthanLogClient}!processCodeFile@{processCodeFile}}
+\index{processCodeFile@{processCodeFile}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{processCodeFile()}{processCodeFile()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::process\+Code\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{field,  }\item[{ssize\+\_\+t}]{len,  }\item[{struct iovec $\ast$}]{iov }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process the function name field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tok} & The field minus the leading \textquotesingle{}S\textquotesingle{} character \\
+\hline
+\mbox{\texttt{ out}}  & {\em func} & Upon return will point to the function name string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of fields added to iov on success, -\/1 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a2936a02e89fbe59f5927a7906c59d2d6}\label{classEthanLogClient_a2936a02e89fbe59f5927a7906c59d2d6}} 
+\index{EthanLogClient@{EthanLogClient}!processCodeFunction@{processCodeFunction}}
+\index{processCodeFunction@{processCodeFunction}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{processCodeFunction()}{processCodeFunction()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::process\+Code\+Function (\begin{DoxyParamCaption}\item[{const char $\ast$}]{field,  }\item[{ssize\+\_\+t}]{len,  }\item[{struct iovec $\ast$}]{iov }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process the function name field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tok} & The field minus the leading \textquotesingle{}F\textquotesingle{} character \\
+\hline
+\mbox{\texttt{ out}}  & {\em func} & Upon return will point to the function name string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of fields added to iov on success, -\/1 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a726488feac55de4c53969d309c71e952}\label{classEthanLogClient_a726488feac55de4c53969d309c71e952}} 
+\index{EthanLogClient@{EthanLogClient}!processCodeLine@{processCodeLine}}
+\index{processCodeLine@{processCodeLine}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{processCodeLine()}{processCodeLine()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::process\+Code\+Line (\begin{DoxyParamCaption}\item[{const char $\ast$}]{field,  }\item[{ssize\+\_\+t}]{len,  }\item[{struct iovec $\ast$}]{iov }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process the line number field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tok} & The field minus the leading \textquotesingle{}N\textquotesingle{} character \\
+\hline
+\mbox{\texttt{ out}}  & {\em lineno} & Upon return will container the line number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of fields added to iov on success, -\/1 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a9d9cd8db4d7a224a6d5ee6d43546fcba}\label{classEthanLogClient_a9d9cd8db4d7a224a6d5ee6d43546fcba}} 
+\index{EthanLogClient@{EthanLogClient}!processLogData@{processLogData}}
+\index{processLogData@{processLogData}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{processLogData()}{processLogData()}}
+{\footnotesize\ttfamily void Ethan\+Log\+Client\+::process\+Log\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process some log data from a client pipe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & The app/client that has generated the data \\
+\hline
+{\em data} & The string (or part of a string) sent by the client \\
+\hline
+{\em datalen} & The number of characters received\\
+\hline
+\end{DoxyParams}
+The log string(s) sent by the client library are formatted using ASCII separators, the format is (temporarily) described on the following confluence page\+: \href{https://www.stb.bskyb.com/confluence/display/~grayb/Unified+Logging+on+the+STB}{\texttt{ https\+://www.\+stb.\+bskyb.\+com/confluence/display/$\sim$grayb/\+Unified+\+Logging+on+the+\+STB}}
+
+But for those that can\textquotesingle{}t be bothered opening a browser, the following are the cliff notes\+: \begin{DoxyVerb} \x1e  - Character used to start and terminate a log message
+ \x1f  - Character used to delimit fields within the message string
+
+ Each field within the message is prefixed with one of the following
+ upper case characters that define the field type.
+
+ L   - Log level
+ P   - PID of app in hexadecimal (without 0x prefix)
+ T   - Timestamp from monotonic clock in hexadecimal (without 0x prefix)
+ R   - Name of the thread
+ S   - Name of the source file containing the log message
+ F   - Name of the function producing the log message
+ N   - The line number of the log producer
+ M   - The log message (mandatory but can be empty)
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classEthanLogClient_abbb56bf291e4884b61edc6ca3acb424a}\label{classEthanLogClient_abbb56bf291e4884b61edc6ca3acb424a}} 
+\index{EthanLogClient@{EthanLogClient}!processLogLevel@{processLogLevel}}
+\index{processLogLevel@{processLogLevel}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{processLogLevel()}{processLogLevel()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::process\+Log\+Level (\begin{DoxyParamCaption}\item[{const char $\ast$}]{field,  }\item[{ssize\+\_\+t}]{len,  }\item[{struct iovec $\ast$}]{iov }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process the log level field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em field} & The field minus the leading \textquotesingle{}L\textquotesingle{} character \\
+\hline
+\mbox{\texttt{ out}}  & {\em iov} & The formatted io vector for journald\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of fields added to iov on success, -\/1 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a5c39fd255580f9ebee2e3ca26fe23cbb}\label{classEthanLogClient_a5c39fd255580f9ebee2e3ca26fe23cbb}} 
+\index{EthanLogClient@{EthanLogClient}!processMessage@{processMessage}}
+\index{processMessage@{processMessage}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{processMessage()}{processMessage()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::process\+Message (\begin{DoxyParamCaption}\item[{const char $\ast$}]{field,  }\item[{ssize\+\_\+t}]{len,  }\item[{struct iovec $\ast$}]{iov }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process the message field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tok} & The field minus the leading \textquotesingle{}F\textquotesingle{} character \\
+\hline
+\mbox{\texttt{ out}}  & {\em message} & Upon return will point to the message string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of fields added to iov on success, -\/1 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a0f95fdaf1a9f01ec5e520e3a35e7586e}\label{classEthanLogClient_a0f95fdaf1a9f01ec5e520e3a35e7586e}} 
+\index{EthanLogClient@{EthanLogClient}!processPid@{processPid}}
+\index{processPid@{processPid}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{processPid()}{processPid()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::process\+Pid (\begin{DoxyParamCaption}\item[{const char $\ast$}]{field,  }\item[{ssize\+\_\+t}]{len,  }\item[{struct iovec $\ast$}]{iov }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process the pid field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em field} & The field minus the leading \textquotesingle{}P\textquotesingle{} character \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & The length of the field. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of fields added to iov on success, -\/1 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a57d33cd6b6beaa75bd685f6adb7afa3f}\label{classEthanLogClient_a57d33cd6b6beaa75bd685f6adb7afa3f}} 
+\index{EthanLogClient@{EthanLogClient}!processThreadName@{processThreadName}}
+\index{processThreadName@{processThreadName}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{processThreadName()}{processThreadName()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::process\+Thread\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{field,  }\item[{ssize\+\_\+t}]{len,  }\item[{struct iovec $\ast$}]{iov }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process the thread name field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tok} & The field minus the leading \textquotesingle{}R\textquotesingle{} character \\
+\hline
+\mbox{\texttt{ out}}  & {\em thread} & Upon return will point to the thread name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of fields added to iov on success, -\/1 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a2e2fbabc5ef8b17dd9c85e8dc11e5251}\label{classEthanLogClient_a2e2fbabc5ef8b17dd9c85e8dc11e5251}} 
+\index{EthanLogClient@{EthanLogClient}!processTimestamp@{processTimestamp}}
+\index{processTimestamp@{processTimestamp}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{processTimestamp()}{processTimestamp()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Client\+::process\+Timestamp (\begin{DoxyParamCaption}\item[{const char $\ast$}]{field,  }\item[{ssize\+\_\+t}]{len,  }\item[{struct iovec $\ast$}]{iov }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process the timestamp field. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tok} & The field minus the leading \textquotesingle{}T\textquotesingle{} character \\
+\hline
+\mbox{\texttt{ out}}  & {\em ts} & The calculated timestamp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of fields added to iov on success, -\/1 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a624f529a9e81c6760e1a05afce5763c6}\label{classEthanLogClient_a624f529a9e81c6760e1a05afce5763c6}} 
+\index{EthanLogClient@{EthanLogClient}!readNsPidFromProc@{readNsPidFromProc}}
+\index{readNsPidFromProc@{readNsPidFromProc}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{readNsPidFromProc()}{readNsPidFromProc()}}
+{\footnotesize\ttfamily pid\+\_\+t Ethan\+Log\+Client\+::read\+Ns\+Pid\+From\+Proc (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{pid }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Given a pid (in global namespace) tries to find what it\textquotesingle{}s namespace pid is. 
+
+This reads the /proc/$<$pid$>$/status file, line NStgid.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pid} & The real pid of the process to lookup. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Set of all the real pids within the container. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogClient_a1dbd307d7ddafd972a576c6dd3ba2057}\label{classEthanLogClient_a1dbd307d7ddafd972a576c6dd3ba2057}} 
+\index{EthanLogClient@{EthanLogClient}!setContainerPid@{setContainerPid}}
+\index{setContainerPid@{setContainerPid}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{setContainerPid()}{setContainerPid()}}
+{\footnotesize\ttfamily void Ethan\+Log\+Client\+::set\+Container\+Pid (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{pid }\end{DoxyParamCaption})}
+
+
+
+Sets the base pid for the client\textquotesingle{}s container. 
+
+This is used as the default pid to put in the log message if the client hasn\textquotesingle{}t supplied a pid, or we couldn\textquotesingle{}t resolve their pid in the global pid namespace.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pid} & The base pid of the container. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEthanLogClient_abeffc06e26728fe35e39b00ba99c8901}\label{classEthanLogClient_abeffc06e26728fe35e39b00ba99c8901}} 
+\index{EthanLogClient@{EthanLogClient}!shouldDrop@{shouldDrop}}
+\index{shouldDrop@{shouldDrop}!EthanLogClient@{EthanLogClient}}
+\doxysubsubsection{\texorpdfstring{shouldDrop()}{shouldDrop()}}
+{\footnotesize\ttfamily bool Ethan\+Log\+Client\+::should\+Drop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns true if the message should be dropped due to rate limiting. 
+
+The rate limits are set in the constructor and the algorithm used is a token bucket type setup. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Ethan\+Log/source/Ethan\+Log\+Client.\+h\item 
+plugins/\+Ethan\+Log/source/Ethan\+Log\+Client.\+cpp\end{DoxyCompactItemize}

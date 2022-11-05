@@ -1,0 +1,210 @@
+\hypertarget{classLoggingPlugin}{}\doxysection{Logging\+Plugin Class Reference}
+\label{classLoggingPlugin}\index{LoggingPlugin@{LoggingPlugin}}
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} Logging plugin.  
+
+
+
+
+{\ttfamily \#include $<$Logging\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Logging\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Logging\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLoggingPlugin_ae67350edcbb6c6135b5c35809c447829}{Logging\+Plugin}} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ called when plugin is loaded by Plugin\+Launcher. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classLoggingPlugin_aec098e9d8e50f4d5feed4a8fd7c186b1}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classLoggingPlugin_a569401ef20a789c092b38be0218fee31}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLoggingPlugin_ad937c2773ffca26ac7c96bc86006992d}\label{classLoggingPlugin_ad937c2773ffca26ac7c96bc86006992d}} 
+bool \mbox{\hyperlink{classLoggingPlugin_ad937c2773ffca26ac7c96bc86006992d}{post\+Installation}} () override
+\begin{DoxyCompactList}\small\item\em Set the correct options in the config file. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classLoggingPlugin_a344a4600555aebddaf6f293e67a23ac7}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoggingPlugin_a1267c0a37f87ebc3c1c36555a4d708d5}{Register\+Poll\+Sources}} (int fd, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ poll\+Loop) override
+\begin{DoxyCompactList}\small\item\em Adds the necessary poll source(s) to the provided poll\+Loop instance based on the logging sink specified in the container config. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoggingPlugin_a19e108556ce29556aa87f8221f1577fc}{Dump\+To\+Log}} (const int buffer\+Fd) override
+\begin{DoxyCompactList}\small\item\em Dump the contents of a file descriptor to the log sink. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLoggingPlugin_a51867969a8cac77c1c96fcbe07b3b4f4}\label{classLoggingPlugin_a51867969a8cac77c1c96fcbe07b3b4f4}} 
+enum class {\bfseries Logging\+Sink} \{ {\bfseries Dev\+Null}
+, {\bfseries File}
+, {\bfseries Journald}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classILoggingSink}{ILogging\+Sink}} $>$ \mbox{\hyperlink{classLoggingPlugin_afc9c072e2b9704edcac3eaaaadd7283f}{Create\+Sink}} (Logging\+Sink sink\+Type)
+\begin{DoxyCompactList}\small\item\em Constructs an instance of the requested sink. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLoggingPlugin_a23f67955a98f8f62f73a74bcba404c90}\label{classLoggingPlugin_a23f67955a98f8f62f73a74bcba404c90}} 
+Logging\+Sink \mbox{\hyperlink{classLoggingPlugin_a23f67955a98f8f62f73a74bcba404c90}{Get\+Container\+Sink}} ()
+\begin{DoxyCompactList}\small\item\em Converts the \char`\"{}sink\+: xxx\char`\"{} in the config to a valid log sink. Case insensitive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLoggingPlugin_ab36bc498dbe88c99de09297829b6773f}\label{classLoggingPlugin_ab36bc498dbe88c99de09297829b6773f}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classLoggingPlugin_ab3f28c24eff1eb81fe3dde4c09bf0eb8}\label{classLoggingPlugin_ab3f28c24eff1eb81fe3dde4c09bf0eb8}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classLoggingPlugin_af4aab4c017076952a343d076222a6704}\label{classLoggingPlugin_af4aab4c017076952a343d076222a6704}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classLoggingPlugin_af249490dc014ed30bfbaaa68e9e5c536}\label{classLoggingPlugin_af249490dc014ed30bfbaaa68e9e5c536}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classILoggingSink}{ILogging\+Sink}} $>$ {\bfseries m\+Sink}
+\item 
+\mbox{\Hypertarget{classLoggingPlugin_aca6e1fa6a0fa5c0a99c94bb2be7f3003}\label{classLoggingPlugin_aca6e1fa6a0fa5c0a99c94bb2be7f3003}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ {\bfseries m\+Poll\+Loop}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDobby}{Dobby}} Logging plugin. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLoggingPlugin_ae67350edcbb6c6135b5c35809c447829}\label{classLoggingPlugin_ae67350edcbb6c6135b5c35809c447829}} 
+\index{LoggingPlugin@{LoggingPlugin}!LoggingPlugin@{LoggingPlugin}}
+\index{LoggingPlugin@{LoggingPlugin}!LoggingPlugin@{LoggingPlugin}}
+\doxysubsubsection{\texorpdfstring{LoggingPlugin()}{LoggingPlugin()}}
+{\footnotesize\ttfamily Logging\+Plugin\+::\+Logging\+Plugin (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&}]{container\+Config,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption})}
+
+
+
+Constructor -\/ called when plugin is loaded by Plugin\+Launcher. 
+
+Do not change the parameters for this constructor -\/ must match C methods created by REGISTER\+\_\+\+RDK\+\_\+\+PLUGIN macro
+
+Note plugin name is not case sensitive 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLoggingPlugin_afc9c072e2b9704edcac3eaaaadd7283f}\label{classLoggingPlugin_afc9c072e2b9704edcac3eaaaadd7283f}} 
+\index{LoggingPlugin@{LoggingPlugin}!CreateSink@{CreateSink}}
+\index{CreateSink@{CreateSink}!LoggingPlugin@{LoggingPlugin}}
+\doxysubsubsection{\texorpdfstring{CreateSink()}{CreateSink()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classILoggingSink}{ILogging\+Sink}} $>$ Logging\+Plugin\+::\+Create\+Sink (\begin{DoxyParamCaption}\item[{Logging\+Plugin\+::\+Logging\+Sink}]{sink\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs an instance of the requested sink. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sink\+Type} & The type of sink to be constructed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+shared\+\_\+ptr pointing to the instance of the logging sink. Nullptr if no sink of the requested type is available 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoggingPlugin_a19e108556ce29556aa87f8221f1577fc}\label{classLoggingPlugin_a19e108556ce29556aa87f8221f1577fc}} 
+\index{LoggingPlugin@{LoggingPlugin}!DumpToLog@{DumpToLog}}
+\index{DumpToLog@{DumpToLog}!LoggingPlugin@{LoggingPlugin}}
+\doxysubsubsection{\texorpdfstring{DumpToLog()}{DumpToLog()}}
+{\footnotesize\ttfamily void Logging\+Plugin\+::\+Dump\+To\+Log (\begin{DoxyParamCaption}\item[{const int}]{buffer\+Fd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Dump the contents of a file descriptor to the log sink. 
+
+Will block until the contents of the fd has been written to the log
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buffer\+Fd} & The file descriptor to read from \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkLoggingPlugin}{IDobby\+Rdk\+Logging\+Plugin}}.
+
+\mbox{\Hypertarget{classLoggingPlugin_a344a4600555aebddaf6f293e67a23ac7}\label{classLoggingPlugin_a344a4600555aebddaf6f293e67a23ac7}} 
+\index{LoggingPlugin@{LoggingPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!LoggingPlugin@{LoggingPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Logging\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classDobbyLoggerBase_a1adc6914d36452d9b6ed3f38ba5281a9}{Dobby\+Logger\+Base}}.
+
+\mbox{\Hypertarget{classLoggingPlugin_a569401ef20a789c092b38be0218fee31}\label{classLoggingPlugin_a569401ef20a789c092b38be0218fee31}} 
+\index{LoggingPlugin@{LoggingPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!LoggingPlugin@{LoggingPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Logging\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the bit flags for which hooks we\textquotesingle{}re going to use. 
+
+This plugin uses all the hooks so set all the flags 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classLoggingPlugin_aec098e9d8e50f4d5feed4a8fd7c186b1}\label{classLoggingPlugin_aec098e9d8e50f4d5feed4a8fd7c186b1}} 
+\index{LoggingPlugin@{LoggingPlugin}!name@{name}}
+\index{name@{name}!LoggingPlugin@{LoggingPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Logging\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classLoggingPlugin_a1267c0a37f87ebc3c1c36555a4d708d5}\label{classLoggingPlugin_a1267c0a37f87ebc3c1c36555a4d708d5}} 
+\index{LoggingPlugin@{LoggingPlugin}!RegisterPollSources@{RegisterPollSources}}
+\index{RegisterPollSources@{RegisterPollSources}!LoggingPlugin@{LoggingPlugin}}
+\doxysubsubsection{\texorpdfstring{RegisterPollSources()}{RegisterPollSources()}}
+{\footnotesize\ttfamily void Logging\+Plugin\+::\+Register\+Poll\+Sources (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$}]{poll\+Loop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds the necessary poll source(s) to the provided poll\+Loop instance based on the logging sink specified in the container config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fd} & The file descriptor we need to read from (i.\+e. the container tty) \\
+\hline
+\mbox{\texttt{ in}}  & {\em poll\+Loop} & The poll loop the sources should be added to \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkLoggingPlugin}{IDobby\+Rdk\+Logging\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Logging/source/Logging\+Plugin.\+h\item 
+rdk\+Plugins/\+Logging/source/Logging\+Plugin.\+cpp\end{DoxyCompactItemize}

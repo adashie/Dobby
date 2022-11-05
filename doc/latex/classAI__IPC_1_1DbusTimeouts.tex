@@ -1,0 +1,214 @@
+\hypertarget{classAI__IPC_1_1DbusTimeouts}{}\doxysection{AI\+\_\+\+IPC\+::Dbus\+Timeouts Class Reference}
+\label{classAI__IPC_1_1DbusTimeouts}\index{AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}}
+
+
+Object that manages the timeouts for a given dbus connection.  
+
+
+
+
+{\ttfamily \#include $<$Dbus\+Timeouts.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAI__IPC_1_1DbusTimeouts_1_1__TimeoutEntry}{\+\_\+\+Timeout\+Entry}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_aaf8d13129b11e76e6615bedc42b53342}\label{classAI__IPC_1_1DbusTimeouts_aaf8d13129b11e76e6615bedc42b53342}} 
+{\bfseries Dbus\+Timeouts} (DBus\+Connection $\ast$conn)
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_a01f01cdfeed3ea878994ffbade34f05a}\label{classAI__IPC_1_1DbusTimeouts_a01f01cdfeed3ea878994ffbade34f05a}} 
+int \mbox{\hyperlink{classAI__IPC_1_1DbusTimeouts_a01f01cdfeed3ea878994ffbade34f05a}{fd}} () const
+\begin{DoxyCompactList}\small\item\em Returns the timerfd that the dispatcher should poll on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusTimeouts_a64a900fafda17eaea79c0d71e81361a6}{process\+Event}} (unsigned int poll\+Events)
+\begin{DoxyCompactList}\small\item\em Called when something has happened on the timerfd event loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_a0efeb98ad317e5c320aaf1dcb6320b21}\label{classAI__IPC_1_1DbusTimeouts_a0efeb98ad317e5c320aaf1dcb6320b21}} 
+typedef struct \mbox{\hyperlink{structAI__IPC_1_1DbusTimeouts_1_1__TimeoutEntry}{AI\+\_\+\+IPC\+::\+Dbus\+Timeouts\+::\+\_\+\+Timeout\+Entry}} {\bfseries Timeout\+Entry}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+dbus\+\_\+bool\+\_\+t \mbox{\hyperlink{classAI__IPC_1_1DbusTimeouts_a69ebbd1225dd0677fdb3287aa5cd0fe4}{add\+Time\+Out}} (DBus\+Timeout $\ast$timeout)
+\begin{DoxyCompactList}\small\item\em Adds the given timeout to the timerfd to poll on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusTimeouts_add5c102647d515c257ede20c1ee3b1ea}{toggle\+Time\+Out}} (DBus\+Timeout $\ast$timeout)
+\begin{DoxyCompactList}\small\item\em Toggles the enable / disable state of a timeout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusTimeouts_afe43c101cc0a6a31cddde03af4684888}{remove\+Time\+Out}} (DBus\+Timeout $\ast$timeout)
+\begin{DoxyCompactList}\small\item\em Removes the timeout from the timerfd. \end{DoxyCompactList}\item 
+struct timespec \mbox{\hyperlink{classAI__IPC_1_1DbusTimeouts_a007d192634dc4a6115ec23478fc060f4}{calc\+Abs\+Time}} (const struct timespec \&base, int milliseconds) const
+\begin{DoxyCompactList}\small\item\em Calculates a new time value based on the time now and the supplied millisecond offset. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusTimeouts_aefa234917dc1312bd3c2c02ea63d055b}{update\+Timer\+Fd}} () const
+\begin{DoxyCompactList}\small\item\em Writes the item on the head of the expiry queue into the timerfd for the next wake-\/up time. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusTimeouts_ac0bd867ff36e3e1d1a1fe829e592baa8}{has\+Expired}} (const struct timespec \&expiry\+Time, const struct timespec \&current\+Time) const
+\begin{DoxyCompactList}\small\item\em Utility function that simply checks if a timespec is after or equal to another timespec. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_a848dc22e90a9559407a494f8fe1b51f8}\label{classAI__IPC_1_1DbusTimeouts_a848dc22e90a9559407a494f8fe1b51f8}} 
+static dbus\+\_\+bool\+\_\+t {\bfseries add\+Time\+Out\+Cb} (DBus\+Timeout $\ast$timeout, void $\ast$user\+Data)
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_a66da2be01f74d873f43220cb2780bf73}\label{classAI__IPC_1_1DbusTimeouts_a66da2be01f74d873f43220cb2780bf73}} 
+static void {\bfseries toggle\+Time\+Out\+Cb} (DBus\+Timeout $\ast$timeout, void $\ast$user\+Data)
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_adfc379872653f8e011525403a61f659f}\label{classAI__IPC_1_1DbusTimeouts_adfc379872653f8e011525403a61f659f}} 
+static void {\bfseries remove\+Time\+Out\+Cb} (DBus\+Timeout $\ast$timeout, void $\ast$user\+Data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_a04c01611cb60cf4c760e5d651b1d0e50}\label{classAI__IPC_1_1DbusTimeouts_a04c01611cb60cf4c760e5d651b1d0e50}} 
+int {\bfseries m\+Timer\+Fd}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_ac900c20dfc89c99a089990af2dbc0955}\label{classAI__IPC_1_1DbusTimeouts_ac900c20dfc89c99a089990af2dbc0955}} 
+DBus\+Connection $\ast$const {\bfseries m\+Dbus\+Connection}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_ae70a03b8958260a1f5e10197a6b6fa02}\label{classAI__IPC_1_1DbusTimeouts_ae70a03b8958260a1f5e10197a6b6fa02}} 
+bool {\bfseries m\+Within\+Event\+Handler}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_aa7b46d3c6058e609ed92e9a4c6db747f}\label{classAI__IPC_1_1DbusTimeouts_aa7b46d3c6058e609ed92e9a4c6db747f}} 
+std\+::list$<$ \mbox{\hyperlink{structAI__IPC_1_1DbusTimeouts_1_1__TimeoutEntry}{Timeout\+Entry}} $>$ {\bfseries m\+Timeouts}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_a937f35e63a0da769bba04fe8cec01602}\label{classAI__IPC_1_1DbusTimeouts_a937f35e63a0da769bba04fe8cec01602}} 
+const std\+::thread\+::id {\bfseries m\+Expected\+Thread\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object that manages the timeouts for a given dbus connection. 
+
+\begin{DoxyWarning}{Warning}
+This class is not thread safe, it is designed to only be called from one thread which is the same thread the libdbus callbacks will be called from. On debug builds an error will be reported if called from any other thread.
+\end{DoxyWarning}
+Internally it creates an timerfd object and a sorted list of expiry times matched to dbus timeout objects. The expiry item on the head of the list is programmed into the timerfd so the poll loop will wake up when the timer expires.
+
+Although the code is not thread safe (by design) it handles reentrant calls to the installed dbus callbacks while in the processing loop. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_a69ebbd1225dd0677fdb3287aa5cd0fe4}\label{classAI__IPC_1_1DbusTimeouts_a69ebbd1225dd0677fdb3287aa5cd0fe4}} 
+\index{AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}!addTimeOut@{addTimeOut}}
+\index{addTimeOut@{addTimeOut}!AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}}
+\doxysubsubsection{\texorpdfstring{addTimeOut()}{addTimeOut()}}
+{\footnotesize\ttfamily dbus\+\_\+bool\+\_\+t Dbus\+Timeouts\+::add\+Time\+Out (\begin{DoxyParamCaption}\item[{DBus\+Timeout $\ast$}]{timeout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds the given timeout to the timerfd to poll on. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timeout} & The timeout object to add\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the timeout was added, otherwise FALSE. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_a007d192634dc4a6115ec23478fc060f4}\label{classAI__IPC_1_1DbusTimeouts_a007d192634dc4a6115ec23478fc060f4}} 
+\index{AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}!calcAbsTime@{calcAbsTime}}
+\index{calcAbsTime@{calcAbsTime}!AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}}
+\doxysubsubsection{\texorpdfstring{calcAbsTime()}{calcAbsTime()}}
+{\footnotesize\ttfamily struct timespec Dbus\+Timeouts\+::calc\+Abs\+Time (\begin{DoxyParamCaption}\item[{const struct timespec \&}]{base,  }\item[{int}]{milliseconds }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates a new time value based on the time now and the supplied millisecond offset. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em base} & The base time to calculate the new offset from \\
+\hline
+\mbox{\texttt{ in}}  & {\em offset} & The milliseconds offset\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a timespec that is the base value plus the offset. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_ac0bd867ff36e3e1d1a1fe829e592baa8}\label{classAI__IPC_1_1DbusTimeouts_ac0bd867ff36e3e1d1a1fe829e592baa8}} 
+\index{AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}!hasExpired@{hasExpired}}
+\index{hasExpired@{hasExpired}!AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}}
+\doxysubsubsection{\texorpdfstring{hasExpired()}{hasExpired()}}
+{\footnotesize\ttfamily bool Dbus\+Timeouts\+::has\+Expired (\begin{DoxyParamCaption}\item[{const struct timespec \&}]{expiry\+Time,  }\item[{const struct timespec \&}]{current\+Time }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Utility function that simply checks if a timespec is after or equal to another timespec. 
+
+This is used to determine if a timer has expired or not.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em expiry\+Time} & The expiry time point. \\
+\hline
+\mbox{\texttt{ in}}  & {\em current\+Time} & The current time point.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if expiry\+Time is less than or equal to the current\+Time. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_a64a900fafda17eaea79c0d71e81361a6}\label{classAI__IPC_1_1DbusTimeouts_a64a900fafda17eaea79c0d71e81361a6}} 
+\index{AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}!processEvent@{processEvent}}
+\index{processEvent@{processEvent}!AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}}
+\doxysubsubsection{\texorpdfstring{processEvent()}{processEvent()}}
+{\footnotesize\ttfamily void Dbus\+Timeouts\+::process\+Event (\begin{DoxyParamCaption}\item[{unsigned int}]{poll\+Events }\end{DoxyParamCaption})}
+
+
+
+Called when something has happened on the timerfd event loop. 
+
+The main disaptcher loop polls on the timerfd we supply, when anything changes then this method is called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poll\+Events} & Bitmask of the poll events that woke the main loop. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_afe43c101cc0a6a31cddde03af4684888}\label{classAI__IPC_1_1DbusTimeouts_afe43c101cc0a6a31cddde03af4684888}} 
+\index{AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}!removeTimeOut@{removeTimeOut}}
+\index{removeTimeOut@{removeTimeOut}!AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}}
+\doxysubsubsection{\texorpdfstring{removeTimeOut()}{removeTimeOut()}}
+{\footnotesize\ttfamily void Dbus\+Timeouts\+::remove\+Time\+Out (\begin{DoxyParamCaption}\item[{DBus\+Timeout $\ast$}]{timeout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Removes the timeout from the timerfd. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timeout} & The timeout object to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_add5c102647d515c257ede20c1ee3b1ea}\label{classAI__IPC_1_1DbusTimeouts_add5c102647d515c257ede20c1ee3b1ea}} 
+\index{AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}!toggleTimeOut@{toggleTimeOut}}
+\index{toggleTimeOut@{toggleTimeOut}!AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}}
+\doxysubsubsection{\texorpdfstring{toggleTimeOut()}{toggleTimeOut()}}
+{\footnotesize\ttfamily void Dbus\+Timeouts\+::toggle\+Time\+Out (\begin{DoxyParamCaption}\item[{DBus\+Timeout $\ast$}]{timeout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Toggles the enable / disable state of a timeout. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timeout} & The timeout object to toggle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusTimeouts_aefa234917dc1312bd3c2c02ea63d055b}\label{classAI__IPC_1_1DbusTimeouts_aefa234917dc1312bd3c2c02ea63d055b}} 
+\index{AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}!updateTimerFd@{updateTimerFd}}
+\index{updateTimerFd@{updateTimerFd}!AI\_IPC::DbusTimeouts@{AI\_IPC::DbusTimeouts}}
+\doxysubsubsection{\texorpdfstring{updateTimerFd()}{updateTimerFd()}}
+{\footnotesize\ttfamily void Dbus\+Timeouts\+::update\+Timer\+Fd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Writes the item on the head of the expiry queue into the timerfd for the next wake-\/up time. 
+
+If the expiry queue is empty then 0 is written into the timerfd which disables it. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+Timeouts.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+Timeouts.\+cpp\end{DoxyCompactItemize}

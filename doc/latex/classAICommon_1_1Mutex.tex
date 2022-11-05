@@ -1,0 +1,47 @@
+\hypertarget{classAICommon_1_1Mutex}{}\doxysection{AICommon\+::Mutex Class Reference}
+\label{classAICommon_1_1Mutex}\index{AICommon::Mutex@{AICommon::Mutex}}
+
+
+{\ttfamily \#include $<$Mutex.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Mutex_aa23290cee8ec8ea6a9539d6f5b87400f}\label{classAICommon_1_1Mutex_aa23290cee8ec8ea6a9539d6f5b87400f}} 
+typedef pthread\+\_\+mutex\+\_\+t $\ast$ {\bfseries native\+\_\+handle\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Mutex_a0c0591ece76a7a3c7eb4d855a2552895}\label{classAICommon_1_1Mutex_a0c0591ece76a7a3c7eb4d855a2552895}} 
+{\bfseries Mutex} (const \mbox{\hyperlink{classAICommon_1_1Mutex}{Mutex}} \&)=delete
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Mutex_a81934ff9356e826ee084c6fe0268c3f6}\label{classAICommon_1_1Mutex_a81934ff9356e826ee084c6fe0268c3f6}} 
+{\bfseries Mutex} (const \mbox{\hyperlink{classAICommon_1_1Mutex}{Mutex}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Mutex_afc77c34ccde9d3e654f7822e14385503}\label{classAICommon_1_1Mutex_afc77c34ccde9d3e654f7822e14385503}} 
+void {\bfseries lock} ()
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Mutex_aefd88e9fc9a052c1118ded84d6beae5f}\label{classAICommon_1_1Mutex_aefd88e9fc9a052c1118ded84d6beae5f}} 
+void {\bfseries unlock} ()
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Mutex_a2826cb49a0f63e52de59cacf95297d7f}\label{classAICommon_1_1Mutex_a2826cb49a0f63e52de59cacf95297d7f}} 
+bool {\bfseries try\+\_\+lock} ()
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Mutex_a8b3661fcbc50e01d9b4e797af014dfdb}\label{classAICommon_1_1Mutex_a8b3661fcbc50e01d9b4e797af014dfdb}} 
+native\+\_\+handle\+\_\+type {\bfseries native\+\_\+handle} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Mutex_a536227126a5697d6c5f4107fc1bd122c}\label{classAICommon_1_1Mutex_a536227126a5697d6c5f4107fc1bd122c}} 
+pthread\+\_\+mutex\+\_\+t {\bfseries m\+Lock}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basic mutex, it has the same basic API as std\+::mutex so can be swapped out, in addition it implements the C++ \textquotesingle{}Basic\+Lockable\textquotesingle{} and \textquotesingle{}Lockable\textquotesingle{} requirements meaning it can be used as a template for std\+::unique\+\_\+lock and std\+::lock\+\_\+guard. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Common/include/Mutex.\+h\end{DoxyCompactItemize}

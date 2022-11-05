@@ -1,0 +1,211 @@
+\hypertarget{classRdkPluginBase}{}\doxysection{Rdk\+Plugin\+Base Class Reference}
+\label{classRdkPluginBase}\index{RdkPluginBase@{RdkPluginBase}}
+
+
+Basic object that provides the default overrides for a plugin.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Logger\+Base.\+h$>$}
+
+
+
+Inheritance diagram for Rdk\+Plugin\+Base\+:
+% FIG 0
+
+
+Collaboration diagram for Rdk\+Plugin\+Base\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classRdkPluginBase_afb8522eece4b1948ea815d12a1fdd08b}{post\+Installation}} ()
+\item 
+virtual bool \mbox{\hyperlink{classRdkPluginBase_ac4766784eaa83e35b83b817af85ea045}{pre\+Creation}} ()
+\item 
+virtual bool \mbox{\hyperlink{classRdkPluginBase_af00763b74d9b809a46bbf025e485d010}{create\+Runtime}} ()
+\item 
+virtual bool \mbox{\hyperlink{classRdkPluginBase_adccac3990feeac6d14bb4b32fafe50b7}{create\+Container}} ()
+\item 
+virtual bool \mbox{\hyperlink{classRdkPluginBase_af2e1681da85f73cbe1ea59325ec5c651}{post\+Start}} ()
+\item 
+virtual bool \mbox{\hyperlink{classRdkPluginBase_a690f2542922c5c88a9ff4654732fea99}{post\+Halt}} ()
+\item 
+virtual bool \mbox{\hyperlink{classRdkPluginBase_a5f6d9df3768beed63fe0361af3bb050c}{post\+Stop}} ()
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Basic object that provides the default overrides for a plugin. 
+
+This class just saves the plugins from having to implement hook functions that are not needed. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRdkPluginBase_adccac3990feeac6d14bb4b32fafe50b7}\label{classRdkPluginBase_adccac3990feeac6d14bb4b32fafe50b7}} 
+\index{RdkPluginBase@{RdkPluginBase}!createContainer@{createContainer}}
+\index{createContainer@{createContainer}!RdkPluginBase@{RdkPluginBase}}
+\doxysubsubsection{\texorpdfstring{createContainer()}{createContainer()}}
+{\footnotesize\ttfamily virtual bool Rdk\+Plugin\+Base\+::create\+Container (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: create\+Container Hook Execution Namespace\+: container Hook Path Resolution\+: host
+
+Execution\+: OCI Runtime (runc/crun)
+
+Hook Description\+: Run during the create operation, after the runtime environment has been created and before the pivot root or any equivalent operation.
+
+This would run before the pivot\+\_\+root operation is executed but after the mount namespace was created and setup. 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classTestRdkPlugin_ade482c0034d604c2a3442e30c3cbe468}{Test\+Rdk\+Plugin}}, and \mbox{\hyperlink{classStorage_a2f26667ffc56a7a31bd770b6a3a3f002}{Storage}}.
+
+\mbox{\Hypertarget{classRdkPluginBase_af00763b74d9b809a46bbf025e485d010}\label{classRdkPluginBase_af00763b74d9b809a46bbf025e485d010}} 
+\index{RdkPluginBase@{RdkPluginBase}!createRuntime@{createRuntime}}
+\index{createRuntime@{createRuntime}!RdkPluginBase@{RdkPluginBase}}
+\doxysubsubsection{\texorpdfstring{createRuntime()}{createRuntime()}}
+{\footnotesize\ttfamily virtual bool Rdk\+Plugin\+Base\+::create\+Runtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: create\+Runtime Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: OCI Runtime (runc/crun)
+
+Hook Description\+: Run during the create operation, after the runtime environment has been created and before the pivot root or any equivalent operation.
+
+Called after the container namespaces are created, so provides an opportunity to customize the container (e.\+g. the network namespace could be specified in this hook). 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classTestRdkPlugin_af5fb453f99a72fb0fc10c17421d17ad1}{Test\+Rdk\+Plugin}}, \mbox{\hyperlink{classStorage_aaef2df60bad911ca680d49d9c0d8dd15}{Storage}}, \mbox{\hyperlink{classRtSchedulingPlugin_ac0a1ce3e1502fa19cfabbd5255219b51}{Rt\+Scheduling\+Plugin}}, \mbox{\hyperlink{classNetworkingPlugin_aecf386e13834ad0edfdc038be57ff1b1}{Networking\+Plugin}}, \mbox{\hyperlink{classIonMemoryPlugin_a81fdcec28338912d4ccf31e45dd1ce06}{Ion\+Memory\+Plugin}}, \mbox{\hyperlink{classGpuPlugin_a6bf193cd25f56ebed0c35c325081827f}{Gpu\+Plugin}}, \mbox{\hyperlink{classAppServicesRdkPlugin_af6c3dfe4b0a31da9bb85f67dfc37dba0}{App\+Services\+Rdk\+Plugin}}, and \mbox{\hyperlink{classThunderPlugin_a04a35aa7d3925a199ab45a2333a6631b}{Thunder\+Plugin}}.
+
+\mbox{\Hypertarget{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}\label{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}} 
+\index{RdkPluginBase@{RdkPluginBase}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!RdkPluginBase@{RdkPluginBase}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Rdk\+Plugin\+Base\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_ab1154cfe70f646107370b54f366754f3}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classThunderPlugin_af32528613812bb2d9a423dc36347b7cf}{Thunder\+Plugin}}, \mbox{\hyperlink{classTestRdkPlugin_aad4f4dc73988056359945cc5c9695541}{Test\+Rdk\+Plugin}}, \mbox{\hyperlink{classStorage_aa33a351063ee71ca6576b23e3cc82bf9}{Storage}}, \mbox{\hyperlink{classRtSchedulingPlugin_ae6cab11c20c88721e4baa95fe394a24e}{Rt\+Scheduling\+Plugin}}, \mbox{\hyperlink{classOOMCrash_abdf30a95a56025c4014d7f6b7581e6ca}{OOMCrash}}, \mbox{\hyperlink{classNetworkingPlugin_aab70c315007a1dce59281879b82c2759}{Networking\+Plugin}}, \mbox{\hyperlink{classMinidump_ad8abfe6ec5b6e94def0a1fd8bf526fde}{Minidump}}, \mbox{\hyperlink{classLocalTimePlugin_a4c40ae64dc28e8dbed9c4607f9a5b834}{Local\+Time\+Plugin}}, \mbox{\hyperlink{classIpcPlugin_a8cdc0306eda27c3ad67c496d9b7b0ca9}{Ipc\+Plugin}}, \mbox{\hyperlink{classHttpProxyPlugin_aac9f42f6cf613b2dc065be6a3da7dfdb}{Http\+Proxy\+Plugin}}, \mbox{\hyperlink{classGpuPlugin_a0d7e104c74449d084c0e43223e4daca4}{Gpu\+Plugin}}, and \mbox{\hyperlink{classDeviceMapperPlugin_ab6f9f91325f1e883c2ab535be4643898}{Device\+Mapper\+Plugin}}.
+
+\mbox{\Hypertarget{classRdkPluginBase_a690f2542922c5c88a9ff4654732fea99}\label{classRdkPluginBase_a690f2542922c5c88a9ff4654732fea99}} 
+\index{RdkPluginBase@{RdkPluginBase}!postHalt@{postHalt}}
+\index{postHalt@{postHalt}!RdkPluginBase@{RdkPluginBase}}
+\doxysubsubsection{\texorpdfstring{postHalt()}{postHalt()}}
+{\footnotesize\ttfamily virtual bool Rdk\+Plugin\+Base\+::post\+Halt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: post\+Halt Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: \mbox{\hyperlink{classDobby}{Dobby}}
+
+Hook Description\+: When a SIGTERM signal is received from the container. Before the delete operation is called
+
+For example, this hook could perform clean up when a container closes 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classTestRdkPlugin_a80cb35258851432cf15f05f1afca35e7}{Test\+Rdk\+Plugin}}, \mbox{\hyperlink{classOOMCrash_affce32147e1165c23f1eeabc031a95f5}{OOMCrash}}, \mbox{\hyperlink{classNetworkingPlugin_a2ab70fc49c11dc102ad742a8ba7b65d5}{Networking\+Plugin}}, \mbox{\hyperlink{classMinidump_a8f2b20d9e46d6a9dd6e157cf19756401}{Minidump}}, \mbox{\hyperlink{classHttpProxyPlugin_a6d7a2b4338c614171691499832f97f43}{Http\+Proxy\+Plugin}}, \mbox{\hyperlink{classAppServicesRdkPlugin_adec5a95b780b0aaa06f05f20cc05acd1}{App\+Services\+Rdk\+Plugin}}, and \mbox{\hyperlink{classThunderPlugin_a651b963053dfe1e6221d7185e33815aa}{Thunder\+Plugin}}.
+
+\mbox{\Hypertarget{classRdkPluginBase_afb8522eece4b1948ea815d12a1fdd08b}\label{classRdkPluginBase_afb8522eece4b1948ea815d12a1fdd08b}} 
+\index{RdkPluginBase@{RdkPluginBase}!postInstallation@{postInstallation}}
+\index{postInstallation@{postInstallation}!RdkPluginBase@{RdkPluginBase}}
+\doxysubsubsection{\texorpdfstring{postInstallation()}{postInstallation()}}
+{\footnotesize\ttfamily virtual bool Rdk\+Plugin\+Base\+::post\+Installation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: post\+Installation Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: \mbox{\hyperlink{classDobby}{Dobby}}
+
+Hook Description\+: Runs after the OCI bundle has been downloaded to the client STB, before the runtime’s create operation is called. This hook is called only once in lifecycle of container. 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classTestRdkPlugin_a34a4356d9f89b5d2fe7a93d266e190b0}{Test\+Rdk\+Plugin}}, \mbox{\hyperlink{classRtSchedulingPlugin_a33521b67f8e3cadf315b2128ac6d0bd4}{Rt\+Scheduling\+Plugin}}, \mbox{\hyperlink{classOOMCrash_ac50820c3cd26ffad8edceae84d5bba1d}{OOMCrash}}, \mbox{\hyperlink{classNetworkingPlugin_a60ae78b7e0aecf33aed35cba3afa1e10}{Networking\+Plugin}}, \mbox{\hyperlink{classLocalTimePlugin_a16282ff0b11d9c01c2db284a0654f16a}{Local\+Time\+Plugin}}, \mbox{\hyperlink{classIpcPlugin_aabf56d4d9427fbe735057ec415894283}{Ipc\+Plugin}}, \mbox{\hyperlink{classHttpProxyPlugin_a9adcb194fa5323b324db499692690879}{Http\+Proxy\+Plugin}}, \mbox{\hyperlink{classAppServicesRdkPlugin_a045cdec623ac0f1bd33557b52fbdf444}{App\+Services\+Rdk\+Plugin}}, and \mbox{\hyperlink{classThunderPlugin_a4a78c716e7d7bbcea9a885dd2cb9089f}{Thunder\+Plugin}}.
+
+\mbox{\Hypertarget{classRdkPluginBase_af2e1681da85f73cbe1ea59325ec5c651}\label{classRdkPluginBase_af2e1681da85f73cbe1ea59325ec5c651}} 
+\index{RdkPluginBase@{RdkPluginBase}!postStart@{postStart}}
+\index{postStart@{postStart}!RdkPluginBase@{RdkPluginBase}}
+\doxysubsubsection{\texorpdfstring{postStart()}{postStart()}}
+{\footnotesize\ttfamily virtual bool Rdk\+Plugin\+Base\+::post\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: post\+Start Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: OCI Runtime (runc/crun)
+
+Hook Description\+: Runs after the user-\/specified process is executed but before the start operation returns.
+
+For example, this hook can notify the user that the container process is spawned. 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classTestRdkPlugin_a379c9a9f03d8b24a2c2f820de605a54f}{Test\+Rdk\+Plugin}}, and \mbox{\hyperlink{classStorage_a2ded5d67acaa99fd83b4d03b509191dc}{Storage}}.
+
+\mbox{\Hypertarget{classRdkPluginBase_a5f6d9df3768beed63fe0361af3bb050c}\label{classRdkPluginBase_a5f6d9df3768beed63fe0361af3bb050c}} 
+\index{RdkPluginBase@{RdkPluginBase}!postStop@{postStop}}
+\index{postStop@{postStop}!RdkPluginBase@{RdkPluginBase}}
+\doxysubsubsection{\texorpdfstring{postStop()}{postStop()}}
+{\footnotesize\ttfamily virtual bool Rdk\+Plugin\+Base\+::post\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: post\+Stop Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: OCI Runtime (runc/crun)
+
+Hook Description\+: After the container is {\bfseries{deleted}} but before the delete operation returns.
+
+This hook has a confusing name due to to the stateless nature of OCI runtimes -\/ is relates to the OCI DELETE operation so won\textquotesingle{}t be run until {\ttfamily crun delete} is called 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classTestRdkPlugin_a48235aa4ad48639e4e543c53ca185ac1}{Test\+Rdk\+Plugin}}, \mbox{\hyperlink{classStorage_a0146ddc4690b86a74c074e3586d465ce}{Storage}}, \mbox{\hyperlink{classNetworkingPlugin_a4720f334af95f188f14ca1cbbe5b79d8}{Networking\+Plugin}}, \mbox{\hyperlink{classIonMemoryPlugin_ae6887efb263d5db1ad99894f09bc04fd}{Ion\+Memory\+Plugin}}, and \mbox{\hyperlink{classGpuPlugin_a0e8b9b5273ed9211a5e80cd0f3cbe34d}{Gpu\+Plugin}}.
+
+\mbox{\Hypertarget{classRdkPluginBase_ac4766784eaa83e35b83b817af85ea045}\label{classRdkPluginBase_ac4766784eaa83e35b83b817af85ea045}} 
+\index{RdkPluginBase@{RdkPluginBase}!preCreation@{preCreation}}
+\index{preCreation@{preCreation}!RdkPluginBase@{RdkPluginBase}}
+\doxysubsubsection{\texorpdfstring{preCreation()}{preCreation()}}
+{\footnotesize\ttfamily virtual bool Rdk\+Plugin\+Base\+::pre\+Creation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: pre\+Creation Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: \mbox{\hyperlink{classDobby}{Dobby}}
+
+Hook Description\+: Runs before the runtime’s create operation is called. This hook runs every time container need to be created. 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classTestRdkPlugin_a2920e1e9b89796cb509e309b68bac4ab}{Test\+Rdk\+Plugin}}, \mbox{\hyperlink{classStorage_a7a3fac5ce3fb766173ce31fb96317d01}{Storage}}, \mbox{\hyperlink{classMinidump_a27630b9c4f65f4ddd16dcc7c6cf3d219}{Minidump}}, \mbox{\hyperlink{classHttpProxyPlugin_a6988aac586a38ff974626512844a509e}{Http\+Proxy\+Plugin}}, \mbox{\hyperlink{classDeviceMapperPlugin_aae6e6c68c92801d14a13a955902b7369}{Device\+Mapper\+Plugin}}, and \mbox{\hyperlink{classThunderPlugin_a5f23ce9eb5e897fadafb4e1660e0bf9d}{Thunder\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Common/include/Rdk\+Plugin\+Base.\+h\end{DoxyCompactItemize}

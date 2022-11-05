@@ -1,0 +1,39 @@
+\hypertarget{classDobbyProxyNotifyDispatcher}{}\doxysection{Dobby\+Proxy\+Notify\+Dispatcher Class Reference}
+\label{classDobbyProxyNotifyDispatcher}\index{DobbyProxyNotifyDispatcher@{DobbyProxyNotifyDispatcher}}
+
+
+Inheritance diagram for Dobby\+Proxy\+Notify\+Dispatcher\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Proxy\+Notify\+Dispatcher\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDobbyProxyNotifyDispatcher_ae3ba958bf2d1e1cc10a90e1cdda7616c}{post}} (std\+::function$<$ void()$>$ work) override
+\item 
+\mbox{\Hypertarget{classDobbyProxyNotifyDispatcher_a3ded112e14e80e3ed8c21ff940596408}\label{classDobbyProxyNotifyDispatcher_a3ded112e14e80e3ed8c21ff940596408}} 
+void \mbox{\hyperlink{classDobbyProxyNotifyDispatcher_a3ded112e14e80e3ed8c21ff940596408}{sync}} () override
+\begin{DoxyCompactList}\small\item\em Ensures that anything that was in the queue before the call has been executed before returning. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyProxyNotifyDispatcher_ac9659e297b06ba0590c07bdea56dadca}\label{classDobbyProxyNotifyDispatcher_ac9659e297b06ba0590c07bdea56dadca}} 
+bool \mbox{\hyperlink{classDobbyProxyNotifyDispatcher_ac9659e297b06ba0590c07bdea56dadca}{invoked\+From\+Dispatcher\+Thread}} () override
+\begin{DoxyCompactList}\small\item\em If it is a threaded dispatcher then the dispatcher thread id, otherwise nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyProxyNotifyDispatcher_ae3ba958bf2d1e1cc10a90e1cdda7616c}\label{classDobbyProxyNotifyDispatcher_ae3ba958bf2d1e1cc10a90e1cdda7616c}} 
+\index{DobbyProxyNotifyDispatcher@{DobbyProxyNotifyDispatcher}!post@{post}}
+\index{post@{post}!DobbyProxyNotifyDispatcher@{DobbyProxyNotifyDispatcher}}
+\doxysubsubsection{\texorpdfstring{post()}{post()}}
+{\footnotesize\ttfamily void Dobby\+Proxy\+Notify\+Dispatcher\+::post (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{work }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Post an item of work to be executed. 
+
+Implements \mbox{\hyperlink{classAICommon_1_1IDispatcher_a7d488400d6249dc3456feaf1ad80e860}{AICommon\+::\+IDispatcher}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+client/lib/source/Dobby\+Proxy.\+cpp\end{DoxyCompactItemize}

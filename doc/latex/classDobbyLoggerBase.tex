@@ -1,0 +1,173 @@
+\hypertarget{classDobbyLoggerBase}{}\doxysection{Dobby\+Logger\+Base Class Reference}
+\label{classDobbyLoggerBase}\index{DobbyLoggerBase@{DobbyLoggerBase}}
+
+
+Inheritance diagram for Dobby\+Logger\+Base\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Logger\+Base\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classDobbyLoggerBase_a4eff83553a2cdd3a8934b7bbef8e0bcb}{post\+Installation}} ()
+\item 
+virtual bool \mbox{\hyperlink{classDobbyLoggerBase_a4082911d657fdbb5ba92a82bf7ecd914}{pre\+Creation}} ()
+\item 
+virtual bool \mbox{\hyperlink{classDobbyLoggerBase_adb7f5255e3b7a1dcdac79b41c92f04bc}{create\+Runtime}} ()
+\item 
+virtual bool \mbox{\hyperlink{classDobbyLoggerBase_a8c46f363a4dcfa1c67358e241cca23e0}{create\+Container}} ()
+\item 
+virtual bool \mbox{\hyperlink{classDobbyLoggerBase_a7c0bd559849bd3cf6fef0e8405954cff}{post\+Start}} ()
+\item 
+virtual bool \mbox{\hyperlink{classDobbyLoggerBase_a0ae78c3a57a92024c86a9fe9795d52cd}{post\+Halt}} ()
+\item 
+virtual bool \mbox{\hyperlink{classDobbyLoggerBase_a0fbf819fcd5d80ae55364145ab23e58a}{post\+Stop}} ()
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classDobbyLoggerBase_a1adc6914d36452d9b6ed3f38ba5281a9}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyLoggerBase_a8c46f363a4dcfa1c67358e241cca23e0}\label{classDobbyLoggerBase_a8c46f363a4dcfa1c67358e241cca23e0}} 
+\index{DobbyLoggerBase@{DobbyLoggerBase}!createContainer@{createContainer}}
+\index{createContainer@{createContainer}!DobbyLoggerBase@{DobbyLoggerBase}}
+\doxysubsubsection{\texorpdfstring{createContainer()}{createContainer()}}
+{\footnotesize\ttfamily virtual bool Dobby\+Logger\+Base\+::create\+Container (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: create\+Container Hook Execution Namespace\+: container Hook Path Resolution\+: host
+
+Execution\+: OCI Runtime (runc/crun)
+
+Hook Description\+: Run during the create operation, after the runtime environment has been created and before the pivot root or any equivalent operation.
+
+This would run before the pivot\+\_\+root operation is executed but after the mount namespace was created and setup. 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classDobbyLoggerBase_adb7f5255e3b7a1dcdac79b41c92f04bc}\label{classDobbyLoggerBase_adb7f5255e3b7a1dcdac79b41c92f04bc}} 
+\index{DobbyLoggerBase@{DobbyLoggerBase}!createRuntime@{createRuntime}}
+\index{createRuntime@{createRuntime}!DobbyLoggerBase@{DobbyLoggerBase}}
+\doxysubsubsection{\texorpdfstring{createRuntime()}{createRuntime()}}
+{\footnotesize\ttfamily virtual bool Dobby\+Logger\+Base\+::create\+Runtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: create\+Runtime Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: OCI Runtime (runc/crun)
+
+Hook Description\+: Run during the create operation, after the runtime environment has been created and before the pivot root or any equivalent operation.
+
+Called after the container namespaces are created, so provides an opportunity to customize the container (e.\+g. the network namespace could be specified in this hook). 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classDobbyLoggerBase_a1adc6914d36452d9b6ed3f38ba5281a9}\label{classDobbyLoggerBase_a1adc6914d36452d9b6ed3f38ba5281a9}} 
+\index{DobbyLoggerBase@{DobbyLoggerBase}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!DobbyLoggerBase@{DobbyLoggerBase}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Dobby\+Logger\+Base\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_ab1154cfe70f646107370b54f366754f3}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLoggingPlugin_a344a4600555aebddaf6f293e67a23ac7}{Logging\+Plugin}}.
+
+\mbox{\Hypertarget{classDobbyLoggerBase_a0ae78c3a57a92024c86a9fe9795d52cd}\label{classDobbyLoggerBase_a0ae78c3a57a92024c86a9fe9795d52cd}} 
+\index{DobbyLoggerBase@{DobbyLoggerBase}!postHalt@{postHalt}}
+\index{postHalt@{postHalt}!DobbyLoggerBase@{DobbyLoggerBase}}
+\doxysubsubsection{\texorpdfstring{postHalt()}{postHalt()}}
+{\footnotesize\ttfamily virtual bool Dobby\+Logger\+Base\+::post\+Halt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: post\+Halt Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: \mbox{\hyperlink{classDobby}{Dobby}}
+
+Hook Description\+: When a SIGTERM signal is received from the container. Before the delete operation is called
+
+For example, this hook could perform clean up when a container closes 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classDobbyLoggerBase_a4eff83553a2cdd3a8934b7bbef8e0bcb}\label{classDobbyLoggerBase_a4eff83553a2cdd3a8934b7bbef8e0bcb}} 
+\index{DobbyLoggerBase@{DobbyLoggerBase}!postInstallation@{postInstallation}}
+\index{postInstallation@{postInstallation}!DobbyLoggerBase@{DobbyLoggerBase}}
+\doxysubsubsection{\texorpdfstring{postInstallation()}{postInstallation()}}
+{\footnotesize\ttfamily virtual bool Dobby\+Logger\+Base\+::post\+Installation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: post\+Installation Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: \mbox{\hyperlink{classDobby}{Dobby}}
+
+Hook Description\+: Runs after the OCI bundle has been downloaded to the client STB, before the runtime’s create operation is called. This hook is called only once in lifecycle of container. 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLoggingPlugin_ad937c2773ffca26ac7c96bc86006992d}{Logging\+Plugin}}.
+
+\mbox{\Hypertarget{classDobbyLoggerBase_a7c0bd559849bd3cf6fef0e8405954cff}\label{classDobbyLoggerBase_a7c0bd559849bd3cf6fef0e8405954cff}} 
+\index{DobbyLoggerBase@{DobbyLoggerBase}!postStart@{postStart}}
+\index{postStart@{postStart}!DobbyLoggerBase@{DobbyLoggerBase}}
+\doxysubsubsection{\texorpdfstring{postStart()}{postStart()}}
+{\footnotesize\ttfamily virtual bool Dobby\+Logger\+Base\+::post\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: post\+Start Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: OCI Runtime (runc/crun)
+
+Hook Description\+: Runs after the user-\/specified process is executed but before the start operation returns.
+
+For example, this hook can notify the user that the container process is spawned. 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classDobbyLoggerBase_a0fbf819fcd5d80ae55364145ab23e58a}\label{classDobbyLoggerBase_a0fbf819fcd5d80ae55364145ab23e58a}} 
+\index{DobbyLoggerBase@{DobbyLoggerBase}!postStop@{postStop}}
+\index{postStop@{postStop}!DobbyLoggerBase@{DobbyLoggerBase}}
+\doxysubsubsection{\texorpdfstring{postStop()}{postStop()}}
+{\footnotesize\ttfamily virtual bool Dobby\+Logger\+Base\+::post\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: post\+Stop Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: OCI Runtime (runc/crun)
+
+Hook Description\+: After the container is {\bfseries{deleted}} but before the delete operation returns.
+
+This hook has a confusing name due to to the stateless nature of OCI runtimes -\/ is relates to the OCI DELETE operation so won\textquotesingle{}t be run until {\ttfamily crun delete} is called 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classDobbyLoggerBase_a4082911d657fdbb5ba92a82bf7ecd914}\label{classDobbyLoggerBase_a4082911d657fdbb5ba92a82bf7ecd914}} 
+\index{DobbyLoggerBase@{DobbyLoggerBase}!preCreation@{preCreation}}
+\index{preCreation@{preCreation}!DobbyLoggerBase@{DobbyLoggerBase}}
+\doxysubsubsection{\texorpdfstring{preCreation()}{preCreation()}}
+{\footnotesize\ttfamily virtual bool Dobby\+Logger\+Base\+::pre\+Creation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Hook Name\+: pre\+Creation Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: \mbox{\hyperlink{classDobby}{Dobby}}
+
+Hook Description\+: Runs before the runtime’s create operation is called. This hook runs every time container need to be created. 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Common/include/Dobby\+Logger\+Base.\+h\end{DoxyCompactItemize}

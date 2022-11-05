@@ -1,0 +1,214 @@
+\hypertarget{classDobbyBundleConfig}{}\doxysection{Dobby\+Bundle\+Config Class Reference}
+\label{classDobbyBundleConfig}\index{DobbyBundleConfig@{DobbyBundleConfig}}
+
+
+Takes a JSON formatted OCI bundle configuration file in the constructor, parses it and extracts the relevant fields.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Bundle\+Config.\+h$>$}
+
+
+
+Inheritance diagram for Dobby\+Bundle\+Config\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Bundle\+Config\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDobbyBundleConfig_ad6fe05bc813af24d3a9dd179cce8e4a7}{Dobby\+Bundle\+Config}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&settings, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&bundle\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor that parses an OCI bundle\textquotesingle{}s config file to be used by \mbox{\hyperlink{classDobby}{Dobby}}. Plugins under \textquotesingle{}rdk\+Plugins\textquotesingle{} and \textquotesingle{}legacy\+Plugins\textquotesingle{} are parsed if found (OCI bundle$\ast$). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_aff011f30be4acf9a04549e7d17edd4db}\label{classDobbyBundleConfig_aff011f30be4acf9a04549e7d17edd4db}} 
+bool \mbox{\hyperlink{classDobbyBundleConfig_aff011f30be4acf9a04549e7d17edd4db}{is\+Valid}} () const override
+\begin{DoxyCompactList}\small\item\em Getters used for plugins. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a98ee18c6b01a14b5695313b65f28d34d}\label{classDobbyBundleConfig_a98ee18c6b01a14b5695313b65f28d34d}} 
+uid\+\_\+t {\bfseries user\+Id} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a5150a1da2bf4c868040ab21630b66e07}\label{classDobbyBundleConfig_a5150a1da2bf4c868040ab21630b66e07}} 
+gid\+\_\+t {\bfseries group\+Id} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a4e683ae6d8ffa40e3af1e40a051fe476}\label{classDobbyBundleConfig_a4e683ae6d8ffa40e3af1e40a051fe476}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries system\+Dbus} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a7e91f37ceeb7d9132c7e237e662583fd}\label{classDobbyBundleConfig_a7e91f37ceeb7d9132c7e237e662583fd}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries session\+Dbus} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_af785799780b1fda948a91835b4657779}\label{classDobbyBundleConfig_af785799780b1fda948a91835b4657779}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries debug\+Dbus} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a40e6e541dc5e30bd59d936afae23f028}\label{classDobbyBundleConfig_a40e6e541dc5e30bd59d936afae23f028}} 
+bool {\bfseries console\+Disabled} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_ac660a8590edd6edd6250fcf9eed60fe2}\label{classDobbyBundleConfig_ac660a8590edd6edd6250fcf9eed60fe2}} 
+ssize\+\_\+t {\bfseries console\+Limit} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a0d445fa5a4a151b9c0536a90fd5e6ad9}\label{classDobbyBundleConfig_a0d445fa5a4a151b9c0536a90fd5e6ad9}} 
+const std\+::string \& {\bfseries console\+Path} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a69a4a9fd740b47da75384e18f850decc}\label{classDobbyBundleConfig_a69a4a9fd740b47da75384e18f850decc}} 
+bool {\bfseries restart\+On\+Crash} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_ada7a9af6d5ef7c78bf381ffece156454}\label{classDobbyBundleConfig_ada7a9af6d5ef7c78bf381ffece156454}} 
+const std\+::string \& {\bfseries rootfs\+Path} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a745767e13fcaff6858202f5c174f4439}\label{classDobbyBundleConfig_a745767e13fcaff6858202f5c174f4439}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries config} () const override
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a61be927f0ac6c658de3cc2f98261f40f}\label{classDobbyBundleConfig_a61be927f0ac6c658de3cc2f98261f40f}} 
+const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \& {\bfseries rdk\+Plugins} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDobbyBundleConfig_ace151ae2cb16841f48a8feaa8e5ccffb}{parse\+OCIConfig}} (const std\+::string \&bundle\+Path)
+\begin{DoxyCompactList}\small\item\em Parses the bundle config\textquotesingle{}s contents that are needed by plugins. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyBundleConfig_a934f0632c61de775f37f2f57e4b2936a}{construct\+Config}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&bundle\+Path)
+\begin{DoxyCompactList}\small\item\em Creates config object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \mbox{\hyperlink{classDobbyBundleConfig_a8c40bc650d1d5c067c7f8107bac07e02}{m\+Utilities}}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_acb385d70bb106563b2f87d3f3758c45b}\label{classDobbyBundleConfig_acb385d70bb106563b2f87d3f3758c45b}} 
+const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ {\bfseries m\+Settings}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a98034ae269ca705eab5019eac5b76e2f}\label{classDobbyBundleConfig_a98034ae269ca705eab5019eac5b76e2f}} 
+bool {\bfseries m\+Valid}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_abc445416d8054c2759bf512df9d06416}\label{classDobbyBundleConfig_abc445416d8054c2759bf512df9d06416}} 
+Json\+::\+Value {\bfseries m\+Config}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_ac0fc8a5b1c467c5f64e804ea6f9392b2}\label{classDobbyBundleConfig_ac0fc8a5b1c467c5f64e804ea6f9392b2}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Conf}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a7782aedd701211abcbb70a57b648a8b3}\label{classDobbyBundleConfig_a7782aedd701211abcbb70a57b648a8b3}} 
+uid\+\_\+t {\bfseries m\+User\+Id}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a4e523ec95331a754d3e04be01c2de698}\label{classDobbyBundleConfig_a4e523ec95331a754d3e04be01c2de698}} 
+gid\+\_\+t {\bfseries m\+Group\+Id}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a2e4952fd363610bfed2d3d069f8f8ecf}\label{classDobbyBundleConfig_a2e4952fd363610bfed2d3d069f8f8ecf}} 
+bool {\bfseries m\+Restart\+On\+Crash}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a13e166a484d9fa7832e6bcd971bf1b94}\label{classDobbyBundleConfig_a13e166a484d9fa7832e6bcd971bf1b94}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries m\+System\+Dbus}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a379ffe026b647a826e33a3b1a1fef96d}\label{classDobbyBundleConfig_a379ffe026b647a826e33a3b1a1fef96d}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries m\+Session\+Dbus}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a9b363c1838628c90e4e87ea5254e6915}\label{classDobbyBundleConfig_a9b363c1838628c90e4e87ea5254e6915}} 
+\mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries m\+Debug\+Dbus}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a8bfa84bd784a06cc089406cd592e9490}\label{classDobbyBundleConfig_a8bfa84bd784a06cc089406cd592e9490}} 
+bool {\bfseries m\+Console\+Disabled}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a7d4fc1db8452bd02ff5ff996547ae0f7}\label{classDobbyBundleConfig_a7d4fc1db8452bd02ff5ff996547ae0f7}} 
+std\+::string {\bfseries m\+Console\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a30f1f95c96f12ea63b787713db0576c7}\label{classDobbyBundleConfig_a30f1f95c96f12ea63b787713db0576c7}} 
+ssize\+\_\+t {\bfseries m\+Console\+Limit}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_a65be61e01e3facb0ee0a2ccb933d8e00}\label{classDobbyBundleConfig_a65be61e01e3facb0ee0a2ccb933d8e00}} 
+std\+::map$<$ std\+::string, Json\+::\+Value $>$ {\bfseries m\+Rdk\+Plugins}
+\item 
+\mbox{\Hypertarget{classDobbyBundleConfig_ad3b07be3316ebf3acf42e62da8cdeda9}\label{classDobbyBundleConfig_ad3b07be3316ebf3acf42e62da8cdeda9}} 
+std\+::string {\bfseries m\+Rootfs\+Path}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Takes a JSON formatted OCI bundle configuration file in the constructor, parses it and extracts the relevant fields. 
+
+It\textquotesingle{}s main purpose is to read an extended OCI bundle config with plugins so it can be converted into an OCI compliant bundle. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDobbyBundleConfig_ad6fe05bc813af24d3a9dd179cce8e4a7}\label{classDobbyBundleConfig_ad6fe05bc813af24d3a9dd179cce8e4a7}} 
+\index{DobbyBundleConfig@{DobbyBundleConfig}!DobbyBundleConfig@{DobbyBundleConfig}}
+\index{DobbyBundleConfig@{DobbyBundleConfig}!DobbyBundleConfig@{DobbyBundleConfig}}
+\doxysubsubsection{\texorpdfstring{DobbyBundleConfig()}{DobbyBundleConfig()}}
+{\footnotesize\ttfamily Dobby\+Bundle\+Config\+::\+Dobby\+Bundle\+Config (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&}]{settings,  }\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{bundle\+Path }\end{DoxyParamCaption})}
+
+
+
+Constructor that parses an OCI bundle\textquotesingle{}s config file to be used by \mbox{\hyperlink{classDobby}{Dobby}}. Plugins under \textquotesingle{}rdk\+Plugins\textquotesingle{} and \textquotesingle{}legacy\+Plugins\textquotesingle{} are parsed if found (OCI bundle$\ast$). 
+
+Public methods
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & The daemon utils object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em settings} & \mbox{\hyperlink{classDobby}{Dobby}} settings object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & Container ID. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle\+Path} & Path to OCI bundle. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyBundleConfig_a934f0632c61de775f37f2f57e4b2936a}\label{classDobbyBundleConfig_a934f0632c61de775f37f2f57e4b2936a}} 
+\index{DobbyBundleConfig@{DobbyBundleConfig}!constructConfig@{constructConfig}}
+\index{constructConfig@{constructConfig}!DobbyBundleConfig@{DobbyBundleConfig}}
+\doxysubsubsection{\texorpdfstring{constructConfig()}{constructConfig()}}
+{\footnotesize\ttfamily bool Dobby\+Bundle\+Config\+::construct\+Config (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{bundle\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates config object. 
+
+This method parses OCI config and creates dobby config based on that. This was an old constructor for \mbox{\hyperlink{classDobbyBundleConfig}{Dobby\+Bundle\+Config}}, but we need to be able to recover in case config gets damaged.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & Container ID. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle\+Path} & Path to the container\textquotesingle{}s OCI bundle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the config is valid, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyBundleConfig_ace151ae2cb16841f48a8feaa8e5ccffb}\label{classDobbyBundleConfig_ace151ae2cb16841f48a8feaa8e5ccffb}} 
+\index{DobbyBundleConfig@{DobbyBundleConfig}!parseOCIConfig@{parseOCIConfig}}
+\index{parseOCIConfig@{parseOCIConfig}!DobbyBundleConfig@{DobbyBundleConfig}}
+\doxysubsubsection{\texorpdfstring{parseOCIConfig()}{parseOCIConfig()}}
+{\footnotesize\ttfamily bool Dobby\+Bundle\+Config\+::parse\+OCIConfig (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{bundle\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parses the bundle config\textquotesingle{}s contents that are needed by plugins. 
+
+Private methods
+
+The function is atomic, therefore if it returns true you can guarantee it stuck and will be set for the lifetime of the function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bundle\+Path} & path to the container\textquotesingle{}s OCI bundle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the path was set, otherwise false. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classDobbyBundleConfig_a8c40bc650d1d5c067c7f8107bac07e02}\label{classDobbyBundleConfig_a8c40bc650d1d5c067c7f8107bac07e02}} 
+\index{DobbyBundleConfig@{DobbyBundleConfig}!mUtilities@{mUtilities}}
+\index{mUtilities@{mUtilities}!DobbyBundleConfig@{DobbyBundleConfig}}
+\doxysubsubsection{\texorpdfstring{mUtilities}{mUtilities}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}}$>$ Dobby\+Bundle\+Config\+::m\+Utilities\hspace{0.3cm}{\ttfamily [private]}}
+
+Member variables 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bundle/lib/include/Dobby\+Bundle\+Config.\+h\item 
+bundle/lib/source/Dobby\+Bundle\+Config.\+cpp\end{DoxyCompactItemize}

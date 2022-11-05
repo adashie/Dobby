@@ -1,0 +1,194 @@
+\hypertarget{classAI__IPC_1_1DbusEventDispatcher}{}\doxysection{AI\+\_\+\+IPC\+::Dbus\+Event\+Dispatcher Class Reference}
+\label{classAI__IPC_1_1DbusEventDispatcher}\index{AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}}
+
+
+Event dispatcher loop, runs the thread that polls on the dbus fds.  
+
+
+
+
+{\ttfamily \#include $<$Dbus\+Event\+Dispatcher.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusEventDispatcher_a3c91058d59d8c4d752a2030d5442e62d}{start\+Event\+Dispatcher}} (DBus\+Connection $\ast$connection)
+\begin{DoxyCompactList}\small\item\em Starts the event dispatch thread for the given dbus connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusEventDispatcher_acdd2df31cd21dd9db0198dbf95ab9478}{stop\+Event\+Dispatcher}} ()
+\begin{DoxyCompactList}\small\item\em Stops the event dispatch thread and cleans up all file descriptors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_afae46dc18b257ba29a66dc2f144d3a2b}\label{classAI__IPC_1_1DbusEventDispatcher_afae46dc18b257ba29a66dc2f144d3a2b}} 
+{\footnotesize template$<$class Function , class... Args$>$ }\\bool {\bfseries call\+In\+Event\+Loop} (Function \&\&f, Args \&\&... args)
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_aec4fe3095a96a5a86a4fe9ddb5233e9b}\label{classAI__IPC_1_1DbusEventDispatcher_aec4fe3095a96a5a86a4fe9ddb5233e9b}} 
+{\footnotesize template$<$class Function $>$ }\\bool {\bfseries call\+In\+Event\+Loop} (Function func)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusEventDispatcher_a99a8e87e5c08172aeed77b87eae86577}{event\+Dispatcher\+Thread\+Fn}} ()
+\begin{DoxyCompactList}\small\item\em Thread function that processes the events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusEventDispatcher_ada48ac2040ac9c935af3e0331fd4f142}{cleanup\+All\+Events}} ()
+\begin{DoxyCompactList}\small\item\em Closes the three eventfd\textquotesingle{}s used to wake up and trigger events in the poll loop. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1DbusEventDispatcher_ae45b6b78bc84d16cfa46319cb9f6ee4f}{call\+In\+Event\+Loop\+Impl}} (const std\+::function$<$ void()$>$ \&func)
+\begin{DoxyCompactList}\small\item\em Calls the supplied function in the context of the dispatch thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classAI__IPC_1_1DbusEventDispatcher_a70c3e29100be58d56413b1f5f5476422}{dispatch\+Status\+Cb}} (DBus\+Connection $\ast$connection, DBus\+Dispatch\+Status status, void $\ast$user\+Data)
+\begin{DoxyCompactList}\small\item\em libdbus callback when dispatch status changes. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classAI__IPC_1_1DbusEventDispatcher_a73e9b64d5bdbaa8912ecccc31ae97bd6}{wake\+Up\+Cb}} (void $\ast$user\+Data)
+\begin{DoxyCompactList}\small\item\em libdbus callback request to wake-\/up the event loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_ab34544e520d75790b4e9ef139a94e45b}\label{classAI__IPC_1_1DbusEventDispatcher_ab34544e520d75790b4e9ef139a94e45b}} 
+DBus\+Connection $\ast$ {\bfseries m\+Dbus\+Connection}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_a9dd31e4fabc2b7c75516a7277dd65e57}\label{classAI__IPC_1_1DbusEventDispatcher_a9dd31e4fabc2b7c75516a7277dd65e57}} 
+std\+::thread {\bfseries m\+Event\+Dispatcher\+Thread}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_ae054d69212bb7f4234f68b854f0ccf67}\label{classAI__IPC_1_1DbusEventDispatcher_ae054d69212bb7f4234f68b854f0ccf67}} 
+int {\bfseries m\+Death\+Event\+Fd}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_abb9704558ff0e354f02442eb04933999}\label{classAI__IPC_1_1DbusEventDispatcher_abb9704558ff0e354f02442eb04933999}} 
+int {\bfseries m\+Wakeup\+Event\+Fd}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_aea1110c560e758a72d0d8b70a1ef9971}\label{classAI__IPC_1_1DbusEventDispatcher_aea1110c560e758a72d0d8b70a1ef9971}} 
+int {\bfseries m\+Dispatch\+Event\+Fd}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_afdb221ce0acadd141d69f5e6e0db3fa2}\label{classAI__IPC_1_1DbusEventDispatcher_afdb221ce0acadd141d69f5e6e0db3fa2}} 
+uint64\+\_\+t {\bfseries m\+Call\+Counter}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_a866af9d41aef6637eb538c8723eea187}\label{classAI__IPC_1_1DbusEventDispatcher_a866af9d41aef6637eb538c8723eea187}} 
+std\+::mutex {\bfseries m\+Call\+Lock}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_a89b796ed2fba50692f12a540110ed005}\label{classAI__IPC_1_1DbusEventDispatcher_a89b796ed2fba50692f12a540110ed005}} 
+std\+::condition\+\_\+variable {\bfseries m\+Call\+Cond\+Var}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_ae98a2184e7c7bf6630f686f1db876293}\label{classAI__IPC_1_1DbusEventDispatcher_ae98a2184e7c7bf6630f686f1db876293}} 
+std\+::queue$<$ std\+::pair$<$ uint64\+\_\+t, std\+::function$<$ void()$>$ $>$ $>$ {\bfseries m\+Call\+Queue}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Event dispatcher loop, runs the thread that polls on the dbus fds. 
+
+This class installs handlers for the four types of dbus events; watches, timeouts, wake-\/ups and dispatches. Watches and timeouts are a bit tricky and are handled by the \mbox{\hyperlink{classAI__IPC_1_1DbusWatches}{Dbus\+Watches}} and \mbox{\hyperlink{classAI__IPC_1_1DbusTimeouts}{Dbus\+Timeouts}} objects respectively, however those objects still have a corresponding fd that are added to the poll loop managed by this dispatchers.
+
+In addition the dispatcher has an API to allow you to call arbitrary functions in the context of it\textquotesingle{}s dispatcher thread. This is used by the higher level \mbox{\hyperlink{classAI__IPC_1_1DbusConnection}{Dbus\+Connection}} object to make libdbus API calls on the connection from the dispatch thread, and thereby avoid the many varied race conditions in the dbus library. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_ae45b6b78bc84d16cfa46319cb9f6ee4f}\label{classAI__IPC_1_1DbusEventDispatcher_ae45b6b78bc84d16cfa46319cb9f6ee4f}} 
+\index{AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}!callInEventLoopImpl@{callInEventLoopImpl}}
+\index{callInEventLoopImpl@{callInEventLoopImpl}!AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}}
+\doxysubsubsection{\texorpdfstring{callInEventLoopImpl()}{callInEventLoopImpl()}}
+{\footnotesize\ttfamily bool Dbus\+Event\+Dispatcher\+::call\+In\+Event\+Loop\+Impl (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void()$>$ \&}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calls the supplied function in the context of the dispatch thread. 
+
+\begin{DoxyWarning}{Warning}
+Because the method is called from the context of the dispatch thread, avoid calling from an dbus callback with locks held otherwise you could end up deadlocked.
+\end{DoxyWarning}
+It is safe to call this method from inside or outside the dispatch thread; if called from within, the function is directly executed, if not in the dispatcher thread then the function is queued up and the method will block until the function has been processed within the thread.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em func} & The function to run in the dispatcher thread\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the function was executed, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_ada48ac2040ac9c935af3e0331fd4f142}\label{classAI__IPC_1_1DbusEventDispatcher_ada48ac2040ac9c935af3e0331fd4f142}} 
+\index{AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}!cleanupAllEvents@{cleanupAllEvents}}
+\index{cleanupAllEvents@{cleanupAllEvents}!AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}}
+\doxysubsubsection{\texorpdfstring{cleanupAllEvents()}{cleanupAllEvents()}}
+{\footnotesize\ttfamily void Dbus\+Event\+Dispatcher\+::cleanup\+All\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Closes the three eventfd\textquotesingle{}s used to wake up and trigger events in the poll loop. 
+
+Upon return all eventfds will be closed. \mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_a70c3e29100be58d56413b1f5f5476422}\label{classAI__IPC_1_1DbusEventDispatcher_a70c3e29100be58d56413b1f5f5476422}} 
+\index{AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}!dispatchStatusCb@{dispatchStatusCb}}
+\index{dispatchStatusCb@{dispatchStatusCb}!AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}}
+\doxysubsubsection{\texorpdfstring{dispatchStatusCb()}{dispatchStatusCb()}}
+{\footnotesize\ttfamily void Dbus\+Event\+Dispatcher\+::dispatch\+Status\+Cb (\begin{DoxyParamCaption}\item[{DBus\+Connection $\ast$}]{connection,  }\item[{DBus\+Dispatch\+Status}]{status,  }\item[{void $\ast$}]{user\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+libdbus callback when dispatch status changes. 
+
+This simply triggers the eventfd which wakes the poll loop and results in dbus\+\_\+connection\+\_\+dispatch() being called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em connection} & The dbus connection object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em status} & The new status of the dbus loop. \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+Data} & Pointer to this. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_a99a8e87e5c08172aeed77b87eae86577}\label{classAI__IPC_1_1DbusEventDispatcher_a99a8e87e5c08172aeed77b87eae86577}} 
+\index{AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}!eventDispatcherThreadFn@{eventDispatcherThreadFn}}
+\index{eventDispatcherThreadFn@{eventDispatcherThreadFn}!AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}}
+\doxysubsubsection{\texorpdfstring{eventDispatcherThreadFn()}{eventDispatcherThreadFn()}}
+{\footnotesize\ttfamily void Dbus\+Event\+Dispatcher\+::event\+Dispatcher\+Thread\+Fn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Thread function that processes the events. 
+
+The main poll thread that processes all dbus events. \mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_a3c91058d59d8c4d752a2030d5442e62d}\label{classAI__IPC_1_1DbusEventDispatcher_a3c91058d59d8c4d752a2030d5442e62d}} 
+\index{AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}!startEventDispatcher@{startEventDispatcher}}
+\index{startEventDispatcher@{startEventDispatcher}!AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}}
+\doxysubsubsection{\texorpdfstring{startEventDispatcher()}{startEventDispatcher()}}
+{\footnotesize\ttfamily void Dbus\+Event\+Dispatcher\+::start\+Event\+Dispatcher (\begin{DoxyParamCaption}\item[{DBus\+Connection $\ast$}]{connection }\end{DoxyParamCaption})}
+
+
+
+Starts the event dispatch thread for the given dbus connection. 
+
+This creates the the eventfds for the wakeup, dispatch and death events. It then registers the libdbus callback functions before finally spawning the thread that runs the poll event loop.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em connection} & The dbus connection to run the event loop for. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_acdd2df31cd21dd9db0198dbf95ab9478}\label{classAI__IPC_1_1DbusEventDispatcher_acdd2df31cd21dd9db0198dbf95ab9478}} 
+\index{AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}!stopEventDispatcher@{stopEventDispatcher}}
+\index{stopEventDispatcher@{stopEventDispatcher}!AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}}
+\doxysubsubsection{\texorpdfstring{stopEventDispatcher()}{stopEventDispatcher()}}
+{\footnotesize\ttfamily void Dbus\+Event\+Dispatcher\+::stop\+Event\+Dispatcher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops the event dispatch thread and cleans up all file descriptors. 
+
+Starts by removing all the libdbus callbacks and then ask the thread to terminate by triggering the death eventfd. \mbox{\Hypertarget{classAI__IPC_1_1DbusEventDispatcher_a73e9b64d5bdbaa8912ecccc31ae97bd6}\label{classAI__IPC_1_1DbusEventDispatcher_a73e9b64d5bdbaa8912ecccc31ae97bd6}} 
+\index{AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}!wakeUpCb@{wakeUpCb}}
+\index{wakeUpCb@{wakeUpCb}!AI\_IPC::DbusEventDispatcher@{AI\_IPC::DbusEventDispatcher}}
+\doxysubsubsection{\texorpdfstring{wakeUpCb()}{wakeUpCb()}}
+{\footnotesize\ttfamily void Dbus\+Event\+Dispatcher\+::wake\+Up\+Cb (\begin{DoxyParamCaption}\item[{void $\ast$}]{user\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+libdbus callback request to wake-\/up the event loop. 
+
+This simply triggers the eventfd which wakes the poll loop and results in dbus\+\_\+connection\+\_\+dispatch() being called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em user\+Data} & Pointer to this. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+Event\+Dispatcher.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+Event\+Dispatcher.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,309 @@
+\hypertarget{namespaceBridgeInterface}{}\doxysection{Bridge\+Interface Namespace Reference}
+\label{namespaceBridgeInterface}\index{BridgeInterface@{BridgeInterface}}
+
+
+A set of functions to setup and bring down a bridge device. The main reason to use these functions separately rather than direct calls to a netlink object from Network\+Setup.\+cpp is to provide workarounds for libnl versions 3.\+3.\+x -\/ 3.\+4.\+x.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_a74ab8319caafd72d2ad740cfefbeffa0}{create\+Bridge}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Creates the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_a3c4bac59605a2fb54dad18afeffe2d9f}{destroy\+Bridge}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_a9a1b064b2a1faad307ccb4b43f61557f}{up}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Brings the \mbox{\hyperlink{classDobby}{Dobby}} bridge device up. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_a1e7800bfcff1d219a3b595d8cb170039}{down}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Brings the \mbox{\hyperlink{classDobby}{Dobby}} bridge device down. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_a1f043a7ec63259dda5b4e2a48f3d9c46}{set\+Addresses}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Sets the ip addresses for the bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_af69b73ecabe96b0d16e32118086a54bf}{set\+Iface\+Forwarding}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink, bool enable)
+\begin{DoxyCompactList}\small\item\em Sets forwarding on the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_a188a47aa4884280dc20c8f786a97f28f}{set\+Iface\+Route\+Local\+Net}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink, bool enable)
+\begin{DoxyCompactList}\small\item\em Sets the route\+\_\+localnet on the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_af55ace0b9e1ca09f4838a422c41515d4}{set\+Iface\+Accept\+Ra}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink, int value)
+\begin{DoxyCompactList}\small\item\em Sets the accept\+\_\+ra on the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_a3781217537670551bb7569f902a7e43a}{disable\+Stp}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils)
+\begin{DoxyCompactList}\small\item\em Disables Spanning Tree Protocol in sysfs file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_af6f69b028adedc1475ceb8e1701f298d}{attach\+Link}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink, const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Attaches an interface to the bridge. \end{DoxyCompactList}\item 
+std\+::array$<$ uint8\+\_\+t, 6 $>$ \mbox{\hyperlink{namespaceBridgeInterface_a40e0dcb35216114ff51faa756a79cd3a}{mac\+Address}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Gets the MAC address of the interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceBridgeInterface_a0e4dd948403e63c4198666e0051bf4b0}{set\+MACAddress}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink, const std\+::array$<$ uint8\+\_\+t, 6 $>$ \&address)
+\begin{DoxyCompactList}\small\item\em Sets the MAC address of the interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A set of functions to setup and bring down a bridge device. The main reason to use these functions separately rather than direct calls to a netlink object from Network\+Setup.\+cpp is to provide workarounds for libnl versions 3.\+3.\+x -\/ 3.\+4.\+x. 
+
+\begin{DoxySeeAlso}{See also}
+ENABLE\+\_\+\+LIBNL\+\_\+\+BRIDGE\+\_\+\+WORKAROUND 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceBridgeInterface_af6f69b028adedc1475ceb8e1701f298d}\label{namespaceBridgeInterface_af6f69b028adedc1475ceb8e1701f298d}} 
+\index{BridgeInterface@{BridgeInterface}!attachLink@{attachLink}}
+\index{attachLink@{attachLink}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{attachLink()}{attachLink()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::attach\+Link (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink,  }\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Attaches an interface to the bridge. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class \\
+\hline
+\mbox{\texttt{ in}}  & {\em name} & The name of the interface to attach.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_a74ab8319caafd72d2ad740cfefbeffa0}\label{namespaceBridgeInterface_a74ab8319caafd72d2ad740cfefbeffa0}} 
+\index{BridgeInterface@{BridgeInterface}!createBridge@{createBridge}}
+\index{createBridge@{createBridge}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{createBridge()}{createBridge()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::create\+Bridge (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Creates the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classNetlink_ab1092d84598f32a36554d0a504fee720}{Netlink\+::create\+Bridge()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_a3c4bac59605a2fb54dad18afeffe2d9f}\label{namespaceBridgeInterface_a3c4bac59605a2fb54dad18afeffe2d9f}} 
+\index{BridgeInterface@{BridgeInterface}!destroyBridge@{destroyBridge}}
+\index{destroyBridge@{destroyBridge}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{destroyBridge()}{destroyBridge()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::destroy\+Bridge (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Destroys the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classNetlink_ac3e1f8c0d7a62f3d8deab7ef365d6427}{Netlink\+::destroy\+Bridge()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_a3781217537670551bb7569f902a7e43a}\label{namespaceBridgeInterface_a3781217537670551bb7569f902a7e43a}} 
+\index{BridgeInterface@{BridgeInterface}!disableStp@{disableStp}}
+\index{disableStp@{disableStp}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{disableStp()}{disableStp()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::disable\+Stp (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils }\end{DoxyParamCaption})}
+
+
+
+Disables Spanning Tree Protocol in sysfs file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_a1e7800bfcff1d219a3b595d8cb170039}\label{namespaceBridgeInterface_a1e7800bfcff1d219a3b595d8cb170039}} 
+\index{BridgeInterface@{BridgeInterface}!down@{down}}
+\index{down@{down}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{down()}{down()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::down (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Brings the \mbox{\hyperlink{classDobby}{Dobby}} bridge device down. 
+
+Uses a workaround function if needed (libnl v3.\+3.\+x-\/3.\+4.\+0).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classNetlink_af39f6cb4c6822c78b05cff34170786ef}{Netlink\+::iface\+Down()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_a40e0dcb35216114ff51faa756a79cd3a}\label{namespaceBridgeInterface_a40e0dcb35216114ff51faa756a79cd3a}} 
+\index{BridgeInterface@{BridgeInterface}!macAddress@{macAddress}}
+\index{macAddress@{macAddress}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{macAddress()}{macAddress()}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, 6 $>$ Bridge\+Interface\+::mac\+Address (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Gets the MAC address of the interface. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the MAC address, or a zero address if failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_a1f043a7ec63259dda5b4e2a48f3d9c46}\label{namespaceBridgeInterface_a1f043a7ec63259dda5b4e2a48f3d9c46}} 
+\index{BridgeInterface@{BridgeInterface}!setAddresses@{setAddresses}}
+\index{setAddresses@{setAddresses}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{setAddresses()}{setAddresses()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::set\+Addresses (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Sets the ip addresses for the bridge device. 
+
+This is the equivalent of the following on the command line \begin{DoxyVerb}ifconfig <BRIDGE_NAME> <address> netmask <netmask>
+ifconfig <BRIDGE_NAME> inet6 add <address>/<netmask>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_af55ace0b9e1ca09f4838a422c41515d4}\label{namespaceBridgeInterface_af55ace0b9e1ca09f4838a422c41515d4}} 
+\index{BridgeInterface@{BridgeInterface}!setIfaceAcceptRa@{setIfaceAcceptRa}}
+\index{setIfaceAcceptRa@{setIfaceAcceptRa}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{setIfaceAcceptRa()}{setIfaceAcceptRa()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::set\+Iface\+Accept\+Ra (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Sets the accept\+\_\+ra on the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of the \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em value} & value to set to accept\+\_\+ra.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classNetlink_ab6cacaae8639c8882ed3bda348c9fb72}{Netlink\+::set\+Iface\+Accept\+Ra()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_af69b73ecabe96b0d16e32118086a54bf}\label{namespaceBridgeInterface_af69b73ecabe96b0d16e32118086a54bf}} 
+\index{BridgeInterface@{BridgeInterface}!setIfaceForwarding@{setIfaceForwarding}}
+\index{setIfaceForwarding@{setIfaceForwarding}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{setIfaceForwarding()}{setIfaceForwarding()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::set\+Iface\+Forwarding (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink,  }\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+
+
+Sets forwarding on the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. 
+
+Uses a workaround function if needed (libnl v3.\+3.\+x-\/3.\+4.\+0).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of the \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em enable} & true to enable, false to disable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classNetlink_af3fde096f6fe4d6909397acb2c547094}{Netlink\+::set\+Iface\+Forwarding()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_a188a47aa4884280dc20c8f786a97f28f}\label{namespaceBridgeInterface_a188a47aa4884280dc20c8f786a97f28f}} 
+\index{BridgeInterface@{BridgeInterface}!setIfaceRouteLocalNet@{setIfaceRouteLocalNet}}
+\index{setIfaceRouteLocalNet@{setIfaceRouteLocalNet}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{setIfaceRouteLocalNet()}{setIfaceRouteLocalNet()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::set\+Iface\+Route\+Local\+Net (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink,  }\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+
+
+Sets the route\+\_\+localnet on the \mbox{\hyperlink{classDobby}{Dobby}} bridge device. 
+
+Uses a workaround function if needed (libnl v3.\+3.\+x-\/3.\+4.\+0).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of the \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em enable} & true to enable, false to disable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classNetlink_a587c8e52226e91be670fb4be904466a6}{Netlink\+::set\+Iface\+Route\+Local\+Net()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_a0e4dd948403e63c4198666e0051bf4b0}\label{namespaceBridgeInterface_a0e4dd948403e63c4198666e0051bf4b0}} 
+\index{BridgeInterface@{BridgeInterface}!setMACAddress@{setMACAddress}}
+\index{setMACAddress@{setMACAddress}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{setMACAddress()}{setMACAddress()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::set\+MACAddress (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink,  }\item[{const std\+::array$<$ uint8\+\_\+t, 6 $>$ \&}]{address }\end{DoxyParamCaption})}
+
+
+
+Sets the MAC address of the interface. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class \\
+\hline
+\mbox{\texttt{ in}}  & {\em address} & The mac address to set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the MAC address, or a zero address if failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceBridgeInterface_a9a1b064b2a1faad307ccb4b43f61557f}\label{namespaceBridgeInterface_a9a1b064b2a1faad307ccb4b43f61557f}} 
+\index{BridgeInterface@{BridgeInterface}!up@{up}}
+\index{up@{up}!BridgeInterface@{BridgeInterface}}
+\doxysubsubsection{\texorpdfstring{up()}{up()}}
+{\footnotesize\ttfamily bool Bridge\+Interface\+::up (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Brings the \mbox{\hyperlink{classDobby}{Dobby}} bridge device up. 
+
+Uses a workaround function if needed (libnl v3.\+3.\+x-\/3.\+4.\+0).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classNetlink_a52a74c8df61e0a85baea18835d60b00b}{Netlink\+::iface\+Up()}}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}

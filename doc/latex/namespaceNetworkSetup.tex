@@ -1,0 +1,167 @@
+\hypertarget{namespaceNetworkSetup}{}\doxysection{Network\+Setup Namespace Reference}
+\label{namespaceNetworkSetup}\index{NetworkSetup@{NetworkSetup}}
+
+
+Functions to set up networking for containers.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceNetworkSetup_aa78eb1d715c86de56b675141f1dec48b}{setup\+Bridge\+Device}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&netfilter, const std\+::vector$<$ std\+::string $>$ \&ext\+Ifaces)
+\begin{DoxyCompactList}\small\item\em Called from host namespace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceNetworkSetup_a346b3d7ab4c4b1d5ecec100bd439caa2}\label{namespaceNetworkSetup_a346b3d7ab4c4b1d5ecec100bd439caa2}} 
+bool {\bfseries create\+Netns} (const std\+::string \&container\+Id)
+\item 
+bool \mbox{\hyperlink{namespaceNetworkSetup_a5ee8329f1911974f0f8090e1f4c11699}{setup\+Veth}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&netfilter, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&helper, const std\+::string \&rootfs\+Path, const std\+::string \&container\+Id, const Network\+Type network\+Type)
+\begin{DoxyCompactList}\small\item\em Called from host namespace. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceNetworkSetup_aef9be1fff737c0d82b152284d2e1be43}{remove\+Veth\+Pair}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&netfilter, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&helper, const std\+::string \&veth\+Name, const Network\+Type network\+Type, const std\+::string \&container\+Id)
+\begin{DoxyCompactList}\small\item\em Remove iptables entries for the container\textquotesingle{}s veth and bring the veth pair down. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceNetworkSetup_a966fea615dc2ffb1acc91134de34c6ae}{remove\+Bridge\+Device}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&netfilter, const std\+::vector$<$ std\+::string $>$ \&ext\+Ifaces)
+\begin{DoxyCompactList}\small\item\em Clear out the iptables rules set for the bridge device and brings the interface down. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceNetworkSetup_aa2747c164df129376a2b48545ed166b2}{add\+Resolv\+Mount}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&cfg)
+\begin{DoxyCompactList}\small\item\em Adds a mount to /etc/resolv.conf. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceNetworkSetup_ad57cef7199a8583f07333c0a1edef4d1}{add\+Network\+Namespace}} (const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&cfg)
+\begin{DoxyCompactList}\small\item\em Adds the \textquotesingle{}network\textquotesingle{} namespace to the OCI config. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions to set up networking for containers. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceNetworkSetup_ad57cef7199a8583f07333c0a1edef4d1}\label{namespaceNetworkSetup_ad57cef7199a8583f07333c0a1edef4d1}} 
+\index{NetworkSetup@{NetworkSetup}!addNetworkNamespace@{addNetworkNamespace}}
+\index{addNetworkNamespace@{addNetworkNamespace}!NetworkSetup@{NetworkSetup}}
+\doxysubsubsection{\texorpdfstring{addNetworkNamespace()}{addNetworkNamespace()}}
+{\footnotesize\ttfamily void Network\+Setup\+::add\+Network\+Namespace (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Adds the \textquotesingle{}network\textquotesingle{} namespace to the OCI config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cfg} & Pointer to bundle config struct \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceNetworkSetup_aa2747c164df129376a2b48545ed166b2}\label{namespaceNetworkSetup_aa2747c164df129376a2b48545ed166b2}} 
+\index{NetworkSetup@{NetworkSetup}!addResolvMount@{addResolvMount}}
+\index{addResolvMount@{addResolvMount}!NetworkSetup@{NetworkSetup}}
+\doxysubsubsection{\texorpdfstring{addResolvMount()}{addResolvMount()}}
+{\footnotesize\ttfamily void Network\+Setup\+::add\+Resolv\+Mount (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Adds a mount to /etc/resolv.conf. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em cfg} & Pointer to bundle config struct. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceNetworkSetup_a966fea615dc2ffb1acc91134de34c6ae}\label{namespaceNetworkSetup_a966fea615dc2ffb1acc91134de34c6ae}} 
+\index{NetworkSetup@{NetworkSetup}!removeBridgeDevice@{removeBridgeDevice}}
+\index{removeBridgeDevice@{removeBridgeDevice}!NetworkSetup@{NetworkSetup}}
+\doxysubsubsection{\texorpdfstring{removeBridgeDevice()}{removeBridgeDevice()}}
+{\footnotesize\ttfamily bool Network\+Setup\+::remove\+Bridge\+Device (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&}]{netfilter,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{ext\+Ifaces }\end{DoxyParamCaption})}
+
+
+
+Clear out the iptables rules set for the bridge device and brings the interface down. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netfilter} & Instance of \mbox{\hyperlink{classNetfilter}{Netfilter}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ext\+Ifaces} & External interfaces on the device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceNetworkSetup_aef9be1fff737c0d82b152284d2e1be43}\label{namespaceNetworkSetup_aef9be1fff737c0d82b152284d2e1be43}} 
+\index{NetworkSetup@{NetworkSetup}!removeVethPair@{removeVethPair}}
+\index{removeVethPair@{removeVethPair}!NetworkSetup@{NetworkSetup}}
+\doxysubsubsection{\texorpdfstring{removeVethPair()}{removeVethPair()}}
+{\footnotesize\ttfamily bool Network\+Setup\+::remove\+Veth\+Pair (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&}]{netfilter,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&}]{helper,  }\item[{const std\+::string \&}]{veth\+Name,  }\item[{const Network\+Type}]{network\+Type,  }\item[{const std\+::string \&}]{container\+Id }\end{DoxyParamCaption})}
+
+
+
+Remove iptables entries for the container\textquotesingle{}s veth and bring the veth pair down. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netfilter} & Instance of \mbox{\hyperlink{classNetfilter}{Netfilter}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em helper} & Instance of \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em veth\+Name} & Name of the container\textquotesingle{}s veth interface. \\
+\hline
+\mbox{\texttt{ in}}  & {\em network\+Type} & Container\textquotesingle{}s network type.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceNetworkSetup_aa78eb1d715c86de56b675141f1dec48b}\label{namespaceNetworkSetup_aa78eb1d715c86de56b675141f1dec48b}} 
+\index{NetworkSetup@{NetworkSetup}!setupBridgeDevice@{setupBridgeDevice}}
+\index{setupBridgeDevice@{setupBridgeDevice}!NetworkSetup@{NetworkSetup}}
+\doxysubsubsection{\texorpdfstring{setupBridgeDevice()}{setupBridgeDevice()}}
+{\footnotesize\ttfamily bool Network\+Setup\+::setup\+Bridge\+Device (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&}]{netfilter,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{ext\+Ifaces }\end{DoxyParamCaption})}
+
+
+
+Called from host namespace. 
+
+This function will create the bridge device and configure it. Only run if the bridge device hasn\textquotesingle{}t already been created by another container starting.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em netfilter} & Instance of \mbox{\hyperlink{classNetfilter}{Netfilter}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ext\+Ifaces} & External interfaces on the device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceNetworkSetup_a5ee8329f1911974f0f8090e1f4c11699}\label{namespaceNetworkSetup_a5ee8329f1911974f0f8090e1f4c11699}} 
+\index{NetworkSetup@{NetworkSetup}!setupVeth@{setupVeth}}
+\index{setupVeth@{setupVeth}!NetworkSetup@{NetworkSetup}}
+\doxysubsubsection{\texorpdfstring{setupVeth()}{setupVeth()}}
+{\footnotesize\ttfamily bool Network\+Setup\+::setup\+Veth (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&}]{netfilter,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&}]{helper,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const std\+::string \&}]{container\+Id,  }\item[{const Network\+Type}]{network\+Type }\end{DoxyParamCaption})}
+
+
+
+Called from host namespace. 
+
+This function does the following\+:
+\begin{DoxyItemize}
+\item Creates a virtual ethernet interface for the container
+\item Sets an ip address for the container
+\item Brings up the veth\mbox{[}i\mbox{]} interface
+\item Adds required iptables rules
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em netfilter} & Instance of \mbox{\hyperlink{classNetfilter}{Netfilter}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em helper} & Instance of \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & Path to the rootfs on the host. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em network\+Type} & Network type.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false 
+\end{DoxyReturn}

@@ -1,0 +1,155 @@
+\hypertarget{classAI__IPC_1_1IpcFileDescriptor}{}\doxysection{AI\+\_\+\+IPC\+::Ipc\+File\+Descriptor Class Reference}
+\label{classAI__IPC_1_1IpcFileDescriptor}\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_aef3f1ec4e9e80b0801863014a8b3cf95}{Ipc\+File\+Descriptor}} ()
+\item 
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a09e2d3e5b7a8b3a0203020e719523dce}{Ipc\+File\+Descriptor}} (int \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}{fd}})
+\item 
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a2267d00bc7ccb004ad9c1fdcfb205edd}{Ipc\+File\+Descriptor}} (const \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \&other)
+\item 
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \& \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a4dfa0f0cbab355054829385f80411fbc}{operator=}} (\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \&\&other)
+\item 
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \& \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_afcd6bac91a36b081d810d00041eeaf79}{operator=}} (const \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \&other)
+\item 
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_ae142301ed424a04e364c98297a3eaf8f}{$\sim$\+Ipc\+File\+Descriptor}} ()
+\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_ae100ca143f6504fc1fc6bd84e6774440}{operator==}} (const \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a277cf70b19cf221c34fb561b063352e3}{is\+Valid}} () const
+\item 
+int \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}{fd}} () const
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_aededb61ce1b0eab9792e37ca5dd9e9f9}\label{classAI__IPC_1_1IpcFileDescriptor_aededb61ce1b0eab9792e37ca5dd9e9f9}} 
+int {\bfseries dup} () const
+\item 
+void \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_ad022a2b1896bec1193ac024379aa0685}{reset}} (int \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}{fd}}=-\/1)
+\item 
+void \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a2cd639280fef170053f5722eab87b3e9}{clear}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_a38b7a0a9d0edea8ea5e7fd196f1611ed}\label{classAI__IPC_1_1IpcFileDescriptor_a38b7a0a9d0edea8ea5e7fd196f1611ed}} 
+int {\bfseries m\+Fd}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_aef3f1ec4e9e80b0801863014a8b3cf95}\label{classAI__IPC_1_1IpcFileDescriptor_aef3f1ec4e9e80b0801863014a8b3cf95}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!IpcFileDescriptor@{IpcFileDescriptor}}
+\index{IpcFileDescriptor@{IpcFileDescriptor}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{IpcFileDescriptor()}{IpcFileDescriptor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Ipc\+File\+Descriptor\+::\+Ipc\+File\+Descriptor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructs a DBus\+File\+Descriptor without a wrapped file descriptor. This is equivalent to constructing the object with an invalid file descriptor (like -\/1).
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}{fd()}} and \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a277cf70b19cf221c34fb561b063352e3}{is\+Valid()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_a09e2d3e5b7a8b3a0203020e719523dce}\label{classAI__IPC_1_1IpcFileDescriptor_a09e2d3e5b7a8b3a0203020e719523dce}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!IpcFileDescriptor@{IpcFileDescriptor}}
+\index{IpcFileDescriptor@{IpcFileDescriptor}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{IpcFileDescriptor()}{IpcFileDescriptor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Ipc\+File\+Descriptor\+::\+Ipc\+File\+Descriptor (\begin{DoxyParamCaption}\item[{int}]{fd\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Constructs a DBus\+File\+Descriptor object by copying the file\+Descriptor parameter. The original file descriptor is not touched and must be closed by the user.
+
+Note that the value returned by \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}{fd()}} will be different from the {\itshape fd} parameter passed.
+
+If the {\itshape fd} parameter is not valid, \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a277cf70b19cf221c34fb561b063352e3}{is\+Valid()}} will return{\ttfamily false} and \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}{fd()}} will return {\ttfamily -\/1}.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}{fd()}}. 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_a2267d00bc7ccb004ad9c1fdcfb205edd}\label{classAI__IPC_1_1IpcFileDescriptor_a2267d00bc7ccb004ad9c1fdcfb205edd}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!IpcFileDescriptor@{IpcFileDescriptor}}
+\index{IpcFileDescriptor@{IpcFileDescriptor}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{IpcFileDescriptor()}{IpcFileDescriptor()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Ipc\+File\+Descriptor\+::\+Ipc\+File\+Descriptor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \&}]{other }\end{DoxyParamCaption})}
+
+Constructs a DBus\+File\+Descriptor object by copying {\itshape other}. \mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_ae142301ed424a04e364c98297a3eaf8f}\label{classAI__IPC_1_1IpcFileDescriptor_ae142301ed424a04e364c98297a3eaf8f}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!````~IpcFileDescriptor@{$\sim$IpcFileDescriptor}}
+\index{````~IpcFileDescriptor@{$\sim$IpcFileDescriptor}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{$\sim$IpcFileDescriptor()}{~IpcFileDescriptor()}}
+{\footnotesize\ttfamily Ipc\+File\+Descriptor\+::$\sim$\+Ipc\+File\+Descriptor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys this DBus\+File\+Descriptor object and disposes of the Unix file descriptor that it contained.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_ad022a2b1896bec1193ac024379aa0685}{reset()}} and \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a2cd639280fef170053f5722eab87b3e9}{clear()}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_a2cd639280fef170053f5722eab87b3e9}\label{classAI__IPC_1_1IpcFileDescriptor_a2cd639280fef170053f5722eab87b3e9}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!clear@{clear}}
+\index{clear@{clear}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Ipc\+File\+Descriptor\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Same as reset, added to match c++11 naming convention.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_ad022a2b1896bec1193ac024379aa0685}{reset()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}\label{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!fd@{fd}}
+\index{fd@{fd}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{fd()}{fd()}}
+{\footnotesize\ttfamily int Ipc\+File\+Descriptor\+::fd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the Unix file descriptor contained by this DBus\+File\+Descriptor object. An invalid file descriptor is represented by the value -\/1.
+
+Note that the file descriptor returned by this function is owned by the \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} object and must not be stored past the lifetime of this object. It is ok to use it while this object is valid, but if one wants to store it for longer use you should use the Ipc\+File\+Descriptor\+::dup() function.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a277cf70b19cf221c34fb561b063352e3}{is\+Valid()}}, dup() 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_a277cf70b19cf221c34fb561b063352e3}\label{classAI__IPC_1_1IpcFileDescriptor_a277cf70b19cf221c34fb561b063352e3}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!isValid@{isValid}}
+\index{isValid@{isValid}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool Ipc\+File\+Descriptor\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns {\ttfamily true} if this Unix file descriptor is valid. A valid Unix file descriptor is greater than or equal to 0.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a34bdb72eedfc9c595ee9d8ed1f0fd64f}{fd()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_afcd6bac91a36b081d810d00041eeaf79}\label{classAI__IPC_1_1IpcFileDescriptor_afcd6bac91a36b081d810d00041eeaf79}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!operator=@{operator=}}
+\index{operator=@{operator=}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \& Ipc\+File\+Descriptor\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \&}]{other }\end{DoxyParamCaption})}
+
+Copies the Unix file descriptor from the {\itshape other} DBus\+File\+Descriptor object. If the current object contained a file descriptor, it will be properly disposed of beforehand. \mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_a4dfa0f0cbab355054829385f80411fbc}\label{classAI__IPC_1_1IpcFileDescriptor_a4dfa0f0cbab355054829385f80411fbc}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!operator=@{operator=}}
+\index{operator=@{operator=}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \& Ipc\+File\+Descriptor\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \&\&}]{other }\end{DoxyParamCaption})}
+
+Move-\/assigns {\itshape other} to this DBus\+File\+Descriptor. \mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_ae100ca143f6504fc1fc6bd84e6774440}\label{classAI__IPC_1_1IpcFileDescriptor_ae100ca143f6504fc1fc6bd84e6774440}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!operator==@{operator==}}
+\index{operator==@{operator==}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Ipc\+File\+Descriptor\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor}{Ipc\+File\+Descriptor}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+FIXME \mbox{\Hypertarget{classAI__IPC_1_1IpcFileDescriptor_ad022a2b1896bec1193ac024379aa0685}\label{classAI__IPC_1_1IpcFileDescriptor_ad022a2b1896bec1193ac024379aa0685}} 
+\index{AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}!reset@{reset}}
+\index{reset@{reset}!AI\_IPC::IpcFileDescriptor@{AI\_IPC::IpcFileDescriptor}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Ipc\+File\+Descriptor\+::reset (\begin{DoxyParamCaption}\item[{int}]{fd\+\_\+ = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Closes the file descriptor contained by this DBus\+File\+Descriptor object. And dup\textquotesingle{}s a copy of the supplied {\itshape fd} if not -\/1.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classAI__IPC_1_1IpcFileDescriptor_a2cd639280fef170053f5722eab87b3e9}{clear()}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/include/Ipc\+File\+Descriptor.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/common/Ipc\+File\+Descriptor.\+cpp\end{DoxyCompactItemize}

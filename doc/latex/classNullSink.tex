@@ -1,0 +1,46 @@
+\hypertarget{classNullSink}{}\doxysection{Null\+Sink Class Reference}
+\label{classNullSink}\index{NullSink@{NullSink}}
+
+
+Inheritance diagram for Null\+Sink\+:
+% FIG 0
+
+
+Collaboration diagram for Null\+Sink\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNullSink_a8e14f1ed1b62dbaf3582c207dc6931f4}\label{classNullSink_a8e14f1ed1b62dbaf3582c207dc6931f4}} 
+{\bfseries Null\+Sink} (const std\+::string \&container\+Id, std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config)
+\item 
+\mbox{\Hypertarget{classNullSink_aa258890bbb2e87bac48d65fa26ca367f}\label{classNullSink_aa258890bbb2e87bac48d65fa26ca367f}} 
+void {\bfseries Dump\+Log} (const int buffer\+Fd) override
+\item 
+\mbox{\Hypertarget{classNullSink_ad86d5251e6639c2751a46ff6e8c21b64}\label{classNullSink_ad86d5251e6639c2751a46ff6e8c21b64}} 
+void {\bfseries process} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&poll\+Loop, epoll\+\_\+event event) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNullSink_aadbe186e45d2749a1a00e97d607919dd}\label{classNullSink_aadbe186e45d2749a1a00e97d607919dd}} 
+int {\bfseries m\+Dev\+Null\+Fd}
+\item 
+\mbox{\Hypertarget{classNullSink_ab8ded0c02588fcf1ce5cd9d1760b0e84}\label{classNullSink_ab8ded0c02588fcf1ce5cd9d1760b0e84}} 
+const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classNullSink_a1b6dd4f6522d9eae7a034010d0eda07f}\label{classNullSink_a1b6dd4f6522d9eae7a034010d0eda07f}} 
+const std\+::string {\bfseries m\+Container\+Id}
+\item 
+\mbox{\Hypertarget{classNullSink_a34034511751283c3b931eb761a8cba70}\label{classNullSink_a34034511751283c3b931eb761a8cba70}} 
+char {\bfseries m\+Buf} \mbox{[}PTY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\item 
+\mbox{\Hypertarget{classNullSink_a0ee5fe6cb6e44bd122009dc4c7df5f70}\label{classNullSink_a0ee5fe6cb6e44bd122009dc4c7df5f70}} 
+std\+::mutex {\bfseries m\+Lock}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Logging/source/Null\+Sink.\+h\item 
+rdk\+Plugins/\+Logging/source/Null\+Sink.\+cpp\end{DoxyCompactItemize}

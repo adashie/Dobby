@@ -1,0 +1,164 @@
+\hypertarget{classServiceMonitor}{}\doxysection{Service\+Monitor Class Reference}
+\label{classServiceMonitor}\index{ServiceMonitor@{ServiceMonitor}}
+
+
+Utility class to actively monitor the status of a dbus service.  
+
+
+
+
+{\ttfamily \#include $<$Service\+Monitor.\+h$>$}
+
+
+
+Collaboration diagram for Service\+Monitor\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57da}{State}} \{ \mbox{\hyperlink{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57daae457ff7a83d0a8681fa483f898788515}{Not\+Running}}
+, \mbox{\hyperlink{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57daa5bda814c4aedb126839228f1a3d92f09}{Running}}
+, \mbox{\hyperlink{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57daae7d31fc0602fb2ede144d18cdffd816b}{Ready}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_ab345ddfc64c1a48af7ee9e3e63c27f41}\label{classServiceMonitor_ab345ddfc64c1a48af7ee9e3e63c27f41}} 
+{\bfseries Service\+Monitor} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyIPCUtils}{IDobby\+IPCUtils}} $>$ \&ipc\+Utils, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils, const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} \&bus, const std\+::string \&service\+Name, const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} \&ready\+Signal, const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&query\+Method, const std\+::function$<$ void(\mbox{\hyperlink{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57da}{State}})$>$ \&state\+Change\+Handler)
+\item 
+\mbox{\Hypertarget{classServiceMonitor_a441295448b7ecce3d1c0a83e8e167eea}\label{classServiceMonitor_a441295448b7ecce3d1c0a83e8e167eea}} 
+\mbox{\hyperlink{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57da}{State}} \mbox{\hyperlink{classServiceMonitor_a441295448b7ecce3d1c0a83e8e167eea}{state}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current state of the service. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classServiceMonitor_ae64d9ecb85b74e520ea4fbb9c7265bbb}\label{classServiceMonitor_ae64d9ecb85b74e520ea4fbb9c7265bbb}} 
+void \mbox{\hyperlink{classServiceMonitor_ae64d9ecb85b74e520ea4fbb9c7265bbb}{force\+Ready\+Check}} ()
+\begin{DoxyCompactList}\small\item\em Sends out an \textquotesingle{}is ready\textquotesingle{} method request to the service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classServiceMonitor_a750209c3a71945adbd643f1b346317d9}{on\+Service\+Notification}} (bool added)
+\begin{DoxyCompactList}\small\item\em Callback function called when the daemon service has been added or removed from the bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServiceMonitor_a2323771fc0369c07551c2c94caff8e23}{on\+Ready\+Notification}} (const AI\+\_\+\+IPC\+::\+Variant\+List \&args)
+\begin{DoxyCompactList}\small\item\em Callback function called when the service daemon has sent a signal saying it\textquotesingle{}s ready to process requests. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classServiceMonitor_a8f398dd243df78bb681252299d028b3c}\label{classServiceMonitor_a8f398dd243df78bb681252299d028b3c}} 
+bool \mbox{\hyperlink{classServiceMonitor_a8f398dd243df78bb681252299d028b3c}{on\+Timer}} ()
+\begin{DoxyCompactList}\small\item\em Timer handler called every second, it sends out a ping request to the daemon if we think it is not alive. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classServiceMonitor_abac4f4e4f6d745b3cab73d4c82ff080a}\label{classServiceMonitor_abac4f4e4f6d745b3cab73d4c82ff080a}} 
+void \mbox{\hyperlink{classServiceMonitor_abac4f4e4f6d745b3cab73d4c82ff080a}{send\+Is\+Ready\+Request}} () const
+\begin{DoxyCompactList}\small\item\em Sends a method call over dbus asking the service daemon to reply with a ready notification / signal if it is actually there. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_adb0a0294934cb2effca3cc90f8c92d87}\label{classServiceMonitor_adb0a0294934cb2effca3cc90f8c92d87}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_ab1937ba929a63a784d20ce8b512af023}\label{classServiceMonitor_ab1937ba929a63a784d20ce8b512af023}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyIPCUtils}{IDobby\+IPCUtils}} $>$ {\bfseries m\+IPCUtilities}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_a9c4fd52aa3cad96b1c22c1f0adb29844}\label{classServiceMonitor_a9c4fd52aa3cad96b1c22c1f0adb29844}} 
+const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries m\+Bus\+Type}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_a6353c9ca91b93d8cb2797b106db93a5c}\label{classServiceMonitor_a6353c9ca91b93d8cb2797b106db93a5c}} 
+const std\+::string {\bfseries m\+Service\+Name}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_aa6600e11fe9cf5df92ee4629a4025b08}\label{classServiceMonitor_aa6600e11fe9cf5df92ee4629a4025b08}} 
+const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} {\bfseries m\+Ready\+Signal}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_a2bc12caa46a0dae4dc28c9a4b0b20ba9}\label{classServiceMonitor_a2bc12caa46a0dae4dc28c9a4b0b20ba9}} 
+const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} {\bfseries m\+Query\+Method}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_a145752523b7c68d647568ded0e92674e}\label{classServiceMonitor_a145752523b7c68d647568ded0e92674e}} 
+const std\+::function$<$ void(\mbox{\hyperlink{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57da}{State}})$>$ {\bfseries m\+State\+Change\+Handler}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_a1dc2c86167d4fe8fd2bd7df192100437}\label{classServiceMonitor_a1dc2c86167d4fe8fd2bd7df192100437}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_abdad52d7c9e75fba7c79e36cde516ebd}\label{classServiceMonitor_abdad52d7c9e75fba7c79e36cde516ebd}} 
+\mbox{\hyperlink{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57da}{State}} {\bfseries m\+State}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_a73e86371ed98afe99eeb5eeddfd4b34a}\label{classServiceMonitor_a73e86371ed98afe99eeb5eeddfd4b34a}} 
+int {\bfseries m\+Service\+Handler\+Id}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_a204e228ba6776b0981df87489fabad1f}\label{classServiceMonitor_a204e228ba6776b0981df87489fabad1f}} 
+int {\bfseries m\+Signal\+Handler\+Id}
+\item 
+\mbox{\Hypertarget{classServiceMonitor_acaec52cfea5fdffc2756589c2fba2435}\label{classServiceMonitor_acaec52cfea5fdffc2756589c2fba2435}} 
+int {\bfseries m\+Timer\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility class to actively monitor the status of a dbus service. 
+
+Previously this was implemented separately in various plugins, however the process is generic enough that it could be implemented in one object.
+
+The class has the following requirements on the dbus service\+: a) The dbus service must emit a signal when it is ready b) The dbus service must implement a method to trigger the signal in a) on request.
+
+You can think of a) as a pong message, and b) the ping. The method in b) should not return a value in the method call, instead it should trigger a signal a) if ready.
+
+The class internally implements a timer on a one second period, it will send our feeler requests to see if the service is ready if not already in the ready state. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57da}\label{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57da}} 
+\index{ServiceMonitor@{ServiceMonitor}!State@{State}}
+\index{State@{State}!ServiceMonitor@{ServiceMonitor}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57da}{Service\+Monitor\+::\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NotRunning@{NotRunning}!ServiceMonitor@{ServiceMonitor}}\index{ServiceMonitor@{ServiceMonitor}!NotRunning@{NotRunning}}}\mbox{\Hypertarget{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57daae457ff7a83d0a8681fa483f898788515}\label{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57daae457ff7a83d0a8681fa483f898788515}} 
+Not\+Running&dbus service not detected on the bus \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Running@{Running}!ServiceMonitor@{ServiceMonitor}}\index{ServiceMonitor@{ServiceMonitor}!Running@{Running}}}\mbox{\Hypertarget{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57daa5bda814c4aedb126839228f1a3d92f09}\label{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57daa5bda814c4aedb126839228f1a3d92f09}} 
+Running&dbus service is detected but haven\textquotesingle{}t received the \textquotesingle{}ready\textquotesingle{} signal \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ready@{Ready}!ServiceMonitor@{ServiceMonitor}}\index{ServiceMonitor@{ServiceMonitor}!Ready@{Ready}}}\mbox{\Hypertarget{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57daae7d31fc0602fb2ede144d18cdffd816b}\label{classServiceMonitor_a4c2cfd7a94f3a4f1e07441953f5f57daae7d31fc0602fb2ede144d18cdffd816b}} 
+Ready&ready signal received \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classServiceMonitor_a2323771fc0369c07551c2c94caff8e23}\label{classServiceMonitor_a2323771fc0369c07551c2c94caff8e23}} 
+\index{ServiceMonitor@{ServiceMonitor}!onReadyNotification@{onReadyNotification}}
+\index{onReadyNotification@{onReadyNotification}!ServiceMonitor@{ServiceMonitor}}
+\doxysubsubsection{\texorpdfstring{onReadyNotification()}{onReadyNotification()}}
+{\footnotesize\ttfamily void Service\+Monitor\+::on\+Ready\+Notification (\begin{DoxyParamCaption}\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Callback function called when the service daemon has sent a signal saying it\textquotesingle{}s ready to process requests. 
+
+We use this point to adjust the {\itshape m\+State} state.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em args} & Arguments supplied with the signal (ignored). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classServiceMonitor_a750209c3a71945adbd643f1b346317d9}\label{classServiceMonitor_a750209c3a71945adbd643f1b346317d9}} 
+\index{ServiceMonitor@{ServiceMonitor}!onServiceNotification@{onServiceNotification}}
+\index{onServiceNotification@{onServiceNotification}!ServiceMonitor@{ServiceMonitor}}
+\doxysubsubsection{\texorpdfstring{onServiceNotification()}{onServiceNotification()}}
+{\footnotesize\ttfamily void Service\+Monitor\+::on\+Service\+Notification (\begin{DoxyParamCaption}\item[{bool}]{added }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Callback function called when the daemon service has been added or removed from the bus. 
+
+We use this point to adjust the {\itshape m\+State} state.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em added} & Will be true if the service arrived on the bus, false if it has left the bus. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Common/include/Service\+Monitor.\+h\item 
+plugins/\+Common/source/Service\+Monitor.\+cpp\end{DoxyCompactItemize}

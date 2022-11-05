@@ -1,0 +1,44 @@
+\hypertarget{classNlLink}{}\doxysection{Nl\+Link Class Reference}
+\label{classNlLink}\index{NlLink@{NlLink}}
+
+
+Wrapper around the rtnl\+\_\+link object.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNlLink_a5e7f90ce810ff393c4b0743dc614fd2c}\label{classNlLink_a5e7f90ce810ff393c4b0743dc614fd2c}} 
+{\bfseries Nl\+Link} (struct rtnl\+\_\+link $\ast$link)
+\item 
+\mbox{\Hypertarget{classNlLink_aef5afad6213e794b10b7d2b6d9c50672}\label{classNlLink_aef5afad6213e794b10b7d2b6d9c50672}} 
+{\bfseries Nl\+Link} (struct nl\+\_\+sock $\ast$nl, const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{classNlLink_a5d7634cc1263d598b7c4fa339690e615}\label{classNlLink_a5d7634cc1263d598b7c4fa339690e615}} 
+{\bfseries operator bool} () const noexcept
+\item 
+\mbox{\Hypertarget{classNlLink_a0e3930ed8ec4726cfddd9a0283c5b655}\label{classNlLink_a0e3930ed8ec4726cfddd9a0283c5b655}} 
+{\bfseries operator struct rtnl\+\_\+link $\ast$} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNlLink_a54b61fd7b0a2ba275ab85878c075f9a6}\label{classNlLink_a54b61fd7b0a2ba275ab85878c075f9a6}} 
+static struct rtnl\+\_\+link $\ast$ {\bfseries from\+Name} (struct nl\+\_\+sock $\ast$nl, const std\+::string \&name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNlLink_a42dde14824a569336430ddfc566751d1}\label{classNlLink_a42dde14824a569336430ddfc566751d1}} 
+struct rtnl\+\_\+link $\ast$const {\bfseries m\+Link}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper around the rtnl\+\_\+link object. 
+
+Simple wrapper used to handle construction and safe destruction of a rtnl link object. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Networking/source/Netlink.\+cpp\end{DoxyCompactItemize}

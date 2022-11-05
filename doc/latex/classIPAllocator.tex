@@ -1,0 +1,199 @@
+\hypertarget{classIPAllocator}{}\doxysection{IPAllocator Class Reference}
+\label{classIPAllocator}\index{IPAllocator@{IPAllocator}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIPAllocator_a38b587007cc2a996696267c9b272b682}\label{classIPAllocator_a38b587007cc2a996696267c9b272b682}} 
+{\bfseries IPAllocator} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils)
+\item 
+in\+\_\+addr\+\_\+t \mbox{\hyperlink{classIPAllocator_ad27e4a6cb071186e504b522d8d4ff863}{allocate\+Ip\+Address}} (const std\+::string \&veth\+Name)
+\begin{DoxyCompactList}\small\item\em Allocated an IP address for the currently running container with the specified veth. \end{DoxyCompactList}\item 
+in\+\_\+addr\+\_\+t \mbox{\hyperlink{classIPAllocator_aa664d2a3c4d117aa396e0f2e6f3cae9b}{allocate\+Ip\+Address}} (const std\+::string \&container\+Id, const std\+::string \&veth\+Name)
+\begin{DoxyCompactList}\small\item\em Allocated an IP address with the specified veth. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIPAllocator_a35eb40143b62c43c452f7b1c12577921}{deallocate\+Ip\+Address}} (const std\+::string \&container\+Id)
+\begin{DoxyCompactList}\small\item\em Releases a previously allocated IP address back to the pool so it can be re-\/used by other containers. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIPAllocator_a9c996084e13096f401fb5a7034b75e52}{get\+Container\+Network\+Info}} (const std\+::string \&container\+Id, \mbox{\hyperlink{structContainerNetworkInfo}{Container\+Network\+Info}} \&network\+Info) const
+\begin{DoxyCompactList}\small\item\em Retrieves the networking information (veth, ip) for a given container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static in\+\_\+addr\+\_\+t \mbox{\hyperlink{classIPAllocator_a78a029b7a0df7a909c8dcf09499a634f}{string\+To\+Ip\+Address}} (const std\+::string \&ip\+Address\+Str)
+\begin{DoxyCompactList}\small\item\em Convert an string to an IP address. Note -\/ doesn\textquotesingle{}t do any byte-\/order modifications. \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classIPAllocator_a23148995ff00f5eed1423320bc6de50b}{ip\+Address\+To\+String}} (const in\+\_\+addr\+\_\+t \&ip\+Address)
+\begin{DoxyCompactList}\small\item\em Convert an IP address to string. Note -\/ doesn\textquotesingle{}t do any byte-\/order modifications. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classIPAllocator_a30ee65159a7709f50f713e5bc02e7ca0}{get\+Container\+Ips\+From\+Disk}} ()
+\begin{DoxyCompactList}\small\item\em Synchronise the in-\/memory pool of allocated IPs with the disk store. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIPAllocator_a1812aaa5127479627e6c89cb7a801a1e}{get\+Network\+Info}} (const std\+::string \&file\+Path, \mbox{\hyperlink{structContainerNetworkInfo}{Container\+Network\+Info}} \&network\+Info) const
+\begin{DoxyCompactList}\small\item\em Retrieves the networking information (veth, ip) from a file from the store. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIPAllocator_ac18db03b79d6fdac5851e87dc5c7b67c}\label{classIPAllocator_ac18db03b79d6fdac5851e87dc5c7b67c}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classIPAllocator_a8a81872a345c59ce19ec0a472056d50d}\label{classIPAllocator_a8a81872a345c59ce19ec0a472056d50d}} 
+const in\+\_\+addr\+\_\+t {\bfseries m\+Begin\+Address}
+\item 
+\mbox{\Hypertarget{classIPAllocator_a4cece7e88c3f541d0440aad262bd824f}\label{classIPAllocator_a4cece7e88c3f541d0440aad262bd824f}} 
+const in\+\_\+addr\+\_\+t {\bfseries m\+End\+Address}
+\item 
+\mbox{\Hypertarget{classIPAllocator_ae9783eea8e3754f6d8a236f580fc20a4}\label{classIPAllocator_ae9783eea8e3754f6d8a236f580fc20a4}} 
+std\+::vector$<$ \mbox{\hyperlink{structContainerNetworkInfo}{Container\+Network\+Info}} $>$ {\bfseries m\+Allocated\+Ips}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIPAllocator_aa664d2a3c4d117aa396e0f2e6f3cae9b}\label{classIPAllocator_aa664d2a3c4d117aa396e0f2e6f3cae9b}} 
+\index{IPAllocator@{IPAllocator}!allocateIpAddress@{allocateIpAddress}}
+\index{allocateIpAddress@{allocateIpAddress}!IPAllocator@{IPAllocator}}
+\doxysubsubsection{\texorpdfstring{allocateIpAddress()}{allocateIpAddress()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily in\+\_\+addr\+\_\+t IPAllocator\+::allocate\+Ip\+Address (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Id,  }\item[{const std\+::string \&}]{veth\+Name }\end{DoxyParamCaption})}
+
+
+
+Allocated an IP address with the specified veth. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em container\+Id} & Name of the container to associate the IP with \\
+\hline
+\mbox{\texttt{ in}}  & {\em veth\+Name} & Name of the veth interface used by the container\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Allocated IP address. -\/1 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIPAllocator_ad27e4a6cb071186e504b522d8d4ff863}\label{classIPAllocator_ad27e4a6cb071186e504b522d8d4ff863}} 
+\index{IPAllocator@{IPAllocator}!allocateIpAddress@{allocateIpAddress}}
+\index{allocateIpAddress@{allocateIpAddress}!IPAllocator@{IPAllocator}}
+\doxysubsubsection{\texorpdfstring{allocateIpAddress()}{allocateIpAddress()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily in\+\_\+addr\+\_\+t IPAllocator\+::allocate\+Ip\+Address (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{veth\+Name }\end{DoxyParamCaption})}
+
+
+
+Allocated an IP address for the currently running container with the specified veth. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em veth\+Name} & Name of the veth interface used by the container\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Allocated IP address. -\/1 on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIPAllocator_a35eb40143b62c43c452f7b1c12577921}\label{classIPAllocator_a35eb40143b62c43c452f7b1c12577921}} 
+\index{IPAllocator@{IPAllocator}!deallocateIpAddress@{deallocateIpAddress}}
+\index{deallocateIpAddress@{deallocateIpAddress}!IPAllocator@{IPAllocator}}
+\doxysubsubsection{\texorpdfstring{deallocateIpAddress()}{deallocateIpAddress()}}
+{\footnotesize\ttfamily bool IPAllocator\+::deallocate\+Ip\+Address (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Id }\end{DoxyParamCaption})}
+
+
+
+Releases a previously allocated IP address back to the pool so it can be re-\/used by other containers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em container\+Id} & Name of the container to deallocate the IP for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success, false on error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIPAllocator_a30ee65159a7709f50f713e5bc02e7ca0}\label{classIPAllocator_a30ee65159a7709f50f713e5bc02e7ca0}} 
+\index{IPAllocator@{IPAllocator}!getContainerIpsFromDisk@{getContainerIpsFromDisk}}
+\index{getContainerIpsFromDisk@{getContainerIpsFromDisk}!IPAllocator@{IPAllocator}}
+\doxysubsubsection{\texorpdfstring{getContainerIpsFromDisk()}{getContainerIpsFromDisk()}}
+{\footnotesize\ttfamily bool IPAllocator\+::get\+Container\+Ips\+From\+Disk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Synchronise the in-\/memory pool of allocated IPs with the disk store. 
+
+\begin{DoxyReturn}{Returns}
+True on success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIPAllocator_a9c996084e13096f401fb5a7034b75e52}\label{classIPAllocator_a9c996084e13096f401fb5a7034b75e52}} 
+\index{IPAllocator@{IPAllocator}!getContainerNetworkInfo@{getContainerNetworkInfo}}
+\index{getContainerNetworkInfo@{getContainerNetworkInfo}!IPAllocator@{IPAllocator}}
+\doxysubsubsection{\texorpdfstring{getContainerNetworkInfo()}{getContainerNetworkInfo()}}
+{\footnotesize\ttfamily bool IPAllocator\+::get\+Container\+Network\+Info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Id,  }\item[{\mbox{\hyperlink{structContainerNetworkInfo}{Container\+Network\+Info}} \&}]{network\+Info }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the networking information (veth, ip) for a given container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em container\+Id} & Name of the container to retrieve the information about \\
+\hline
+\mbox{\texttt{ out}}  & {\em network\+Info} & Struct to store the container network info in\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success, false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIPAllocator_a1812aaa5127479627e6c89cb7a801a1e}\label{classIPAllocator_a1812aaa5127479627e6c89cb7a801a1e}} 
+\index{IPAllocator@{IPAllocator}!getNetworkInfo@{getNetworkInfo}}
+\index{getNetworkInfo@{getNetworkInfo}!IPAllocator@{IPAllocator}}
+\doxysubsubsection{\texorpdfstring{getNetworkInfo()}{getNetworkInfo()}}
+{\footnotesize\ttfamily bool IPAllocator\+::get\+Network\+Info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path,  }\item[{\mbox{\hyperlink{structContainerNetworkInfo}{Container\+Network\+Info}} \&}]{network\+Info }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Retrieves the networking information (veth, ip) from a file from the store. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Path} & Path to the file to parse for information about the container network \\
+\hline
+\mbox{\texttt{ out}}  & {\em network\+Info} & Struct to store the container network info in\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success, false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIPAllocator_a23148995ff00f5eed1423320bc6de50b}\label{classIPAllocator_a23148995ff00f5eed1423320bc6de50b}} 
+\index{IPAllocator@{IPAllocator}!ipAddressToString@{ipAddressToString}}
+\index{ipAddressToString@{ipAddressToString}!IPAllocator@{IPAllocator}}
+\doxysubsubsection{\texorpdfstring{ipAddressToString()}{ipAddressToString()}}
+{\footnotesize\ttfamily std\+::string IPAllocator\+::ip\+Address\+To\+String (\begin{DoxyParamCaption}\item[{const in\+\_\+addr\+\_\+t \&}]{ip\+Address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert an IP address to string. Note -\/ doesn\textquotesingle{}t do any byte-\/order modifications. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ip\+Address} & IP Address to convert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+IP address string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIPAllocator_a78a029b7a0df7a909c8dcf09499a634f}\label{classIPAllocator_a78a029b7a0df7a909c8dcf09499a634f}} 
+\index{IPAllocator@{IPAllocator}!stringToIpAddress@{stringToIpAddress}}
+\index{stringToIpAddress@{stringToIpAddress}!IPAllocator@{IPAllocator}}
+\doxysubsubsection{\texorpdfstring{stringToIpAddress()}{stringToIpAddress()}}
+{\footnotesize\ttfamily in\+\_\+addr\+\_\+t IPAllocator\+::string\+To\+Ip\+Address (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ip\+Addr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert an string to an IP address. Note -\/ doesn\textquotesingle{}t do any byte-\/order modifications. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ip\+Addr} & IP Address to convert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+IP address integer 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Networking/include/IPAllocator.\+h\item 
+rdk\+Plugins/\+Networking/source/IPAllocator.\+cpp\end{DoxyCompactItemize}

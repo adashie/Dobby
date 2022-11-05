@@ -1,0 +1,157 @@
+\hypertarget{classNetworkingPlugin}{}\doxysection{Networking\+Plugin Class Reference}
+\label{classNetworkingPlugin}\index{NetworkingPlugin@{NetworkingPlugin}}
+
+
+Inheritance diagram for Networking\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Networking\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_aeb57fea84ec456e06e51bfc2597dfa07}\label{classNetworkingPlugin_aeb57fea84ec456e06e51bfc2597dfa07}} 
+{\bfseries Networking\+Plugin} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&cfg, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\item 
+std\+::string \mbox{\hyperlink{classNetworkingPlugin_abf6b96a08151712d1701f4d528985c4b}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classNetworkingPlugin_a7073d576c71107c446a6e0762e393216}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a60ae78b7e0aecf33aed35cba3afa1e10}\label{classNetworkingPlugin_a60ae78b7e0aecf33aed35cba3afa1e10}} 
+bool \mbox{\hyperlink{classNetworkingPlugin_a60ae78b7e0aecf33aed35cba3afa1e10}{post\+Installation}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ run in host namespace {\itshape once} when container bundle is downloaded. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkingPlugin_aecf386e13834ad0edfdc038be57ff1b1}\label{classNetworkingPlugin_aecf386e13834ad0edfdc038be57ff1b1}} 
+bool \mbox{\hyperlink{classNetworkingPlugin_aecf386e13834ad0edfdc038be57ff1b1}{create\+Runtime}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in host namespace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a2ab70fc49c11dc102ad742a8ba7b65d5}\label{classNetworkingPlugin_a2ab70fc49c11dc102ad742a8ba7b65d5}} 
+bool \mbox{\hyperlink{classNetworkingPlugin_a2ab70fc49c11dc102ad742a8ba7b65d5}{post\+Halt}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ Run in host namespace when container terminates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a4720f334af95f188f14ca1cbbe5b79d8}\label{classNetworkingPlugin_a4720f334af95f188f14ca1cbbe5b79d8}} 
+bool \mbox{\hyperlink{classNetworkingPlugin_a4720f334af95f188f14ca1cbbe5b79d8}{post\+Stop}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in host namespace. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classNetworkingPlugin_aab70c315007a1dce59281879b82c2759}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classNetworkingPlugin_adf800e54b9f3971c99cedcbdd37255cc}{Get\+External\+Interfaces\+From\+Settings}} () const
+\begin{DoxyCompactList}\small\item\em Gets the external interfaces defined in the dobby settings file, regardless of whether they actually exist on the platform or not. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classNetworkingPlugin_a76c1adcfad5e6eb9fbab38ccd0194ec4}{Get\+Available\+External\+Interfaces}} () const
+\begin{DoxyCompactList}\small\item\em Gets the external interfaces that are actually available. Looks in the settings for the interfaces \mbox{\hyperlink{classDobby}{Dobby}} should use, then checks if the device actually has those interfaces available. Will return empty vector if none of the ifaces in the settings file are available. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a989b93fe58565301a4a2c19ac00ae6a2}\label{classNetworkingPlugin_a989b93fe58565301a4a2c19ac00ae6a2}} 
+bool {\bfseries m\+Valid}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a781aba4032f52e5918bc7c8b79c33150}\label{classNetworkingPlugin_a781aba4032f52e5918bc7c8b79c33150}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a5f9ffbbe1b0114859fcc5f0cc1de8d90}\label{classNetworkingPlugin_a5f9ffbbe1b0114859fcc5f0cc1de8d90}} 
+Network\+Type {\bfseries m\+Network\+Type}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a3cbd418e4c90ac25f8757ab9d0f1ac16}\label{classNetworkingPlugin_a3cbd418e4c90ac25f8757ab9d0f1ac16}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a7821fa7cd33c1e1fe504de99b6451fa8}\label{classNetworkingPlugin_a7821fa7cd33c1e1fe504de99b6451fa8}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a5d0fd09041eec8440608c89be07d263b}\label{classNetworkingPlugin_a5d0fd09041eec8440608c89be07d263b}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_a9ec3c9226552b34f0a024357e65cc628}\label{classNetworkingPlugin_a9ec3c9226552b34f0a024357e65cc628}} 
+const rt\+\_\+defs\+\_\+plugins\+\_\+networking\+\_\+data $\ast$ {\bfseries m\+Plugin\+Data}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_abbee51e7b5e84815b95d48e6c5287b44}\label{classNetworkingPlugin_abbee51e7b5e84815b95d48e6c5287b44}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ {\bfseries m\+Helper}
+\item 
+\mbox{\Hypertarget{classNetworkingPlugin_adb0fd5d1bd78e44193651178d6fdcd5b}\label{classNetworkingPlugin_adb0fd5d1bd78e44193651178d6fdcd5b}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ {\bfseries m\+Netfilter}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworkingPlugin_a76c1adcfad5e6eb9fbab38ccd0194ec4}\label{classNetworkingPlugin_a76c1adcfad5e6eb9fbab38ccd0194ec4}} 
+\index{NetworkingPlugin@{NetworkingPlugin}!GetAvailableExternalInterfaces@{GetAvailableExternalInterfaces}}
+\index{GetAvailableExternalInterfaces@{GetAvailableExternalInterfaces}!NetworkingPlugin@{NetworkingPlugin}}
+\doxysubsubsection{\texorpdfstring{GetAvailableExternalInterfaces()}{GetAvailableExternalInterfaces()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Networking\+Plugin\+::\+Get\+Available\+External\+Interfaces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the external interfaces that are actually available. Looks in the settings for the interfaces \mbox{\hyperlink{classDobby}{Dobby}} should use, then checks if the device actually has those interfaces available. Will return empty vector if none of the ifaces in the settings file are available. 
+
+\begin{DoxyReturn}{Returns}
+Available external interfaces from the ones defined in dobby settings 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetworkingPlugin_aab70c315007a1dce59281879b82c2759}\label{classNetworkingPlugin_aab70c315007a1dce59281879b82c2759}} 
+\index{NetworkingPlugin@{NetworkingPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!NetworkingPlugin@{NetworkingPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Networking\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classNetworkingPlugin_adf800e54b9f3971c99cedcbdd37255cc}\label{classNetworkingPlugin_adf800e54b9f3971c99cedcbdd37255cc}} 
+\index{NetworkingPlugin@{NetworkingPlugin}!GetExternalInterfacesFromSettings@{GetExternalInterfacesFromSettings}}
+\index{GetExternalInterfacesFromSettings@{GetExternalInterfacesFromSettings}!NetworkingPlugin@{NetworkingPlugin}}
+\doxysubsubsection{\texorpdfstring{GetExternalInterfacesFromSettings()}{GetExternalInterfacesFromSettings()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Networking\+Plugin\+::\+Get\+External\+Interfaces\+From\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the external interfaces defined in the dobby settings file, regardless of whether they actually exist on the platform or not. 
+
+\begin{DoxyReturn}{Returns}
+All external interfaces from dobby settings file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetworkingPlugin_a7073d576c71107c446a6e0762e393216}\label{classNetworkingPlugin_a7073d576c71107c446a6e0762e393216}} 
+\index{NetworkingPlugin@{NetworkingPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!NetworkingPlugin@{NetworkingPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Networking\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the bit flags for which hooks we\textquotesingle{}re going to use. 
+
+This plugin uses all the hooks so set all the flags 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classNetworkingPlugin_abf6b96a08151712d1701f4d528985c4b}\label{classNetworkingPlugin_abf6b96a08151712d1701f4d528985c4b}} 
+\index{NetworkingPlugin@{NetworkingPlugin}!name@{name}}
+\index{name@{name}!NetworkingPlugin@{NetworkingPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Networking\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Networking/include/Networking\+Plugin.\+h\item 
+rdk\+Plugins/\+Networking/source/Networking\+Plugin.\+cpp\end{DoxyCompactItemize}

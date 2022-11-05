@@ -1,0 +1,397 @@
+\hypertarget{classDobbyConfig}{}\doxysection{Dobby\+Config Class Reference}
+\label{classDobbyConfig}\index{DobbyConfig@{DobbyConfig}}
+
+
+\mbox{\hyperlink{structInterface}{Interface}} that configuration file parser classes have to implement.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Config.\+h$>$}
+
+
+
+Inheritance diagram for Dobby\+Config\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDobbyConfig_1_1__LoopMount}{\+\_\+\+Loop\+Mount}}
+\begin{DoxyCompactList}\small\item\em Loopmount struct used for \mbox{\hyperlink{classStorage}{Storage}} plugin. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structDobbyConfig_1_1DevNode}{Dev\+Node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyConfig_adfa694cdaf688a0eac91896a2120f145}\label{classDobbyConfig_adfa694cdaf688a0eac91896a2120f145}} 
+enum class \mbox{\hyperlink{classDobbyConfig_adfa694cdaf688a0eac91896a2120f145}{Network\+Type}} \{ {\bfseries None}
+, {\bfseries Nat}
+, {\bfseries Open}
+ \}
+\begin{DoxyCompactList}\small\item\em Network type used for Network plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyConfig_aaa07d1569638bf0d97a9ed0b9c05c3f7}\label{classDobbyConfig_aaa07d1569638bf0d97a9ed0b9c05c3f7}} 
+typedef struct \mbox{\hyperlink{structDobbyConfig_1_1__LoopMount}{Dobby\+Config\+::\+\_\+\+Loop\+Mount}} \mbox{\hyperlink{classDobbyConfig_aaa07d1569638bf0d97a9ed0b9c05c3f7}{Loop\+Mount}}
+\begin{DoxyCompactList}\small\item\em Loopmount struct used for \mbox{\hyperlink{classStorage}{Storage}} plugin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyConfig_a5e7c054d9c34dd7fef5696158cd42ce4}\label{classDobbyConfig_a5e7c054d9c34dd7fef5696158cd42ce4}} 
+virtual bool \mbox{\hyperlink{classDobbyConfig_a5e7c054d9c34dd7fef5696158cd42ce4}{is\+Valid}} () const =0
+\begin{DoxyCompactList}\small\item\em Getters used for plugins. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyConfig_a5347d9083bf2ce28045c4ff70ed4b413}\label{classDobbyConfig_a5347d9083bf2ce28045c4ff70ed4b413}} 
+virtual uid\+\_\+t {\bfseries user\+Id} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_a3a5c29f3b774f9f02c0c277fe0d6ad4f}\label{classDobbyConfig_a3a5c29f3b774f9f02c0c277fe0d6ad4f}} 
+virtual gid\+\_\+t {\bfseries group\+Id} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_a2041ca2c53db87bb0432be89dceeb98e}\label{classDobbyConfig_a2041ca2c53db87bb0432be89dceeb98e}} 
+virtual \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries system\+Dbus} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_a8be6088d7545f06a0b43eb1fb21d5498}\label{classDobbyConfig_a8be6088d7545f06a0b43eb1fb21d5498}} 
+virtual \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries session\+Dbus} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_a49f0948f83c879613bb39f601ebd7ac9}\label{classDobbyConfig_a49f0948f83c879613bb39f601ebd7ac9}} 
+virtual \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{IDobby\+IPCUtils\+::\+Bus\+Type}} {\bfseries debug\+Dbus} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_ab5c135139e45c4b6e8fe2449586875b2}\label{classDobbyConfig_ab5c135139e45c4b6e8fe2449586875b2}} 
+virtual bool {\bfseries console\+Disabled} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_aedb81ca977d0e29cade8f39d3f47fed9}\label{classDobbyConfig_aedb81ca977d0e29cade8f39d3f47fed9}} 
+virtual ssize\+\_\+t {\bfseries console\+Limit} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_ac94a7d11d965398fe1c02b90594db8c0}\label{classDobbyConfig_ac94a7d11d965398fe1c02b90594db8c0}} 
+virtual const std\+::string \& {\bfseries console\+Path} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_a83b55cccf7844708721ecc29d186c53e}\label{classDobbyConfig_a83b55cccf7844708721ecc29d186c53e}} 
+virtual bool {\bfseries restart\+On\+Crash} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_ac77ef8368015195f903d36bb394d8fa6}\label{classDobbyConfig_ac77ef8368015195f903d36bb394d8fa6}} 
+virtual const std\+::string \& {\bfseries rootfs\+Path} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_aabdb6d07680362d4c73c3d68bbce794c}\label{classDobbyConfig_aabdb6d07680362d4c73c3d68bbce794c}} 
+virtual std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries config} () const =0
+\item 
+\mbox{\Hypertarget{classDobbyConfig_afe01f113046796c744be3eed46399144}\label{classDobbyConfig_afe01f113046796c744be3eed46399144}} 
+virtual const std\+::map$<$ std\+::string, Json\+::\+Value $>$ \& {\bfseries rdk\+Plugins} () const =0
+\item 
+bool \mbox{\hyperlink{classDobbyConfig_ac330905c18115ad7b10780c002ceada4}{add\+Mount}} (const std\+::string \&source, const std\+::string \&target, const std\+::string \&fs\+Type, unsigned long mount\+Flags, const std\+::list$<$ std\+::string $>$ \&mount\+Options)
+\begin{DoxyCompactList}\small\item\em Public api to allow for adding additional mounts. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyConfig_a17f3fc7e96c97324b7729840f19c913c}{add\+Environment\+Var}} (const std\+::string \&env\+Var)
+\begin{DoxyCompactList}\small\item\em Public api to allow for adding additional env variables. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyConfig_a2d535b818b5a4ae1ee4b436060fe74c0}{change\+Process\+Args}} (const std\+::string \&command)
+\item 
+bool \mbox{\hyperlink{classDobbyConfig_a3019be987c2e81e1f436c30728b067f1}{add\+Westeros\+Mount}} (const std\+::string \&socket\+Path)
+\item 
+bool \mbox{\hyperlink{classDobbyConfig_aad976c50ac8273ca3c631978b9aee0e4}{write\+Config\+Json}} (const std\+::string \&file\+Path) const
+\begin{DoxyCompactList}\small\item\em Writes bundle config string to a file. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classDobbyConfig_aa8223f8155756a1260eceee7d257f235}{config\+Json}} () const
+\begin{DoxyCompactList}\small\item\em Get OCI bundle config json as string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyConfig_a3fe413d72f5ebd2ee5de097f489eb7ae}\label{classDobbyConfig_a3fe413d72f5ebd2ee5de097f489eb7ae}} 
+bool {\bfseries write\+Config\+Json\+Impl} (const std\+::string \&file\+Path) const
+\item 
+bool \mbox{\hyperlink{classDobbyConfig_a196a17855ac7757d2f32435c6a37aa63}{update\+Bundle\+Config}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ cfg, const std\+::string \&bundle\+Path)
+\begin{DoxyCompactList}\small\item\em Convert the input config.\+json into an OCI compliant bundle config that adds support for Dobby\+Plugin\+Launcher to work with rdk\+Plugins. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyConfig_a6682dd66f832c626ee806e47e88a75b1}{set\+Hostname\+To\+Container\+Id}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ cfg, const std\+::string \&bundle\+Path)
+\begin{DoxyCompactList}\small\item\em Sets the container hostname to the container ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyConfig_aa53f1d8f18afe7fe6e62b546f6d3172c}{convert\+To\+Compliant}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ cfg, const std\+::string \&bundle\+Path)
+\begin{DoxyCompactList}\small\item\em Convert the input config.\+json into an OCI compliant bundle config that adds support for Dobby\+Plugin\+Launcher to work with rdk\+Plugins. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyConfig_a04b40b2647f0e052dd08d6d117331cd3}{is\+Apparmor\+Profile\+Loaded}} (char $\ast$profile)
+\begin{DoxyCompactList}\small\item\em Verify and Write bundle config apparmor\+Profile string to a file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyConfig_a9cd8b963eb2a6916ec14a636d5ae454a}\label{classDobbyConfig_a9cd8b963eb2a6916ec14a636d5ae454a}} 
+bool {\bfseries set\+Dobby\+Default\+Apparmor\+Profile} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ cfg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::list$<$ \mbox{\hyperlink{structDobbyConfig_1_1DevNode}{Dev\+Node}} $>$ \mbox{\hyperlink{classDobbyConfig_a62045def2ed6c8703c74fcd15b419d72}{scan\+Dev\+Nodes}} (const std\+::list$<$ std\+::string $>$ \&dev\+Nodes)
+\begin{DoxyCompactList}\small\item\em Takes a list of glob patterns corresponding to dev node paths and returns a list of structs with their details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyConfig_af8fbd47a51268051c2f997dd1431597d}\label{classDobbyConfig_af8fbd47a51268051c2f997dd1431597d}} 
+std\+::mutex {\bfseries m\+Lock}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDobbyConfig_a6724b20661471c23437449b43c2c3c68}{add\+Plugin\+Launcher\+Hooks}} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ cfg, const std\+::string \&bundle\+Path)
+\begin{DoxyCompactList}\small\item\em Adds OCI hooks to the config. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyConfig_ab53148a99c6666116b8e0980e5e0728d}{set\+Plugin\+Hook\+Entry}} (rt\+\_\+defs\+\_\+hook $\ast$entry, const std\+::string \&name, const std\+::string \&config\+Path)
+\begin{DoxyCompactList}\small\item\em Populates a hook entry structure with Dobby\+Plugin\+Launcher data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyConfig_a91b8f6ec20b82f32e543c51408e2411b}{find\+Plugin\+Launcher\+Hook\+Entry}} (rt\+\_\+defs\+\_\+hook $\ast$$\ast$hook, int len)
+\begin{DoxyCompactList}\small\item\em Checks a hook for \mbox{\hyperlink{classDobby}{Dobby}} plugin launcher entries. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structInterface}{Interface}} that configuration file parser classes have to implement. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyConfig_a17f3fc7e96c97324b7729840f19c913c}\label{classDobbyConfig_a17f3fc7e96c97324b7729840f19c913c}} 
+\index{DobbyConfig@{DobbyConfig}!addEnvironmentVar@{addEnvironmentVar}}
+\index{addEnvironmentVar@{addEnvironmentVar}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{addEnvironmentVar()}{addEnvironmentVar()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::add\+Environment\+Var (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{env\+Var }\end{DoxyParamCaption})}
+
+
+
+Public api to allow for adding additional env variables. 
+
+This can only obviously be called before the config file is persisted to disk.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em env\+Var} & The environment variable to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the env var was added, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyConfig_ac330905c18115ad7b10780c002ceada4}\label{classDobbyConfig_ac330905c18115ad7b10780c002ceada4}} 
+\index{DobbyConfig@{DobbyConfig}!addMount@{addMount}}
+\index{addMount@{addMount}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{addMount()}{addMount()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::add\+Mount (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{source,  }\item[{const std\+::string \&}]{destination,  }\item[{const std\+::string \&}]{type,  }\item[{unsigned long}]{mount\+Flags,  }\item[{const std\+::list$<$ std\+::string $>$ \&}]{mount\+Options }\end{DoxyParamCaption})}
+
+
+
+Public api to allow for adding additional mounts. 
+
+This can only obviously be called before the config file is persisted to disk.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The mount source \\
+\hline
+\mbox{\texttt{ in}}  & {\em destination} & The mount destination \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & The file system type of the mount \\
+\hline
+\mbox{\texttt{ in}}  & {\em mount\+Flags} & The mount flags \\
+\hline
+\mbox{\texttt{ in}}  & {\em mount\+Options} & The mount options (mount(2) data parameter)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the mount point was added, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyConfig_a6724b20661471c23437449b43c2c3c68}\label{classDobbyConfig_a6724b20661471c23437449b43c2c3c68}} 
+\index{DobbyConfig@{DobbyConfig}!addPluginLauncherHooks@{addPluginLauncherHooks}}
+\index{addPluginLauncherHooks@{addPluginLauncherHooks}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{addPluginLauncherHooks()}{addPluginLauncherHooks()}}
+{\footnotesize\ttfamily void Dobby\+Config\+::add\+Plugin\+Launcher\+Hooks (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$}]{cfg,  }\item[{const std\+::string \&}]{bundle\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds OCI hooks to the config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cfg} & libocispec config structure instance \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle\+Path} & path to the container bundle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if hooks added successfully, false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyConfig_a3019be987c2e81e1f436c30728b067f1}\label{classDobbyConfig_a3019be987c2e81e1f436c30728b067f1}} 
+\index{DobbyConfig@{DobbyConfig}!addWesterosMount@{addWesterosMount}}
+\index{addWesterosMount@{addWesterosMount}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{addWesterosMount()}{addWesterosMount()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::add\+Westeros\+Mount (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{socket\+Path }\end{DoxyParamCaption})}
+
+Adds a mount into the container for a westeros socket with the correct permissions at /tmp/westeros
+
+Sets WAYLAND\+\_\+\+DISPLAY and XDG\+\_\+\+RUNTIME\+\_\+\+DIR environment variables to ensure container actually uses the display
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em socket\+Path} & Path to westeros socket on host \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyConfig_a2d535b818b5a4ae1ee4b436060fe74c0}\label{classDobbyConfig_a2d535b818b5a4ae1ee4b436060fe74c0}} 
+\index{DobbyConfig@{DobbyConfig}!changeProcessArgs@{changeProcessArgs}}
+\index{changeProcessArgs@{changeProcessArgs}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{changeProcessArgs()}{changeProcessArgs()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::change\+Process\+Args (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{command }\end{DoxyParamCaption})}
+
+Changes the startup command for the container to a custom command.
+
+Will automatically add Dobby\+Init to run the process to ensure sub-\/reaping is handled properly
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em command} & The command to run (including arguments/params) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyConfig_aa8223f8155756a1260eceee7d257f235}\label{classDobbyConfig_aa8223f8155756a1260eceee7d257f235}} 
+\index{DobbyConfig@{DobbyConfig}!configJson@{configJson}}
+\index{configJson@{configJson}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{configJson()}{configJson()}}
+{\footnotesize\ttfamily const std\+::string Dobby\+Config\+::config\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get OCI bundle config json as string. 
+
+\begin{DoxyReturn}{Returns}
+OCI config json 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyConfig_aa53f1d8f18afe7fe6e62b546f6d3172c}\label{classDobbyConfig_aa53f1d8f18afe7fe6e62b546f6d3172c}} 
+\index{DobbyConfig@{DobbyConfig}!convertToCompliant@{convertToCompliant}}
+\index{convertToCompliant@{convertToCompliant}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{convertToCompliant()}{convertToCompliant()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::convert\+To\+Compliant (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$}]{cfg,  }\item[{const std\+::string \&}]{bundle\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Convert the input config.\+json into an OCI compliant bundle config that adds support for Dobby\+Plugin\+Launcher to work with rdk\+Plugins. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & container identifier \\
+\hline
+\mbox{\texttt{ in}}  & {\em cfg} & libocispec config structure instance \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle\+Path} & path to the container bundle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyConfig_a91b8f6ec20b82f32e543c51408e2411b}\label{classDobbyConfig_a91b8f6ec20b82f32e543c51408e2411b}} 
+\index{DobbyConfig@{DobbyConfig}!findPluginLauncherHookEntry@{findPluginLauncherHookEntry}}
+\index{findPluginLauncherHookEntry@{findPluginLauncherHookEntry}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{findPluginLauncherHookEntry()}{findPluginLauncherHookEntry()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::find\+Plugin\+Launcher\+Hook\+Entry (\begin{DoxyParamCaption}\item[{rt\+\_\+defs\+\_\+hook $\ast$$\ast$}]{hook,  }\item[{int}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks a hook for \mbox{\hyperlink{classDobby}{Dobby}} plugin launcher entries. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em hook} & pointer to a hook in the bundle config \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & number of entries in the hook\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if unexpected \mbox{\hyperlink{classDobby}{Dobby}} plugin launcher entry found, false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyConfig_a04b40b2647f0e052dd08d6d117331cd3}\label{classDobbyConfig_a04b40b2647f0e052dd08d6d117331cd3}} 
+\index{DobbyConfig@{DobbyConfig}!isApparmorProfileLoaded@{isApparmorProfileLoaded}}
+\index{isApparmorProfileLoaded@{isApparmorProfileLoaded}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{isApparmorProfileLoaded()}{isApparmorProfileLoaded()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::is\+Apparmor\+Profile\+Loaded (\begin{DoxyParamCaption}\item[{char $\ast$}]{profile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Verify and Write bundle config apparmor\+Profile string to a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em profile} & The name of apparmor profile to write to.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the apparmor profile was loaded in kernel space, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyConfig_a62045def2ed6c8703c74fcd15b419d72}\label{classDobbyConfig_a62045def2ed6c8703c74fcd15b419d72}} 
+\index{DobbyConfig@{DobbyConfig}!scanDevNodes@{scanDevNodes}}
+\index{scanDevNodes@{scanDevNodes}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{scanDevNodes()}{scanDevNodes()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{structDobbyConfig_1_1DevNode}{Dobby\+Config\+::\+Dev\+Node}} $>$ Dobby\+Config\+::scan\+Dev\+Nodes (\begin{DoxyParamCaption}\item[{const std\+::list$<$ std\+::string $>$ \&}]{dev\+Nodes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Takes a list of glob patterns corresponding to dev node paths and returns a list of structs with their details. 
+
+If the glob pattern doesn\textquotesingle{}t match a device node then it is ignored, this is not an error.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dev\+Nodes} & The list of dev nodes paths (or glob patterns). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyConfig_a6682dd66f832c626ee806e47e88a75b1}\label{classDobbyConfig_a6682dd66f832c626ee806e47e88a75b1}} 
+\index{DobbyConfig@{DobbyConfig}!setHostnameToContainerId@{setHostnameToContainerId}}
+\index{setHostnameToContainerId@{setHostnameToContainerId}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{setHostnameToContainerId()}{setHostnameToContainerId()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::set\+Hostname\+To\+Container\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$}]{cfg,  }\item[{const std\+::string \&}]{bundle\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Sets the container hostname to the container ID. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & container identifier \\
+\hline
+\mbox{\texttt{ in}}  & {\em cfg} & libocispec config structure instance \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle\+Path} & path to the container bundle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyConfig_ab53148a99c6666116b8e0980e5e0728d}\label{classDobbyConfig_ab53148a99c6666116b8e0980e5e0728d}} 
+\index{DobbyConfig@{DobbyConfig}!setPluginHookEntry@{setPluginHookEntry}}
+\index{setPluginHookEntry@{setPluginHookEntry}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{setPluginHookEntry()}{setPluginHookEntry()}}
+{\footnotesize\ttfamily void Dobby\+Config\+::set\+Plugin\+Hook\+Entry (\begin{DoxyParamCaption}\item[{rt\+\_\+defs\+\_\+hook $\ast$}]{entry,  }\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{config\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Populates a hook entry structure with Dobby\+Plugin\+Launcher data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em entry} & pointer to hook entry to populate \\
+\hline
+\mbox{\texttt{ in}}  & {\em name} & hook name \\
+\hline
+\mbox{\texttt{ in}}  & {\em config\+Path} & path to the config file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyConfig_a196a17855ac7757d2f32435c6a37aa63}\label{classDobbyConfig_a196a17855ac7757d2f32435c6a37aa63}} 
+\index{DobbyConfig@{DobbyConfig}!updateBundleConfig@{updateBundleConfig}}
+\index{updateBundleConfig@{updateBundleConfig}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{updateBundleConfig()}{updateBundleConfig()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::update\+Bundle\+Config (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$}]{cfg,  }\item[{const std\+::string \&}]{bundle\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Convert the input config.\+json into an OCI compliant bundle config that adds support for Dobby\+Plugin\+Launcher to work with rdk\+Plugins. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & container identifier \\
+\hline
+\mbox{\texttt{ in}}  & {\em cfg} & libocispec config structure instance \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle\+Path} & path to the container bundle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyConfig_aad976c50ac8273ca3c631978b9aee0e4}\label{classDobbyConfig_aad976c50ac8273ca3c631978b9aee0e4}} 
+\index{DobbyConfig@{DobbyConfig}!writeConfigJson@{writeConfigJson}}
+\index{writeConfigJson@{writeConfigJson}!DobbyConfig@{DobbyConfig}}
+\doxysubsubsection{\texorpdfstring{writeConfigJson()}{writeConfigJson()}}
+{\footnotesize\ttfamily bool Dobby\+Config\+::write\+Config\+Json (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption}) const}
+
+
+
+Writes bundle config string to a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Path} & The name and path to the file to write to.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the file was written correctly, otherwise false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bundle/lib/include/Dobby\+Config.\+h\item 
+bundle/lib/source/Dobby\+Config.\+cpp\end{DoxyCompactItemize}

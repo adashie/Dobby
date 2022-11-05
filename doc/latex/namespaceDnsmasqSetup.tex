@@ -1,0 +1,78 @@
+\hypertarget{namespaceDnsmasqSetup}{}\doxysection{Dnsmasq\+Setup Namespace Reference}
+\label{namespaceDnsmasqSetup}\index{DnsmasqSetup@{DnsmasqSetup}}
+
+
+Sets up iptables routing to allow apps within a network namespace to talk to the dnsmasq server running outside the container.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceDnsmasqSetup_a4e8ec4ecdd12912fe5f7fd1b2a05499d}{set}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&netfilter, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&helper, const std\+::string \&rootfs\+Path, const std\+::string \&container\+Id, const Network\+Type network\+Type)
+\begin{DoxyCompactList}\small\item\em Add iptables rules and create the /etc/resolv.conf file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceDnsmasqSetup_a6ae4417f7abe0c64aafe4f3007550dc8}{remove\+Rules}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&netfilter, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&helper, const std\+::string \&container\+Id)
+\begin{DoxyCompactList}\small\item\em Deletes dnsmasq rules for the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sets up iptables routing to allow apps within a network namespace to talk to the dnsmasq server running outside the container. 
+
+This works by routing traffic sent to the dobby bridge on port 53 to the localhost interface outside the container. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceDnsmasqSetup_a6ae4417f7abe0c64aafe4f3007550dc8}\label{namespaceDnsmasqSetup_a6ae4417f7abe0c64aafe4f3007550dc8}} 
+\index{DnsmasqSetup@{DnsmasqSetup}!removeRules@{removeRules}}
+\index{removeRules@{removeRules}!DnsmasqSetup@{DnsmasqSetup}}
+\doxysubsubsection{\texorpdfstring{removeRules()}{removeRules()}}
+{\footnotesize\ttfamily bool Dnsmasq\+Setup\+::remove\+Rules (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&}]{netfilter,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&}]{helper,  }\item[{const std\+::string \&}]{container\+Id }\end{DoxyParamCaption})}
+
+
+
+Deletes dnsmasq rules for the container. 
+
+Run in post\+Halt hook.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netfilter} & Instance of \mbox{\hyperlink{classNetfilter}{Netfilter}} class \\
+\hline
+\mbox{\texttt{ in}}  & {\em helper} & Instance of \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Id} & Container identifier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceDnsmasqSetup_a4e8ec4ecdd12912fe5f7fd1b2a05499d}\label{namespaceDnsmasqSetup_a4e8ec4ecdd12912fe5f7fd1b2a05499d}} 
+\index{DnsmasqSetup@{DnsmasqSetup}!set@{set}}
+\index{set@{set}!DnsmasqSetup@{DnsmasqSetup}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily bool Dnsmasq\+Setup\+::set (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&}]{netfilter,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&}]{helper,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const std\+::string \&}]{container\+Id,  }\item[{const Network\+Type}]{network\+Type }\end{DoxyParamCaption})}
+
+
+
+Add iptables rules and create the /etc/resolv.conf file. 
+
+Run in create\+Runtime hook.
+
+Create a new /etc/resolv.conf file specifying the name server as our bridge interface. Add a PREROUTING rule to the iptable NAT table, which will redirect the traffic to localhost outside the container for port 53 only.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} class \\
+\hline
+\mbox{\texttt{ in}}  & {\em netfilter} & Instance of \mbox{\hyperlink{classNetfilter}{Netfilter}} class \\
+\hline
+\mbox{\texttt{ in}}  & {\em helper} & Instance of \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & Path to container rootfs on the host \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Id} & Container identifier \\
+\hline
+\mbox{\texttt{ in}}  & {\em network\+Type} & Network type\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false 
+\end{DoxyReturn}

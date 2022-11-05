@@ -1,0 +1,52 @@
+\hypertarget{classAI__IPC_1_1BaseService}{}\doxysection{AI\+\_\+\+IPC\+::Base\+Service Class Reference}
+\label{classAI__IPC_1_1BaseService}\index{AI\_IPC::BaseService@{AI\_IPC::BaseService}}
+
+
+The \mbox{\hyperlink{classAI__IPC_1_1BaseService}{Base\+Service}} class this is a base class for DBUS services. It has some helper functions to make it easier to register callbacks and do some cleanup when deinitialising.  
+
+
+
+
+{\ttfamily \#include $<$Base\+Service.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAI__IPC_1_1BaseService_1_1ServiceMethod}{Service\+Method}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1BaseService_a10416817fdb314e4d533f72ccb2cb242}\label{classAI__IPC_1_1BaseService_a10416817fdb314e4d533f72ccb2cb242}} 
+{\bfseries Base\+Service} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ \&ipc\+Service, const std\+::string \&service\+Name, const std\+::string \&service\+Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1BaseService_a4bddf56e852f5cf547b38993c190f5bb}\label{classAI__IPC_1_1BaseService_a4bddf56e852f5cf547b38993c190f5bb}} 
+void {\bfseries register\+Service\+Methods} (const std\+::vector$<$ \mbox{\hyperlink{structAI__IPC_1_1BaseService_1_1ServiceMethod}{Service\+Method}} $>$ \&methods)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1BaseService_aac49857b8fdf1ec33acc70823be52c90}\label{classAI__IPC_1_1BaseService_aac49857b8fdf1ec33acc70823be52c90}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ {\bfseries m\+Ipc\+Service}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1BaseService_a31b939a7d320e324be6067a94a139639}\label{classAI__IPC_1_1BaseService_a31b939a7d320e324be6067a94a139639}} 
+const std\+::string {\bfseries m\+Service\+Name}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1BaseService_a837e9d0712edd63b04278dd7ae4bc379}\label{classAI__IPC_1_1BaseService_a837e9d0712edd63b04278dd7ae4bc379}} 
+const std\+::string {\bfseries m\+Service\+Object}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1BaseService_afa0074168665b05c3251b9019816ce88}\label{classAI__IPC_1_1BaseService_afa0074168665b05c3251b9019816ce88}} 
+std\+::list$<$ std\+::string $>$ {\bfseries m\+Method\+Handlers}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classAI__IPC_1_1BaseService}{Base\+Service}} class this is a base class for DBUS services. It has some helper functions to make it easier to register callbacks and do some cleanup when deinitialising. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/include/Base\+Service.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Base\+Service.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,270 @@
+\hypertarget{classIDobbyIPCUtils}{}\doxysection{IDobby\+IPCUtils Class Reference}
+\label{classIDobbyIPCUtils}\index{IDobbyIPCUtils@{IDobbyIPCUtils}}
+
+
+Inheritance diagram for IDobby\+IPCUtils\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}\label{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}} 
+enum class \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \{ {\bfseries None\+Bus}
+, {\bfseries System\+Bus}
+, {\bfseries AIPrivate\+Bus}
+, {\bfseries AIPublic\+Bus}
+ \}
+\begin{DoxyCompactList}\small\item\em The type of dbus to call methods on / emit signals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplyGetter}{AI\+\_\+\+IPC\+::\+IAsync\+Reply\+Getter}} $>$ \mbox{\hyperlink{classIDobbyIPCUtils_a42bd4292b0d1d741661a018ef4fac228}{ipc\+Invoke\+Method}} (const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&bus, const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&method, const AI\+\_\+\+IPC\+::\+Variant\+List \&args, int timeout\+Ms=-\/1) const =0
+\begin{DoxyCompactList}\small\item\em Wrappers around the IPC services in the \mbox{\hyperlink{classDobby}{Dobby}} daemon. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyIPCUtils_a27d44a09f04afc5ee559a35da14175cf}{ipc\+Invoke\+Method}} (const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&bus, const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&method, const AI\+\_\+\+IPC\+::\+Variant\+List \&args, AI\+\_\+\+IPC\+::\+Variant\+List \&reply\+Args) const =0
+\begin{DoxyCompactList}\small\item\em Invokes the ipc method. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyIPCUtils_a6ca897ae7f85849f9acc564d285f957f}{ipc\+Emit\+Signal}} (const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&bus, const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} \&signal, const AI\+\_\+\+IPC\+::\+Variant\+List \&args) const =0
+\begin{DoxyCompactList}\small\item\em Sends out a signal over dbus. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyIPCUtils_ac7c2468b0bfaf83d774871793b71611a}{ipc\+Service\+Available}} (const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&bus, const std\+::string \&service\+Name) const =0
+\begin{DoxyCompactList}\small\item\em Queries if the given service is available on the bus. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classIDobbyIPCUtils_a2317a337681c475c056e83620b837734}{ipc\+Register\+Service\+Handler}} (const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&bus, const std\+::string \&service\+Name, const std\+::function$<$ void(bool)$>$ \&handler\+Func)=0
+\begin{DoxyCompactList}\small\item\em Registers a callback function that will be called when the given service is added or removed from the bus. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classIDobbyIPCUtils_aa1b71c85531f929aa0babfde558862e6}{ipc\+Register\+Signal\+Handler}} (const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&bus, const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} \&signal, const AI\+\_\+\+IPC\+::\+Signal\+Handler \&handler\+Func)=0
+\begin{DoxyCompactList}\small\item\em Registers a callback function that will be called when the given signal is received on the bus. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIDobbyIPCUtils_a2ad389188ebbd4f027c6a6b669e4e09d}{ipc\+Unregister\+Handler}} (const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&bus, int handler\+Id)=0
+\begin{DoxyCompactList}\small\item\em Unregisters either a service or signal handler. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbyIPCUtils_a3ad31ffdad4082ee445b66286c53a426}{ipc\+Dbus\+Address}} (const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&bus) const =0
+\begin{DoxyCompactList}\small\item\em Returns complete address to the dbus daemon. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbyIPCUtils_a14b7ffb7fb6eb8375ac3e0ab9b2d0e1c}{ipc\+Dbus\+Socket\+Path}} (const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&bus) const =0
+\begin{DoxyCompactList}\small\item\em Returns just the path to the socket for the dbus daemon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIDobbyIPCUtils_a3ad31ffdad4082ee445b66286c53a426}\label{classIDobbyIPCUtils_a3ad31ffdad4082ee445b66286c53a426}} 
+\index{IDobbyIPCUtils@{IDobbyIPCUtils}!ipcDbusAddress@{ipcDbusAddress}}
+\index{ipcDbusAddress@{ipcDbusAddress}!IDobbyIPCUtils@{IDobbyIPCUtils}}
+\doxysubsubsection{\texorpdfstring{ipcDbusAddress()}{ipcDbusAddress()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+IPCUtils\+::ipc\+Dbus\+Address (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&}]{bus }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns complete address to the dbus daemon. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bus} & The bus to get the socket path for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the socket, or an empty string if no socket is available. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyIPCUtils_ab98a1b032450981adce88013a08d7883}{Dobby\+IPCUtils}}.
+
+\mbox{\Hypertarget{classIDobbyIPCUtils_a14b7ffb7fb6eb8375ac3e0ab9b2d0e1c}\label{classIDobbyIPCUtils_a14b7ffb7fb6eb8375ac3e0ab9b2d0e1c}} 
+\index{IDobbyIPCUtils@{IDobbyIPCUtils}!ipcDbusSocketPath@{ipcDbusSocketPath}}
+\index{ipcDbusSocketPath@{ipcDbusSocketPath}!IDobbyIPCUtils@{IDobbyIPCUtils}}
+\doxysubsubsection{\texorpdfstring{ipcDbusSocketPath()}{ipcDbusSocketPath()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+IPCUtils\+::ipc\+Dbus\+Socket\+Path (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&}]{bus }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns just the path to the socket for the dbus daemon. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bus} & The bus to get the socket path for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the socket, or an empty string if no socket is available. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyIPCUtils_a68c07e9e6320cfebe36d7bb58da3c0d3}{Dobby\+IPCUtils}}.
+
+\mbox{\Hypertarget{classIDobbyIPCUtils_a6ca897ae7f85849f9acc564d285f957f}\label{classIDobbyIPCUtils_a6ca897ae7f85849f9acc564d285f957f}} 
+\index{IDobbyIPCUtils@{IDobbyIPCUtils}!ipcEmitSignal@{ipcEmitSignal}}
+\index{ipcEmitSignal@{ipcEmitSignal}!IDobbyIPCUtils@{IDobbyIPCUtils}}
+\doxysubsubsection{\texorpdfstring{ipcEmitSignal()}{ipcEmitSignal()}}
+{\footnotesize\ttfamily virtual bool IDobby\+IPCUtils\+::ipc\+Emit\+Signal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&}]{bus,  }\item[{const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} \&}]{signal,  }\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sends out a signal over dbus. 
+
+This is a pure wrapper around the \mbox{\hyperlink{classIpcService_af9962a553561ec2605aa21304804ff0c}{Ipc\+Service\+::emit\+Signal}} function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bus} & The bus to emit the signal on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em signal} & The signal details. \\
+\hline
+\mbox{\texttt{ in}}  & {\em args} & The signal args.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyIPCUtils_a49c03a77791e6671a8025f69e953ddeb}{Dobby\+IPCUtils}}.
+
+\mbox{\Hypertarget{classIDobbyIPCUtils_a27d44a09f04afc5ee559a35da14175cf}\label{classIDobbyIPCUtils_a27d44a09f04afc5ee559a35da14175cf}} 
+\index{IDobbyIPCUtils@{IDobbyIPCUtils}!ipcInvokeMethod@{ipcInvokeMethod}}
+\index{ipcInvokeMethod@{ipcInvokeMethod}!IDobbyIPCUtils@{IDobbyIPCUtils}}
+\doxysubsubsection{\texorpdfstring{ipcInvokeMethod()}{ipcInvokeMethod()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual bool IDobby\+IPCUtils\+::ipc\+Invoke\+Method (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&}]{bus,  }\item[{const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&}]{method,  }\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{args,  }\item[{AI\+\_\+\+IPC\+::\+Variant\+List \&}]{reply\+Args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Invokes the ipc method. 
+
+This is a pure wrapper around the \mbox{\hyperlink{classIpcService_af342303de84e188a478fd7721cb4e930}{Ipc\+Service\+::invoke\+Method}} function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bus} & The bus call the method on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em method} & The method to call. \\
+\hline
+\mbox{\texttt{ in}}  & {\em args} & The method args \\
+\hline
+\mbox{\texttt{ out}}  & {\em reply\+Args} & The reply.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyIPCUtils_afc125a5bf8281fb896e4f225da0bf23d}{Dobby\+IPCUtils}}.
+
+\mbox{\Hypertarget{classIDobbyIPCUtils_a42bd4292b0d1d741661a018ef4fac228}\label{classIDobbyIPCUtils_a42bd4292b0d1d741661a018ef4fac228}} 
+\index{IDobbyIPCUtils@{IDobbyIPCUtils}!ipcInvokeMethod@{ipcInvokeMethod}}
+\index{ipcInvokeMethod@{ipcInvokeMethod}!IDobbyIPCUtils@{IDobbyIPCUtils}}
+\doxysubsubsection{\texorpdfstring{ipcInvokeMethod()}{ipcInvokeMethod()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classAI__IPC_1_1IAsyncReplyGetter}{AI\+\_\+\+IPC\+::\+IAsync\+Reply\+Getter}}$>$ IDobby\+IPCUtils\+::ipc\+Invoke\+Method (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&}]{bus,  }\item[{const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&}]{method,  }\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{args,  }\item[{int}]{timeout\+Ms = {\ttfamily -\/1} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Wrappers around the IPC services in the \mbox{\hyperlink{classDobby}{Dobby}} daemon. 
+
+We provide these as wrappers so that hooks don\textquotesingle{}t have to spin up their own connections to a particular bus, instead they can use the service threads already created inside the \mbox{\hyperlink{classDobby}{Dobby}} daemon.
+
+TODO\+: flesh out a bit more 
+
+Implemented in \mbox{\hyperlink{classDobbyIPCUtils_af2d97d479fbacead3cb9bd1b5d28cc04}{Dobby\+IPCUtils}}.
+
+\mbox{\Hypertarget{classIDobbyIPCUtils_a2317a337681c475c056e83620b837734}\label{classIDobbyIPCUtils_a2317a337681c475c056e83620b837734}} 
+\index{IDobbyIPCUtils@{IDobbyIPCUtils}!ipcRegisterServiceHandler@{ipcRegisterServiceHandler}}
+\index{ipcRegisterServiceHandler@{ipcRegisterServiceHandler}!IDobbyIPCUtils@{IDobbyIPCUtils}}
+\doxysubsubsection{\texorpdfstring{ipcRegisterServiceHandler()}{ipcRegisterServiceHandler()}}
+{\footnotesize\ttfamily virtual int IDobby\+IPCUtils\+::ipc\+Register\+Service\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&}]{bus,  }\item[{const std\+::string \&}]{service\+Name,  }\item[{const std\+::function$<$ void(bool)$>$ \&}]{handler\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Registers a callback function that will be called when the given service is added or removed from the bus. 
+
+This in turn is useful for hooks to manage situations where the daemon they are talking to has crashed / restarted.
+
+Case in point is the Jumper hook, it wants to know if the daemon has crashed so it doesn\textquotesingle{}t block container startup by trying to talk to a nonexisting daemon. And likewise it wants to know when it\textquotesingle{}s arrived back so it can re-\/create any state stored in the daemon.
+
+To remove the handler call {\itshape ipc\+Unregister\+Handler} with the handler id returned by this function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bus} & The bus to watch the service on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em service\+Name} & The name of the service to look out for. \\
+\hline
+\mbox{\texttt{ in}}  & {\em handler\+Func} & Callback function called when the service is added or removed. If added the argument supplied will be true, if removed it will be false.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the notifier is successifully added then a positive handler id will be returned, otherwise -\/1 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyIPCUtils_af7629cf77635161653c58ba021096b3d}{Dobby\+IPCUtils}}.
+
+\mbox{\Hypertarget{classIDobbyIPCUtils_aa1b71c85531f929aa0babfde558862e6}\label{classIDobbyIPCUtils_aa1b71c85531f929aa0babfde558862e6}} 
+\index{IDobbyIPCUtils@{IDobbyIPCUtils}!ipcRegisterSignalHandler@{ipcRegisterSignalHandler}}
+\index{ipcRegisterSignalHandler@{ipcRegisterSignalHandler}!IDobbyIPCUtils@{IDobbyIPCUtils}}
+\doxysubsubsection{\texorpdfstring{ipcRegisterSignalHandler()}{ipcRegisterSignalHandler()}}
+{\footnotesize\ttfamily virtual int IDobby\+IPCUtils\+::ipc\+Register\+Signal\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&}]{bus,  }\item[{const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} \&}]{signal,  }\item[{const AI\+\_\+\+IPC\+::\+Signal\+Handler \&}]{handler\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Registers a callback function that will be called when the given signal is received on the bus. 
+
+This is a pure wrapper around the \mbox{\hyperlink{classIpcService_abb2f3e3e96d5b4e272c56f739973950f}{Ipc\+Service.\+register\+Signal\+Handler}} function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bus} & The bus to watch for the signal on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em signal} & The signal details to watch for. \\
+\hline
+\mbox{\texttt{ in}}  & {\em handler\+Func} & Callback function called when the signal is received.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the handler is successifully added then a positive handler id will be returned, otherwise -\/1 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyIPCUtils_a135d8e543a5b05ad2d0abbe709d172fc}{Dobby\+IPCUtils}}.
+
+\mbox{\Hypertarget{classIDobbyIPCUtils_ac7c2468b0bfaf83d774871793b71611a}\label{classIDobbyIPCUtils_ac7c2468b0bfaf83d774871793b71611a}} 
+\index{IDobbyIPCUtils@{IDobbyIPCUtils}!ipcServiceAvailable@{ipcServiceAvailable}}
+\index{ipcServiceAvailable@{ipcServiceAvailable}!IDobbyIPCUtils@{IDobbyIPCUtils}}
+\doxysubsubsection{\texorpdfstring{ipcServiceAvailable()}{ipcServiceAvailable()}}
+{\footnotesize\ttfamily virtual bool IDobby\+IPCUtils\+::ipc\+Service\+Available (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&}]{bus,  }\item[{const std\+::string \&}]{service\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Queries if the given service is available on the bus. 
+
+This is a pure wrapper around the Ipc\+Service\+::service\+Available function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bus} & The bus to check. \\
+\hline
+\mbox{\texttt{ in}}  & {\em service\+Name} & The service to query.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the service is available, otherwise false. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyIPCUtils_a04107ce63709c358803ba49318b1eb00}{Dobby\+IPCUtils}}.
+
+\mbox{\Hypertarget{classIDobbyIPCUtils_a2ad389188ebbd4f027c6a6b669e4e09d}\label{classIDobbyIPCUtils_a2ad389188ebbd4f027c6a6b669e4e09d}} 
+\index{IDobbyIPCUtils@{IDobbyIPCUtils}!ipcUnregisterHandler@{ipcUnregisterHandler}}
+\index{ipcUnregisterHandler@{ipcUnregisterHandler}!IDobbyIPCUtils@{IDobbyIPCUtils}}
+\doxysubsubsection{\texorpdfstring{ipcUnregisterHandler()}{ipcUnregisterHandler()}}
+{\footnotesize\ttfamily virtual void IDobby\+IPCUtils\+::ipc\+Unregister\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyIPCUtils_aa2bbe0bc876ca7cd2436b01a826302a6}{Bus\+Type}} \&}]{bus,  }\item[{int}]{handler\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Unregisters either a service or signal handler. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bus} & The bus to remove the handler for. \\
+\hline
+\mbox{\texttt{ in}}  & {\em handler\+Id} & The integer handler id returned by the register function. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classDobbyIPCUtils_a10bfc0ee540de724056c3a24e4a4a6b0}{Dobby\+IPCUtils}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ipc\+Utils/include/IDobby\+IPCUtils.\+h\end{DoxyCompactItemize}

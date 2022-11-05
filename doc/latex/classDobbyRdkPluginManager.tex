@@ -1,0 +1,362 @@
+\hypertarget{classDobbyRdkPluginManager}{}\doxysection{Dobby\+Rdk\+Plugin\+Manager Class Reference}
+\label{classDobbyRdkPluginManager}\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+
+
+Class that manages all the RDK plugin hook libraries.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Rdk\+Plugin\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDobbyRdkPluginManager_a85b5125a31ea006b1a81a8c80b4f5b1b}{Dobby\+Rdk\+Plugin\+Manager}} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ container\+Config, const std\+::string \&rootfs\+Path, const std\+::string \&plugin\+Path, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils)
+\begin{DoxyCompactList}\small\item\em Create instance of Dobby\+Rdk\+Plugin Manager and load all plugins that can be found in plugin\+Path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDobbyRdkPluginManager_a3f38287a75b955880ab9046aea565f99}{$\sim$\+Dobby\+Rdk\+Plugin\+Manager}} ()
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a99bec8298e6c09fafe04365bb8d3c198}\label{classDobbyRdkPluginManager_a99bec8298e6c09fafe04365bb8d3c198}} 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classDobbyRdkPluginManager_a99bec8298e6c09fafe04365bb8d3c198}{list\+Loaded\+Plugins}} () const
+\begin{DoxyCompactList}\small\item\em Just return a list of all loaded plugin names. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_afd63f403f8bbe6bf7935dd3e22b6283d}\label{classDobbyRdkPluginManager_afd63f403f8bbe6bf7935dd3e22b6283d}} 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classDobbyRdkPluginManager_afd63f403f8bbe6bf7935dd3e22b6283d}{list\+Loaded\+Loggers}} () const
+\begin{DoxyCompactList}\small\item\em Just return a list of all loaded logging plugin names. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginManager_a517b22c97e25e3cdc43de8771d51e9bf}{run\+Plugins}} (const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}} \&hook\+Point, const uint timeout\+Ms=0) const
+\begin{DoxyCompactList}\small\item\em Run the plugins specified in the container config at the given hook point. Returns true if all required plugins execute successfully. If non-\/required plugins fail or are not loaded, then it logs an error but continues running other plugins. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyRdkLoggingPlugin}{IDobby\+Rdk\+Logging\+Plugin}} $>$ \mbox{\hyperlink{classDobbyRdkPluginManager_a6cf5179f775ccf96770d368cea075cf6}{get\+Container\+Logger}} () const
+\begin{DoxyCompactList}\small\item\em Get the logging plugin specified in the container config. Each container can only have a single plugin for logging, otherwise there is a chance of conflicts whilst reading the container stdout/err. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyRdkPluginManager_ad86ab60fff19426d2f7489d6825600cc}{set\+Exit\+Status}} (int status) const
+\begin{DoxyCompactList}\small\item\em Set the exit status of the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginManager_adc9bdfd0f14bc2cc951986fbeb07586a}{load\+Plugins}} ()
+\begin{DoxyCompactList}\small\item\em Scans the given path for any shared objects that implement the plugin entry points. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginManager_a9335be51f0b59516378a0d2287656a56}{preprocess\+Plugins}} ()
+\begin{DoxyCompactList}\small\item\em Prepares the dependency solver and required plugins data structures. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginManager_ab158a1fe60f6eef7c70bccf3fc09ea05}{execute\+Hook}} (const std\+::string \&plugin\+Name, const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}} hook) const
+\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginManager_a0e97d25d3fd19ac4d46e078a16cd7b37}{execute\+Hook\+Timeout}} (const std\+::string \&plugin\+Name, const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}} hook, const uint timeout\+Ms) const
+\item 
+std\+::string \mbox{\hyperlink{classDobbyRdkPluginManager_a53540c92d5727d511c3b766926937367}{Hook\+Point\+To\+String}} (const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}} \&hook\+Point) const
+\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginManager_a61fde77d116892f77933dd07a1b80c96}{implements\+Hook}} (const std\+::string \&plugin\+Name, const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}} hook) const
+\begin{DoxyCompactList}\small\item\em Check if a plugin implements the specified hook. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginManager_a7dabcfc1ac832b349dbde5c8f7e80093}{is\+Loaded}} (const std\+::string \&plugin\+Name) const
+\begin{DoxyCompactList}\small\item\em Check if a plugin is loaded. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginManager_abb80ace9584a52a2ab7788dc710e1a8f}{is\+Required}} (const std\+::string \&plugin\+Name) const
+\begin{DoxyCompactList}\small\item\em Check if a plugin is required. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}} $>$ \mbox{\hyperlink{classDobbyRdkPluginManager_a3cd32311bafae8f1b20daf7a1ad4a2a9}{get\+Plugin}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Get the plugin with the name, or nullptr if no plugin. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyRdkLoggingPlugin}{IDobby\+Rdk\+Logging\+Plugin}} $>$ \mbox{\hyperlink{classDobbyRdkPluginManager_accf561806e63a1484a97d16d9a944431}{get\+Logger}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Get the logger with the name, or nullptr if no plugin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a2f0de1312f11a88b7a7b3799e8fcba11}\label{classDobbyRdkPluginManager_a2f0de1312f11a88b7a7b3799e8fcba11}} 
+bool {\bfseries m\+Valid}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a49cdac084ce0a3927a2359b62e4701ee}\label{classDobbyRdkPluginManager_a49cdac084ce0a3927a2359b62e4701ee}} 
+std\+::map$<$ std\+::string, std\+::pair$<$ void $\ast$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyRdkLoggingPlugin}{IDobby\+Rdk\+Logging\+Plugin}} $>$ $>$ $>$ {\bfseries m\+Loggers}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a82cc938cdd7e21fe02f76349a38a1b09}\label{classDobbyRdkPluginManager_a82cc938cdd7e21fe02f76349a38a1b09}} 
+std\+::map$<$ std\+::string, std\+::pair$<$ void $\ast$, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}} $>$ $>$ $>$ {\bfseries m\+Plugins}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_acd42bf22d2207caef5db3a9f4e6a98b1}\label{classDobbyRdkPluginManager_acd42bf22d2207caef5db3a9f4e6a98b1}} 
+std\+::set$<$ std\+::string $>$ {\bfseries m\+Required\+Plugins}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_ae8ca00428273ceab9b357a14b9e9ce3a}\label{classDobbyRdkPluginManager_ae8ca00428273ceab9b357a14b9e9ce3a}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a18687b938b14f610d2a30fd8bc03f30d}\label{classDobbyRdkPluginManager_a18687b938b14f610d2a30fd8bc03f30d}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a00d12ce35798e5b7a976732b56edae77}\label{classDobbyRdkPluginManager_a00d12ce35798e5b7a976732b56edae77}} 
+const std\+::string {\bfseries m\+Plugin\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a92c6caed371605ace6feee5948dbcdb6}\label{classDobbyRdkPluginManager_a92c6caed371605ace6feee5948dbcdb6}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a724f72d6be8d9361824c9deec3e2cc5e}\label{classDobbyRdkPluginManager_a724f72d6be8d9361824c9deec3e2cc5e}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginDependencySolver}{Dobby\+Rdk\+Plugin\+Dependency\+Solver}} $>$ {\bfseries m\+Dependency\+Solver}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that manages all the RDK plugin hook libraries. 
+
+At creation time it loads all the plugin libraries. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a85b5125a31ea006b1a81a8c80b4f5b1b}\label{classDobbyRdkPluginManager_a85b5125a31ea006b1a81a8c80b4f5b1b}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{DobbyRdkPluginManager()}{DobbyRdkPluginManager()}}
+{\footnotesize\ttfamily Dobby\+Rdk\+Plugin\+Manager\+::\+Dobby\+Rdk\+Plugin\+Manager (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$}]{container\+Config,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const std\+::string \&}]{plugin\+Path,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils }\end{DoxyParamCaption})}
+
+
+
+Create instance of Dobby\+Rdk\+Plugin Manager and load all plugins that can be found in plugin\+Path. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em container\+Config} & Pointer to the libocispec struct for the container config \\
+\hline
+\mbox{\texttt{ in}}  & {\em plugin\+Path} & Where to search for plugins \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a3f38287a75b955880ab9046aea565f99}\label{classDobbyRdkPluginManager_a3f38287a75b955880ab9046aea565f99}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!````~DobbyRdkPluginManager@{$\sim$DobbyRdkPluginManager}}
+\index{````~DobbyRdkPluginManager@{$\sim$DobbyRdkPluginManager}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$DobbyRdkPluginManager()}{~DobbyRdkPluginManager()}}
+{\footnotesize\ttfamily Dobby\+Rdk\+Plugin\+Manager\+::$\sim$\+Dobby\+Rdk\+Plugin\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Unload all plugins on destruction 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_ab158a1fe60f6eef7c70bccf3fc09ea05}\label{classDobbyRdkPluginManager_ab158a1fe60f6eef7c70bccf3fc09ea05}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!executeHook@{executeHook}}
+\index{executeHook@{executeHook}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{executeHook()}{executeHook()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Manager\+::execute\+Hook (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name,  }\item[{const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}}}]{hook }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Runs the specified hook for a given plugin
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & Name of the plugin to run \\
+\hline
+\mbox{\texttt{ in}}  & {\em hook} & Which hook to execute\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the hook executed successfully 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a0e97d25d3fd19ac4d46e078a16cd7b37}\label{classDobbyRdkPluginManager_a0e97d25d3fd19ac4d46e078a16cd7b37}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!executeHookTimeout@{executeHookTimeout}}
+\index{executeHookTimeout@{executeHookTimeout}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{executeHookTimeout()}{executeHookTimeout()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Manager\+::execute\+Hook\+Timeout (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name,  }\item[{const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}}}]{hook,  }\item[{const uint}]{timeout\+Ms }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Runs the specified hook for a given plugin, checks if execution takes less than timeout\+Ms value, and if so kills the process.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & Name of the plugin to run \\
+\hline
+\mbox{\texttt{ in}}  & {\em hook} & Which hook to execute \\
+\hline
+\mbox{\texttt{ in}}  & {\em timeout\+Ms} & Timeout value in miliseconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the hook executed successfully 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a6cf5179f775ccf96770d368cea075cf6}\label{classDobbyRdkPluginManager_a6cf5179f775ccf96770d368cea075cf6}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!getContainerLogger@{getContainerLogger}}
+\index{getContainerLogger@{getContainerLogger}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{getContainerLogger()}{getContainerLogger()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyRdkLoggingPlugin}{IDobby\+Rdk\+Logging\+Plugin}} $>$ Dobby\+Rdk\+Plugin\+Manager\+::get\+Container\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the logging plugin specified in the container config. Each container can only have a single plugin for logging, otherwise there is a chance of conflicts whilst reading the container stdout/err. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The name of the plugin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The logging plugin 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_accf561806e63a1484a97d16d9a944431}\label{classDobbyRdkPluginManager_accf561806e63a1484a97d16d9a944431}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!getLogger@{getLogger}}
+\index{getLogger@{getLogger}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{getLogger()}{getLogger()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyRdkLoggingPlugin}{IDobby\+Rdk\+Logging\+Plugin}} $>$ Dobby\+Rdk\+Plugin\+Manager\+::get\+Logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Get the logger with the name, or nullptr if no plugin. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The name of the plugin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The plugin interface shared pointer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a3cd32311bafae8f1b20daf7a1ad4a2a9}\label{classDobbyRdkPluginManager_a3cd32311bafae8f1b20daf7a1ad4a2a9}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!getPlugin@{getPlugin}}
+\index{getPlugin@{getPlugin}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{getPlugin()}{getPlugin()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyRdkPlugin}{IDobby\+Rdk\+Plugin}} $>$ Dobby\+Rdk\+Plugin\+Manager\+::get\+Plugin (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Get the plugin with the name, or nullptr if no plugin. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The name of the plugin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The plugin interface shared pointer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a53540c92d5727d511c3b766926937367}\label{classDobbyRdkPluginManager_a53540c92d5727d511c3b766926937367}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!HookPointToString@{HookPointToString}}
+\index{HookPointToString@{HookPointToString}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{HookPointToString()}{HookPointToString()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Rdk\+Plugin\+Manager\+::\+Hook\+Point\+To\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}} \&}]{hook\+Point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Converts hook point into human readable string
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em hook} & Which hook to translate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string with representation, empty if not found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a61fde77d116892f77933dd07a1b80c96}\label{classDobbyRdkPluginManager_a61fde77d116892f77933dd07a1b80c96}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!implementsHook@{implementsHook}}
+\index{implementsHook@{implementsHook}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{implementsHook()}{implementsHook()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Manager\+::implements\+Hook (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name,  }\item[{const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}}}]{hook }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if a plugin implements the specified hook. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & The name of the plugin to check \\
+\hline
+\mbox{\texttt{ in}}  & {\em hook} & The hook to check if the plugin implements\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if plugin implements specified hook 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a7dabcfc1ac832b349dbde5c8f7e80093}\label{classDobbyRdkPluginManager_a7dabcfc1ac832b349dbde5c8f7e80093}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!isLoaded@{isLoaded}}
+\index{isLoaded@{isLoaded}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{isLoaded()}{isLoaded()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Manager\+::is\+Loaded (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if a plugin is loaded. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & The name of the plugin to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a plugin is loaded, false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_abb80ace9584a52a2ab7788dc710e1a8f}\label{classDobbyRdkPluginManager_abb80ace9584a52a2ab7788dc710e1a8f}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!isRequired@{isRequired}}
+\index{isRequired@{isRequired}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{isRequired()}{isRequired()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Manager\+::is\+Required (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if a plugin is required. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & The name of the plugin to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if a plugin is required, false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_adc9bdfd0f14bc2cc951986fbeb07586a}\label{classDobbyRdkPluginManager_adc9bdfd0f14bc2cc951986fbeb07586a}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!loadPlugins@{loadPlugins}}
+\index{loadPlugins@{loadPlugins}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{loadPlugins()}{loadPlugins()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Manager\+::load\+Plugins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Scans the given path for any shared objects that implement the plugin entry points. 
+
+This calls dlopen() on all the executable files in the given path (although it doesn\textquotesingle{}t recurse into subdirs), if the file has symbols create\+IDobby\+Rdk\+Plugin and destroy\+IDobby\+Rdk\+Plugin then it\textquotesingle{}s deemed to be a \textquotesingle{}rdk\textquotesingle{} plugin.
+
+If loaded successfully the plugins are stored in an internal map, keyed off the plugin name.
+
+\begin{DoxyReturn}{Returns}
+False if unable to open the given directory, true otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a9335be51f0b59516378a0d2287656a56}\label{classDobbyRdkPluginManager_a9335be51f0b59516378a0d2287656a56}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!preprocessPlugins@{preprocessPlugins}}
+\index{preprocessPlugins@{preprocessPlugins}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{preprocessPlugins()}{preprocessPlugins()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Manager\+::preprocess\+Plugins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Prepares the dependency solver and required plugins data structures. 
+
+This method scans the container config and based on its contents\+:
+\begin{DoxyEnumerate}
+\item Adds all the plugins, along with their dependencies, to the plugin dependency solver,
+\item Creates a list of the required plugins,
+\item Checks if the required plugins are loaded.
+\end{DoxyEnumerate}
+
+\begin{DoxyReturn}{Returns}
+False if a required plugin is not loaded or if one of the dependencies is not a known plugin. True otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_a517b22c97e25e3cdc43de8771d51e9bf}\label{classDobbyRdkPluginManager_a517b22c97e25e3cdc43de8771d51e9bf}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!runPlugins@{runPlugins}}
+\index{runPlugins@{runPlugins}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{runPlugins()}{runPlugins()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Manager\+::run\+Plugins (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}} \&}]{hook\+Point,  }\item[{const uint}]{timeout\+Ms = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Run the plugins specified in the container config at the given hook point. Returns true if all required plugins execute successfully. If non-\/required plugins fail or are not loaded, then it logs an error but continues running other plugins. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em hook\+Point} & Which hook point to execute \\
+\hline
+\mbox{\texttt{ in}}  & {\em timeout\+Ms} & Timeout in miliseconds, if 0 (default value) then there will be no timeout.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if all required plugins ran successfully 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginManager_ad86ab60fff19426d2f7489d6825600cc}\label{classDobbyRdkPluginManager_ad86ab60fff19426d2f7489d6825600cc}} 
+\index{DobbyRdkPluginManager@{DobbyRdkPluginManager}!setExitStatus@{setExitStatus}}
+\index{setExitStatus@{setExitStatus}!DobbyRdkPluginManager@{DobbyRdkPluginManager}}
+\doxysubsubsection{\texorpdfstring{setExitStatus()}{setExitStatus()}}
+{\footnotesize\ttfamily void Dobby\+Rdk\+Plugin\+Manager\+::set\+Exit\+Status (\begin{DoxyParamCaption}\item[{int}]{status }\end{DoxyParamCaption}) const}
+
+
+
+Set the exit status of the container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em status} & The exit status of the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugin\+Launcher/lib/include/Dobby\+Rdk\+Plugin\+Manager.\+h\item 
+plugin\+Launcher/lib/source/Dobby\+Rdk\+Plugin\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,186 @@
+\hypertarget{classMountOwnerDetails}{}\doxysection{Mount\+Owner\+Details Class Reference}
+\label{classMountOwnerDetails}\index{MountOwnerDetails@{MountOwnerDetails}}
+
+
+Class that represents mount ownership and whether to apply recursively.  
+
+
+
+
+{\ttfamily \#include $<$Mount\+Owner\+Details.\+h$>$}
+
+
+
+Collaboration diagram for Mount\+Owner\+Details\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMountOwnerDetails_a60183035065231f82823a44908ac73a2}\label{classMountOwnerDetails_a60183035065231f82823a44908ac73a2}} 
+{\bfseries Mount\+Owner\+Details} (\mbox{\hyperlink{classMountOwnerDetails}{Mount\+Owner\+Details}} \&)=delete
+\item 
+\mbox{\Hypertarget{classMountOwnerDetails_ac206cca6fd969beb594c35778349317c}\label{classMountOwnerDetails_ac206cca6fd969beb594c35778349317c}} 
+{\bfseries Mount\+Owner\+Details} (\mbox{\hyperlink{classMountOwnerDetails}{Mount\+Owner\+Details}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classMountOwnerDetails_a52c5272c618ce6e79d42b582e13c3bdb}\label{classMountOwnerDetails_a52c5272c618ce6e79d42b582e13c3bdb}} 
+{\bfseries Mount\+Owner\+Details} (const std\+::string \&rootfs\+Path, const \mbox{\hyperlink{struct__MountOwnerProperties}{Mount\+Owner\+Properties}} \&mount\+Owner\+Properties, const uid\+\_\+t \&default\+User\+Id, const gid\+\_\+t \&default\+Group\+Id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils)
+\item 
+bool \mbox{\hyperlink{classMountOwnerDetails_a7d9f139c1cdb759f008653e6b9869fdb}{on\+Create\+Runtime}} () const
+\begin{DoxyCompactList}\small\item\em Changes ownership of mount source according to Mount\+Owner\+Properties during the create\+Runtime hook. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classMountOwnerDetails_a37a13ea6abd6e43e8927eec7709512ee}{get\+Owner\+Ids}} (uid\+\_\+t \&user\+Id, gid\+\_\+t \&group\+Id) const
+\begin{DoxyCompactList}\small\item\em Get user and group IDs based on their configured. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMountOwnerDetails_ad5b948d1d2ba20b8c57a51a17a391943}{process\+Owners}} () const
+\begin{DoxyCompactList}\small\item\em Process individual mount owner and change ownership either singularly or recursively. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMountOwnerDetails_a7a4a896c077d75c6fdba654e491972db}{change\+Owner\+Recursive}} (const std\+::string \&path, uid\+\_\+t user\+Id, gid\+\_\+t group\+Id) const
+\begin{DoxyCompactList}\small\item\em Change ownership recursively from the given path. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMountOwnerDetails_aadb12970175ec7c0b8a96501ffd9458d}{change\+Owner}} (const std\+::string \&path, uid\+\_\+t user\+Id, gid\+\_\+t group\+Id) const
+\begin{DoxyCompactList}\small\item\em Change ownership of mount according to properties structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMountOwnerDetails_a1b38c187570daa56147ed781ea492fe2}\label{classMountOwnerDetails_a1b38c187570daa56147ed781ea492fe2}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classMountOwnerDetails_abc1e757429998ddbba81bc2c65e3d06f}\label{classMountOwnerDetails_abc1e757429998ddbba81bc2c65e3d06f}} 
+\mbox{\hyperlink{struct__MountOwnerProperties}{Mount\+Owner\+Properties}} {\bfseries m\+Mount\+Owner\+Properties}
+\item 
+\mbox{\Hypertarget{classMountOwnerDetails_aec1160214576ca706f574441c86ba5db}\label{classMountOwnerDetails_aec1160214576ca706f574441c86ba5db}} 
+uid\+\_\+t {\bfseries m\+Default\+User\+Id}
+\item 
+\mbox{\Hypertarget{classMountOwnerDetails_a4a17b6aa31ae94e8b49d708209503f67}\label{classMountOwnerDetails_a4a17b6aa31ae94e8b49d708209503f67}} 
+gid\+\_\+t {\bfseries m\+Default\+Group\+Id}
+\item 
+\mbox{\Hypertarget{classMountOwnerDetails_a8077cc16b53a958313d5fa1a0877caf6}\label{classMountOwnerDetails_a8077cc16b53a958313d5fa1a0877caf6}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMountOwnerDetails_ab647623b3295040f83d3afb2a502a223}\label{classMountOwnerDetails_ab647623b3295040f83d3afb2a502a223}} 
+class {\bfseries Storage}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that represents mount ownership and whether to apply recursively. 
+
+This class is only intended to be used internally by \mbox{\hyperlink{classStorage}{Storage}} plugin do not use from external code.
+
+This class is only intended to be used internally by \mbox{\hyperlink{classStorage}{Storage}} plugin do not use from external code.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & Root FS path to apply ownership \\
+\hline
+\mbox{\texttt{ in}}  & {\em mount\+Properties} & Structure holding mount ownership configuration \\
+\hline
+\mbox{\texttt{ in}}  & {\em utils} & Useful \mbox{\hyperlink{classDobby}{Dobby}} utilities\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classStorage}{Storage}}
+
+\mbox{\hyperlink{classStorage}{Storage}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMountOwnerDetails_aadb12970175ec7c0b8a96501ffd9458d}\label{classMountOwnerDetails_aadb12970175ec7c0b8a96501ffd9458d}} 
+\index{MountOwnerDetails@{MountOwnerDetails}!changeOwner@{changeOwner}}
+\index{changeOwner@{changeOwner}!MountOwnerDetails@{MountOwnerDetails}}
+\doxysubsubsection{\texorpdfstring{changeOwner()}{changeOwner()}}
+{\footnotesize\ttfamily bool Mount\+Owner\+Details\+::change\+Owner (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{uid\+\_\+t}]{user\+Id,  }\item[{gid\+\_\+t}]{group\+Id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Change ownership of mount according to properties structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & Path to change ownership of \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+Id} & User ID to set \\
+\hline
+\mbox{\texttt{ in}}  & {\em group\+Id} & Group ID to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMountOwnerDetails_a7a4a896c077d75c6fdba654e491972db}\label{classMountOwnerDetails_a7a4a896c077d75c6fdba654e491972db}} 
+\index{MountOwnerDetails@{MountOwnerDetails}!changeOwnerRecursive@{changeOwnerRecursive}}
+\index{changeOwnerRecursive@{changeOwnerRecursive}!MountOwnerDetails@{MountOwnerDetails}}
+\doxysubsubsection{\texorpdfstring{changeOwnerRecursive()}{changeOwnerRecursive()}}
+{\footnotesize\ttfamily bool Mount\+Owner\+Details\+::change\+Owner\+Recursive (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{uid\+\_\+t}]{user\+Id,  }\item[{gid\+\_\+t}]{group\+Id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Change ownership recursively from the given path. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em path} & Path to recurse from \\
+\hline
+\mbox{\texttt{ out}}  & {\em user\+Id} & ID corresponding to the configured user name \\
+\hline
+\mbox{\texttt{ out}}  & {\em group\+Id} & ID corresponding to the configured group name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMountOwnerDetails_a37a13ea6abd6e43e8927eec7709512ee}\label{classMountOwnerDetails_a37a13ea6abd6e43e8927eec7709512ee}} 
+\index{MountOwnerDetails@{MountOwnerDetails}!getOwnerIds@{getOwnerIds}}
+\index{getOwnerIds@{getOwnerIds}!MountOwnerDetails@{MountOwnerDetails}}
+\doxysubsubsection{\texorpdfstring{getOwnerIds()}{getOwnerIds()}}
+{\footnotesize\ttfamily bool Mount\+Owner\+Details\+::get\+Owner\+Ids (\begin{DoxyParamCaption}\item[{uid\+\_\+t \&}]{user\+Id,  }\item[{gid\+\_\+t \&}]{group\+Id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get user and group IDs based on their configured. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em user\+Id} & ID corresponding to the configured user name \\
+\hline
+\mbox{\texttt{ out}}  & {\em group\+Id} & ID corresponding to the configured group name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMountOwnerDetails_a7d9f139c1cdb759f008653e6b9869fdb}\label{classMountOwnerDetails_a7d9f139c1cdb759f008653e6b9869fdb}} 
+\index{MountOwnerDetails@{MountOwnerDetails}!onCreateRuntime@{onCreateRuntime}}
+\index{onCreateRuntime@{onCreateRuntime}!MountOwnerDetails@{MountOwnerDetails}}
+\doxysubsubsection{\texorpdfstring{onCreateRuntime()}{onCreateRuntime()}}
+{\footnotesize\ttfamily bool Mount\+Owner\+Details\+::on\+Create\+Runtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Changes ownership of mount source according to Mount\+Owner\+Properties during the create\+Runtime hook. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMountOwnerDetails_ad5b948d1d2ba20b8c57a51a17a391943}\label{classMountOwnerDetails_ad5b948d1d2ba20b8c57a51a17a391943}} 
+\index{MountOwnerDetails@{MountOwnerDetails}!processOwners@{processOwners}}
+\index{processOwners@{processOwners}!MountOwnerDetails@{MountOwnerDetails}}
+\doxysubsubsection{\texorpdfstring{processOwners()}{processOwners()}}
+{\footnotesize\ttfamily bool Mount\+Owner\+Details\+::process\+Owners (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Process individual mount owner and change ownership either singularly or recursively. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Storage/source/Mount\+Owner\+Details.\+h\item 
+rdk\+Plugins/\+Storage/source/Mount\+Owner\+Details.\+cpp\end{DoxyCompactItemize}

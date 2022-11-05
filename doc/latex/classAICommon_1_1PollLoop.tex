@@ -1,0 +1,283 @@
+\hypertarget{classAICommon_1_1PollLoop}{}\doxysection{AICommon\+::Poll\+Loop Class Reference}
+\label{classAICommon_1_1PollLoop}\index{AICommon::PollLoop@{AICommon::PollLoop}}
+
+
+A wrapper around epoll that allows for adding, modifying \& deleting of source events.  
+
+
+
+
+{\ttfamily \#include $<$Poll\+Loop.\+h$>$}
+
+
+
+Inheritance diagram for AICommon\+::Poll\+Loop\+:
+% FIG 0
+
+
+Collaboration diagram for AICommon\+::Poll\+Loop\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAICommon_1_1PollLoop_1_1tagPollSourceWrapper}{tag\+Poll\+Source\+Wrapper}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAICommon_1_1PollLoop_a865914dbb79545a9482743c13b2a6daa}{Poll\+Loop}} (const std\+::string \&name, int max\+Sources=512, long deferred\+Time\+Interval=20)
+\begin{DoxyCompactList}\small\item\em Constructs a poll loop with the given name and restrictions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_ab3ec623ae00485f55246be7b7d2f8621}\label{classAICommon_1_1PollLoop_ab3ec623ae00485f55246be7b7d2f8621}} 
+virtual \mbox{\hyperlink{classAICommon_1_1PollLoop_ab3ec623ae00485f55246be7b7d2f8621}{$\sim$\+Poll\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the poll loop, tears down the thread if the loop is running. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAICommon_1_1PollLoop_a1bec68e5aa186a6564e8d7982d8d8c16}{start}} (int priority=-\/1) override
+\begin{DoxyCompactList}\small\item\em Starts the poll thread. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classAICommon_1_1PollLoop_ab95845e01aab416d883a04f78c04d450}{stop}} () override
+\begin{DoxyCompactList}\small\item\em Stops the poll loop thread. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAICommon_1_1PollLoop_a0dabcfb6a63cd62574091afa35e03efd}{add\+Source}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&source, int fd, uint32\+\_\+t events) override
+\begin{DoxyCompactList}\small\item\em Adds a new event source to the poll loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a8530785ad61b02bc580b91578e533111}\label{classAICommon_1_1PollLoop_a8530785ad61b02bc580b91578e533111}} 
+virtual bool {\bfseries mod\+Source} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&source, uint32\+\_\+t events) override
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a16e1b72ba5e1dbd681d97f8654a7dc31}\label{classAICommon_1_1PollLoop_a16e1b72ba5e1dbd681d97f8654a7dc31}} 
+virtual void {\bfseries del\+Source} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&source, int fd=-\/1) override
+\item 
+virtual bool \mbox{\hyperlink{classAICommon_1_1PollLoop_a78cfcc2124da0b44389e515f09ded78a}{has\+Source}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&source) override
+\begin{DoxyCompactList}\small\item\em Returns true if the specified source is currently installed in the poll\+Loop. \end{DoxyCompactList}\item 
+virtual std\+::thread\+::id \mbox{\hyperlink{classAICommon_1_1PollLoop_ae96184e0f75c19be48f69661e4536d0f}{thread\+Id}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the thread id of the poll loop thread. \end{DoxyCompactList}\item 
+virtual pid\+\_\+t \mbox{\hyperlink{classAICommon_1_1PollLoop_add4ae9a2aee94647cc3eedadbea8f1b4}{gettid}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the linux thread id of the poll loop thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a80ffaaa6c8f0e51d7290833b75d137db}\label{classAICommon_1_1PollLoop_a80ffaaa6c8f0e51d7290833b75d137db}} 
+typedef struct \mbox{\hyperlink{structAICommon_1_1PollLoop_1_1tagPollSourceWrapper}{AICommon\+::\+Poll\+Loop\+::tag\+Poll\+Source\+Wrapper}} {\bfseries Poll\+Source\+Wrapper}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a7a20c24ef4fd31f715f322ad234c589e}\label{classAICommon_1_1PollLoop_a7a20c24ef4fd31f715f322ad234c589e}} 
+void {\bfseries init} ()
+\item 
+void \mbox{\hyperlink{classAICommon_1_1PollLoop_acd8da81ba9d8b1a08f9ff577b0edfa10}{run}} (const std\+::string \&name, int priority)
+\begin{DoxyCompactList}\small\item\em The poll loop thread function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAICommon_1_1PollLoop_a8ef583f71c1d91474d429b09af233db3}{enable\+Deferred\+Timer}} ()
+\begin{DoxyCompactList}\small\item\em Enables the deferred timer event source. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_adac8926977e51c26ea1b7116b5813fda}\label{classAICommon_1_1PollLoop_adac8926977e51c26ea1b7116b5813fda}} 
+void \mbox{\hyperlink{classAICommon_1_1PollLoop_adac8926977e51c26ea1b7116b5813fda}{disable\+Deferred\+Timer}} ()
+\begin{DoxyCompactList}\small\item\em Disables the deferred timer event source. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_adcda35d9c57ee3bfd046c36e73f4a52b}\label{classAICommon_1_1PollLoop_adcda35d9c57ee3bfd046c36e73f4a52b}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a03621597bc4e10012dd36f3fc0a1de01}\label{classAICommon_1_1PollLoop_a03621597bc4e10012dd36f3fc0a1de01}} 
+std\+::thread {\bfseries m\+EPoll\+Thread}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a1658afdba2f531cfe23ee33e897ea3c2}\label{classAICommon_1_1PollLoop_a1658afdba2f531cfe23ee33e897ea3c2}} 
+std\+::atomic$<$ pid\+\_\+t $>$ {\bfseries m\+EPoll\+Thread\+Id}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_ad8335ce48e8a289f3b98ce379b668474}\label{classAICommon_1_1PollLoop_ad8335ce48e8a289f3b98ce379b668474}} 
+int {\bfseries m\+EPoll\+Fd}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a9e4aec59ab2493d0810bf9197cbba156}\label{classAICommon_1_1PollLoop_a9e4aec59ab2493d0810bf9197cbba156}} 
+int {\bfseries m\+Death\+Event\+Fd}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a9b2259ba9a885d112d4b0c5ba4126f75}\label{classAICommon_1_1PollLoop_a9b2259ba9a885d112d4b0c5ba4126f75}} 
+int {\bfseries m\+Defer\+Timer\+Fd}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a2ee7b5d09d01121aa07565da0115f48b}\label{classAICommon_1_1PollLoop_a2ee7b5d09d01121aa07565da0115f48b}} 
+const struct itimerspec {\bfseries m\+Defer\+Timer\+Spec}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a8df763c5e804585bb4d1100237236ee5}\label{classAICommon_1_1PollLoop_a8df763c5e804585bb4d1100237236ee5}} 
+\mbox{\hyperlink{classAICommon_1_1Spinlock}{Spinlock}} {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a2b9478ec0cc1b94e82b6bda7cad4eb52}\label{classAICommon_1_1PollLoop_a2b9478ec0cc1b94e82b6bda7cad4eb52}} 
+const int {\bfseries m\+Max\+Sources}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_aaa53c472fbb25a45d3e89937ecee8b26}\label{classAICommon_1_1PollLoop_aaa53c472fbb25a45d3e89937ecee8b26}} 
+int {\bfseries m\+Deferred\+Sources}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a50e81e3ac2459f6fa2512957709944d1}\label{classAICommon_1_1PollLoop_a50e81e3ac2459f6fa2512957709944d1}} 
+std\+::list$<$ \mbox{\hyperlink{structAICommon_1_1PollLoop_1_1tagPollSourceWrapper}{Poll\+Source\+Wrapper}} $>$ {\bfseries m\+Sources}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A wrapper around epoll that allows for adding, modifying \& deleting of source events. 
+
+Poll loop sources are a tuple of a shared\+\_\+ptr$<$\+IPoll\+Source$>$, an fd and a bitmask of events to listen on. Poll\+Source objects are store as weak\+\_\+ptrs and only locked when they have been triggered and their process() function is to be called.
+
+This should make the race conditions with calling an object that has been destroy safe, however it does means that Poll\+Source objects shouldn\textquotesingle{}t assume that their process() methods won\textquotesingle{}t be called after they\textquotesingle{}ve been removed from the poll loop. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a865914dbb79545a9482743c13b2a6daa}\label{classAICommon_1_1PollLoop_a865914dbb79545a9482743c13b2a6daa}} 
+\index{AICommon::PollLoop@{AICommon::PollLoop}!PollLoop@{PollLoop}}
+\index{PollLoop@{PollLoop}!AICommon::PollLoop@{AICommon::PollLoop}}
+\doxysubsubsection{\texorpdfstring{PollLoop()}{PollLoop()}}
+{\footnotesize\ttfamily Poll\+Loop\+::\+Poll\+Loop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{int}]{max\+Sources = {\ttfamily 512},  }\item[{long}]{deferred\+Time\+Interval = {\ttfamily 20} }\end{DoxyParamCaption})}
+
+
+
+Constructs a poll loop with the given name and restrictions. 
+
+A constructed poll loop is not automatically started, rather the caller should call start to spawn a thread and run the poll loop inside it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em name} & The name to give the poll loop thread (nb\+: thread names are limited to 16 characters). \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+Sources} & The maximum number of event sources that can be installed on the poll loop. \\
+\hline
+\mbox{\texttt{ in}}  & {\em deferred\+Time\+Interval} & The time interval in milliseconds of the deferred timer \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a0dabcfb6a63cd62574091afa35e03efd}\label{classAICommon_1_1PollLoop_a0dabcfb6a63cd62574091afa35e03efd}} 
+\index{AICommon::PollLoop@{AICommon::PollLoop}!addSource@{addSource}}
+\index{addSource@{addSource}!AICommon::PollLoop@{AICommon::PollLoop}}
+\doxysubsubsection{\texorpdfstring{addSource()}{addSource()}}
+{\footnotesize\ttfamily bool Poll\+Loop\+::add\+Source (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&}]{source,  }\item[{int}]{fd,  }\item[{uint32\+\_\+t}]{events }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds a new event source to the poll loop. 
+
+A source is a file descriptor, a bitmask of events to wait for and a \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} object that will be called when any of the events in the bitmask occur on the file descriptor.
+
+This method may fail if the number of sources installed exceeds the maximum allowed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The source object to call process() on when an event occurs \\
+\hline
+\mbox{\texttt{ in}}  & {\em fd} & The file descriptor to poll on \\
+\hline
+\mbox{\texttt{ in}}  & {\em events} & A bitmask of events to listen on\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}}.
+
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a8ef583f71c1d91474d429b09af233db3}\label{classAICommon_1_1PollLoop_a8ef583f71c1d91474d429b09af233db3}} 
+\index{AICommon::PollLoop@{AICommon::PollLoop}!enableDeferredTimer@{enableDeferredTimer}}
+\index{enableDeferredTimer@{enableDeferredTimer}!AICommon::PollLoop@{AICommon::PollLoop}}
+\doxysubsubsection{\texorpdfstring{enableDeferredTimer()}{enableDeferredTimer()}}
+{\footnotesize\ttfamily void Poll\+Loop\+::enable\+Deferred\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Enables the deferred timer event source. 
+
+This is an internal function that is called when a source event has been \textquotesingle{}deferred\textquotesingle{}, i.\+e. a client has called mod\+Source(..., EPOLLDEFERRED). \mbox{\Hypertarget{classAICommon_1_1PollLoop_add4ae9a2aee94647cc3eedadbea8f1b4}\label{classAICommon_1_1PollLoop_add4ae9a2aee94647cc3eedadbea8f1b4}} 
+\index{AICommon::PollLoop@{AICommon::PollLoop}!gettid@{gettid}}
+\index{gettid@{gettid}!AICommon::PollLoop@{AICommon::PollLoop}}
+\doxysubsubsection{\texorpdfstring{gettid()}{gettid()}}
+{\footnotesize\ttfamily pid\+\_\+t Poll\+Loop\+::gettid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the linux thread id of the poll loop thread. 
+
+If the poll loop /threa is not current running -\/1 will be returned. 
+
+Implements \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}}.
+
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_a78cfcc2124da0b44389e515f09ded78a}\label{classAICommon_1_1PollLoop_a78cfcc2124da0b44389e515f09ded78a}} 
+\index{AICommon::PollLoop@{AICommon::PollLoop}!hasSource@{hasSource}}
+\index{hasSource@{hasSource}!AICommon::PollLoop@{AICommon::PollLoop}}
+\doxysubsubsection{\texorpdfstring{hasSource()}{hasSource()}}
+{\footnotesize\ttfamily bool Poll\+Loop\+::has\+Source (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollSource}{IPoll\+Source}} $>$ \&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns true if the specified source is currently installed in the poll\+Loop. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The source object to search for in the poll\+Loop\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if source installed 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}}.
+
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_acd8da81ba9d8b1a08f9ff577b0edfa10}\label{classAICommon_1_1PollLoop_acd8da81ba9d8b1a08f9ff577b0edfa10}} 
+\index{AICommon::PollLoop@{AICommon::PollLoop}!run@{run}}
+\index{run@{run}!AICommon::PollLoop@{AICommon::PollLoop}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Poll\+Loop\+::run (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{int}]{priority }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The poll loop thread function. 
+
+This is the thread that does all the epoll stuff. \mbox{\Hypertarget{classAICommon_1_1PollLoop_a1bec68e5aa186a6564e8d7982d8d8c16}\label{classAICommon_1_1PollLoop_a1bec68e5aa186a6564e8d7982d8d8c16}} 
+\index{AICommon::PollLoop@{AICommon::PollLoop}!start@{start}}
+\index{start@{start}!AICommon::PollLoop@{AICommon::PollLoop}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool Poll\+Loop\+::start (\begin{DoxyParamCaption}\item[{int}]{priority = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Starts the poll thread. 
+
+If the poll loop was already running it is stopped and restarted.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em priority} & The SCRED\+\_\+\+RR priority in which to run the poll loop, if -\/1 the priority is inherited from the calling thread\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}}.
+
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_ab95845e01aab416d883a04f78c04d450}\label{classAICommon_1_1PollLoop_ab95845e01aab416d883a04f78c04d450}} 
+\index{AICommon::PollLoop@{AICommon::PollLoop}!stop@{stop}}
+\index{stop@{stop}!AICommon::PollLoop@{AICommon::PollLoop}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Poll\+Loop\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Stops the poll loop thread. 
+
+Stops the poll loop and cleans up all the resources associated with it. 
+
+Implements \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}}.
+
+\mbox{\Hypertarget{classAICommon_1_1PollLoop_ae96184e0f75c19be48f69661e4536d0f}\label{classAICommon_1_1PollLoop_ae96184e0f75c19be48f69661e4536d0f}} 
+\index{AICommon::PollLoop@{AICommon::PollLoop}!threadId@{threadId}}
+\index{threadId@{threadId}!AICommon::PollLoop@{AICommon::PollLoop}}
+\doxysubsubsection{\texorpdfstring{threadId()}{threadId()}}
+{\footnotesize\ttfamily std\+::thread\+::id Poll\+Loop\+::thread\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the thread id of the poll loop thread. 
+
+If the poll loop /threa is not current running, a default constructed std\+::thread\+::id is returned. 
+
+Implements \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Common/include/Poll\+Loop.\+h\item 
+App\+Infrastructure/\+Common/source/Poll\+Loop.\+cpp\end{DoxyCompactItemize}

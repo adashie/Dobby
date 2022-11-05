@@ -1,0 +1,138 @@
+\hypertarget{classDobbyLogRelay}{}\doxysection{Dobby\+Log\+Relay Class Reference}
+\label{classDobbyLogRelay}\index{DobbyLogRelay@{DobbyLogRelay}}
+
+
+Inheritance diagram for Dobby\+Log\+Relay\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Log\+Relay\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDobbyLogRelay_a2cc3a9bf5625fe34771dec1feb3732a1}{Dobby\+Log\+Relay}} (const std\+::string \&source\+Socket\+Path, const std\+::string \&destination\+Socket\+Path)
+\begin{DoxyCompactList}\small\item\em Create relay between two UNIX datagram sockets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyLogRelay_a9edf3846d6d73a7625736148d5472ce4}{process}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&poll\+Loop, epoll\+\_\+event event) override
+\begin{DoxyCompactList}\small\item\em Called on the poll loop. Forwards the data from the source to the destination socket. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyLogRelay_a680c31bd645fbc8322ac9a54ff84f027}{add\+To\+Poll\+Loop}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&poll\+Loop)
+\begin{DoxyCompactList}\small\item\em Adds the log relay to a given poll loop so that the \mbox{\hyperlink{classDobbyLogRelay_a9edf3846d6d73a7625736148d5472ce4}{process()}} method is called when the source socket receives data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyLogRelay_a719191ef681e9cc11ff1d2ad8a9b4999}{remove\+From\+Poll\+Loop}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&poll\+Loop)
+\begin{DoxyCompactList}\small\item\em Removes the log relay to a given poll loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classDobbyLogRelay_ac9b3729f48e1f5ecfde0f0f787277ccc}{create\+Dgram\+Socket}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Create a SOCK\+\_\+\+DGRAM AF\+\_\+\+UNIX socket at the given path. Removes the socket at the given path if it exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyLogRelay_ae8c8e1f2d01f289208491afd0967d4b1}\label{classDobbyLogRelay_ae8c8e1f2d01f289208491afd0967d4b1}} 
+const std\+::string {\bfseries m\+Source\+Socket\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyLogRelay_a2d3a8ae4f8227ecde90c018595cc8859}\label{classDobbyLogRelay_a2d3a8ae4f8227ecde90c018595cc8859}} 
+const std\+::string {\bfseries m\+Destination\+Socket\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyLogRelay_acd131999bf40d00295f6e9121a1cf2ef}\label{classDobbyLogRelay_acd131999bf40d00295f6e9121a1cf2ef}} 
+int {\bfseries m\+Source\+Socket\+Fd}
+\item 
+\mbox{\Hypertarget{classDobbyLogRelay_a572ac37c888274b0181cc0bc93f82834}\label{classDobbyLogRelay_a572ac37c888274b0181cc0bc93f82834}} 
+int {\bfseries m\+Destination\+Socket\+Fd}
+\item 
+\mbox{\Hypertarget{classDobbyLogRelay_a64b50a710f8cdd11d99c5d8b5bed7da1}\label{classDobbyLogRelay_a64b50a710f8cdd11d99c5d8b5bed7da1}} 
+sockaddr\+\_\+un {\bfseries m\+Destination\+Socket\+Address}
+\item 
+\mbox{\Hypertarget{classDobbyLogRelay_a0ea2d6519ddaa42d77c2b158975a28f9}\label{classDobbyLogRelay_a0ea2d6519ddaa42d77c2b158975a28f9}} 
+char {\bfseries m\+Buf} \mbox{[}BUFFER\+\_\+\+SIZE\mbox{]}
+\item 
+\mbox{\Hypertarget{classDobbyLogRelay_ada6f3e464e3b4d4c018c21b44d51c11f}\label{classDobbyLogRelay_ada6f3e464e3b4d4c018c21b44d51c11f}} 
+std\+::mutex {\bfseries m\+Lock}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDobbyLogRelay_a2cc3a9bf5625fe34771dec1feb3732a1}\label{classDobbyLogRelay_a2cc3a9bf5625fe34771dec1feb3732a1}} 
+\index{DobbyLogRelay@{DobbyLogRelay}!DobbyLogRelay@{DobbyLogRelay}}
+\index{DobbyLogRelay@{DobbyLogRelay}!DobbyLogRelay@{DobbyLogRelay}}
+\doxysubsubsection{\texorpdfstring{DobbyLogRelay()}{DobbyLogRelay()}}
+{\footnotesize\ttfamily Dobby\+Log\+Relay\+::\+Dobby\+Log\+Relay (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{source\+Socket\+Path,  }\item[{const std\+::string \&}]{destination\+Socket\+Path }\end{DoxyParamCaption})}
+
+
+
+Create relay between two UNIX datagram sockets. 
+
+All messages sent to the source socket are forwarded to the destination socket. Used to relay messages to the host syslog/journald and ensure the messages are tagged with the dobby daemon PID for the RDK log collection scripts 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyLogRelay_a680c31bd645fbc8322ac9a54ff84f027}\label{classDobbyLogRelay_a680c31bd645fbc8322ac9a54ff84f027}} 
+\index{DobbyLogRelay@{DobbyLogRelay}!addToPollLoop@{addToPollLoop}}
+\index{addToPollLoop@{addToPollLoop}!DobbyLogRelay@{DobbyLogRelay}}
+\doxysubsubsection{\texorpdfstring{addToPollLoop()}{addToPollLoop()}}
+{\footnotesize\ttfamily void Dobby\+Log\+Relay\+::add\+To\+Poll\+Loop (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&}]{poll\+Loop }\end{DoxyParamCaption})}
+
+
+
+Adds the log relay to a given poll loop so that the \mbox{\hyperlink{classDobbyLogRelay_a9edf3846d6d73a7625736148d5472ce4}{process()}} method is called when the source socket receives data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poll\+Loop} & The poll loop to add ourselves to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyLogRelay_ac9b3729f48e1f5ecfde0f0f787277ccc}\label{classDobbyLogRelay_ac9b3729f48e1f5ecfde0f0f787277ccc}} 
+\index{DobbyLogRelay@{DobbyLogRelay}!createDgramSocket@{createDgramSocket}}
+\index{createDgramSocket@{createDgramSocket}!DobbyLogRelay@{DobbyLogRelay}}
+\doxysubsubsection{\texorpdfstring{createDgramSocket()}{createDgramSocket()}}
+{\footnotesize\ttfamily int Dobby\+Log\+Relay\+::create\+Dgram\+Socket (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create a SOCK\+\_\+\+DGRAM AF\+\_\+\+UNIX socket at the given path. Removes the socket at the given path if it exists. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & The path the socket should be created at \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyLogRelay_a9edf3846d6d73a7625736148d5472ce4}\label{classDobbyLogRelay_a9edf3846d6d73a7625736148d5472ce4}} 
+\index{DobbyLogRelay@{DobbyLogRelay}!process@{process}}
+\index{process@{process}!DobbyLogRelay@{DobbyLogRelay}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily void Dobby\+Log\+Relay\+::process (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&}]{poll\+Loop,  }\item[{epoll\+\_\+event}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called on the poll loop. Forwards the data from the source to the destination socket. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poll\+Loop} & The poll\+Loop instance that the process method was called from \\
+\hline
+\mbox{\texttt{ in}}  & {\em events} & The epoll event that occured \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classAICommon_1_1IPollSource}{AICommon\+::\+IPoll\+Source}}.
+
+\mbox{\Hypertarget{classDobbyLogRelay_a719191ef681e9cc11ff1d2ad8a9b4999}\label{classDobbyLogRelay_a719191ef681e9cc11ff1d2ad8a9b4999}} 
+\index{DobbyLogRelay@{DobbyLogRelay}!removeFromPollLoop@{removeFromPollLoop}}
+\index{removeFromPollLoop@{removeFromPollLoop}!DobbyLogRelay@{DobbyLogRelay}}
+\doxysubsubsection{\texorpdfstring{removeFromPollLoop()}{removeFromPollLoop()}}
+{\footnotesize\ttfamily void Dobby\+Log\+Relay\+::remove\+From\+Poll\+Loop (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&}]{poll\+Loop }\end{DoxyParamCaption})}
+
+
+
+Removes the log relay to a given poll loop. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poll\+Loop} & The poll loop to add ourselves to \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Log\+Relay.\+h\item 
+daemon/lib/source/Dobby\+Log\+Relay.\+cpp\end{DoxyCompactItemize}

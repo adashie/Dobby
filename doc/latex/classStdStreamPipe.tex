@@ -1,0 +1,76 @@
+\hypertarget{classStdStreamPipe}{}\doxysection{Std\+Stream\+Pipe Class Reference}
+\label{classStdStreamPipe}\index{StdStreamPipe@{StdStreamPipe}}
+
+
+Utility object that creates a pipe that can be used to capture stdout/ stderr.  
+
+
+
+
+{\ttfamily \#include $<$Std\+Stream\+Pipe.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStdStreamPipe_a99a7fa330a3c2185ee57937e9f4b4d95}{Std\+Stream\+Pipe}} (bool log\+Pipe\+Contents)
+\begin{DoxyCompactList}\small\item\em Creates a new pipe that can be used to capture std streams. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStdStreamPipe_a5213a01f93482a9a0b2cb2862d2bc575}\label{classStdStreamPipe_a5213a01f93482a9a0b2cb2862d2bc575}} 
+int {\bfseries write\+Fd} () const
+\item 
+std\+::string \mbox{\hyperlink{classStdStreamPipe_a4afbbf3aa33dd6cb662dea12802e5e5a}{get\+Pipe\+Contents}} () const
+\begin{DoxyCompactList}\small\item\em Gets the contents of the pipe as a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStdStreamPipe_a08d44a19bb979bcd608a56640277533b}\label{classStdStreamPipe_a08d44a19bb979bcd608a56640277533b}} 
+int {\bfseries m\+Read\+Fd}
+\item 
+\mbox{\Hypertarget{classStdStreamPipe_a8eb23cf31e6cec8d4161ebf2673f755c}\label{classStdStreamPipe_a8eb23cf31e6cec8d4161ebf2673f755c}} 
+int {\bfseries m\+Write\+Fd}
+\item 
+\mbox{\Hypertarget{classStdStreamPipe_a5dd0a02abe9a1580fc2b2fcf2141c9b1}\label{classStdStreamPipe_a5dd0a02abe9a1580fc2b2fcf2141c9b1}} 
+bool {\bfseries m\+Log\+Pipe}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility object that creates a pipe that can be used to capture stdout/ stderr. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStdStreamPipe_a99a7fa330a3c2185ee57937e9f4b4d95}\label{classStdStreamPipe_a99a7fa330a3c2185ee57937e9f4b4d95}} 
+\index{StdStreamPipe@{StdStreamPipe}!StdStreamPipe@{StdStreamPipe}}
+\index{StdStreamPipe@{StdStreamPipe}!StdStreamPipe@{StdStreamPipe}}
+\doxysubsubsection{\texorpdfstring{StdStreamPipe()}{StdStreamPipe()}}
+{\footnotesize\ttfamily Std\+Stream\+Pipe\+::\+Std\+Stream\+Pipe (\begin{DoxyParamCaption}\item[{bool}]{log\+Pipe\+Contents }\end{DoxyParamCaption})}
+
+
+
+Creates a new pipe that can be used to capture std streams. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+Pipe\+Contents} & If true, then log the contents of the pipe when destructed (useful for capturing stderr) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStdStreamPipe_a4afbbf3aa33dd6cb662dea12802e5e5a}\label{classStdStreamPipe_a4afbbf3aa33dd6cb662dea12802e5e5a}} 
+\index{StdStreamPipe@{StdStreamPipe}!getPipeContents@{getPipeContents}}
+\index{getPipeContents@{getPipeContents}!StdStreamPipe@{StdStreamPipe}}
+\doxysubsubsection{\texorpdfstring{getPipeContents()}{getPipeContents()}}
+{\footnotesize\ttfamily std\+::string Std\+Stream\+Pipe\+::get\+Pipe\+Contents (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the contents of the pipe as a string. 
+
+\begin{DoxyWarning}{Warning}
+This is not thread-\/safe as will seek the pipe. 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Networking/include/Std\+Stream\+Pipe.\+h\item 
+rdk\+Plugins/\+Networking/source/Std\+Stream\+Pipe.\+cpp\end{DoxyCompactItemize}

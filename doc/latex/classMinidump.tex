@@ -1,0 +1,143 @@
+\hypertarget{classMinidump}{}\doxysection{Minidump Class Reference}
+\label{classMinidump}\index{Minidump@{Minidump}}
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} RDK \mbox{\hyperlink{classMinidump}{Minidump}} Plugin.  
+
+
+
+
+{\ttfamily \#include $<$Minidump.\+h$>$}
+
+
+
+Inheritance diagram for Minidump\+:
+% FIG 0
+
+
+Collaboration diagram for Minidump\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMinidump_ae24f92eb1ea6929bc4e22785fbba9b49}{Minidump}} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ called when plugin is loaded by Plugin\+Launcher. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classMinidump_af8b2f4eaaea89724dfb784b0140fa625}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMinidump_a492948101d99b47d946e6c391d6442db}\label{classMinidump_a492948101d99b47d946e6c391d6442db}} 
+unsigned \mbox{\hyperlink{classMinidump_a492948101d99b47d946e6c391d6442db}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMinidump_a27630b9c4f65f4ddd16dcc7c6cf3d219}\label{classMinidump_a27630b9c4f65f4ddd16dcc7c6cf3d219}} 
+bool \mbox{\hyperlink{classMinidump_a27630b9c4f65f4ddd16dcc7c6cf3d219}{pre\+Creation}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in host namespace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMinidump_a8f2b20d9e46d6a9dd6e157cf19756401}\label{classMinidump_a8f2b20d9e46d6a9dd6e157cf19756401}} 
+bool \mbox{\hyperlink{classMinidump_a8f2b20d9e46d6a9dd6e157cf19756401}{post\+Halt}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ Run in host namespace when container terminates. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classMinidump_ad8abfe6ec5b6e94def0a1fd8bf526fde}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classMinidump_ae99c8911a40c800ee4fb33f487d96024}{get\+Destination\+File}} ()
+\begin{DoxyCompactList}\small\item\em Creates a target location for the file where minidumps will be loaded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMinidump_a1b9a62094ca2811310f8dc35fa3f0786}\label{classMinidump_a1b9a62094ca2811310f8dc35fa3f0786}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classMinidump_a19d9eaeeeeed56f66130ee2c08796844}\label{classMinidump_a19d9eaeeeeed56f66130ee2c08796844}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classMinidump_ad5c0d6794181ff46712a52024b1817b0}\label{classMinidump_ad5c0d6794181ff46712a52024b1817b0}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classMinidump_ad4235a6903b586af59f116fe30c10b32}\label{classMinidump_ad4235a6903b586af59f116fe30c10b32}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDobby}{Dobby}} RDK \mbox{\hyperlink{classMinidump}{Minidump}} Plugin. 
+
+Manages collection of minidump core files located in container namespace 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMinidump_ae24f92eb1ea6929bc4e22785fbba9b49}\label{classMinidump_ae24f92eb1ea6929bc4e22785fbba9b49}} 
+\index{Minidump@{Minidump}!Minidump@{Minidump}}
+\index{Minidump@{Minidump}!Minidump@{Minidump}}
+\doxysubsubsection{\texorpdfstring{Minidump()}{Minidump()}}
+{\footnotesize\ttfamily Minidump\+::\+Minidump (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&}]{container\+Config,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption})}
+
+
+
+Constructor -\/ called when plugin is loaded by Plugin\+Launcher. 
+
+Do not change the parameters for this constructor -\/ must match C methods created by REGISTER\+\_\+\+RDK\+\_\+\+PLUGIN macro
+
+Note plugin name is not case sensitive 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMinidump_ad8abfe6ec5b6e94def0a1fd8bf526fde}\label{classMinidump_ad8abfe6ec5b6e94def0a1fd8bf526fde}} 
+\index{Minidump@{Minidump}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!Minidump@{Minidump}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Minidump\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classMinidump_ae99c8911a40c800ee4fb33f487d96024}\label{classMinidump_ae99c8911a40c800ee4fb33f487d96024}} 
+\index{Minidump@{Minidump}!getDestinationFile@{getDestinationFile}}
+\index{getDestinationFile@{getDestinationFile}!Minidump@{Minidump}}
+\doxysubsubsection{\texorpdfstring{getDestinationFile()}{getDestinationFile()}}
+{\footnotesize\ttfamily std\+::string Minidump\+::get\+Destination\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a target location for the file where minidumps will be loaded. 
+
+It consist of\+:
+\begin{DoxyItemize}
+\item destination path (/opt/minidumps or /opt/secure/minidumps) from config.\+json
+\item container id (e.\+g. \char`\"{}de.\+sky.\+ZDF\char`\"{})
+\item extension $\ast$.dmp
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+Destination minidump file path string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMinidump_af8b2f4eaaea89724dfb784b0140fa625}\label{classMinidump_af8b2f4eaaea89724dfb784b0140fa625}} 
+\index{Minidump@{Minidump}!name@{name}}
+\index{name@{name}!Minidump@{Minidump}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Minidump\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Minidump/source/Minidump.\+h\item 
+rdk\+Plugins/\+Minidump/source/Minidump.\+cpp\end{DoxyCompactItemize}

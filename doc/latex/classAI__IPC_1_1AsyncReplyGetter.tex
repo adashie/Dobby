@@ -1,0 +1,57 @@
+\hypertarget{classAI__IPC_1_1AsyncReplyGetter}{}\doxysection{AI\+\_\+\+IPC\+::Async\+Reply\+Getter Class Reference}
+\label{classAI__IPC_1_1AsyncReplyGetter}\index{AI\_IPC::AsyncReplyGetter@{AI\_IPC::AsyncReplyGetter}}
+
+
+Inheritance diagram for AI\+\_\+\+IPC\+::Async\+Reply\+Getter\+:
+% FIG 0
+
+
+Collaboration diagram for AI\+\_\+\+IPC\+::Async\+Reply\+Getter\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1AsyncReplyGetter_ab58f4d4c49e614a2aad2fd90f9076a41}\label{classAI__IPC_1_1AsyncReplyGetter_ab58f4d4c49e614a2aad2fd90f9076a41}} 
+{\bfseries Async\+Reply\+Getter} (const std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1DbusConnection}{Dbus\+Connection}} $>$ \&dbus\+Connection, uint64\+\_\+t token)
+\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1AsyncReplyGetter_a1b30038c2ce7e8259d67d0b274eb452a}{get\+Reply}} (Variant\+List \&arg\+List) override
+\begin{DoxyCompactList}\small\item\em Get reply. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1AsyncReplyGetter_aebbc46a213856347afd47e5862a7116f}\label{classAI__IPC_1_1AsyncReplyGetter_aebbc46a213856347afd47e5862a7116f}} 
+const std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1DbusConnection}{Dbus\+Connection}} $>$ {\bfseries m\+Dbus\+Connection}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1AsyncReplyGetter_a19abca1b15ce84c522784708f6b2f9e2}\label{classAI__IPC_1_1AsyncReplyGetter_a19abca1b15ce84c522784708f6b2f9e2}} 
+std\+::atomic$<$ uint64\+\_\+t $>$ {\bfseries m\+Reply\+Token}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAI__IPC_1_1AsyncReplyGetter_a1b30038c2ce7e8259d67d0b274eb452a}\label{classAI__IPC_1_1AsyncReplyGetter_a1b30038c2ce7e8259d67d0b274eb452a}} 
+\index{AI\_IPC::AsyncReplyGetter@{AI\_IPC::AsyncReplyGetter}!getReply@{getReply}}
+\index{getReply@{getReply}!AI\_IPC::AsyncReplyGetter@{AI\_IPC::AsyncReplyGetter}}
+\doxysubsubsection{\texorpdfstring{getReply()}{getReply()}}
+{\footnotesize\ttfamily bool Async\+Reply\+Getter\+::get\+Reply (\begin{DoxyParamCaption}\item[{Variant\+List \&}]{arg\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get reply. 
+
+@parameter\mbox{[}out\mbox{]} arg\+List This is the return value of the method call
+
+\begin{DoxyReturn}{Returns}
+On success\+: TRUE 
+
+On failure\+: FALSE 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplyGetter_af07eba80037f0bc2623b4ecf7473c301}{AI\+\_\+\+IPC\+::\+IAsync\+Reply\+Getter}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Async\+Reply\+Getter.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Async\+Reply\+Getter.\+cpp\end{DoxyCompactItemize}

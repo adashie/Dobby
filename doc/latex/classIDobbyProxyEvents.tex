@@ -1,0 +1,41 @@
+\hypertarget{classIDobbyProxyEvents}{}\doxysection{IDobby\+Proxy\+Events Interface Reference}
+\label{classIDobbyProxyEvents}\index{IDobbyProxyEvents@{IDobbyProxyEvents}}
+
+
+\mbox{\hyperlink{structInterface}{Interface}} for the AI notifier API.  
+
+
+
+
+{\ttfamily \#include $<$IDobby\+Proxy.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDobbyProxyEvents_ab18828b2f4113f77da56229dced575e4}\label{classIDobbyProxyEvents_ab18828b2f4113f77da56229dced575e4}} 
+enum class {\bfseries Container\+State} \{ \newline
+{\bfseries Invalid} = 0
+, {\bfseries Starting} = 1
+, {\bfseries Running} = 2
+, {\bfseries Stopping} = 3
+, \newline
+{\bfseries Paused} = 4
+, {\bfseries Stopped} = 5
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIDobbyProxyEvents_ae9d92642de507d87f439bd429601c357}\label{classIDobbyProxyEvents_ae9d92642de507d87f439bd429601c357}} 
+virtual void {\bfseries container\+State\+Changed} (int32\+\_\+t descriptor, const std\+::string \&id, Container\+State new\+State)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structInterface}{Interface}} for the AI notifier API. 
+
+Contains a single event notifier method that is called whenever either of the \textquotesingle{}org.\+rdk.\+dobby.\+ctrl1.\+Started\textquotesingle{} or \textquotesingle{}org.\+rdk.\+dobby.\+ctrl1.\+Stopped\textquotesingle{} signals are received. 
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Public/\+Dobby/IDobby\+Proxy.\+h\end{DoxyCompactItemize}

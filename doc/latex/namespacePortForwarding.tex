@@ -1,0 +1,105 @@
+\hypertarget{namespacePortForwarding}{}\doxysection{Port\+Forwarding Namespace Reference}
+\label{namespacePortForwarding}\index{PortForwarding@{PortForwarding}}
+
+
+Used to add iptables firewall rules to allow port forwarding between the container and the host.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacePortForwarding_a8604e91a373deeb31e90308fdce93839}{add\+Port\+Forwards}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&netfilter, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&helper, const std\+::string \&container\+Id, rt\+\_\+defs\+\_\+plugins\+\_\+networking\+\_\+data\+\_\+port\+\_\+forwarding $\ast$ports\+Config)
+\begin{DoxyCompactList}\small\item\em Adds the two iptables firewall rules to enable port forwarding. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacePortForwarding_a5b1c0eaa4535100e7e72ac55aae5faeb}{remove\+Port\+Forwards}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&netfilter, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&helper, const std\+::string \&container\+Id, rt\+\_\+defs\+\_\+plugins\+\_\+networking\+\_\+data\+\_\+port\+\_\+forwarding $\ast$ports\+Config)
+\begin{DoxyCompactList}\small\item\em Removes port forwarding rules assigned to the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacePortForwarding_a06423769acf6b2b39bc0694b25f2ef7e}{add\+Localhost\+Masquerading}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&helper, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, rt\+\_\+defs\+\_\+plugins\+\_\+networking\+\_\+data\+\_\+port\+\_\+forwarding $\ast$ports\+Config)
+\begin{DoxyCompactList}\small\item\em Adds iptables rules to forward packets from the container localhost to the host\textquotesingle{}s localhost on specific ports. This removes the need to edit code to point to the bridge IP directly. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Used to add iptables firewall rules to allow port forwarding between the container and the host. 
+
+Has the ability to both add rules to forward ports from container to host and from host to container.
+
+\begin{DoxySeeAlso}{See also}
+the plugin\textquotesingle{}s README.\+md for more details on usage.
+\end{DoxySeeAlso}
+This adds the necessary rules to iptables when the container is started and deletes them again when the container is stopped. All the rules are tagged (via an iptables comment) with the name of the container, this should ensure rules are correctly added and removed. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacePortForwarding_a06423769acf6b2b39bc0694b25f2ef7e}\label{namespacePortForwarding_a06423769acf6b2b39bc0694b25f2ef7e}} 
+\index{PortForwarding@{PortForwarding}!addLocalhostMasquerading@{addLocalhostMasquerading}}
+\index{addLocalhostMasquerading@{addLocalhostMasquerading}!PortForwarding@{PortForwarding}}
+\doxysubsubsection{\texorpdfstring{addLocalhostMasquerading()}{addLocalhostMasquerading()}}
+{\footnotesize\ttfamily bool Port\+Forwarding\+::add\+Localhost\+Masquerading (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&}]{helper,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{rt\+\_\+defs\+\_\+plugins\+\_\+networking\+\_\+data\+\_\+port\+\_\+forwarding $\ast$}]{ports\+Config }\end{DoxyParamCaption})}
+
+
+
+Adds iptables rules to forward packets from the container localhost to the host\textquotesingle{}s localhost on specific ports. This removes the need to edit code to point to the bridge IP directly. 
+
+This must be run inside the container\textquotesingle{}s network namespace
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netfilter} & Instance of \mbox{\hyperlink{classNetfilter}{Netfilter}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em helper} & Instance of \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Id} & Container identifier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ports\+Config} & libocispec structs containing ports to forward.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacePortForwarding_a8604e91a373deeb31e90308fdce93839}\label{namespacePortForwarding_a8604e91a373deeb31e90308fdce93839}} 
+\index{PortForwarding@{PortForwarding}!addPortForwards@{addPortForwards}}
+\index{addPortForwards@{addPortForwards}!PortForwarding@{PortForwarding}}
+\doxysubsubsection{\texorpdfstring{addPortForwards()}{addPortForwards()}}
+{\footnotesize\ttfamily bool Port\+Forwarding\+::add\+Port\+Forwards (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&}]{netfilter,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&}]{helper,  }\item[{const std\+::string \&}]{container\+Id,  }\item[{rt\+\_\+defs\+\_\+plugins\+\_\+networking\+\_\+data\+\_\+port\+\_\+forwarding $\ast$}]{ports\+Config }\end{DoxyParamCaption})}
+
+
+
+Adds the two iptables firewall rules to enable port forwarding. 
+
+The \textquotesingle{}protocol\textquotesingle{} field can be omitted in which case TCP will be specified.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netfilter} & Instance of \mbox{\hyperlink{classNetfilter}{Netfilter}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em helper} & Instance of \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Id} & Container identifier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ports\+Config} & libocispec structs containing ports to forward.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacePortForwarding_a5b1c0eaa4535100e7e72ac55aae5faeb}\label{namespacePortForwarding_a5b1c0eaa4535100e7e72ac55aae5faeb}} 
+\index{PortForwarding@{PortForwarding}!removePortForwards@{removePortForwards}}
+\index{removePortForwards@{removePortForwards}!PortForwarding@{PortForwarding}}
+\doxysubsubsection{\texorpdfstring{removePortForwards()}{removePortForwards()}}
+{\footnotesize\ttfamily bool Port\+Forwarding\+::remove\+Port\+Forwards (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ \&}]{netfilter,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}} $>$ \&}]{helper,  }\item[{const std\+::string \&}]{container\+Id,  }\item[{rt\+\_\+defs\+\_\+plugins\+\_\+networking\+\_\+data\+\_\+port\+\_\+forwarding $\ast$}]{ports\+Config }\end{DoxyParamCaption})}
+
+
+
+Removes port forwarding rules assigned to the container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netfilter} & Instance of \mbox{\hyperlink{classNetfilter}{Netfilter}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em helper} & Instance of \mbox{\hyperlink{classNetworkingHelper}{Networking\+Helper}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Id} & Container identifier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ports\+Config} & libocispec structs containing ports to forward.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, otherwise false. 
+\end{DoxyReturn}

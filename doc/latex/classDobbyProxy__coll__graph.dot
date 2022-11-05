@@ -1,0 +1,15 @@
+digraph "DobbyProxy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="DobbyProxy",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Wrapper around an IpcService object that provides simpler method calls to the dobby daemon."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="IDobbyProxy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIDobbyProxy.html",tooltip="Wrapper around an IpcService object that provides simpler method calls to the Dobby 'hypervisor' daem..."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="AICommon::Notifier\l\< IDobbyProxyEvents \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1Notifier.html",tooltip=" "];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="AICommon::Polymorphic",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1Polymorphic.html",tooltip="Inherit from this from all types that have virtual functions."];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mListenerIdGen" ];
+  Node5 [label="AICommon::IDGenerator\< 8 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1IDGenerator.html",tooltip=" "];
+}

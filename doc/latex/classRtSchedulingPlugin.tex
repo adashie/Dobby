@@ -1,0 +1,164 @@
+\hypertarget{classRtSchedulingPlugin}{}\doxysection{Rt\+Scheduling\+Plugin Class Reference}
+\label{classRtSchedulingPlugin}\index{RtSchedulingPlugin@{RtSchedulingPlugin}}
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} Rt\+Scheduling plugin.  
+
+
+
+
+{\ttfamily \#include $<$Rt\+Scheduling\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Rt\+Scheduling\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Rt\+Scheduling\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRtSchedulingPlugin_a5d3cc7d07bf8fc224ecee7694577e45e}\label{classRtSchedulingPlugin_a5d3cc7d07bf8fc224ecee7694577e45e}} 
+{\bfseries Rt\+Scheduling\+Plugin} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\item 
+std\+::string \mbox{\hyperlink{classRtSchedulingPlugin_a4506426b66ec73b329b20df20bc67c56}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classRtSchedulingPlugin_a4bd1e4b6c36a6fd57f281386d289f6c3}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Should return a bitfield of the hook points implemented by the plugin. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRtSchedulingPlugin_a33521b67f8e3cadf315b2128ac6d0bd4}{post\+Installation}} () override
+\begin{DoxyCompactList}\small\item\em Adds the default value to RLIMIT\+\_\+\+RTPRIO in the OCI config file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRtSchedulingPlugin_ac0a1ce3e1502fa19cfabbd5255219b51}{create\+Runtime}} () override
+\begin{DoxyCompactList}\small\item\em Sets the RT scheduling priority on the container\textquotesingle{}s init process. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classRtSchedulingPlugin_ae6cab11c20c88721e4baa95fe394a24e}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRtSchedulingPlugin_a1269ed133f84567269606e643207df30}\label{classRtSchedulingPlugin_a1269ed133f84567269606e643207df30}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classRtSchedulingPlugin_a303712aa05a2a501f13e396c185aa892}\label{classRtSchedulingPlugin_a303712aa05a2a501f13e396c185aa892}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classRtSchedulingPlugin_a9338ee84310434747c2ff65e7b6fd87b}\label{classRtSchedulingPlugin_a9338ee84310434747c2ff65e7b6fd87b}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Config}
+\item 
+\mbox{\Hypertarget{classRtSchedulingPlugin_ad91f8689a6ed03b565654c84f8048da5}\label{classRtSchedulingPlugin_ad91f8689a6ed03b565654c84f8048da5}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDobby}{Dobby}} Rt\+Scheduling plugin. 
+
+This plugin sets the RT priority of the container.
+
+This consists of a post\+Installation hook that adds the rtpriority limit and create\+Runtime hook that calls sched\+\_\+setscheduler on the container\textquotesingle{}s init process.
+
+Due to the way scheduling is inherited this will in turn filter down to all processes running within the container. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRtSchedulingPlugin_ac0a1ce3e1502fa19cfabbd5255219b51}\label{classRtSchedulingPlugin_ac0a1ce3e1502fa19cfabbd5255219b51}} 
+\index{RtSchedulingPlugin@{RtSchedulingPlugin}!createRuntime@{createRuntime}}
+\index{createRuntime@{createRuntime}!RtSchedulingPlugin@{RtSchedulingPlugin}}
+\doxysubsubsection{\texorpdfstring{createRuntime()}{createRuntime()}}
+{\footnotesize\ttfamily bool Rt\+Scheduling\+Plugin\+::create\+Runtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the RT scheduling priority on the container\textquotesingle{}s init process. 
+
+This simply calls sched\+\_\+setscheduler on the supplied pid, inserting the given default rt priority value.
+
+\begin{DoxyReturn}{Returns}
+true if successiful otherwise false. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_af00763b74d9b809a46bbf025e485d010}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classRtSchedulingPlugin_ae6cab11c20c88721e4baa95fe394a24e}\label{classRtSchedulingPlugin_ae6cab11c20c88721e4baa95fe394a24e}} 
+\index{RtSchedulingPlugin@{RtSchedulingPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!RtSchedulingPlugin@{RtSchedulingPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Rt\+Scheduling\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classRtSchedulingPlugin_a4bd1e4b6c36a6fd57f281386d289f6c3}\label{classRtSchedulingPlugin_a4bd1e4b6c36a6fd57f281386d289f6c3}} 
+\index{RtSchedulingPlugin@{RtSchedulingPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!RtSchedulingPlugin@{RtSchedulingPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Rt\+Scheduling\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return a bitfield of the hook points implemented by the plugin. 
+
+Only bits that are set will be called as hooks. This is to optimise the implementation of the hook code to ensure we don\textquotesingle{}t waste time trying to run hooks that don\textquotesingle{}t do anything
+
+The value returned should be constant for the lifetime of the class
+
+\begin{DoxyReturn}{Returns}
+bitmask of the Hint\+Flags bits. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classRtSchedulingPlugin_a4506426b66ec73b329b20df20bc67c56}\label{classRtSchedulingPlugin_a4506426b66ec73b329b20df20bc67c56}} 
+\index{RtSchedulingPlugin@{RtSchedulingPlugin}!name@{name}}
+\index{name@{name}!RtSchedulingPlugin@{RtSchedulingPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Rt\+Scheduling\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classRtSchedulingPlugin_a33521b67f8e3cadf315b2128ac6d0bd4}\label{classRtSchedulingPlugin_a33521b67f8e3cadf315b2128ac6d0bd4}} 
+\index{RtSchedulingPlugin@{RtSchedulingPlugin}!postInstallation@{postInstallation}}
+\index{postInstallation@{postInstallation}!RtSchedulingPlugin@{RtSchedulingPlugin}}
+\doxysubsubsection{\texorpdfstring{postInstallation()}{postInstallation()}}
+{\footnotesize\ttfamily bool Rt\+Scheduling\+Plugin\+::post\+Installation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds the default value to RLIMIT\+\_\+\+RTPRIO in the OCI config file. 
+
+This hook creates the RLIMIT\+\_\+\+RTPRIO field if it doesn\textquotesingle{}t exist.
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_afb8522eece4b1948ea815d12a1fdd08b}{Rdk\+Plugin\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Rt\+Scheduling/source/Rt\+Scheduling\+Plugin.\+h\item 
+rdk\+Plugins/\+Rt\+Scheduling/source/Rt\+Scheduling\+Plugin.\+cpp\end{DoxyCompactItemize}

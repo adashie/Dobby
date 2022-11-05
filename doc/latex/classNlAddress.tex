@@ -1,0 +1,53 @@
+\hypertarget{classNlAddress}{}\doxysection{Nl\+Address Class Reference}
+\label{classNlAddress}\index{NlAddress@{NlAddress}}
+
+
+Wrapper around the nl\+\_\+addr object.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNlAddress_aaf50243951e6f95974f5c6da0208d80d}\label{classNlAddress_aaf50243951e6f95974f5c6da0208d80d}} 
+{\bfseries Nl\+Address} (in\+\_\+addr\+\_\+t address, in\+\_\+addr\+\_\+t netmask=0xffffffff)
+\item 
+\mbox{\Hypertarget{classNlAddress_a8aca1ad18dff1a83a271d1ee91ebc167}\label{classNlAddress_a8aca1ad18dff1a83a271d1ee91ebc167}} 
+{\bfseries Nl\+Address} (struct in6\+\_\+addr address, int netmask=128)
+\item 
+\mbox{\Hypertarget{classNlAddress_ac38be63f84943d22855a5b6b542e8579}\label{classNlAddress_ac38be63f84943d22855a5b6b542e8579}} 
+{\bfseries operator bool} () const noexcept
+\item 
+\mbox{\Hypertarget{classNlAddress_a2d7904dd798fb3604ec47441a9423871}\label{classNlAddress_a2d7904dd798fb3604ec47441a9423871}} 
+{\bfseries operator struct nl\+\_\+addr $\ast$} () const noexcept
+\item 
+\mbox{\Hypertarget{classNlAddress_aff73a2ee5ab22c5f87e52365e965d107}\label{classNlAddress_aff73a2ee5ab22c5f87e52365e965d107}} 
+std\+::string {\bfseries to\+String} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNlAddress_a2c4b54b9b05782ffb5bc62a004111c1f}\label{classNlAddress_a2c4b54b9b05782ffb5bc62a004111c1f}} 
+static struct nl\+\_\+addr $\ast$ {\bfseries from\+Ipv4} (in\+\_\+addr\+\_\+t address, in\+\_\+addr\+\_\+t netmask)
+\item 
+\mbox{\Hypertarget{classNlAddress_a92f1579f3e2f56ef4ae0ea245d6d972a}\label{classNlAddress_a92f1579f3e2f56ef4ae0ea245d6d972a}} 
+static struct nl\+\_\+addr $\ast$ {\bfseries from\+Ipv6} (struct in6\+\_\+addr address, int netmask)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNlAddress_aee9d96f2b409b11994c162983eff4392}\label{classNlAddress_aee9d96f2b409b11994c162983eff4392}} 
+struct nl\+\_\+addr $\ast$const {\bfseries m\+Address}
+\item 
+\mbox{\Hypertarget{classNlAddress_a33f4ad02456eaa317e0ab3b9f9af9eba}\label{classNlAddress_a33f4ad02456eaa317e0ab3b9f9af9eba}} 
+int {\bfseries m\+Address\+Family}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper around the nl\+\_\+addr object. 
+
+Simple wrapper used to handle construction and safe destruction of a nl addr object. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Networking/source/Netlink.\+cpp\end{DoxyCompactItemize}

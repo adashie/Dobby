@@ -1,0 +1,13 @@
+digraph "IDobbyRdkLoggingPlugin"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="IDobbyRdkLoggingPlugin",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Interface that plugin libraries have to implement."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="IDobbyRdkPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIDobbyRdkPlugin.html",tooltip="Interface that plugin libraries have to implement."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="DobbyLoggerBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDobbyLoggerBase.html",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="LoggingPlugin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLoggingPlugin.html",tooltip="Dobby Logging plugin."];
+}

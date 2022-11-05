@@ -1,0 +1,27 @@
+\hypertarget{classSDBusArguments}{}\doxysection{SDBus\+Arguments Class Reference}
+\label{classSDBusArguments}\index{SDBusArguments@{SDBusArguments}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusArguments_ad63e70b43f395203b9e62ea4955dd650}\label{classSDBusArguments_ad63e70b43f395203b9e62ea4955dd650}} 
+static void {\bfseries marshall\+Args} (sd\+\_\+bus\+\_\+message $\ast$msg, const AI\+\_\+\+IPC\+::\+Variant\+List \&args)
+\item 
+static AI\+\_\+\+IPC\+::\+Variant\+List \mbox{\hyperlink{classSDBusArguments_a14585d5280177e3246a350c5f4451feb}{demarshall\+Args}} (sd\+\_\+bus\+\_\+message $\ast$msg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSDBusArguments_a14585d5280177e3246a350c5f4451feb}\label{classSDBusArguments_a14585d5280177e3246a350c5f4451feb}} 
+\index{SDBusArguments@{SDBusArguments}!demarshallArgs@{demarshallArgs}}
+\index{demarshallArgs@{demarshallArgs}!SDBusArguments@{SDBusArguments}}
+\doxysubsubsection{\texorpdfstring{demarshallArgs()}{demarshallArgs()}}
+{\footnotesize\ttfamily AI\+\_\+\+IPC\+::\+Variant\+List SDBus\+Arguments\+::demarshall\+Args (\begin{DoxyParamCaption}\item[{sd\+\_\+bus\+\_\+message $\ast$}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns the arguments stored in the {\itshape msg} sd-\/bus message object as a list of variants.
+
+If there was an error parsing the message then an empty variant list is returned. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/sdbus/SDBus\+Arguments.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/sdbus/SDBus\+Arguments.\+cpp\end{DoxyCompactItemize}

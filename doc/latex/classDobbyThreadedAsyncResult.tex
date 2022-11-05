@@ -1,0 +1,45 @@
+\hypertarget{classDobbyThreadedAsyncResult}{}\doxysection{Dobby\+Threaded\+Async\+Result Class Reference}
+\label{classDobbyThreadedAsyncResult}\index{DobbyThreadedAsyncResult@{DobbyThreadedAsyncResult}}
+
+
+Inheritance diagram for Dobby\+Threaded\+Async\+Result\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Threaded\+Async\+Result\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyThreadedAsyncResult_a56bf479dcace4eb564f7d1ae226542d7}\label{classDobbyThreadedAsyncResult_a56bf479dcace4eb564f7d1ae226542d7}} 
+{\bfseries Dobby\+Threaded\+Async\+Result} (const std\+::string \&name, const std\+::function$<$ bool()$>$ \&func)
+\item 
+\mbox{\Hypertarget{classDobbyThreadedAsyncResult_a9eba91f3eb68d0ff400f086050fb8d0b}\label{classDobbyThreadedAsyncResult_a9eba91f3eb68d0ff400f086050fb8d0b}} 
+bool {\bfseries get\+Result} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyThreadedAsyncResult_ade3251270211bbc8e1fbcf93a9695c95}\label{classDobbyThreadedAsyncResult_ade3251270211bbc8e1fbcf93a9695c95}} 
+void {\bfseries thread\+Wrapper} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyThreadedAsyncResult_a1d11db32c4f8ef6c2811473afa0d8207}\label{classDobbyThreadedAsyncResult_a1d11db32c4f8ef6c2811473afa0d8207}} 
+const std\+::function$<$ bool()$>$ {\bfseries m\+Function}
+\item 
+\mbox{\Hypertarget{classDobbyThreadedAsyncResult_a3fdf7f059474ed2bffeb746a9b093b86}\label{classDobbyThreadedAsyncResult_a3fdf7f059474ed2bffeb746a9b093b86}} 
+std\+::string {\bfseries m\+Thread\+Name}
+\item 
+\mbox{\Hypertarget{classDobbyThreadedAsyncResult_a278726b3009739fb680287aeda1a8f93}\label{classDobbyThreadedAsyncResult_a278726b3009739fb680287aeda1a8f93}} 
+std\+::thread {\bfseries m\+Thread}
+\item 
+\mbox{\Hypertarget{classDobbyThreadedAsyncResult_a69d874d4108c5e8a54ae22e124302632}\label{classDobbyThreadedAsyncResult_a69d874d4108c5e8a54ae22e124302632}} 
+bool {\bfseries m\+Result}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Async.\+cpp\end{DoxyCompactItemize}

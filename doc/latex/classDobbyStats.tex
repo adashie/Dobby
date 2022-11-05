@@ -1,0 +1,261 @@
+\hypertarget{classDobbyStats}{}\doxysection{Dobby\+Stats Class Reference}
+\label{classDobbyStats}\index{DobbyStats@{DobbyStats}}
+
+
+Small utility class used to get the stats of a container.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Stats.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDobbyStats_1_1Process}{Process}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyStats_a71b01d8f55b3ea854a26b51067bdb3dc}\label{classDobbyStats_a71b01d8f55b3ea854a26b51067bdb3dc}} 
+{\bfseries Dobby\+Stats} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&env, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils)
+\item 
+\mbox{\Hypertarget{classDobbyStats_a126121c1b6a70fae66606a321586e698}\label{classDobbyStats_a126121c1b6a70fae66606a321586e698}} 
+const Json\+::\+Value \& {\bfseries stats} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyStats_a6b91d7ccc65f9a7d18d00da4af61a813}\label{classDobbyStats_a6b91d7ccc65f9a7d18d00da4af61a813}} 
+typedef struct \mbox{\hyperlink{structDobbyStats_1_1Process}{Dobby\+Stats\+::\+Process}} {\bfseries Process}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static ssize\+\_\+t \mbox{\hyperlink{classDobbyStats_a8eb84949210b99659698f81976d81d2f}{read\+Cgroup\+File}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&cgroup\+Mnt\+Path, const std\+::string \&cgroupfile\+Name, char $\ast$buf, size\+\_\+t buf\+Len)
+\begin{DoxyCompactList}\small\item\em Reads a maximum of 4096 bytes from the given cgroup file. \end{DoxyCompactList}\item 
+static Json\+::\+Value \mbox{\hyperlink{classDobbyStats_aaa87b7434820b6a4e78b0f48f4ae78fe}{read\+Single\+Cgroup\+Value}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&cgroup\+Mnt\+Path, const std\+::string \&cgroupfile\+Name)
+\begin{DoxyCompactList}\small\item\em Reads a single value from the given cgroup file. \end{DoxyCompactList}\item 
+static std\+::vector$<$ int64\+\_\+t $>$ \mbox{\hyperlink{classDobbyStats_aceeb974aa880b660d614eb220eb462d4}{read\+Multiple\+Cgroup\+Values}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&cgroup\+Mnt\+Path, const std\+::string \&cgroupfile\+Name)
+\begin{DoxyCompactList}\small\item\em Reads multiple values from the given cgroup file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyStats_ad68517a2a945acb3a1b9c94a7327300a}\label{classDobbyStats_ad68517a2a945acb3a1b9c94a7327300a}} 
+static Json\+::\+Value {\bfseries read\+Multiple\+Cgroup\+Values\+Json} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&cgroup\+Mnt\+Path, const std\+::string \&cgroupfile\+Name)
+\item 
+static Json\+::\+Value \mbox{\hyperlink{classDobbyStats_afd25047219e8452729a20373fb321c3c}{get\+Stats}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&env, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils)
+\begin{DoxyCompactList}\small\item\em Gets the stats for the container. \end{DoxyCompactList}\item 
+static Json\+::\+Value \mbox{\hyperlink{classDobbyStats_adbe3bf87ca2f38e2727baac6d5eebc71}{get\+Process\+Tree}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&cpu\+Cgroup\+Mnt\+Path, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils)
+\begin{DoxyCompactList}\small\item\em Builds a json array of the processes running in the container. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structDobbyStats_1_1Process}{Process}} \mbox{\hyperlink{classDobbyStats_a8e30847a668fb33fd1420cfbafbf9ea0}{get\+Process\+Info}} (pid\+\_\+t pid, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils)
+\begin{DoxyCompactList}\small\item\em Returns information about a given PID. \end{DoxyCompactList}\item 
+static pid\+\_\+t \mbox{\hyperlink{classDobbyStats_a526e2a7c705586f9a86ece0a0a0b2910}{read\+Ns\+Pid\+From\+Proc}} (pid\+\_\+t pid)
+\begin{DoxyCompactList}\small\item\em Given a pid (in global namespace) tries to find what it\textquotesingle{}s namespace pid is. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyStats_ad97da37fe938cf20d41f6ebec779bf91}\label{classDobbyStats_ad97da37fe938cf20d41f6ebec779bf91}} 
+const Json\+::\+Value {\bfseries m\+Stats}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Small utility class used to get the stats of a container. 
+
+There is not much to this class, it\textquotesingle{}s just a collection of utility functions for gathering statistics on a container with a given id.
+
+Note that the code in this class tends not to print errors if it can\textquotesingle{}t gather some stats, that\textquotesingle{}s by design as it\textquotesingle{}s meant to be a best effort. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyStats_a8e30847a668fb33fd1420cfbafbf9ea0}\label{classDobbyStats_a8e30847a668fb33fd1420cfbafbf9ea0}} 
+\index{DobbyStats@{DobbyStats}!getProcessInfo@{getProcessInfo}}
+\index{getProcessInfo@{getProcessInfo}!DobbyStats@{DobbyStats}}
+\doxysubsubsection{\texorpdfstring{getProcessInfo()}{getProcessInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structDobbyStats_1_1Process}{Dobby\+Stats\+::\+Process}} Dobby\+Stats\+::get\+Process\+Info (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{pid,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&}]{utils }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Returns information about a given PID. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pid} & The PID to get information about\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structDobbyStats_1_1Process}{Process}} struct containing information about the specified process 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyStats_adbe3bf87ca2f38e2727baac6d5eebc71}\label{classDobbyStats_adbe3bf87ca2f38e2727baac6d5eebc71}} 
+\index{DobbyStats@{DobbyStats}!getProcessTree@{getProcessTree}}
+\index{getProcessTree@{getProcessTree}!DobbyStats@{DobbyStats}}
+\doxysubsubsection{\texorpdfstring{getProcessTree()}{getProcessTree()}}
+{\footnotesize\ttfamily Json\+::\+Value Dobby\+Stats\+::get\+Process\+Tree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{cpu\+Cgroup\+Mnt\+Path,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&}]{utils }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Builds a json array of the processes running in the container. 
+
+Will return a json array with all the processes inside the container with their filename, cmdline and PID (both in the host and container namespace)
+
+\char`\"{}processes\char`\"{}\+: \mbox{[} \{ \char`\"{}pid\char`\"{}\+: \char`\"{}2345\char`\"{}, \char`\"{}ns\+Pid\char`\"{}\+: \char`\"{}1\char`\"{} \char`\"{}file\char`\"{}\+: \char`\"{}/usr/libexec/\+Dobby\+Init\char`\"{}, \char`\"{}cmdline\char`\"{}\+: \char`\"{}/usr/libexec/\+Dobby\+Init sleep 30\char`\"{}, \} \mbox{]}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The string id of the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Json array with all container processes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyStats_afd25047219e8452729a20373fb321c3c}\label{classDobbyStats_afd25047219e8452729a20373fb321c3c}} 
+\index{DobbyStats@{DobbyStats}!getStats@{getStats}}
+\index{getStats@{getStats}!DobbyStats@{DobbyStats}}
+\doxysubsubsection{\texorpdfstring{getStats()}{getStats()}}
+{\footnotesize\ttfamily Json\+::\+Value Dobby\+Stats\+::get\+Stats (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&}]{env,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&}]{utils }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Gets the stats for the container. 
+
+This is primarily a debugging method, used to get statistics on the container and roughly correlates to the \textquotesingle{}runc events --stats $<$id$>$\textquotesingle{} call.
+
+The reply is a json formatted string containing some info, it\textquotesingle{}s form may change over time. \begin{DoxyVerb}{
+    "timestamp": 348134887768,
+    "pids": [ 2046, 2064 ],
+    "cpu": {
+        "usage": {
+            "total":734236982,
+            "percpu":[348134887,386102095]
+        }
+    },
+    "memory":{
+        "user": {
+            "limit":41943040,
+            "usage":356352,
+            "max":524288,
+            "failcnt":0
+        }
+    }
+    "gpu":{
+        "memory": {
+            "limit":41943040,
+            "usage":356352,
+            "max":524288,
+            "failcnt":0
+        }
+    }
+    ...
+}
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The container id, assumed to also be the name of the cgroups. \\
+\hline
+\mbox{\texttt{ in}}  & {\em env} & The environment setup, used to get the mount point(s) of the various cgroups.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The populated json stats, may be an empty object if no cgroups could be found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyStats_a8eb84949210b99659698f81976d81d2f}\label{classDobbyStats_a8eb84949210b99659698f81976d81d2f}} 
+\index{DobbyStats@{DobbyStats}!readCgroupFile@{readCgroupFile}}
+\index{readCgroupFile@{readCgroupFile}!DobbyStats@{DobbyStats}}
+\doxysubsubsection{\texorpdfstring{readCgroupFile()}{readCgroupFile()}}
+{\footnotesize\ttfamily ssize\+\_\+t Dobby\+Stats\+::read\+Cgroup\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{cgroup\+Mnt\+Path,  }\item[{const std\+::string \&}]{cgroupfile\+Name,  }\item[{char $\ast$}]{buf,  }\item[{size\+\_\+t}]{buf\+Len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Reads a maximum of 4096 bytes from the given cgroup file. 
+
+The path to read is made up like\+: $<$cgroup\+Mnt\+Path$>$/$<$id$>$/$<$cgroupfile\+Name$>$
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The string id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em cgroup\+Mnt\+Path} & The path to the cgroup mount point. \\
+\hline
+\mbox{\texttt{ in}}  & {\em cgroupfile\+Name} & The name of the cgroup file. \\
+\hline
+\mbox{\texttt{ out}}  & {\em buf} & Buffer to store the file contents in \\
+\hline
+\mbox{\texttt{ in}}  & {\em buf\+Len} & The size of the buffer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of characters copied, or 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyStats_aceeb974aa880b660d614eb220eb462d4}\label{classDobbyStats_aceeb974aa880b660d614eb220eb462d4}} 
+\index{DobbyStats@{DobbyStats}!readMultipleCgroupValues@{readMultipleCgroupValues}}
+\index{readMultipleCgroupValues@{readMultipleCgroupValues}!DobbyStats@{DobbyStats}}
+\doxysubsubsection{\texorpdfstring{readMultipleCgroupValues()}{readMultipleCgroupValues()}}
+{\footnotesize\ttfamily std\+::vector$<$ int64\+\_\+t $>$ Dobby\+Stats\+::read\+Multiple\+Cgroup\+Values (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{cgroup\+Mnt\+Path,  }\item[{const std\+::string \&}]{cgroupfile\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Reads multiple values from the given cgroup file. 
+
+The path to read is made up like\+: \begin{DoxyVerb}<cgroupMntPath>/<id>/<cgroupfileName>
+\end{DoxyVerb}
+ Each value is expected to be delimited with either a space, tab or newline.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The string id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em cgroup\+Mnt\+Path} & The path to the cgroup mount point. \\
+\hline
+\mbox{\texttt{ in}}  & {\em cgroupfile\+Name} & The name of the cgroup file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value read as a json object, typically an integer value. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyStats_a526e2a7c705586f9a86ece0a0a0b2910}\label{classDobbyStats_a526e2a7c705586f9a86ece0a0a0b2910}} 
+\index{DobbyStats@{DobbyStats}!readNsPidFromProc@{readNsPidFromProc}}
+\index{readNsPidFromProc@{readNsPidFromProc}!DobbyStats@{DobbyStats}}
+\doxysubsubsection{\texorpdfstring{readNsPidFromProc()}{readNsPidFromProc()}}
+{\footnotesize\ttfamily pid\+\_\+t Dobby\+Stats\+::read\+Ns\+Pid\+From\+Proc (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{pid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Given a pid (in global namespace) tries to find what it\textquotesingle{}s namespace pid is. 
+
+This reads the /proc/$<$pid$>$/status file, line NStgid.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pid} & The real pid of the process to lookup. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Set of all the real pids within the container. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyStats_aaa87b7434820b6a4e78b0f48f4ae78fe}\label{classDobbyStats_aaa87b7434820b6a4e78b0f48f4ae78fe}} 
+\index{DobbyStats@{DobbyStats}!readSingleCgroupValue@{readSingleCgroupValue}}
+\index{readSingleCgroupValue@{readSingleCgroupValue}!DobbyStats@{DobbyStats}}
+\doxysubsubsection{\texorpdfstring{readSingleCgroupValue()}{readSingleCgroupValue()}}
+{\footnotesize\ttfamily Json\+::\+Value Dobby\+Stats\+::read\+Single\+Cgroup\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{cgroup\+Mnt\+Path,  }\item[{const std\+::string \&}]{cgroupfile\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Reads a single value from the given cgroup file. 
+
+The path to read is made up like\+: \begin{DoxyVerb}<cgroupMntPath>/<id>/<cgroupfileName>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The string id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em cgroup\+Mnt\+Path} & The path to the cgroup mount point. \\
+\hline
+\mbox{\texttt{ in}}  & {\em cgroupfile\+Name} & The name of the cgroup file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value read as a json object, typically an integer value. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Stats.\+h\item 
+daemon/lib/source/Dobby\+Stats.\+cpp\end{DoxyCompactItemize}

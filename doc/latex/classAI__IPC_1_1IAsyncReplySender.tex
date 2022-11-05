@@ -1,0 +1,61 @@
+\hypertarget{classAI__IPC_1_1IAsyncReplySender}{}\doxysection{AI\+\_\+\+IPC\+::IAsync\+Reply\+Sender Class Reference}
+\label{classAI__IPC_1_1IAsyncReplySender}\index{AI\_IPC::IAsyncReplySender@{AI\_IPC::IAsyncReplySender}}
+
+
+Helper class to send reply of a method call asynchronously.  
+
+
+
+
+{\ttfamily \#include $<$Ipc\+Common.\+h$>$}
+
+
+
+Inheritance diagram for AI\+\_\+\+IPC\+::IAsync\+Reply\+Sender\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1IAsyncReplySender_a68a41020bed9554235238a7f03419edc}\label{classAI__IPC_1_1IAsyncReplySender_a68a41020bed9554235238a7f03419edc}} 
+virtual Variant\+List \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplySender_a68a41020bed9554235238a7f03419edc}{get\+Method\+Call\+Arguments}} () const =0
+\begin{DoxyCompactList}\small\item\em Get method call arguments. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplySender_a8ef310825ae2afec1e23717342fa5bc6}{send\+Reply}} (const Variant\+List \&reply\+Args)=0
+\begin{DoxyCompactList}\small\item\em Send reply. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAI__IPC_1_1IAsyncReplySender_a7d8374601081548aee76a892f4d58a41}\label{classAI__IPC_1_1IAsyncReplySender_a7d8374601081548aee76a892f4d58a41}} 
+virtual uid\+\_\+t \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplySender_a7d8374601081548aee76a892f4d58a41}{get\+Sender\+Uid}} () const =0
+\begin{DoxyCompactList}\small\item\em Get Id of the user (unix user Id) who invoked the method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAI__IPC_1_1IAsyncReplySender_a3c4a367c95f8fa6ba469e532b0709401}\label{classAI__IPC_1_1IAsyncReplySender_a3c4a367c95f8fa6ba469e532b0709401}} 
+virtual std\+::string \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplySender_a3c4a367c95f8fa6ba469e532b0709401}{get\+Sender\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the unique name of the connection which originated this message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper class to send reply of a method call asynchronously. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAI__IPC_1_1IAsyncReplySender_a8ef310825ae2afec1e23717342fa5bc6}\label{classAI__IPC_1_1IAsyncReplySender_a8ef310825ae2afec1e23717342fa5bc6}} 
+\index{AI\_IPC::IAsyncReplySender@{AI\_IPC::IAsyncReplySender}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!AI\_IPC::IAsyncReplySender@{AI\_IPC::IAsyncReplySender}}
+\doxysubsubsection{\texorpdfstring{sendReply()}{sendReply()}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IAsync\+Reply\+Sender\+::send\+Reply (\begin{DoxyParamCaption}\item[{const Variant\+List \&}]{reply\+Args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Send reply. 
+
+@parameter\mbox{[}in\mbox{]} reply\+Args This is the return value of the method call
+
+\begin{DoxyReturn}{Returns}
+On success\+: TRUE 
+
+On failure\+: FALSE 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classAI__IPC_1_1AsyncReplySender_ae468e0a6be8089785562cbf0ed4901ad}{AI\+\_\+\+IPC\+::\+Async\+Reply\+Sender}}, and \mbox{\hyperlink{classSDBusAsyncReplySender_a7b430b90b429fd5a45bb45f29c10a9c8}{SDBus\+Async\+Reply\+Sender}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/include/Ipc\+Common.\+h\end{DoxyCompactItemize}

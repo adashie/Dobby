@@ -1,0 +1,399 @@
+\hypertarget{classAppServicesRdkPlugin}{}\doxysection{App\+Services\+Rdk\+Plugin Class Reference}
+\label{classAppServicesRdkPlugin}\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+
+
+Plugin just used to map in access for AS services.  
+
+
+
+
+{\ttfamily \#include $<$App\+Services\+Rdk\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for App\+Services\+Rdk\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for App\+Services\+Rdk\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a88c72ef9c44a279246f0d83a3b74c600}\label{classAppServicesRdkPlugin_a88c72ef9c44a279246f0d83a3b74c600}} 
+{\bfseries App\+Services\+Rdk\+Plugin} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\item 
+std\+::string \mbox{\hyperlink{classAppServicesRdkPlugin_abefb38f3543f1c26743adf618e1c9761}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_ada1804825e8fea39e0730f4d4e4eda11}\label{classAppServicesRdkPlugin_ada1804825e8fea39e0730f4d4e4eda11}} 
+unsigned \mbox{\hyperlink{classAppServicesRdkPlugin_ada1804825e8fea39e0730f4d4e4eda11}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAppServicesRdkPlugin_a045cdec623ac0f1bd33557b52fbdf444}{post\+Installation}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ run in host namespace {\itshape once} when container bundle is downloaded Updates the /etc/services and /etc/hosts file to point to the mapped AS server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAppServicesRdkPlugin_af6c3dfe4b0a31da9bb85f67dfc37dba0}{create\+Runtime}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in host namespace. Adds the two iptables firewall rules to enable port forwarding. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAppServicesRdkPlugin_adec5a95b780b0aaa06f05f20cc05acd1}{post\+Halt}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ Run in host namespace when container terminates. We hook this point so we can delete the iptables firewalls rules added at container start-\/up. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classAppServicesRdkPlugin_a5d70bc90c59655de0c7f0460ff9c0021}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a5a47eb35c74504bcb6042c48aacb2685}\label{classAppServicesRdkPlugin_a5a47eb35c74504bcb6042c48aacb2685}} 
+enum {\bfseries Local\+Services\+Port} \+: in\+\_\+port\+\_\+t \{ \newline
+{\bfseries Local\+Services\+None} = 0
+, {\bfseries Local\+Services\+Invalid} = 1
+, {\bfseries Local\+Services1\+Port} = 9001
+, {\bfseries Local\+Services2\+Port} = 9002
+, \newline
+{\bfseries Local\+Services3\+Port} = 9003
+, {\bfseries Local\+Services4\+Port} = 9004
+, {\bfseries Local\+Services5\+Port} = 9009
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Local\+Services\+Port \mbox{\hyperlink{classAppServicesRdkPlugin_a912db01ea800fe1aa52b30343d6ffab6}{get\+As\+Port}} () const
+\begin{DoxyCompactList}\small\item\em Gets the AS port based on the \char`\"{}set\+Menu\char`\"{} config setting. \end{DoxyCompactList}\item 
+std\+::set$<$ in\+\_\+port\+\_\+t $>$ \mbox{\hyperlink{classAppServicesRdkPlugin_a97a7e286bd92caa39aa3da60e3c3b869}{get\+All\+Ports}} () const
+\begin{DoxyCompactList}\small\item\em Get all the ports we need to forward. \end{DoxyCompactList}\item 
+Netfilter\+::\+Rule\+Set \mbox{\hyperlink{classAppServicesRdkPlugin_a9ca292af7cc15b60d90daaf6d0f46ee6}{construct\+Rules}} () const
+\begin{DoxyCompactList}\small\item\em Creates the required iptables rules based on the container and plugin config. \end{DoxyCompactList}\item 
+Netfilter\+::\+Rule\+Set \mbox{\hyperlink{classAppServicesRdkPlugin_a9c766b6d4f1daa841861f801847923c5}{construct\+Masquerade\+Rules}} () const
+\begin{DoxyCompactList}\small\item\em Constructs rules to forward requests to AS ports on the container localhost interface to the host. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a6f3e7723218d2737b6c44201d9a5cbcb}\label{classAppServicesRdkPlugin_a6f3e7723218d2737b6c44201d9a5cbcb}} 
+bool {\bfseries setup\+Localhost\+Masquerade} (Netfilter\+::\+Rule\+Set \&rule\+Set)
+\item 
+void \mbox{\hyperlink{classAppServicesRdkPlugin_a27c8b97883960845a1bfc20efd0a4c30}{add\+Rules\+For\+Port}} (const std\+::string \&container\+Ip, const std\+::string \&veth\+Name, in\+\_\+port\+\_\+t port, std\+::list$<$ std\+::string $>$ \&accept\+Rules, std\+::list$<$ std\+::string $>$ \&nat\+Rules) const
+\begin{DoxyCompactList}\small\item\em Adds the ACCEPT, DNAT and CONNLIMIT iptables rules for the given port to the given rule sets. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAppServicesRdkPlugin_ae98a69762ff9c088f2dedbf450814bae}{construct\+DNATRule}} (const std\+::string \&container\+Ip, in\+\_\+port\+\_\+t port) const
+\begin{DoxyCompactList}\small\item\em Constructs a DNAT PREROUTING rule to send anything from the container on the given port to localhost outside the container. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAppServicesRdkPlugin_a510cc361f6d80b7fa3cdb4b7e82fc3c5}{construct\+CONNLIMITRule}} (const std\+::string \&container\+Ip, const std\+::string \&veth\+Name, in\+\_\+port\+\_\+t port, uint32\+\_\+t conn\+Limit) const
+\begin{DoxyCompactList}\small\item\em Constructs an INPUT REJECT rule to reject connection if exceed the limit. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAppServicesRdkPlugin_a4eaac747cf5e1b932d884f2882d7bb2a}{construct\+ACCEPTRule}} (const std\+::string \&container\+Ip, const std\+::string \&veth\+Name, in\+\_\+port\+\_\+t port) const
+\begin{DoxyCompactList}\small\item\em Constructs a INPUT ACCEPT rule to allow packets from the container over the dobby0 bridge to localhost. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAppServicesRdkPlugin_a7e96c165ab1c06fc8155a6d1b189867f}{create\+Masquerade\+Dnat\+Rule}} (const in\+\_\+port\+\_\+t \&port) const
+\begin{DoxyCompactList}\small\item\em Constructs an OUTPUT DNAT rule to forward packets from 127.\+0.\+0.\+1 inside the container to the bridge device (100.\+64.\+11.\+1) on the given port. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAppServicesRdkPlugin_ac56a17210d8b3f59bc2f514de3f75d57}{create\+Masquerade\+Snat\+Rule}} (const std\+::string \&ip\+Address) const
+\begin{DoxyCompactList}\small\item\em Constructs an POSTROUTING SNAT rule so that the source address is changed to the veth0 inside the container so we get the replies. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a5ffed3d2b64e2d38143051cc7f8643d5}\label{classAppServicesRdkPlugin_a5ffed3d2b64e2d38143051cc7f8643d5}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_aa8d0c517bca9fc921915646f5c060070}\label{classAppServicesRdkPlugin_aa8d0c517bca9fc921915646f5c060070}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_adfb7ecc48c7992908eda2252dfccea5a}\label{classAppServicesRdkPlugin_adfb7ecc48c7992908eda2252dfccea5a}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a5c197a6a6f7d5f0980ce2b1f742b6184}\label{classAppServicesRdkPlugin_a5c197a6a6f7d5f0980ce2b1f742b6184}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_ae040207b856f936f109a6d74f2e6b283}\label{classAppServicesRdkPlugin_ae040207b856f936f109a6d74f2e6b283}} 
+bool {\bfseries m\+Valid}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a3458badc3caf38e8abf278a3a30c8102}\label{classAppServicesRdkPlugin_a3458badc3caf38e8abf278a3a30c8102}} 
+const rt\+\_\+defs\+\_\+plugins\+\_\+app\+\_\+services\+\_\+rdk\+\_\+data $\ast$ {\bfseries m\+Plugin\+Config}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_ae885aae774b47f9cc17cf410ca1c3411}\label{classAppServicesRdkPlugin_ae885aae774b47f9cc17cf410ca1c3411}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ {\bfseries m\+Netfilter}
+\item 
+\mbox{\Hypertarget{classAppServicesRdkPlugin_aea5e2d917aa226bc4049015425a04b3a}\label{classAppServicesRdkPlugin_aea5e2d917aa226bc4049015425a04b3a}} 
+const bool {\bfseries m\+Enable\+Conn\+Limit}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Plugin just used to map in access for AS services. 
+
+This plugin currently just uses iptables to setup routing to AS. However the end goal is to have this plugin talk to the asproxy daemon and create a bespoke listening socket for AS services with fine grained access control. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a27c8b97883960845a1bfc20efd0a4c30}\label{classAppServicesRdkPlugin_a27c8b97883960845a1bfc20efd0a4c30}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!addRulesForPort@{addRulesForPort}}
+\index{addRulesForPort@{addRulesForPort}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{addRulesForPort()}{addRulesForPort()}}
+{\footnotesize\ttfamily void App\+Services\+Rdk\+Plugin\+::add\+Rules\+For\+Port (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Ip,  }\item[{const std\+::string \&}]{veth\+Name,  }\item[{in\+\_\+port\+\_\+t}]{port,  }\item[{std\+::list$<$ std\+::string $>$ \&}]{accept\+Rules,  }\item[{std\+::list$<$ std\+::string $>$ \&}]{nat\+Rules }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds the ACCEPT, DNAT and CONNLIMIT iptables rules for the given port to the given rule sets. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em container\+Ip} & The ip address inside the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em veth\+Name} & The name of the veth device (outside the container). \\
+\hline
+\mbox{\texttt{ in}}  & {\em port} & The port number to add the rules for. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em accept\+Rules} & The ACCEPT rule set. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em nat\+Rules} & The DNAT rule set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a4eaac747cf5e1b932d884f2882d7bb2a}\label{classAppServicesRdkPlugin_a4eaac747cf5e1b932d884f2882d7bb2a}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!constructACCEPTRule@{constructACCEPTRule}}
+\index{constructACCEPTRule@{constructACCEPTRule}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{constructACCEPTRule()}{constructACCEPTRule()}}
+{\footnotesize\ttfamily std\+::string App\+Services\+Rdk\+Plugin\+::construct\+ACCEPTRule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Ip,  }\item[{const std\+::string \&}]{veth\+Name,  }\item[{in\+\_\+port\+\_\+t}]{port }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs a INPUT ACCEPT rule to allow packets from the container over the dobby0 bridge to localhost. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Ip} & The ip address inside the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em veth\+Name} & The name of the veth device (outside the container) that belongs to the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em port} & The port number to add the DNAT rule for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The iptables formatted string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a510cc361f6d80b7fa3cdb4b7e82fc3c5}\label{classAppServicesRdkPlugin_a510cc361f6d80b7fa3cdb4b7e82fc3c5}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!constructCONNLIMITRule@{constructCONNLIMITRule}}
+\index{constructCONNLIMITRule@{constructCONNLIMITRule}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{constructCONNLIMITRule()}{constructCONNLIMITRule()}}
+{\footnotesize\ttfamily std\+::string App\+Services\+Rdk\+Plugin\+::construct\+CONNLIMITRule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Ip,  }\item[{const std\+::string \&}]{veth\+Name,  }\item[{in\+\_\+port\+\_\+t}]{port,  }\item[{uint32\+\_\+t}]{conn\+Limit }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs an INPUT REJECT rule to reject connection if exceed the limit. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Ip} & The ip address inside the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em veth\+Name} & The name of the veth device (outside the container) that belongs to the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em port} & The port number to add the DNAT rule for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The iptables formatted string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_ae98a69762ff9c088f2dedbf450814bae}\label{classAppServicesRdkPlugin_ae98a69762ff9c088f2dedbf450814bae}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!constructDNATRule@{constructDNATRule}}
+\index{constructDNATRule@{constructDNATRule}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{constructDNATRule()}{constructDNATRule()}}
+{\footnotesize\ttfamily std\+::string App\+Services\+Rdk\+Plugin\+::construct\+DNATRule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Ip,  }\item[{in\+\_\+port\+\_\+t}]{port }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs a DNAT PREROUTING rule to send anything from the container on the given port to localhost outside the container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Ip} & The ip address inside the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em port} & The port number to add the DNAT rule for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The iptables formatted string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a9c766b6d4f1daa841861f801847923c5}\label{classAppServicesRdkPlugin_a9c766b6d4f1daa841861f801847923c5}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!constructMasqueradeRules@{constructMasqueradeRules}}
+\index{constructMasqueradeRules@{constructMasqueradeRules}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{constructMasqueradeRules()}{constructMasqueradeRules()}}
+{\footnotesize\ttfamily Netfilter\+::\+Rule\+Set App\+Services\+Rdk\+Plugin\+::construct\+Masquerade\+Rules (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs rules to forward requests to AS ports on the container localhost interface to the host. 
+
+Simplified version of port\+Forwarding code in Networking plugin
+
+\begin{DoxyReturn}{Returns}
+Rule\+Set to configure iptables 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a9ca292af7cc15b60d90daaf6d0f46ee6}\label{classAppServicesRdkPlugin_a9ca292af7cc15b60d90daaf6d0f46ee6}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!constructRules@{constructRules}}
+\index{constructRules@{constructRules}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{constructRules()}{constructRules()}}
+{\footnotesize\ttfamily Netfilter\+::\+Rule\+Set App\+Services\+Rdk\+Plugin\+::construct\+Rules (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates the required iptables rules based on the container and plugin config. 
+
+\begin{DoxyReturn}{Returns}
+The created iptables rule set. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a7e96c165ab1c06fc8155a6d1b189867f}\label{classAppServicesRdkPlugin_a7e96c165ab1c06fc8155a6d1b189867f}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!createMasqueradeDnatRule@{createMasqueradeDnatRule}}
+\index{createMasqueradeDnatRule@{createMasqueradeDnatRule}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{createMasqueradeDnatRule()}{createMasqueradeDnatRule()}}
+{\footnotesize\ttfamily std\+::string App\+Services\+Rdk\+Plugin\+::create\+Masquerade\+Dnat\+Rule (\begin{DoxyParamCaption}\item[{const in\+\_\+port\+\_\+t \&}]{port }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs an OUTPUT DNAT rule to forward packets from 127.\+0.\+0.\+1 inside the container to the bridge device (100.\+64.\+11.\+1) on the given port. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em port\+Forward} & The port to forward.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the created rule. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_ac56a17210d8b3f59bc2f514de3f75d57}\label{classAppServicesRdkPlugin_ac56a17210d8b3f59bc2f514de3f75d57}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!createMasqueradeSnatRule@{createMasqueradeSnatRule}}
+\index{createMasqueradeSnatRule@{createMasqueradeSnatRule}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{createMasqueradeSnatRule()}{createMasqueradeSnatRule()}}
+{\footnotesize\ttfamily std\+::string App\+Services\+Rdk\+Plugin\+::create\+Masquerade\+Snat\+Rule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ip\+Address }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs an POSTROUTING SNAT rule so that the source address is changed to the veth0 inside the container so we get the replies. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ip\+Address} & The ip address of the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the created rule. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_af6c3dfe4b0a31da9bb85f67dfc37dba0}\label{classAppServicesRdkPlugin_af6c3dfe4b0a31da9bb85f67dfc37dba0}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!createRuntime@{createRuntime}}
+\index{createRuntime@{createRuntime}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{createRuntime()}{createRuntime()}}
+{\footnotesize\ttfamily bool App\+Services\+Rdk\+Plugin\+::create\+Runtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+OCI Hook -\/ Run in host namespace. Adds the two iptables firewall rules to enable port forwarding. 
+
+\begin{DoxyReturn}{Returns}
+True on success, false on failure. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_af00763b74d9b809a46bbf025e485d010}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a97a7e286bd92caa39aa3da60e3c3b869}\label{classAppServicesRdkPlugin_a97a7e286bd92caa39aa3da60e3c3b869}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!getAllPorts@{getAllPorts}}
+\index{getAllPorts@{getAllPorts}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{getAllPorts()}{getAllPorts()}}
+{\footnotesize\ttfamily std\+::set$<$ in\+\_\+port\+\_\+t $>$ App\+Services\+Rdk\+Plugin\+::get\+All\+Ports (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get all the ports we need to forward. 
+
+\begin{DoxyReturn}{Returns}
+Set of ports on the host that the container should have access to 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a912db01ea800fe1aa52b30343d6ffab6}\label{classAppServicesRdkPlugin_a912db01ea800fe1aa52b30343d6ffab6}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!getAsPort@{getAsPort}}
+\index{getAsPort@{getAsPort}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{getAsPort()}{getAsPort()}}
+{\footnotesize\ttfamily App\+Services\+Rdk\+Plugin\+::\+Local\+Services\+Port App\+Services\+Rdk\+Plugin\+::get\+As\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the AS port based on the \char`\"{}set\+Menu\char`\"{} config setting. 
+
+\begin{DoxyReturn}{Returns}
+The AS port if successful, App\+Services\+Rdk\+Plugin\+::\+Local\+Services\+Port\+::\+Local\+Services\+Invalid otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a5d70bc90c59655de0c7f0460ff9c0021}\label{classAppServicesRdkPlugin_a5d70bc90c59655de0c7f0460ff9c0021}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ App\+Services\+Rdk\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_ab1154cfe70f646107370b54f366754f3}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classAppServicesRdkPlugin_abefb38f3543f1c26743adf618e1c9761}\label{classAppServicesRdkPlugin_abefb38f3543f1c26743adf618e1c9761}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!name@{name}}
+\index{name@{name}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string App\+Services\+Rdk\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classAppServicesRdkPlugin_adec5a95b780b0aaa06f05f20cc05acd1}\label{classAppServicesRdkPlugin_adec5a95b780b0aaa06f05f20cc05acd1}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!postHalt@{postHalt}}
+\index{postHalt@{postHalt}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{postHalt()}{postHalt()}}
+{\footnotesize\ttfamily bool App\+Services\+Rdk\+Plugin\+::post\+Halt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ Run in host namespace when container terminates. We hook this point so we can delete the iptables firewalls rules added at container start-\/up. 
+
+\begin{DoxyReturn}{Returns}
+True on success, false on failure. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a690f2542922c5c88a9ff4654732fea99}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classAppServicesRdkPlugin_a045cdec623ac0f1bd33557b52fbdf444}\label{classAppServicesRdkPlugin_a045cdec623ac0f1bd33557b52fbdf444}} 
+\index{AppServicesRdkPlugin@{AppServicesRdkPlugin}!postInstallation@{postInstallation}}
+\index{postInstallation@{postInstallation}!AppServicesRdkPlugin@{AppServicesRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{postInstallation()}{postInstallation()}}
+{\footnotesize\ttfamily bool App\+Services\+Rdk\+Plugin\+::post\+Installation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ run in host namespace {\itshape once} when container bundle is downloaded Updates the /etc/services and /etc/hosts file to point to the mapped AS server. 
+
+The json data is expected (required) to be formatted like the following \begin{DoxyVerb}{
+    "setMenu": "local-services-1",
+    "additionalPorts": [ 8123 ],
+    "connLimit": 32
+}
+\end{DoxyVerb}
+ The \textquotesingle{}set\+Menu\textquotesingle{} field is the old way of specifying which services to map into the container. It is intended that in the future fine grained API lists will be specified here.
+
+\begin{DoxyReturn}{Returns}
+True on success, false on failure. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_afb8522eece4b1948ea815d12a1fdd08b}{Rdk\+Plugin\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+App\+Services/source/App\+Services\+Rdk\+Plugin.\+h\item 
+rdk\+Plugins/\+App\+Services/source/App\+Services\+Rdk\+Plugin.\+cpp\end{DoxyCompactItemize}

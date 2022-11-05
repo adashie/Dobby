@@ -1,0 +1,141 @@
+\hypertarget{classIDobbyRdkPlugin}{}\doxysection{IDobby\+Rdk\+Plugin Class Reference}
+\label{classIDobbyRdkPlugin}\index{IDobbyRdkPlugin@{IDobbyRdkPlugin}}
+
+
+\mbox{\hyperlink{structInterface}{Interface}} that plugin libraries have to implement.  
+
+
+
+
+{\ttfamily \#include $<$IDobby\+Rdk\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for IDobby\+Rdk\+Plugin\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{Hint\+Flags}} \+: unsigned \{ \newline
+{\bfseries Post\+Installation\+Flag} = (1 $<$$<$ 0)
+, {\bfseries Pre\+Creation\+Flag} = (1 $<$$<$ 1)
+, {\bfseries Create\+Runtime\+Flag} = (1 $<$$<$ 2)
+, {\bfseries Create\+Container\+Flag} = (1 $<$$<$ 3)
+, \newline
+{\bfseries Post\+Start\+Flag} = (1 $<$$<$ 5)
+, {\bfseries Post\+Halt\+Flag} = (1 $<$$<$ 6)
+, {\bfseries Post\+Stop\+Flag} = (1 $<$$<$ 7)
+, {\bfseries Unknown} = 0
+ \}
+\begin{DoxyCompactList}\small\item\em Bit flags that should be returned by hook\+Hints. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{name}} () const =0
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+virtual unsigned \mbox{\hyperlink{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}{hook\+Hints}} () const =0
+\begin{DoxyCompactList}\small\item\em Should return a bitfield of the hook points implemented by the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbyRdkPlugin_a2977ddbab1ba5f8bc6c1bf2b5b211eac}\label{classIDobbyRdkPlugin_a2977ddbab1ba5f8bc6c1bf2b5b211eac}} 
+virtual bool {\bfseries post\+Installation} ()=0
+\item 
+\mbox{\Hypertarget{classIDobbyRdkPlugin_a1da9dd9c945364acba4888c94d145be2}\label{classIDobbyRdkPlugin_a1da9dd9c945364acba4888c94d145be2}} 
+virtual bool {\bfseries pre\+Creation} ()=0
+\item 
+\mbox{\Hypertarget{classIDobbyRdkPlugin_a766222859e3653e1ad5841ff2345b14c}\label{classIDobbyRdkPlugin_a766222859e3653e1ad5841ff2345b14c}} 
+virtual bool {\bfseries create\+Runtime} ()=0
+\item 
+\mbox{\Hypertarget{classIDobbyRdkPlugin_a550e971eb69a44a772a3370d0c1b02e5}\label{classIDobbyRdkPlugin_a550e971eb69a44a772a3370d0c1b02e5}} 
+virtual bool {\bfseries create\+Container} ()=0
+\item 
+\mbox{\Hypertarget{classIDobbyRdkPlugin_a137e5cbce3b6dabf393dcfcb472a72dc}\label{classIDobbyRdkPlugin_a137e5cbce3b6dabf393dcfcb472a72dc}} 
+virtual bool {\bfseries post\+Start} ()=0
+\item 
+\mbox{\Hypertarget{classIDobbyRdkPlugin_a9c1368a0a1c0ae0323ca6dc58f568851}\label{classIDobbyRdkPlugin_a9c1368a0a1c0ae0323ca6dc58f568851}} 
+virtual bool {\bfseries post\+Halt} ()=0
+\item 
+\mbox{\Hypertarget{classIDobbyRdkPlugin_afe85106b1b1deafa93bdd67d3d4e5232}\label{classIDobbyRdkPlugin_afe85106b1b1deafa93bdd67d3d4e5232}} 
+virtual bool {\bfseries post\+Stop} ()=0
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classIDobbyRdkPlugin_ab1154cfe70f646107370b54f366754f3}{get\+Dependencies}} () const =0
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structInterface}{Interface}} that plugin libraries have to implement. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}\label{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}} 
+\index{IDobbyRdkPlugin@{IDobbyRdkPlugin}!HintFlags@{HintFlags}}
+\index{HintFlags@{HintFlags}!IDobbyRdkPlugin@{IDobbyRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{HintFlags}{HintFlags}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classIDobbyRdkPlugin_a2d3635518c5ee88a5d3fb8c9acdc0e8f}{IDobby\+Rdk\+Plugin\+::\+Hint\+Flags}} \+: unsigned}
+
+
+
+Bit flags that should be returned by hook\+Hints. 
+
+The flags are fairly self explanatory. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIDobbyRdkPlugin_ab1154cfe70f646107370b54f366754f3}\label{classIDobbyRdkPlugin_ab1154cfe70f646107370b54f366754f3}} 
+\index{IDobbyRdkPlugin@{IDobbyRdkPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!IDobbyRdkPlugin@{IDobbyRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$std\+::string$>$ IDobby\+Rdk\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classThunderPlugin_af32528613812bb2d9a423dc36347b7cf}{Thunder\+Plugin}}, \mbox{\hyperlink{classTestRdkPlugin_aad4f4dc73988056359945cc5c9695541}{Test\+Rdk\+Plugin}}, \mbox{\hyperlink{classStorage_aa33a351063ee71ca6576b23e3cc82bf9}{Storage}}, \mbox{\hyperlink{classRtSchedulingPlugin_ae6cab11c20c88721e4baa95fe394a24e}{Rt\+Scheduling\+Plugin}}, \mbox{\hyperlink{classOOMCrash_abdf30a95a56025c4014d7f6b7581e6ca}{OOMCrash}}, \mbox{\hyperlink{classNetworkingPlugin_aab70c315007a1dce59281879b82c2759}{Networking\+Plugin}}, \mbox{\hyperlink{classMinidump_ad8abfe6ec5b6e94def0a1fd8bf526fde}{Minidump}}, \mbox{\hyperlink{classLoggingPlugin_a344a4600555aebddaf6f293e67a23ac7}{Logging\+Plugin}}, \mbox{\hyperlink{classLocalTimePlugin_a4c40ae64dc28e8dbed9c4607f9a5b834}{Local\+Time\+Plugin}}, \mbox{\hyperlink{classIpcPlugin_a8cdc0306eda27c3ad67c496d9b7b0ca9}{Ipc\+Plugin}}, \mbox{\hyperlink{classHttpProxyPlugin_aac9f42f6cf613b2dc065be6a3da7dfdb}{Http\+Proxy\+Plugin}}, \mbox{\hyperlink{classGpuPlugin_a0d7e104c74449d084c0e43223e4daca4}{Gpu\+Plugin}}, \mbox{\hyperlink{classDeviceMapperPlugin_ab6f9f91325f1e883c2ab535be4643898}{Device\+Mapper\+Plugin}}, \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}, \mbox{\hyperlink{classDobbyLoggerBase_a1adc6914d36452d9b6ed3f38ba5281a9}{Dobby\+Logger\+Base}}, and \mbox{\hyperlink{classAppServicesRdkPlugin_a5d70bc90c59655de0c7f0460ff9c0021}{App\+Services\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}\label{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}} 
+\index{IDobbyRdkPlugin@{IDobbyRdkPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!IDobbyRdkPlugin@{IDobbyRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily virtual unsigned IDobby\+Rdk\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Should return a bitfield of the hook points implemented by the plugin. 
+
+Only bits that are set will be called as hooks. This is to optimise the implementation of the hook code to ensure we don\textquotesingle{}t waste time trying to run hooks that don\textquotesingle{}t do anything
+
+The value returned should be constant for the lifetime of the class
+
+\begin{DoxyReturn}{Returns}
+bitmask of the Hint\+Flags bits. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classTestRdkPlugin_a41f1165bd1e2d8bc4a8aa87931043fbc}{Test\+Rdk\+Plugin}}, \mbox{\hyperlink{classStorage_a282998f873e3dfdbc2861262a9faa5f1}{Storage}}, \mbox{\hyperlink{classRtSchedulingPlugin_a4bd1e4b6c36a6fd57f281386d289f6c3}{Rt\+Scheduling\+Plugin}}, \mbox{\hyperlink{classOOMCrash_ade28ecac85c4744ee07768573b19abb9}{OOMCrash}}, \mbox{\hyperlink{classNetworkingPlugin_a7073d576c71107c446a6e0762e393216}{Networking\+Plugin}}, \mbox{\hyperlink{classMinidump_a492948101d99b47d946e6c391d6442db}{Minidump}}, \mbox{\hyperlink{classLoggingPlugin_a569401ef20a789c092b38be0218fee31}{Logging\+Plugin}}, \mbox{\hyperlink{classLocalTimePlugin_a7e07ca69a12621d05be5c9bef6774f25}{Local\+Time\+Plugin}}, \mbox{\hyperlink{classIpcPlugin_ad9537267782a2a3a6ae12e79ea7c70b2}{Ipc\+Plugin}}, \mbox{\hyperlink{classIonMemoryPlugin_a5001bf1c83875ebeca39ff7decd45c95}{Ion\+Memory\+Plugin}}, \mbox{\hyperlink{classHttpProxyPlugin_a12a525b986c7236174f281e8ed9ea086}{Http\+Proxy\+Plugin}}, \mbox{\hyperlink{classGpuPlugin_ae5d647695cc99b829fc24292ef37f1bf}{Gpu\+Plugin}}, \mbox{\hyperlink{classDeviceMapperPlugin_a438d82359b687e9a1ae8e43cbc237b18}{Device\+Mapper\+Plugin}}, \mbox{\hyperlink{classAppServicesRdkPlugin_ada1804825e8fea39e0730f4d4e4eda11}{App\+Services\+Rdk\+Plugin}}, and \mbox{\hyperlink{classThunderPlugin_aae8a2a5a73a984446deb3154a5f0d4b6}{Thunder\+Plugin}}.
+
+\mbox{\Hypertarget{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}\label{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}} 
+\index{IDobbyRdkPlugin@{IDobbyRdkPlugin}!name@{name}}
+\index{name@{name}!IDobbyRdkPlugin@{IDobbyRdkPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Rdk\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classThunderPlugin_a0c688a9544cbb94f5c3a59fda838125f}{Thunder\+Plugin}}, \mbox{\hyperlink{classTestRdkPlugin_a945451585894f6c53b52c49a62c11a79}{Test\+Rdk\+Plugin}}, \mbox{\hyperlink{classStorage_a1223e90fc2e58dcef9b6a7782d5fb72b}{Storage}}, \mbox{\hyperlink{classRtSchedulingPlugin_a4506426b66ec73b329b20df20bc67c56}{Rt\+Scheduling\+Plugin}}, \mbox{\hyperlink{classOOMCrash_ac770849f40567af64c2f5a7fcadb5430}{OOMCrash}}, \mbox{\hyperlink{classNetworkingPlugin_abf6b96a08151712d1701f4d528985c4b}{Networking\+Plugin}}, \mbox{\hyperlink{classMinidump_af8b2f4eaaea89724dfb784b0140fa625}{Minidump}}, \mbox{\hyperlink{classLoggingPlugin_aec098e9d8e50f4d5feed4a8fd7c186b1}{Logging\+Plugin}}, \mbox{\hyperlink{classLocalTimePlugin_ac0f1e7eaea2aaec2904003e4ec30fdbc}{Local\+Time\+Plugin}}, \mbox{\hyperlink{classIpcPlugin_a656b4d3fda70c0de76ec7bc3646ef1e5}{Ipc\+Plugin}}, \mbox{\hyperlink{classIonMemoryPlugin_ac44e3f630c4da579bd87c04d93cfde16}{Ion\+Memory\+Plugin}}, \mbox{\hyperlink{classHttpProxyPlugin_a9f1bffea063b23be97a0ccc883a3051b}{Http\+Proxy\+Plugin}}, \mbox{\hyperlink{classGpuPlugin_abcfe03aa369ae6718bab521e0ec5a2b0}{Gpu\+Plugin}}, \mbox{\hyperlink{classDeviceMapperPlugin_a72ac5d989b1ac87053e314c8e9e5e9f7}{Device\+Mapper\+Plugin}}, and \mbox{\hyperlink{classAppServicesRdkPlugin_abefb38f3543f1c26743adf618e1c9761}{App\+Services\+Rdk\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+plugin\+Launcher/lib/include/IDobby\+Rdk\+Plugin.\+h\end{DoxyCompactItemize}

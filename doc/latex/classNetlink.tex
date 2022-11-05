@@ -1,0 +1,629 @@
+\hypertarget{classNetlink}{}\doxysection{Netlink Class Reference}
+\label{classNetlink}\index{Netlink@{Netlink}}
+
+
+Basic wrapper around the libnl netlink library.  
+
+
+
+
+{\ttfamily \#include $<$Netlink.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNetlink_1_1BridgePortDetails}{Bridge\+Port\+Details}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetlink_a5406db0499fb2095552447db8e524038}\label{classNetlink_a5406db0499fb2095552447db8e524038}} 
+bool {\bfseries is\+Valid} () const
+\item 
+bool \mbox{\hyperlink{classNetlink_a52a74c8df61e0a85baea18835d60b00b}{iface\+Up}} (const std\+::string \&iface\+Name)
+\begin{DoxyCompactList}\small\item\em Brings an interface up. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_af39f6cb4c6822c78b05cff34170786ef}{iface\+Down}} (const std\+::string \&iface\+Name)
+\begin{DoxyCompactList}\small\item\em Takes an interface down. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a2089086d94ce1f09148f14b31111db45}{iface\+Is\+Up}} (const std\+::string \&iface\+Name) const
+\begin{DoxyCompactList}\small\item\em Queries the interface to determine if it\textquotesingle{}s up or not. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a1eea307df469a193fb36640bdc1f8752}{iface\+Exists}} (const std\+::string \&iface\+Name) const
+\begin{DoxyCompactList}\small\item\em Checks if an interface with a given name exists (interface could be either up or down) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a629dff84775d89b129f946b8d990e446}{set\+Iface\+Address}} (const std\+::string \&iface\+Name, const in\+\_\+addr\+\_\+t address, const in\+\_\+addr\+\_\+t netmask)
+\begin{DoxyCompactList}\small\item\em Sets the ip address and netmask of an interface (IPv4) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a16d972ece987eba5ce9f8574686dd282}{set\+Iface\+Address}} (const std\+::string \&iface\+Name, const struct in6\+\_\+addr address, const int netmask)
+\begin{DoxyCompactList}\small\item\em Sets the ip address and netmask of an interface (IPv6) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_af3fde096f6fe4d6909397acb2c547094}{set\+Iface\+Forwarding}} (const std\+::string \&iface\+Name, bool enable)
+\begin{DoxyCompactList}\small\item\em Enables or disables IPv4 forwarding on the given interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a2ae1902e0f4472279348a4219bb876f6}{set\+Iface\+Forwarding6}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&iface\+Name, bool enable)
+\begin{DoxyCompactList}\small\item\em Enables or disables IPv6 forwarding on the given interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a587c8e52226e91be670fb4be904466a6}{set\+Iface\+Route\+Local\+Net}} (const std\+::string \&iface\+Name, bool enable)
+\begin{DoxyCompactList}\small\item\em Sets the route\+\_\+localnet flag on the interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_ab6cacaae8639c8882ed3bda348c9fb72}{set\+Iface\+Accept\+Ra}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&iface\+Name, int value)
+\begin{DoxyCompactList}\small\item\em Sets the accept\+\_\+ra flag on the interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_ad05958a0f8cb0136b257193e811daaf5}{set\+Iface\+MAC}} (const std\+::string \&iface\+Name, const std\+::array$<$ uint8\+\_\+t, 6 $>$ \&address)
+\begin{DoxyCompactList}\small\item\em Sets the MAC address of the given interface. \end{DoxyCompactList}\item 
+std\+::array$<$ uint8\+\_\+t, 6 $>$ \mbox{\hyperlink{classNetlink_af912288cf12c6c0c9a61ccb5b9157f90}{get\+Iface\+MAC}} (const std\+::string \&iface\+Name)
+\begin{DoxyCompactList}\small\item\em Gets the MAC address of the given interface. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{structNetlink_1_1BridgePortDetails}{Bridge\+Port\+Details}} $>$ \mbox{\hyperlink{classNetlink_a9b45871f8f3fe9519ccb7ed365e99ac1}{get\+Attached\+Ifaces}} (const std\+::string \&bridge\+Name)
+\begin{DoxyCompactList}\small\item\em Gets the set of interfaces currently enslaved to a given bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_ab1092d84598f32a36554d0a504fee720}{create\+Bridge}} (const std\+::string \&bridge\+Name)
+\begin{DoxyCompactList}\small\item\em Creates a new bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_ac3e1f8c0d7a62f3d8deab7ef365d6427}{destroy\+Bridge}} (const std\+::string \&bridge\+Name)
+\begin{DoxyCompactList}\small\item\em Deletes an existing bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a68d817257f63f023cc99be47138befc7}{add\+Iface\+To\+Bridge}} (const std\+::string \&bridge\+Name, const std\+::string \&iface\+Name)
+\begin{DoxyCompactList}\small\item\em Adds an interface to the bridge device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a538c4e7a168082e74015f8816c8b6b8a}{del\+Iface\+From\+Bridge}} (const std\+::string \&bridge\+Name, const std\+::string \&iface\+Name)
+\begin{DoxyCompactList}\small\item\em Removes an interface from a bridge. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classNetlink_ab3e40b21b2e8f09a164914cebe4e3823}{create\+Veth}} (const std\+::string \&peer\+Veth\+Name, pid\+\_\+t peer\+Pid, std\+::vector$<$ std\+::string $>$ \&taken\+Veths)
+\begin{DoxyCompactList}\small\item\em Creates a veth pair for the netns attached to the given pid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetlink_a9075e14700f89200af8e55c4044c9b5d}\label{classNetlink_a9075e14700f89200af8e55c4044c9b5d}} 
+bool {\bfseries check\+Veth} (const std\+::string \&veth\+Name)
+\item 
+bool \mbox{\hyperlink{classNetlink_a4ef4373a38877fbecdc6d2705627ba58}{add\+Route}} (const std\+::string \&iface, const in\+\_\+addr\+\_\+t destination, const in\+\_\+addr\+\_\+t netmask, const in\+\_\+addr\+\_\+t gateway)
+\begin{DoxyCompactList}\small\item\em Adds a new route to the routing table (IPv4) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a1d416a2fc78ba913d27dd69bbf4a718f}{add\+Route}} (const std\+::string \&iface, const struct in6\+\_\+addr destination, const int netmask, const struct in6\+\_\+addr gateway)
+\begin{DoxyCompactList}\small\item\em Adds a new route to the routing table (IPv6) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetlink_af269f9f438b252b8ff49c1a87d1d92f1}\label{classNetlink_af269f9f438b252b8ff49c1a87d1d92f1}} 
+bool {\bfseries apply\+Changes\+To\+Link} (const std\+::string \&iface\+Name, const \mbox{\hyperlink{classNlLink}{Nl\+Link}} \&changes)
+\item 
+bool \mbox{\hyperlink{classNetlink_a3949cb04a9ab5489d4dbcb5e96c501b1}{set\+Link\+Address}} (const \mbox{\hyperlink{classNlLink}{Nl\+Link}} \&link, const in\+\_\+addr\+\_\+t address, const in\+\_\+addr\+\_\+t netmask)
+\begin{DoxyCompactList}\small\item\em Sets the ip address and netmask of an interface (IPv4) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a528c41cefc07e00a649a464390d34a42}{set\+Link\+Address}} (const \mbox{\hyperlink{classNlLink}{Nl\+Link}} \&link, const struct in6\+\_\+addr address, const int netmask)
+\begin{DoxyCompactList}\small\item\em Sets the ip address and netmask of an interface (IPv6) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetlink_a9022448c646f8fb62cd07e49e8ac7c23}{set\+Iface\+Config}} (const std\+::string \&iface\+Name, const unsigned int config\+Id, const uint32\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Sets the config on a given interface. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classNetlink_a903f1170cb3b4999fc79daf82cf12889}{get\+Available\+Veth\+Name}} (const int start\+Index) const
+\begin{DoxyCompactList}\small\item\em Returns the number of the next free veth device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetlink_a20442a31c804aea2a194a4848c86cc0d}\label{classNetlink_a20442a31c804aea2a194a4848c86cc0d}} 
+struct nl\+\_\+sock $\ast$ {\bfseries m\+Socket}
+\item 
+\mbox{\Hypertarget{classNetlink_a5788bb80891364c68aec6a4d1c7b3567}\label{classNetlink_a5788bb80891364c68aec6a4d1c7b3567}} 
+int {\bfseries m\+Sys\+Class\+Net\+Dir\+Fd}
+\item 
+\mbox{\Hypertarget{classNetlink_affc0d513a24e97ecba454714d0630904}\label{classNetlink_affc0d513a24e97ecba454714d0630904}} 
+std\+::mutex {\bfseries m\+Lock}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basic wrapper around the libnl netlink library. 
+
+There is only expected to be one of these objects (i.\+e. a shared\+\_\+ptr is passed around). The object represents a single netlink socket.
+
+At construction time a new netlink socket is opened, on destruction it is closed. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetlink_a68d817257f63f023cc99be47138befc7}\label{classNetlink_a68d817257f63f023cc99be47138befc7}} 
+\index{Netlink@{Netlink}!addIfaceToBridge@{addIfaceToBridge}}
+\index{addIfaceToBridge@{addIfaceToBridge}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{addIfaceToBridge()}{addIfaceToBridge()}}
+{\footnotesize\ttfamily bool Netlink\+::add\+Iface\+To\+Bridge (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{bridge\+Name,  }\item[{const std\+::string \&}]{iface\+Name }\end{DoxyParamCaption})}
+
+
+
+Adds an interface to the bridge device. 
+
+This is equivalent of the performing the following on the command line \begin{DoxyVerb}brctl addif <bridgeName> <ifaceName>
+\end{DoxyVerb}
+ \begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a4ef4373a38877fbecdc6d2705627ba58}\label{classNetlink_a4ef4373a38877fbecdc6d2705627ba58}} 
+\index{Netlink@{Netlink}!addRoute@{addRoute}}
+\index{addRoute@{addRoute}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{addRoute()}{addRoute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Netlink\+::add\+Route (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface,  }\item[{const in\+\_\+addr\+\_\+t}]{destination,  }\item[{const in\+\_\+addr\+\_\+t}]{netmask,  }\item[{const in\+\_\+addr\+\_\+t}]{gateway }\end{DoxyParamCaption})}
+
+
+
+Adds a new route to the routing table (IPv4) 
+
+This is equivalent of the performing the following on the command line \begin{DoxyVerb}ip route add <destination>/<netmask> via <gateway> dev <ifname>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface} & The name of the iface to route to \\
+\hline
+\mbox{\texttt{ in}}  & {\em destination} & The destination ip address \\
+\hline
+\mbox{\texttt{ in}}  & {\em netmask} & The netmask for the destination ip address \\
+\hline
+\mbox{\texttt{ in}}  & {\em gateway} & The ip address of the gateway\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a1d416a2fc78ba913d27dd69bbf4a718f}\label{classNetlink_a1d416a2fc78ba913d27dd69bbf4a718f}} 
+\index{Netlink@{Netlink}!addRoute@{addRoute}}
+\index{addRoute@{addRoute}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{addRoute()}{addRoute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Netlink\+::add\+Route (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface,  }\item[{const struct in6\+\_\+addr}]{destination,  }\item[{const int}]{netmask,  }\item[{const struct in6\+\_\+addr}]{gateway }\end{DoxyParamCaption})}
+
+
+
+Adds a new route to the routing table (IPv6) 
+
+This is equivalent of the performing the following on the command line \begin{DoxyVerb}ip -6 route add <destination>/<netmask> via <gateway> dev <ifname>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface} & The name of the iface to route to \\
+\hline
+\mbox{\texttt{ in}}  & {\em destination} & The destination ip address \\
+\hline
+\mbox{\texttt{ in}}  & {\em netmask} & The netmask for the destination ip address \\
+\hline
+\mbox{\texttt{ in}}  & {\em gateway} & The ip address of the gateway, if null, we don\textquotesingle{}t set a gateway for the route.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_ab1092d84598f32a36554d0a504fee720}\label{classNetlink_ab1092d84598f32a36554d0a504fee720}} 
+\index{Netlink@{Netlink}!createBridge@{createBridge}}
+\index{createBridge@{createBridge}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{createBridge()}{createBridge()}}
+{\footnotesize\ttfamily bool Netlink\+::create\+Bridge (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{bridge\+Name }\end{DoxyParamCaption})}
+
+
+
+Creates a new bridge device. 
+
+Note that it is not an error if a bridge device already exists with the same name, this method will return true in that case.
+
+This is equivalent of the performing the following on the command line \begin{DoxyVerb}brctl addbr <bridgeName>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bridge\+Name} & The name of the new bridge device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_ab3e40b21b2e8f09a164914cebe4e3823}\label{classNetlink_ab3e40b21b2e8f09a164914cebe4e3823}} 
+\index{Netlink@{Netlink}!createVeth@{createVeth}}
+\index{createVeth@{createVeth}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{createVeth()}{createVeth()}}
+{\footnotesize\ttfamily std\+::string Netlink\+::create\+Veth (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{peer\+Veth\+Name,  }\item[{pid\+\_\+t}]{peer\+Pid,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{taken\+Veths }\end{DoxyParamCaption})}
+
+
+
+Creates a veth pair for the netns attached to the given pid. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em peer\+Veth\+Name} & The name of the veth interface inside the net namespace (container), typically this will be \char`\"{}eth0\char`\"{}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em peer\+Pid} & The pid of the process which has the netns we want to create the veth in (i.\+e. the pid of init process within the container). \\
+\hline
+\mbox{\texttt{ in}}  & {\em taken\+Veths} & Veth devices reserved by other containers. We want to check that in case of races.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success the interface name of the veth pair, this is the name outside the container and will be of the form vethd, ie veth0, veth1, etc. On failure an empty string is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a538c4e7a168082e74015f8816c8b6b8a}\label{classNetlink_a538c4e7a168082e74015f8816c8b6b8a}} 
+\index{Netlink@{Netlink}!delIfaceFromBridge@{delIfaceFromBridge}}
+\index{delIfaceFromBridge@{delIfaceFromBridge}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{delIfaceFromBridge()}{delIfaceFromBridge()}}
+{\footnotesize\ttfamily bool Netlink\+::del\+Iface\+From\+Bridge (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{bridge\+Name,  }\item[{const std\+::string \&}]{iface\+Name }\end{DoxyParamCaption})}
+
+
+
+Removes an interface from a bridge. 
+
+This is equivalent of the performing the following on the command line \begin{DoxyVerb}brctl delif <bridgeName> <ifaceName>
+\end{DoxyVerb}
+ \begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_ac3e1f8c0d7a62f3d8deab7ef365d6427}\label{classNetlink_ac3e1f8c0d7a62f3d8deab7ef365d6427}} 
+\index{Netlink@{Netlink}!destroyBridge@{destroyBridge}}
+\index{destroyBridge@{destroyBridge}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{destroyBridge()}{destroyBridge()}}
+{\footnotesize\ttfamily bool Netlink\+::destroy\+Bridge (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{bridge\+Name }\end{DoxyParamCaption})}
+
+
+
+Deletes an existing bridge device. 
+
+This is equivalent of the performing the following on the command line \begin{DoxyVerb}brctl delbr <bridgeName>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bridge\+Name} & The name of the new bridge to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a9b45871f8f3fe9519ccb7ed365e99ac1}\label{classNetlink_a9b45871f8f3fe9519ccb7ed365e99ac1}} 
+\index{Netlink@{Netlink}!getAttachedIfaces@{getAttachedIfaces}}
+\index{getAttachedIfaces@{getAttachedIfaces}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{getAttachedIfaces()}{getAttachedIfaces()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{structNetlink_1_1BridgePortDetails}{Netlink\+::\+Bridge\+Port\+Details}} $>$ Netlink\+::get\+Attached\+Ifaces (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{bridge\+Name }\end{DoxyParamCaption})}
+
+
+
+Gets the set of interfaces currently enslaved to a given bridge device. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bridge\+Name} & The name of the bridge device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of interfaces attached to the bridge, or empty list on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a903f1170cb3b4999fc79daf82cf12889}\label{classNetlink_a903f1170cb3b4999fc79daf82cf12889}} 
+\index{Netlink@{Netlink}!getAvailableVethName@{getAvailableVethName}}
+\index{getAvailableVethName@{getAvailableVethName}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{getAvailableVethName()}{getAvailableVethName()}}
+{\footnotesize\ttfamily std\+::string Netlink\+::get\+Available\+Veth\+Name (\begin{DoxyParamCaption}\item[{const int}]{start\+Index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns the number of the next free veth device. 
+
+This works by scanning /sys/class/net/ for devices with names \char`\"{}veth\%d\char`\"{}, the first one not found is returned.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em start\+Index} & Starting index for veth names\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the name of a free veth device, if all names are used (possible?) we return an empty string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_af912288cf12c6c0c9a61ccb5b9157f90}\label{classNetlink_af912288cf12c6c0c9a61ccb5b9157f90}} 
+\index{Netlink@{Netlink}!getIfaceMAC@{getIfaceMAC}}
+\index{getIfaceMAC@{getIfaceMAC}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{getIfaceMAC()}{getIfaceMAC()}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, 6 $>$ Netlink\+::get\+Iface\+MAC (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name }\end{DoxyParamCaption})}
+
+
+
+Gets the MAC address of the given interface. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to get.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the mac address. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_af39f6cb4c6822c78b05cff34170786ef}\label{classNetlink_af39f6cb4c6822c78b05cff34170786ef}} 
+\index{Netlink@{Netlink}!ifaceDown@{ifaceDown}}
+\index{ifaceDown@{ifaceDown}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{ifaceDown()}{ifaceDown()}}
+{\footnotesize\ttfamily bool Netlink\+::iface\+Down (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name }\end{DoxyParamCaption})}
+
+
+
+Takes an interface down. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to take down.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a1eea307df469a193fb36640bdc1f8752}\label{classNetlink_a1eea307df469a193fb36640bdc1f8752}} 
+\index{Netlink@{Netlink}!ifaceExists@{ifaceExists}}
+\index{ifaceExists@{ifaceExists}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{ifaceExists()}{ifaceExists()}}
+{\footnotesize\ttfamily bool Netlink\+::iface\+Exists (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Checks if an interface with a given name exists (interface could be either up or down) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the interface exists, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a2089086d94ce1f09148f14b31111db45}\label{classNetlink_a2089086d94ce1f09148f14b31111db45}} 
+\index{Netlink@{Netlink}!ifaceIsUp@{ifaceIsUp}}
+\index{ifaceIsUp@{ifaceIsUp}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{ifaceIsUp()}{ifaceIsUp()}}
+{\footnotesize\ttfamily bool Netlink\+::iface\+Is\+Up (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Queries the interface to determine if it\textquotesingle{}s up or not. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the interface is up, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a52a74c8df61e0a85baea18835d60b00b}\label{classNetlink_a52a74c8df61e0a85baea18835d60b00b}} 
+\index{Netlink@{Netlink}!ifaceUp@{ifaceUp}}
+\index{ifaceUp@{ifaceUp}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{ifaceUp()}{ifaceUp()}}
+{\footnotesize\ttfamily bool Netlink\+::iface\+Up (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name }\end{DoxyParamCaption})}
+
+
+
+Brings an interface up. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to bring up.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_ab6cacaae8639c8882ed3bda348c9fb72}\label{classNetlink_ab6cacaae8639c8882ed3bda348c9fb72}} 
+\index{Netlink@{Netlink}!setIfaceAcceptRa@{setIfaceAcceptRa}}
+\index{setIfaceAcceptRa@{setIfaceAcceptRa}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setIfaceAcceptRa()}{setIfaceAcceptRa()}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Iface\+Accept\+Ra (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::string \&}]{iface\+Name,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Sets the accept\+\_\+ra flag on the interface. 
+
+This is the equivalent of the following on the command line \begin{DoxyVerb}echo "2" > /proc/sys/net/ipv6/conf/<ifaceName>/accept_ra
+\end{DoxyVerb}
+ Or echo \char`\"{}1\char`\"{} $>$ /proc/sys/net/ipv6/conf/$<$iface\+Name$>$/accept\+\_\+ra Or echo \char`\"{}0\char`\"{} $>$ /proc/sys/net/ipv6/conf/$<$iface\+Name$>$/accept\+\_\+ra
+
+This is used to set accept\+\_\+ra to \char`\"{}2\char`\"{} so that router advertisements are accepted on the interface even with forwarding enabled.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of the \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to set the config on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em enable} & true to enable, false to disable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a629dff84775d89b129f946b8d990e446}\label{classNetlink_a629dff84775d89b129f946b8d990e446}} 
+\index{Netlink@{Netlink}!setIfaceAddress@{setIfaceAddress}}
+\index{setIfaceAddress@{setIfaceAddress}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setIfaceAddress()}{setIfaceAddress()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Iface\+Address (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name,  }\item[{const in\+\_\+addr\+\_\+t}]{address,  }\item[{const in\+\_\+addr\+\_\+t}]{netmask }\end{DoxyParamCaption})}
+
+
+
+Sets the ip address and netmask of an interface (IPv4) 
+
+This is the equivalent of the following on the command line \begin{DoxyVerb}ifconfig <ifaceName> <address> netmask <netmask>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to set the address on \\
+\hline
+\mbox{\texttt{ in}}  & {\em address} & The address to set, the netmask will be applied to this before setting on the iface \\
+\hline
+\mbox{\texttt{ in}}  & {\em netmask} & The netmask to apply.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a16d972ece987eba5ce9f8574686dd282}\label{classNetlink_a16d972ece987eba5ce9f8574686dd282}} 
+\index{Netlink@{Netlink}!setIfaceAddress@{setIfaceAddress}}
+\index{setIfaceAddress@{setIfaceAddress}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setIfaceAddress()}{setIfaceAddress()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Iface\+Address (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name,  }\item[{const struct in6\+\_\+addr}]{address,  }\item[{const int}]{netmask }\end{DoxyParamCaption})}
+
+
+
+Sets the ip address and netmask of an interface (IPv6) 
+
+This is the equivalent of the following on the command line \begin{DoxyVerb}ifconfig <ifaceName> inet6 add <address>/<netmask>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to set the address on \\
+\hline
+\mbox{\texttt{ in}}  & {\em address} & The IPv6 address to set, the netmask will be applied to this before setting on the iface \\
+\hline
+\mbox{\texttt{ in}}  & {\em netmask} & The netmask to apply.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a9022448c646f8fb62cd07e49e8ac7c23}\label{classNetlink_a9022448c646f8fb62cd07e49e8ac7c23}} 
+\index{Netlink@{Netlink}!setIfaceConfig@{setIfaceConfig}}
+\index{setIfaceConfig@{setIfaceConfig}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setIfaceConfig()}{setIfaceConfig()}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Iface\+Config (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name,  }\item[{const unsigned int}]{config\+Id,  }\item[{const uint32\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets the config on a given interface. 
+
+Used by \mbox{\hyperlink{classNetlink_af3fde096f6fe4d6909397acb2c547094}{set\+Iface\+Forwarding()}} and \mbox{\hyperlink{classNetlink_a587c8e52226e91be670fb4be904466a6}{set\+Iface\+Route\+Local\+Net()}}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to set the address on \\
+\hline
+\mbox{\texttt{ in}}  & {\em config\+Id} & The config to set. \\
+\hline
+\mbox{\texttt{ in}}  & {\em value} & The value to set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_af3fde096f6fe4d6909397acb2c547094}\label{classNetlink_af3fde096f6fe4d6909397acb2c547094}} 
+\index{Netlink@{Netlink}!setIfaceForwarding@{setIfaceForwarding}}
+\index{setIfaceForwarding@{setIfaceForwarding}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setIfaceForwarding()}{setIfaceForwarding()}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Iface\+Forwarding (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name,  }\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+
+
+Enables or disables IPv4 forwarding on the given interface. 
+
+This is the equivalent of the following on the command line \begin{DoxyVerb}echo "1" > /proc/sys/net/ipv4/conf/<ifaceName>/forwarding
+\end{DoxyVerb}
+ Or echo \char`\"{}0\char`\"{} $>$ /proc/sys/net/ipv4/conf/$<$iface\+Name$>$/forwarding
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to set the config on \\
+\hline
+\mbox{\texttt{ in}}  & {\em enable} & true to enable, false to disable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a2ae1902e0f4472279348a4219bb876f6}\label{classNetlink_a2ae1902e0f4472279348a4219bb876f6}} 
+\index{Netlink@{Netlink}!setIfaceForwarding6@{setIfaceForwarding6}}
+\index{setIfaceForwarding6@{setIfaceForwarding6}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setIfaceForwarding6()}{setIfaceForwarding6()}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Iface\+Forwarding6 (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::string \&}]{iface\+Name,  }\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+
+
+Enables or disables IPv6 forwarding on the given interface. 
+
+This is the equivalent of the following on the command line \begin{DoxyVerb}echo "1" > /proc/sys/net/ipv6/conf/<ifaceName>/forwarding
+\end{DoxyVerb}
+ Or echo \char`\"{}0\char`\"{} $>$ /proc/sys/net/ipv6/conf/$<$iface\+Name$>$/forwarding
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em utils} & Instance of the \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to set the config on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em enable} & true to enable, false to disable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_ad05958a0f8cb0136b257193e811daaf5}\label{classNetlink_ad05958a0f8cb0136b257193e811daaf5}} 
+\index{Netlink@{Netlink}!setIfaceMAC@{setIfaceMAC}}
+\index{setIfaceMAC@{setIfaceMAC}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setIfaceMAC()}{setIfaceMAC()}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Iface\+MAC (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name,  }\item[{const std\+::array$<$ uint8\+\_\+t, 6 $>$ \&}]{address }\end{DoxyParamCaption})}
+
+
+
+Sets the MAC address of the given interface. 
+
+This is primarily used to set a fixed MAC address for the bridge device.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to set. \\
+\hline
+\mbox{\texttt{ in}}  & {\em address} & The MAC address to set.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successfully set. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a587c8e52226e91be670fb4be904466a6}\label{classNetlink_a587c8e52226e91be670fb4be904466a6}} 
+\index{Netlink@{Netlink}!setIfaceRouteLocalNet@{setIfaceRouteLocalNet}}
+\index{setIfaceRouteLocalNet@{setIfaceRouteLocalNet}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setIfaceRouteLocalNet()}{setIfaceRouteLocalNet()}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Iface\+Route\+Local\+Net (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{iface\+Name,  }\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+
+
+Sets the route\+\_\+localnet flag on the interface. 
+
+Which means\+: "{}Do not consider loopback addresses as martian source or destination while routing. This enables the use of 127/8 for local routing purposes. default FALSE"{}
+
+This is the equivalent of the following on the command line \begin{DoxyVerb}echo "1" > /proc/sys/net/ipv4/conf/<ifaceName>/route_localnet
+\end{DoxyVerb}
+ Or echo \char`\"{}0\char`\"{} $>$ /proc/sys/net/ipv4/conf/$<$iface\+Name$>$/route\+\_\+localnet
+
+This is used so we can use iptables to route packets on the bridge interface to local host. The main usage is for connecting specific ports like dns, as to the localhost interface.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iface\+Name} & The name of the interface to set the config on. \\
+\hline
+\mbox{\texttt{ in}}  & {\em enable} & true to enable, false to disable.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a3949cb04a9ab5489d4dbcb5e96c501b1}\label{classNetlink_a3949cb04a9ab5489d4dbcb5e96c501b1}} 
+\index{Netlink@{Netlink}!setLinkAddress@{setLinkAddress}}
+\index{setLinkAddress@{setLinkAddress}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setLinkAddress()}{setLinkAddress()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Link\+Address (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classNlLink}{Nl\+Link}} \&}]{link,  }\item[{const in\+\_\+addr\+\_\+t}]{address,  }\item[{const in\+\_\+addr\+\_\+t}]{netmask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets the ip address and netmask of an interface (IPv4) 
+
+This is the equivalent of the following on the command line \begin{DoxyVerb}ifconfig <ifaceName> <address> netmask <netmask>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em link} & Instance of \mbox{\hyperlink{classNlLink}{Nl\+Link}} (rtnl\+\_\+link wrapper) \\
+\hline
+\mbox{\texttt{ in}}  & {\em address} & The address to set, the netmask will be applied to this before setting on the iface \\
+\hline
+\mbox{\texttt{ in}}  & {\em netmask} & The netmask to apply.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetlink_a528c41cefc07e00a649a464390d34a42}\label{classNetlink_a528c41cefc07e00a649a464390d34a42}} 
+\index{Netlink@{Netlink}!setLinkAddress@{setLinkAddress}}
+\index{setLinkAddress@{setLinkAddress}!Netlink@{Netlink}}
+\doxysubsubsection{\texorpdfstring{setLinkAddress()}{setLinkAddress()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Netlink\+::set\+Link\+Address (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classNlLink}{Nl\+Link}} \&}]{link,  }\item[{const struct in6\+\_\+addr}]{address,  }\item[{const int}]{netmask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets the ip address and netmask of an interface (IPv6) 
+
+This is the equivalent of the following on the command line \begin{DoxyVerb}ifconfig <ifaceName> inet6 add <address>/<netmask>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em link} & Instance of \mbox{\hyperlink{classNlLink}{Nl\+Link}} (rtnl\+\_\+link wrapper) \\
+\hline
+\mbox{\texttt{ in}}  & {\em address} & The address to set, the netmask will be applied to this before setting on the iface \\
+\hline
+\mbox{\texttt{ in}}  & {\em netmask} & The netmask to apply.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Networking/include/Netlink.\+h\item 
+rdk\+Plugins/\+Networking/source/Netlink.\+cpp\end{DoxyCompactItemize}

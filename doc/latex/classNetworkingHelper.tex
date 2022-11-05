@@ -1,0 +1,111 @@
+\hypertarget{classNetworkingHelper}{}\doxysection{Networking\+Helper Class Reference}
+\label{classNetworkingHelper}\index{NetworkingHelper@{NetworkingHelper}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a33fab08129ec5c93960da42b8cacfbf5}\label{classNetworkingHelper_a33fab08129ec5c93960da42b8cacfbf5}} 
+{\bfseries Networking\+Helper} (bool ipv4\+Enabled, bool ipv6\+Enabled)
+\item 
+bool \mbox{\hyperlink{classNetworkingHelper_a77b13b785fbcc0f139e7fcd0c2340aaa}{store\+Container\+Interface}} (in\+\_\+addr\+\_\+t addr, const std\+::string \&veth\+Name)
+\begin{DoxyCompactList}\small\item\em Constructs addresses for the container based on input address. Also stores the veth device used for the container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkingHelper_aee6fc34087f70c9379637b704d15c411}\label{classNetworkingHelper_aee6fc34087f70c9379637b704d15c411}} 
+bool {\bfseries ipv4} () const
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_afafc17bebc2bada8091aece393af1a7e}\label{classNetworkingHelper_afafc17bebc2bada8091aece393af1a7e}} 
+in\+\_\+addr\+\_\+t {\bfseries ipv4\+Addr} () const
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_ad701a791b2b5c71e8e0924ba480873c5}\label{classNetworkingHelper_ad701a791b2b5c71e8e0924ba480873c5}} 
+std\+::string {\bfseries ipv4\+Addr\+Str} () const
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a8accc5cb4884afae826eb2b975fe3260}\label{classNetworkingHelper_a8accc5cb4884afae826eb2b975fe3260}} 
+bool {\bfseries ipv6} () const
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a640da4b499b3ba002f8f4fad455ca702}\label{classNetworkingHelper_a640da4b499b3ba002f8f4fad455ca702}} 
+struct in6\+\_\+addr {\bfseries ipv6\+Addr} () const
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a44f6b24f3fd1a92346356e358189f8a8}\label{classNetworkingHelper_a44f6b24f3fd1a92346356e358189f8a8}} 
+std\+::string {\bfseries ipv6\+Addr\+Str} () const
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a44621404a7594fe4b59918c73d4d6320}\label{classNetworkingHelper_a44621404a7594fe4b59918c73d4d6320}} 
+std\+::string {\bfseries veth\+Name} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static struct in6\+\_\+addr \mbox{\hyperlink{classNetworkingHelper_ac467a19b87afbad47d2c7cad7b413b55}{in6addr\+Create}} (const in\+\_\+addr\+\_\+t inaddr)
+\begin{DoxyCompactList}\small\item\em Constructs an IPv6 address to be used by \mbox{\hyperlink{classDobby}{Dobby}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a5848930420285785d782c192c814d2d2}\label{classNetworkingHelper_a5848930420285785d782c192c814d2d2}} 
+bool {\bfseries m\+Ipv4\+Enabled}
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_ac7254cf59e414244781931b6e1eaae5d}\label{classNetworkingHelper_ac7254cf59e414244781931b6e1eaae5d}} 
+in\+\_\+addr\+\_\+t {\bfseries m\+Ipv4\+Addr}
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a6824a426bd2963cc6930c541dbdc02bf}\label{classNetworkingHelper_a6824a426bd2963cc6930c541dbdc02bf}} 
+std\+::string {\bfseries m\+Ipv4\+Addr\+Str}
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a3311c9344a2bcb05f36bf82e5550568f}\label{classNetworkingHelper_a3311c9344a2bcb05f36bf82e5550568f}} 
+bool {\bfseries m\+Ipv6\+Enabled}
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a9cabe6ef44f45cdaf135c83b003a5996}\label{classNetworkingHelper_a9cabe6ef44f45cdaf135c83b003a5996}} 
+struct in6\+\_\+addr {\bfseries m\+Ipv6\+Addr}
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_ab44c5b70b9f39ca20a8084984a3599e8}\label{classNetworkingHelper_ab44c5b70b9f39ca20a8084984a3599e8}} 
+std\+::string {\bfseries m\+Ipv6\+Addr\+Str}
+\item 
+\mbox{\Hypertarget{classNetworkingHelper_a786f8d779d0d81f3536eed514b078c22}\label{classNetworkingHelper_a786f8d779d0d81f3536eed514b078c22}} 
+std\+::string {\bfseries m\+Veth\+Name}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworkingHelper_ac467a19b87afbad47d2c7cad7b413b55}\label{classNetworkingHelper_ac467a19b87afbad47d2c7cad7b413b55}} 
+\index{NetworkingHelper@{NetworkingHelper}!in6addrCreate@{in6addrCreate}}
+\index{in6addrCreate@{in6addrCreate}!NetworkingHelper@{NetworkingHelper}}
+\doxysubsubsection{\texorpdfstring{in6addrCreate()}{in6addrCreate()}}
+{\footnotesize\ttfamily struct in6\+\_\+addr Networking\+Helper\+::in6addr\+Create (\begin{DoxyParamCaption}\item[{const in\+\_\+addr\+\_\+t}]{inaddr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Constructs an IPv6 address to be used by \mbox{\hyperlink{classDobby}{Dobby}}. 
+
+Takes an IPv4 address type and merges it into IN6\+ADDR\+\_\+\+BASE to make a unique IPv6 address.
+
+The final address will be 2080\+:d0bb\+:1e\+::nnnn\+:nnnn, where the \char`\"{}n\char`\"{}s will be replaced by the IPv4 address binary.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em inaddr} & IPv4 address to merge to the base address\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+IPv6 address 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetworkingHelper_a77b13b785fbcc0f139e7fcd0c2340aaa}\label{classNetworkingHelper_a77b13b785fbcc0f139e7fcd0c2340aaa}} 
+\index{NetworkingHelper@{NetworkingHelper}!storeContainerInterface@{storeContainerInterface}}
+\index{storeContainerInterface@{storeContainerInterface}!NetworkingHelper@{NetworkingHelper}}
+\doxysubsubsection{\texorpdfstring{storeContainerInterface()}{storeContainerInterface()}}
+{\footnotesize\ttfamily bool Networking\+Helper\+::store\+Container\+Interface (\begin{DoxyParamCaption}\item[{in\+\_\+addr\+\_\+t}]{addr,  }\item[{const std\+::string \&}]{veth\+Name }\end{DoxyParamCaption})}
+
+
+
+Constructs addresses for the container based on input address. Also stores the veth device used for the container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em addr} & IPv4 address to construct addresses from. \\
+\hline
+\mbox{\texttt{ in}}  & {\em veth\+Name} & Name of the veth device reserved for the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, otherwise false 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Networking/include/Networking\+Helper.\+h\item 
+rdk\+Plugins/\+Networking/source/Networking\+Helper.\+cpp\end{DoxyCompactItemize}

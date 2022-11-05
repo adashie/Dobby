@@ -1,0 +1,501 @@
+\hypertarget{classIDobbyUtils__v3}{}\doxysection{IDobby\+Utils\+\_\+v3 Class Reference}
+\label{classIDobbyUtils__v3}\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+
+
+Third version of the interface containing extra functions for working with ebtables.  
+
+
+
+
+{\ttfamily \#include $<$IDobby\+Utils.\+h$>$}
+
+
+
+Inheritance diagram for IDobby\+Utils\+\_\+v3\+:
+% FIG 0
+
+
+Collaboration diagram for IDobby\+Utils\+\_\+v3\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_a7acc3509bed72ea64fa58c32631b80c7}{insert\+Ebtables\+Rule}} (const std\+::string \&args) const =0
+\begin{DoxyCompactList}\small\item\em Inserts the given ebtables rule to the existing set. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_a0412614ec8b7777e9a4ce2010640260e}{delete\+Ebtables\+Rule}} (const std\+::string \&args) const =0
+\begin{DoxyCompactList}\small\item\em Deletes the given ebtables rule from the existing set. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_a0da40b4f94a877cc2f0dfbd58d08e4e8}{mkdir\+Recursive}} (const std\+::string \&path, mode\+\_\+t mode) const=0
+\begin{DoxyCompactList}\small\item\em Makes a directory and all parent directories as needed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a0b2ffb6ba3dc5ef4ebeb4fa62fcf4085}\label{classIDobbyUtils__v3_a0b2ffb6ba3dc5ef4ebeb4fa62fcf4085}} 
+virtual bool {\bfseries mkdir\+Recursive} (int dir\+Fd, const std\+::string \&path, mode\+\_\+t mode) const=0
+\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_a107555fb33650dc383b5eb787b8c3cb6}{rmdir\+Recursive}} (const std\+::string \&path) const=0
+\begin{DoxyCompactList}\small\item\em Removes a directory and all it\textquotesingle{}s contents. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a46b8bf3209a43b51c37830770ccfbc6b}\label{classIDobbyUtils__v3_a46b8bf3209a43b51c37830770ccfbc6b}} 
+virtual bool {\bfseries rmdir\+Recursive} (int dir\+Fd, const std\+::string \&path) const=0
+\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_a1d32a5a7120a0a9c4a1eb0a015d7dab4}{rmdir\+Contents}} (const std\+::string \&path) const=0
+\begin{DoxyCompactList}\small\item\em Removes the contents of a directory but leave the actual directory in place. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_ae772039a58da7ca2c2a5bdc025ef9a6a}\label{classIDobbyUtils__v3_ae772039a58da7ca2c2a5bdc025ef9a6a}} 
+virtual bool {\bfseries rmdir\+Contents} (int dir\+Fd, const std\+::string \&path) const=0
+\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a359b45b09f63e997740f866964e2e859}\label{classIDobbyUtils__v3_a359b45b09f63e997740f866964e2e859}} 
+virtual bool {\bfseries rmdir\+Contents} (int dir\+Fd) const=0
+\item 
+virtual int \mbox{\hyperlink{classIDobbyUtils__v3_af67baa8581bf1b17c72220de8a759865}{loop\+Device\+Associate}} (int file\+Fd, std\+::string $\ast$loop\+Dev\+Path=nullptr) const=0
+\begin{DoxyCompactList}\small\item\em Associates a give file descriptor with a loop device. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_ab6cdaed03bc66e7bd709cb83eff3a089}{check\+Ext\+Image\+File}} (int dir\+Fd, const std\+::string \&image\+File\+Name, bool repair=true) const=0
+\begin{DoxyCompactList}\small\item\em Runs the e2fsck tool on a file system image to check it\textquotesingle{}s integrity. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_a0b4e58dcb654d379efe7ab412f808bf9}{format\+Ext\+Image\+File}} (int dir\+Fd, const std\+::string \&image\+File\+Name, const std\+::string \&fs\+Type=\char`\"{}ext4\char`\"{}) const=0
+\begin{DoxyCompactList}\small\item\em Runs the mke2fs tool to format a file system image. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIDobbyUtils__v3_a232deb2a6f5b0ee8a6e16df5cad95892}{clean\+Mount\+Lost\+And\+Found}} (const std\+::string \&mount\+Point, const std\+::string \&log\+Tag=std\+::string()) const=0
+\begin{DoxyCompactList}\small\item\em Logs and deletes any files found in the lost+found directory of the mount point. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_a4b61a78eee78b14543c3cc54060b5ac8}{write\+Text\+File}} (const std\+::string \&path, const std\+::string \&str, int flags, mode\+\_\+t mode=0644) const=0
+\begin{DoxyCompactList}\small\item\em Simply writes a string into a file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_af034b3bdb2675032455b94c5c0b043bb}\label{classIDobbyUtils__v3_af034b3bdb2675032455b94c5c0b043bb}} 
+virtual bool {\bfseries write\+Text\+File\+At} (int dir\+Fd, const std\+::string \&path, const std\+::string \&str, int flags, mode\+\_\+t mode=0644) const=0
+\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbyUtils__v3_a9a7bb240a59f3341c9c3b248d46d4198}{read\+Text\+File}} (const std\+::string \&path, size\+\_\+t max\+Len=4096) const=0
+\begin{DoxyCompactList}\small\item\em Simply read a string from a file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a3f776fc5756cc70e36b8316c5df3ac46}\label{classIDobbyUtils__v3_a3f776fc5756cc70e36b8316c5df3ac46}} 
+virtual std\+::string {\bfseries read\+Text\+File\+At} (int dir\+Fd, const std\+::string \&path, size\+\_\+t max\+Len=4096) const=0
+\item 
+virtual int \mbox{\hyperlink{classIDobbyUtils__v3_a67bda461d4d7f42c0730d728ca949437}{get\+Namespace\+Fd}} (pid\+\_\+t pid, int ns\+Type) const=0
+\begin{DoxyCompactList}\small\item\em Returns a file descriptor to the given namespace of the process. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_ada7807d22d0af211daab916d7bc2b128}{cancel\+Timer}} (int timer\+Id) const=0
+\begin{DoxyCompactList}\small\item\em Removes the given timer from the timer queue. \end{DoxyCompactList}\item 
+virtual unsigned int \mbox{\hyperlink{classIDobbyUtils__v3_a0ac0f253142a6a556d1d4a9e0528860d}{get\+Driver\+Major\+Number}} (const std\+::string \&driver\+Name) const=0
+\begin{DoxyCompactList}\small\item\em Returns the major number assigned to a given driver. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyUtils__v3_ab87896f9c99ac89657b85049049c0a39}{device\+Allowed}} (dev\+\_\+t device) const=0
+\begin{DoxyCompactList}\small\item\em Returns true if the given device is allowed in the container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a63592339480cc99ad076f57101efb329}\label{classIDobbyUtils__v3_a63592339480cc99ad076f57101efb329}} 
+bool {\bfseries device\+Allowed} (unsigned int major, unsigned int minor) const
+\item 
+virtual void \mbox{\hyperlink{classIDobbyUtils__v3_a11ef5c9a28210047ffe773f228cc8369}{set\+Integer\+Meta\+Data}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key, int value)=0
+\begin{DoxyCompactList}\small\item\em Sets / Gets integer meta data for the given container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a6fecc533e67bbb9a90a8da8810ff5a41}\label{classIDobbyUtils__v3_a6fecc533e67bbb9a90a8da8810ff5a41}} 
+virtual int {\bfseries get\+Integer\+Meta\+Data} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key, int default\+Value) const=0
+\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a3e02b3b7a6b4385b748525f233bf6b79}\label{classIDobbyUtils__v3_a3e02b3b7a6b4385b748525f233bf6b79}} 
+int {\bfseries get\+Integer\+Meta\+Data} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key)
+\item 
+virtual void \mbox{\hyperlink{classIDobbyUtils__v3_ae2375bdcbd779ab174b47ee34edfd4e1}{set\+String\+Meta\+Data}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key, const std\+::string \&value)=0
+\begin{DoxyCompactList}\small\item\em Sets / Gets string meta data for the given container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a928251ff35441f9a27205a9bdfbe2d2f}\label{classIDobbyUtils__v3_a928251ff35441f9a27205a9bdfbe2d2f}} 
+virtual std\+::string {\bfseries get\+String\+Meta\+Data} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key, const std\+::string \&default\+Value) const=0
+\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a73c6f7f156664406cf6a88219e07d29e}\label{classIDobbyUtils__v3_a73c6f7f156664406cf6a88219e07d29e}} 
+std\+::string {\bfseries get\+String\+Meta\+Data} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key)
+\item 
+\mbox{\Hypertarget{classIDobbyUtils__v3_a5b83eb2107e57a8cf11bc50c7fa26568}\label{classIDobbyUtils__v3_a5b83eb2107e57a8cf11bc50c7fa26568}} 
+virtual void {\bfseries clear\+Container\+Meta\+Data} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Third version of the interface containing extra functions for working with ebtables. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIDobbyUtils__v3_ada7807d22d0af211daab916d7bc2b128}\label{classIDobbyUtils__v3_ada7807d22d0af211daab916d7bc2b128}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!cancelTimer@{cancelTimer}}
+\index{cancelTimer@{cancelTimer}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{cancelTimer()}{cancelTimer()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v1\+::cancel\+Timer}
+
+
+
+Removes the given timer from the timer queue. 
+
+Once this method returns (successfully) you are guaranteed that the timer handler will not be called, i.\+e. this is synchronisation point.
+
+This method will fail if called from the context of a timer handler, if you want to cancel a repeating timer then just return false in the handler.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timer\+Id} & The id of the timer to cancel as returned by the \mbox{\hyperlink{classIDobbyUtils__v1_a0d0a259821d7a4b6b3137fc78b5a5c5d}{start\+Timer()}} method.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the timer was found and was removed from the queue, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_ab6cdaed03bc66e7bd709cb83eff3a089}\label{classIDobbyUtils__v3_ab6cdaed03bc66e7bd709cb83eff3a089}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!checkExtImageFile@{checkExtImageFile}}
+\index{checkExtImageFile@{checkExtImageFile}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{checkExtImageFile()}{checkExtImageFile()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v1\+::check\+Ext\+Image\+File}
+
+
+
+Runs the e2fsck tool on a file system image to check it\textquotesingle{}s integrity. 
+
+This function does a fork/exec to launch the process, it drops root privileges and runs the tool as user 1000\+:1000, therefore the file that is being checked should be readable and writeble by user 1000.
+
+If this function returns false the image file should probably be deleted / reformatted.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & The fd of the directory containing the the image to check. The function will switch to this directory before dropping permissions (provided it\textquotesingle{}s not AT\+\_\+\+FCWD). \\
+\hline
+\mbox{\texttt{ in}}  & {\em image\+File\+Name} & The name of the file to check. \\
+\hline
+\mbox{\texttt{ in}}  & {\em repair} & If true we\textquotesingle{}ll ask the tool to try and repair the file if it detects any errors.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the file passes the check (or was successifully repaired) true is returned, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a232deb2a6f5b0ee8a6e16df5cad95892}\label{classIDobbyUtils__v3_a232deb2a6f5b0ee8a6e16df5cad95892}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!cleanMountLostAndFound@{cleanMountLostAndFound}}
+\index{cleanMountLostAndFound@{cleanMountLostAndFound}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{cleanMountLostAndFound()}{cleanMountLostAndFound()}}
+{\footnotesize\ttfamily virtual void IDobby\+Utils\+\_\+v1\+::clean\+Mount\+Lost\+And\+Found}
+
+
+
+Logs and deletes any files found in the lost+found directory of the mount point. 
+
+We should be clearing the lost+found to avoid cruft building up and taking all the space in the loop mount.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mount\+Point} & The absolute path to the mounted device, NOT the the location of the lost+found dir. \\
+\hline
+\mbox{\texttt{ in}}  & {\em log\+Tag} & If not empty then a log warning message will be printed containing the name of the file that was deleted and referencing the the string in log\+Tag. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a0412614ec8b7777e9a4ce2010640260e}\label{classIDobbyUtils__v3_a0412614ec8b7777e9a4ce2010640260e}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!deleteEbtablesRule@{deleteEbtablesRule}}
+\index{deleteEbtablesRule@{deleteEbtablesRule}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{deleteEbtablesRule()}{deleteEbtablesRule()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v3\+::delete\+Ebtables\+Rule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Deletes the given ebtables rule from the existing set. 
+
+This only performs a delete, if the a rule is not currently installed then false is returned
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em args} & The set of one rule to remove.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the rules were removed, otherwise false. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyUtils_a091f6ebb80d344852268167793046013}{Dobby\+Utils}}.
+
+\mbox{\Hypertarget{classIDobbyUtils__v3_ab87896f9c99ac89657b85049049c0a39}\label{classIDobbyUtils__v3_ab87896f9c99ac89657b85049049c0a39}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!deviceAllowed@{deviceAllowed}}
+\index{deviceAllowed@{deviceAllowed}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{deviceAllowed()}{deviceAllowed()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v1\+::device\+Allowed}
+
+
+
+Returns true if the given device is allowed in the container. 
+
+This is here for security reasons as I didn\textquotesingle{}t want just any device added to the container whitelist. If we trust the code on the other end of \mbox{\hyperlink{classDobby}{Dobby}} that is creating the containers then this is not needed, but just in case that got hacked I didn\textquotesingle{}t want people to create containers enabling access to CDI / system device nodes.
+
+\begin{DoxyWarning}{Warning}
+This method doesn\textquotesingle{}t take into account drivers being insmod / rmmod and the re-\/use of major numbers, however if a user could do that then this check is the least of our problems.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em major} & The major number of the device. \\
+\hline
+\mbox{\texttt{ in}}  & {\em minor} & The minor number of the device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the device is allowed, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a0b4e58dcb654d379efe7ab412f808bf9}\label{classIDobbyUtils__v3_a0b4e58dcb654d379efe7ab412f808bf9}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!formatExtImageFile@{formatExtImageFile}}
+\index{formatExtImageFile@{formatExtImageFile}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{formatExtImageFile()}{formatExtImageFile()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v1\+::format\+Ext\+Image\+File}
+
+
+
+Runs the mke2fs tool to format a file system image. 
+
+This function does a fork/exec to launch the process, it drops root privileges and runs the tool as user 1000\+:1000, therefore the file that it\textquotesingle{}s formatting should be readable and writeble by user 1000.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & The fd of the directory containing the the image to write. The function will switch to this directory before dropping permissions (provided it\textquotesingle{}s not AT\+\_\+\+FCWD). \\
+\hline
+\mbox{\texttt{ in}}  & {\em image\+File\+Name} & The name of the file to format, it must already exist. \\
+\hline
+\mbox{\texttt{ in}}  & {\em fs\+Type} & The ext version to format the file as, this is equivalent to the \textquotesingle{}-\/t\textquotesingle{} option and should be one of; \textquotesingle{}ext2\textquotesingle{}, \textquotesingle{}ext3\textquotesingle{} or \textquotesingle{}ext4\textquotesingle{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success returns true on failure false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a0ac0f253142a6a556d1d4a9e0528860d}\label{classIDobbyUtils__v3_a0ac0f253142a6a556d1d4a9e0528860d}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!getDriverMajorNumber@{getDriverMajorNumber}}
+\index{getDriverMajorNumber@{getDriverMajorNumber}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{getDriverMajorNumber()}{getDriverMajorNumber()}}
+{\footnotesize\ttfamily virtual unsigned int IDobby\+Utils\+\_\+v1\+::get\+Driver\+Major\+Number}
+
+
+
+Returns the major number assigned to a given driver. 
+
+This function tries to find the major number assigned to a given driver, it does this by parsing the /proc/devices file.
+
+\begin{DoxyWarning}{Warning}
+Currently this function doesn\textquotesingle{}t work for \textquotesingle{}misc\textquotesingle{} devices, which are devices listed by /proc/misc.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em driver\+Name} & The name of the driver to get the major number for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if found the major number is returned, if not found then 0 is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a67bda461d4d7f42c0730d728ca949437}\label{classIDobbyUtils__v3_a67bda461d4d7f42c0730d728ca949437}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!getNamespaceFd@{getNamespaceFd}}
+\index{getNamespaceFd@{getNamespaceFd}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{getNamespaceFd()}{getNamespaceFd()}}
+{\footnotesize\ttfamily virtual int IDobby\+Utils\+\_\+v1\+::get\+Namespace\+Fd}
+
+
+
+Returns a file descriptor to the given namespace of the process. 
+
+The caller is responsible for closing the returned file descriptor when it is no longer required.
+
+The returned namespace can used in the setns(...) call, or other calls that enter / manipulate namespaces.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pid} & The pid of the process to get the namespace of. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ns\+Type} & The type of namespace to get, it should be one of the CLONE\+\_\+\+NEWxxx constants, see the setns man page for possible values.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success the file descriptor to the given namespace, on failure -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a7acc3509bed72ea64fa58c32631b80c7}\label{classIDobbyUtils__v3_a7acc3509bed72ea64fa58c32631b80c7}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!insertEbtablesRule@{insertEbtablesRule}}
+\index{insertEbtablesRule@{insertEbtablesRule}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{insertEbtablesRule()}{insertEbtablesRule()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v3\+::insert\+Ebtables\+Rule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Inserts the given ebtables rule to the existing set. 
+
+This doesn\textquotesingle{}t flush out any old rules, it just adds the new one at the beginning of the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em args} & The args of one rule to add.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the rule was added, otherwise false. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyUtils_ae944dcf9c7f553bfc9e82b13a8a9b8dc}{Dobby\+Utils}}.
+
+\mbox{\Hypertarget{classIDobbyUtils__v3_af67baa8581bf1b17c72220de8a759865}\label{classIDobbyUtils__v3_af67baa8581bf1b17c72220de8a759865}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!loopDeviceAssociate@{loopDeviceAssociate}}
+\index{loopDeviceAssociate@{loopDeviceAssociate}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{loopDeviceAssociate()}{loopDeviceAssociate()}}
+{\footnotesize\ttfamily virtual int IDobby\+Utils\+\_\+v1\+::loop\+Device\+Associate}
+
+
+
+Associates a give file descriptor with a loop device. 
+
+First the function attempts to get a free loop device, if that succeeds it attaches the supplied file descriptor to it and returns an fd to the loop device and (optionally) writes the path to the loop device in the {\itshape loop\+Dev\+Path} string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Fd} & An open file descriptor to associate with the loop device. \\
+\hline
+\mbox{\texttt{ out}}  & {\em loop\+Dev\+Path} & If not null, the method will write the path to the loop device dev node into the string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success returns the open file descriptor to the loop device associated with the file, on failure -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a0da40b4f94a877cc2f0dfbd58d08e4e8}\label{classIDobbyUtils__v3_a0da40b4f94a877cc2f0dfbd58d08e4e8}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!mkdirRecursive@{mkdirRecursive}}
+\index{mkdirRecursive@{mkdirRecursive}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{mkdirRecursive()}{mkdirRecursive()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v1\+::mkdir\+Recursive}
+
+
+
+Makes a directory and all parent directories as needed. 
+
+This is equivalent to the \textquotesingle{}mkdir -\/p $<$dir$>$\textquotesingle{} command.
+
+All directories created will have access mode set by {\itshape mode}, for this reason the mode should be at least \textquotesingle{}rwx-\/-\/-\/---\textquotesingle{}.
+
+If the pathname given in pathname is relative, then it is interpreted relative to the directory referred to by the file descriptor dir\+Fd, if dir\+Fd is not supplied then it\textquotesingle{}s relative to the cwd.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a9a7bb240a59f3341c9c3b248d46d4198}\label{classIDobbyUtils__v3_a9a7bb240a59f3341c9c3b248d46d4198}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!readTextFile@{readTextFile}}
+\index{readTextFile@{readTextFile}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{readTextFile()}{readTextFile()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Utils\+\_\+v1\+::read\+Text\+File}
+
+
+
+Simply read a string from a file. 
+
+Not much more to say really.
+
+If the pathname given in {\itshape file\+Path} is relative, then it is interpreted relative to the directory referred to by the file descriptor {\itshape dir\+Fd}, if {\itshape dir\+Fd} is not supplied then it\textquotesingle{}s relative to the cwd.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to file to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+Len} & The maximum number of characters to read, defaults to 4096.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string read from the file, on failure an empty string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a1d32a5a7120a0a9c4a1eb0a015d7dab4}\label{classIDobbyUtils__v3_a1d32a5a7120a0a9c4a1eb0a015d7dab4}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!rmdirContents@{rmdirContents}}
+\index{rmdirContents@{rmdirContents}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{rmdirContents()}{rmdirContents()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v1\+::rmdir\+Contents}
+
+
+
+Removes the contents of a directory but leave the actual directory in place. 
+
+This is equivalent to the \textquotesingle{}rm -\/rf $<$dir$>$/ $\ast$\textquotesingle{} command.
+
+If the pathname given in pathname is relative, then it is interpreted relative to the directory referred to by the file descriptor dir\+Fd, if dir\+Fd is not supplied then it\textquotesingle{}s relative to the cwd.
+
+\begin{DoxyWarning}{Warning}
+This function only supports deleting directories with contents that are less than 128 levels deep, this is to avoid running out of file descriptors.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a107555fb33650dc383b5eb787b8c3cb6}\label{classIDobbyUtils__v3_a107555fb33650dc383b5eb787b8c3cb6}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!rmdirRecursive@{rmdirRecursive}}
+\index{rmdirRecursive@{rmdirRecursive}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{rmdirRecursive()}{rmdirRecursive()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v1\+::rmdir\+Recursive}
+
+
+
+Removes a directory and all it\textquotesingle{}s contents. 
+
+This is equivalent to the \textquotesingle{}rm -\/rf $<$dir$>$\textquotesingle{} command.
+
+If the pathname given in pathname is relative, then it is interpreted relative to the directory referred to by the file descriptor dir\+Fd, if dir\+Fd is not supplied then it\textquotesingle{}s relative to the cwd.
+
+\begin{DoxyWarning}{Warning}
+This function only supports deleting directories with contents that are less than 128 levels deep, this is to avoid running out of file descriptors.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIDobbyUtils__v3_a11ef5c9a28210047ffe773f228cc8369}\label{classIDobbyUtils__v3_a11ef5c9a28210047ffe773f228cc8369}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!setIntegerMetaData@{setIntegerMetaData}}
+\index{setIntegerMetaData@{setIntegerMetaData}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{setIntegerMetaData()}{setIntegerMetaData()}}
+{\footnotesize\ttfamily virtual void IDobby\+Utils\+\_\+v2\+::set\+Integer\+Meta\+Data}
+
+
+
+Sets / Gets integer meta data for the given container. 
+
+You can use this to share meta data about the container across different plugins. For example if network namespaces are enabled.
+
+The data is cleared automatically when the container is shutdown. \mbox{\Hypertarget{classIDobbyUtils__v3_ae2375bdcbd779ab174b47ee34edfd4e1}\label{classIDobbyUtils__v3_ae2375bdcbd779ab174b47ee34edfd4e1}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!setStringMetaData@{setStringMetaData}}
+\index{setStringMetaData@{setStringMetaData}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{setStringMetaData()}{setStringMetaData()}}
+{\footnotesize\ttfamily virtual void IDobby\+Utils\+\_\+v2\+::set\+String\+Meta\+Data}
+
+
+
+Sets / Gets string meta data for the given container. 
+
+You can use this to share meta data about the container across different plugins. For example the ip address assigned to the container.
+
+The data is cleared automatically when the container is shutdown. \mbox{\Hypertarget{classIDobbyUtils__v3_a4b61a78eee78b14543c3cc54060b5ac8}\label{classIDobbyUtils__v3_a4b61a78eee78b14543c3cc54060b5ac8}} 
+\index{IDobbyUtils\_v3@{IDobbyUtils\_v3}!writeTextFile@{writeTextFile}}
+\index{writeTextFile@{writeTextFile}!IDobbyUtils\_v3@{IDobbyUtils\_v3}}
+\doxysubsubsection{\texorpdfstring{writeTextFile()}{writeTextFile()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Utils\+\_\+v1\+::write\+Text\+File}
+
+
+
+Simply writes a string into a file. 
+
+Not much more to say really.
+
+If the pathname given in {\itshape file\+Path} is relative, then it is interpreted relative to the directory referred to by the file descriptor {\itshape dir\+Fd}, if {\itshape dir\+Fd} is not supplied then it\textquotesingle{}s relative to the cwd.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to file to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & Open flags, these will be OR\textquotesingle{}d with O\+\_\+\+WRONLY and O\+\_\+\+CLOEXEC. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to set if O\+\_\+\+CREAT was specified in flags and the file was created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+utils/include/IDobby\+Utils.\+h\end{DoxyCompactItemize}

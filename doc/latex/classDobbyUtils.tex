@@ -1,0 +1,954 @@
+\hypertarget{classDobbyUtils}{}\doxysection{Dobby\+Utils Class Reference}
+\label{classDobbyUtils}\index{DobbyUtils@{DobbyUtils}}
+
+
+Utility methods for hooks and the general containiser daemon.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Utils.\+h$>$}
+
+
+
+Inheritance diagram for Dobby\+Utils\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Utils\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classDobbyUtils_af53933ebb0864b5a1e1acf90d6848799}{loop\+Device\+Associate}} (int file\+Fd, std\+::string $\ast$loop\+Dev\+Path) const override
+\begin{DoxyCompactList}\small\item\em Associates a give file descriptor with a loop device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a04d4c51777f0e057feac12c158847c8b}{check\+Ext\+Image\+File}} (int dir\+Fd, const std\+::string \&image\+File\+Name, bool repair) const override
+\begin{DoxyCompactList}\small\item\em Runs the e2fsck tool on a file system image to check it\textquotesingle{}s integrity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a7ecc2d141a16040faca39c3150b58f70}{format\+Ext\+Image\+File}} (int dir\+Fd, const std\+::string \&image\+File\+Name, const std\+::string \&fs\+Type) const override
+\begin{DoxyCompactList}\small\item\em Runs the mke2fs tool to format a file system image. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a881f8d1c342d6c887a6db0a7a0ba3112}{mkdir\+Recursive}} (const std\+::string \&path, mode\+\_\+t mode) const override
+\begin{DoxyCompactList}\small\item\em Makes a directory and all parent directories as needed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_aea841dd2249499e46d5a610328be5698}{mkdir\+Recursive}} (int dir\+Fd, const std\+::string \&path, mode\+\_\+t mode) const override
+\begin{DoxyCompactList}\small\item\em Makes a directory and all parent directories as needed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a4ef58044baea510ce498eb19f5dd6c1e}{rmdir\+Recursive}} (const std\+::string \&path) const override
+\begin{DoxyCompactList}\small\item\em Removes a directory and all it\textquotesingle{}s contents. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_aca5c20e4ee5b99a35300469fba3556c3}{rmdir\+Recursive}} (int dir\+Fd, const std\+::string \&path) const override
+\begin{DoxyCompactList}\small\item\em Removes a directory and all it\textquotesingle{}s contents. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a2134906151eb7e6b9e4300ab5b8f20ef}{rmdir\+Contents}} (const std\+::string \&path) const override
+\begin{DoxyCompactList}\small\item\em Removes the contents of a directory but leave the actual directory in place. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_ab3d68994783455a05cff68e3c9c0e131}{rmdir\+Contents}} (int dir\+Fd, const std\+::string \&path) const override
+\begin{DoxyCompactList}\small\item\em Removes the contents of a directory but leave the actual directory in place. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyUtils_af7a34fc77d3164723abe8be5bbde12ca}\label{classDobbyUtils_af7a34fc77d3164723abe8be5bbde12ca}} 
+bool {\bfseries rmdir\+Contents} (int dir\+Fd) const override
+\item 
+void \mbox{\hyperlink{classDobbyUtils_ae720f3883de1fe932bc12f97601b5ec1}{clean\+Mount\+Lost\+And\+Found}} (const std\+::string \&mount\+Point, const std\+::string \&log\+Tag) const override
+\begin{DoxyCompactList}\small\item\em Logs and deletes any files found in the lost+found directory of the mount point. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDobbyUtils_a94ab2a74e77d1bcb86c896830b5b98b6}{get\+Namespace\+Fd}} (pid\+\_\+t pid, int ns\+Type) const override
+\begin{DoxyCompactList}\small\item\em Returns a file descriptor to the given namespace of the process. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a9209146a91170fad8b62b91e53004d93}{write\+Text\+File\+At}} (int dir\+Fd, const std\+::string \&path, const std\+::string \&str, int flags, mode\+\_\+t mode) const override
+\begin{DoxyCompactList}\small\item\em Simply writes a string into a file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_ada13dac7e387faad2024c716e90e2d70}{write\+Text\+File}} (const std\+::string \&path, const std\+::string \&str, int flags, mode\+\_\+t mode) const override
+\begin{DoxyCompactList}\small\item\em Simply writes a string into a file. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyUtils_a36712d5edf8f7a660c1fb28c8c6bc658}{read\+Text\+File}} (const std\+::string \&path, size\+\_\+t max\+Len) const override
+\begin{DoxyCompactList}\small\item\em Simply read a string from a file. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyUtils_a9ec402b2d0fd1452c2e6789d1fe34959}{read\+Text\+File\+At}} (int dir\+Fd, const std\+::string \&path, size\+\_\+t max\+Len) const override
+\begin{DoxyCompactList}\small\item\em Simply read a string from a file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a4ec95adc8de4a99cc4d3ca42f4c6d6a2}{cancel\+Timer}} (int timer\+Id) const override
+\begin{DoxyCompactList}\small\item\em Removes the given timer from the timer queue. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classDobbyUtils_afb4af2e445814b2003c0b880c22cfaf0}{get\+Driver\+Major\+Number}} (const std\+::string \&driver\+Name) const override
+\begin{DoxyCompactList}\small\item\em Returns the major number assigned to a given driver. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_aa753c68c6770f2900b75690f13ae2351}{device\+Allowed}} (dev\+\_\+t device) const override
+\begin{DoxyCompactList}\small\item\em Returns true if the given device is allowed in the container. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyUtils_a23fd9a987ebd196d222526690134eadc}{set\+Integer\+Meta\+Data}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key, int value) override
+\begin{DoxyCompactList}\small\item\em Sets / Gets integer meta data for the given container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyUtils_a121631584092e82acd0575be3ad78179}\label{classDobbyUtils_a121631584092e82acd0575be3ad78179}} 
+int {\bfseries get\+Integer\+Meta\+Data} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key, int default\+Value) const override
+\item 
+void \mbox{\hyperlink{classDobbyUtils_a121da4f1b6e7972f5e014cc5bd76e82f}{set\+String\+Meta\+Data}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key, const std\+::string \&value) override
+\begin{DoxyCompactList}\small\item\em Sets / Gets string meta data for the given container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyUtils_a8406ae127361fcd2cea0644eddba696d}\label{classDobbyUtils_a8406ae127361fcd2cea0644eddba696d}} 
+std\+::string {\bfseries get\+String\+Meta\+Data} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&key, const std\+::string \&default\+Value) const override
+\item 
+void \mbox{\hyperlink{classDobbyUtils_a94cba518ab80a1b354dd1134491acbd3}{clear\+Container\+Meta\+Data}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id) override
+\begin{DoxyCompactList}\small\item\em Clears all the meta data stored for a given container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_ae944dcf9c7f553bfc9e82b13a8a9b8dc}{insert\+Ebtables\+Rule}} (const std\+::string \&args) const override
+\begin{DoxyCompactList}\small\item\em Inserts the given ebtables rule to the existing set. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a091f6ebb80d344852268167793046013}{delete\+Ebtables\+Rule}} (const std\+::string \&args) const override
+\begin{DoxyCompactList}\small\item\em Deletes the given ebtables rule from the existing set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classDobbyUtils_a6cc9016cbf19e7e05a752feedd941ca4}{open\+Loop\+Device}} (std\+::string $\ast$loop\+Device) const
+\begin{DoxyCompactList}\small\item\em Attempts to open an available loop device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_ad6d67cb8adbd4005572548e5b2cb6591}{attach\+File\+To\+Loop\+Device}} (int loop\+Fd, int file\+Fd) const
+\begin{DoxyCompactList}\small\item\em Attempts to attach the file to the loop device. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDobbyUtils_abb215d57f040bbac85aa15db3db96ab3}{run\+E2fs\+Tool}} (int dir\+Fd, std\+::list$<$ std\+::string $>$ $\ast$console\+Output, const char $\ast$e2fs\+Tool,...) const
+\begin{DoxyCompactList}\small\item\em Run the E2\+FS tool inside the given directory with given args. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a03933ab8451367a0558abe667bf931e7}{call\+In\+Namespace\+Impl}} (pid\+\_\+t pid, int ns\+Type, const std\+::function$<$ void()$>$ \&func) const override
+\begin{DoxyCompactList}\small\item\em Utility function to run some code in a specific namespace of the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyUtils_a86d4c37109273abc67f74de3fecac8c4}{call\+In\+Namespace\+Impl}} (int namespace\+Fd, const std\+::function$<$ void()$>$ \&func) const override
+\begin{DoxyCompactList}\small\item\em Utility function to run some code in a specific namespace of the container. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyUtils_af92f68a698c306e0de0f93211d5c51ff}{ns\+Thread}} (int new\+Ns\+Fd, int ns\+Type, bool $\ast$success, std\+::function$<$ void()$>$ \&func) const
+\begin{DoxyCompactList}\small\item\em Thread helper function that implements the setns syscall. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDobbyUtils_a3902be9babf0947712ec8a597742bd6b}{start\+Timer\+Impl}} (const std\+::chrono\+::milliseconds \&timeout, bool one\+Shot, const std\+::function$<$ bool()$>$ \&handler) const override
+\begin{DoxyCompactList}\small\item\em Adds a new timer to the timer queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyUtils_a4992d7466c7e588b74d42504ef529804}{build\+Device\+Whitelist}} ()
+\begin{DoxyCompactList}\small\item\em Builds the whitelist of allowed device numbers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyUtils_ac8161e356722fbc34b7eba766f4664f3}\label{classDobbyUtils_ac8161e356722fbc34b7eba766f4664f3}} 
+bool {\bfseries execute\+Command} (const std\+::string \&command) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyUtils_aef8563a4ad9b93783ef4e28e31c74233}\label{classDobbyUtils_aef8563a4ad9b93783ef4e28e31c74233}} 
+static bool \mbox{\hyperlink{classDobbyUtils_aef8563a4ad9b93783ef4e28e31c74233}{delete\+Recursive}} (int dirfd, int depth)
+\begin{DoxyCompactList}\small\item\em Recursive function that deletes everything within the supplied directory (as a descriptor). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyUtils_afc1492032ffe709858ef3701026b5244}\label{classDobbyUtils_afc1492032ffe709858ef3701026b5244}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyTimer}{Dobby\+Timer}} $>$ {\bfseries m\+Timer\+Queue}
+\item 
+\mbox{\Hypertarget{classDobbyUtils_a305743b0b91bb73f40aca26b19b2f2dd}\label{classDobbyUtils_a305743b0b91bb73f40aca26b19b2f2dd}} 
+std\+::set$<$ dev\+\_\+t $>$ {\bfseries m\+Device\+Whitelist}
+\item 
+\mbox{\Hypertarget{classDobbyUtils_ac06edb37a0027270a12bea26de887ba9}\label{classDobbyUtils_ac06edb37a0027270a12bea26de887ba9}} 
+std\+::mutex {\bfseries m\+Major\+Number\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyUtils_a3ab38000defcc163e692cf98dac33950}\label{classDobbyUtils_a3ab38000defcc163e692cf98dac33950}} 
+std\+::map$<$ std\+::string, unsigned int $>$ {\bfseries m\+Major\+Number\+Cache}
+\item 
+\mbox{\Hypertarget{classDobbyUtils_a0859c95dcff68d6d71b6c40889a72bf5}\label{classDobbyUtils_a0859c95dcff68d6d71b6c40889a72bf5}} 
+std\+::mutex {\bfseries m\+Meta\+Data\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyUtils_a295d25fc9069d737f043dc6a8a22d9ab}\label{classDobbyUtils_a295d25fc9069d737f043dc6a8a22d9ab}} 
+std\+::map$<$ std\+::pair$<$ \mbox{\hyperlink{classContainerId}{Container\+Id}}, std\+::string $>$, int $>$ {\bfseries m\+Integer\+Meta\+Data}
+\item 
+\mbox{\Hypertarget{classDobbyUtils_aa1a58989495d959611df8b3cc9a60ffe}\label{classDobbyUtils_aa1a58989495d959611df8b3cc9a60ffe}} 
+std\+::map$<$ std\+::pair$<$ \mbox{\hyperlink{classContainerId}{Container\+Id}}, std\+::string $>$, std\+::string $>$ {\bfseries m\+String\+Meta\+Data}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Utility methods for hooks and the general containiser daemon. 
+
+\begin{DoxySeeAlso}{See also}
+IDobby\+Utils 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyUtils_ad6d67cb8adbd4005572548e5b2cb6591}\label{classDobbyUtils_ad6d67cb8adbd4005572548e5b2cb6591}} 
+\index{DobbyUtils@{DobbyUtils}!attachFileToLoopDevice@{attachFileToLoopDevice}}
+\index{attachFileToLoopDevice@{attachFileToLoopDevice}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{attachFileToLoopDevice()}{attachFileToLoopDevice()}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::attach\+File\+To\+Loop\+Device (\begin{DoxyParamCaption}\item[{int}]{loop\+Fd,  }\item[{int}]{file\+Fd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to attach the file to the loop device. 
+
+\begin{DoxyReturn}{Returns}
+on success a positive file desccriptor corresponding to a free loop device, -\/1 on error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyUtils_a4992d7466c7e588b74d42504ef529804}\label{classDobbyUtils_a4992d7466c7e588b74d42504ef529804}} 
+\index{DobbyUtils@{DobbyUtils}!buildDeviceWhitelist@{buildDeviceWhitelist}}
+\index{buildDeviceWhitelist@{buildDeviceWhitelist}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{buildDeviceWhitelist()}{buildDeviceWhitelist()}}
+{\footnotesize\ttfamily void Dobby\+Utils\+::build\+Device\+Whitelist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Builds the whitelist of allowed device numbers. 
+
+At the moment only the following devices are added\+: hidraw, 0 -\/ 100 input, 64 -\/ 95
+
+The list is exclusive of the opengl / graphics device nodes and the set of \textquotesingle{}standard\textquotesingle{} device nodes. \mbox{\Hypertarget{classDobbyUtils_a86d4c37109273abc67f74de3fecac8c4}\label{classDobbyUtils_a86d4c37109273abc67f74de3fecac8c4}} 
+\index{DobbyUtils@{DobbyUtils}!callInNamespaceImpl@{callInNamespaceImpl}}
+\index{callInNamespaceImpl@{callInNamespaceImpl}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{callInNamespaceImpl()}{callInNamespaceImpl()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::call\+In\+Namespace\+Impl (\begin{DoxyParamCaption}\item[{int}]{namespace\+Fd,  }\item[{const std\+::function$<$ void()$>$ \&}]{func }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Utility function to run some code in a specific namespace of the container. 
+
+This function uses the setns syscall and therefore it must spawn a thread to run the callback in. However this function blocks until the thread completes, so although it is multi-\/threaded it\textquotesingle{}s API is blocking, i.\+e. effectively single threaded.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em namespace\+Fd} & The fd of the namespace to enter. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ns\+Type} & The namespace to run the function in, see above. \\
+\hline
+\mbox{\texttt{ in}}  & {\em func} & The function to execute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successifully entered the namespace, otherwise false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a2124b51aa00a4e133f22a87d31ecee15}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a03933ab8451367a0558abe667bf931e7}\label{classDobbyUtils_a03933ab8451367a0558abe667bf931e7}} 
+\index{DobbyUtils@{DobbyUtils}!callInNamespaceImpl@{callInNamespaceImpl}}
+\index{callInNamespaceImpl@{callInNamespaceImpl}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{callInNamespaceImpl()}{callInNamespaceImpl()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::call\+In\+Namespace\+Impl (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{pid,  }\item[{int}]{ns\+Type,  }\item[{const std\+::function$<$ void()$>$ \&}]{func }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Utility function to run some code in a specific namespace of the container. 
+
+This function uses the setns syscall and therefore it must spawn a thread to run the callback in. However this function blocks until the thread completes, so although it is multi-\/threaded it\textquotesingle{}s API is blocking, i.\+e. effectively single threaded.
+
+The {\itshape ns\+Type} argument should be one of the following values\+: CLONE\+\_\+\+NEWIPC -\/ run in a IPC namespace CLONE\+\_\+\+NEWNET -\/ run in a network namespace CLONE\+\_\+\+NEWNS -\/ run in a mount namespace CLONE\+\_\+\+NEWPID -\/ run in a PID namespace CLONE\+\_\+\+NEWUSER -\/ run in a user namespace CLONE\+\_\+\+NEWUTS -\/ run in a UTS namespace
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pid} & The pid of the process namespace to enter. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ns\+Type} & The namespace to run the function in, see above. \\
+\hline
+\mbox{\texttt{ in}}  & {\em func} & The function to execute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successifully entered the namespace, otherwise false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a56631a371594df364766d5a34af08cfa}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a4ec95adc8de4a99cc4d3ca42f4c6d6a2}\label{classDobbyUtils_a4ec95adc8de4a99cc4d3ca42f4c6d6a2}} 
+\index{DobbyUtils@{DobbyUtils}!cancelTimer@{cancelTimer}}
+\index{cancelTimer@{cancelTimer}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{cancelTimer()}{cancelTimer()}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::cancel\+Timer (\begin{DoxyParamCaption}\item[{int}]{timer\+Id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes the given timer from the timer queue. 
+
+Once this method returns (successfully) you are guaranteed that the timer handler will not be called, i.\+e. this is synchronisation point.
+
+This method will fail if called from the context of a timer handler, if you want to cancel a repeating timer then just return false in the handler.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timer\+Id} & The id of the timer to cancel as returned by the \mbox{\hyperlink{classIDobbyUtils__v1_a0d0a259821d7a4b6b3137fc78b5a5c5d}{start\+Timer()}} method.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the timer was found and was removed from the queue, otherwise false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_ad15039e696d59220b0aa2f381361b18b}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a04d4c51777f0e057feac12c158847c8b}\label{classDobbyUtils_a04d4c51777f0e057feac12c158847c8b}} 
+\index{DobbyUtils@{DobbyUtils}!checkExtImageFile@{checkExtImageFile}}
+\index{checkExtImageFile@{checkExtImageFile}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{checkExtImageFile()}{checkExtImageFile()}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::check\+Ext\+Image\+File (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{const std\+::string \&}]{image\+File\+Name,  }\item[{bool}]{repair }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs the e2fsck tool on a file system image to check it\textquotesingle{}s integrity. 
+
+This function does a fork/exec to launch the process, it drops root privileges and runs the tool as user 1000\+:1000, therefore the file that is being checked should be readable and writeble by user 1000.
+
+If this function returns false the image file should probably be deleted / reformatted.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & The fd of the directory containing the image to check. The function will switch to this directory before dropping permissions (provided it\textquotesingle{}s not AT\+\_\+\+FCWD). \\
+\hline
+\mbox{\texttt{ in}}  & {\em image\+File\+Name} & The name of the file to check. \\
+\hline
+\mbox{\texttt{ in}}  & {\em repair} & If true we\textquotesingle{}ll ask the tool to try and repair the file if it detects any errors.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the file passes the check (or was successifully repaired) true is returned, otherwise false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a9a9af4b63056292b0bb66698f86cf8cf}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_ae720f3883de1fe932bc12f97601b5ec1}\label{classDobbyUtils_ae720f3883de1fe932bc12f97601b5ec1}} 
+\index{DobbyUtils@{DobbyUtils}!cleanMountLostAndFound@{cleanMountLostAndFound}}
+\index{cleanMountLostAndFound@{cleanMountLostAndFound}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{cleanMountLostAndFound()}{cleanMountLostAndFound()}}
+{\footnotesize\ttfamily void Dobby\+Utils\+::clean\+Mount\+Lost\+And\+Found (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{mount\+Point,  }\item[{const std\+::string \&}]{log\+Tag }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Logs and deletes any files found in the lost+found directory of the mount point. 
+
+We should be clearing the lost+found to avoid cruft building up and taking all the space in the loop mount.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mount\+Point} & The absolute path to the mounted device, NOT the the location of the lost+found dir. \\
+\hline
+\mbox{\texttt{ in}}  & {\em log\+Tag} & If not empty then a log warning message will be printed containing the name of the file that was deleted and referencing the the string in log\+Tag. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a147b2aa94ca13129d0299bcd4baf70b1}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a94cba518ab80a1b354dd1134491acbd3}\label{classDobbyUtils_a94cba518ab80a1b354dd1134491acbd3}} 
+\index{DobbyUtils@{DobbyUtils}!clearContainerMetaData@{clearContainerMetaData}}
+\index{clearContainerMetaData@{clearContainerMetaData}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{clearContainerMetaData()}{clearContainerMetaData()}}
+{\footnotesize\ttfamily void Dobby\+Utils\+::clear\+Container\+Meta\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Clears all the meta data stored for a given container. 
+
+This is called by the \mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} when a container is starting or has just stopped. 
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v2}{IDobby\+Utils\+\_\+v2}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a091f6ebb80d344852268167793046013}\label{classDobbyUtils_a091f6ebb80d344852268167793046013}} 
+\index{DobbyUtils@{DobbyUtils}!deleteEbtablesRule@{deleteEbtablesRule}}
+\index{deleteEbtablesRule@{deleteEbtablesRule}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{deleteEbtablesRule()}{deleteEbtablesRule()}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::delete\+Ebtables\+Rule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Deletes the given ebtables rule from the existing set. 
+
+This only performs a delete, if the a rule is not currently installed then false is returned
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em args} & The set of one rule to remove.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the rules were removed, otherwise false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v3_a0412614ec8b7777e9a4ce2010640260e}{IDobby\+Utils\+\_\+v3}}.
+
+\mbox{\Hypertarget{classDobbyUtils_aa753c68c6770f2900b75690f13ae2351}\label{classDobbyUtils_aa753c68c6770f2900b75690f13ae2351}} 
+\index{DobbyUtils@{DobbyUtils}!deviceAllowed@{deviceAllowed}}
+\index{deviceAllowed@{deviceAllowed}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{deviceAllowed()}{deviceAllowed()}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::device\+Allowed (\begin{DoxyParamCaption}\item[{dev\+\_\+t}]{device }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns true if the given device is allowed in the container. 
+
+This is here for security reasons as I didn\textquotesingle{}t want just any device added to the container whitelist. If we trust the code on the other end of \mbox{\hyperlink{classDobby}{Dobby}} that is creating the containers then this is not needed, but just in case that got hacked I didn\textquotesingle{}t want people to create containers enabling access to CDI / system device nodes.
+
+\begin{DoxyWarning}{Warning}
+This method doesn\textquotesingle{}t take into account drivers being insmod / rmmod and the re-\/use of major numbers, however if a user could do that then this check is the least of our problems.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em device} & The device number.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the device is allowed, otherwise false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a4e32d875c6c4f8997cecab9a75dc90af}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a7ecc2d141a16040faca39c3150b58f70}\label{classDobbyUtils_a7ecc2d141a16040faca39c3150b58f70}} 
+\index{DobbyUtils@{DobbyUtils}!formatExtImageFile@{formatExtImageFile}}
+\index{formatExtImageFile@{formatExtImageFile}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{formatExtImageFile()}{formatExtImageFile()}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::format\+Ext\+Image\+File (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{const std\+::string \&}]{image\+File\+Name,  }\item[{const std\+::string \&}]{fs\+Type }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Runs the mke2fs tool to format a file system image. 
+
+This function does a fork/exec to launch the process, it drops root privileges and runs the tool as user 1000\+:1000, therefore the file that it\textquotesingle{}s formatting should be readable and writeble by user 1000.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & The fd of the directory containing theimage to write. The function will switch to this directory before dropping permissions (provided it\textquotesingle{}s not AT\+\_\+\+FCWD). \\
+\hline
+\mbox{\texttt{ in}}  & {\em image\+File\+Name} & The name of the file to format, it must already exist. \\
+\hline
+\mbox{\texttt{ in}}  & {\em fs\+Type} & The ext version to format the file as, this is equivalent to the \textquotesingle{}-\/t\textquotesingle{} option and should be one of; \textquotesingle{}ext2\textquotesingle{}, \textquotesingle{}ext3\textquotesingle{} or \textquotesingle{}ext4\textquotesingle{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success returns true on failure false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a08d2db01336e05b5b95225557f54c71c}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_afb4af2e445814b2003c0b880c22cfaf0}\label{classDobbyUtils_afb4af2e445814b2003c0b880c22cfaf0}} 
+\index{DobbyUtils@{DobbyUtils}!getDriverMajorNumber@{getDriverMajorNumber}}
+\index{getDriverMajorNumber@{getDriverMajorNumber}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{getDriverMajorNumber()}{getDriverMajorNumber()}}
+{\footnotesize\ttfamily unsigned int Dobby\+Utils\+::get\+Driver\+Major\+Number (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{driver\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the major number assigned to a given driver. 
+
+This function tries to find the major number assigned to a given driver, it does this by parsing the /proc/devices file.
+
+\begin{DoxyWarning}{Warning}
+Currently this function doesn\textquotesingle{}t work for \textquotesingle{}misc\textquotesingle{} devices, which are devices listed by /proc/misc.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em driver\+Name} & The name of the driver to get the major number for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if found the major number is returned, if not found then 0 is returned. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a8e51d664918af6d5bf05f932894cb27b}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a94ab2a74e77d1bcb86c896830b5b98b6}\label{classDobbyUtils_a94ab2a74e77d1bcb86c896830b5b98b6}} 
+\index{DobbyUtils@{DobbyUtils}!getNamespaceFd@{getNamespaceFd}}
+\index{getNamespaceFd@{getNamespaceFd}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{getNamespaceFd()}{getNamespaceFd()}}
+{\footnotesize\ttfamily int Dobby\+Utils\+::get\+Namespace\+Fd (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{pid,  }\item[{int}]{ns\+Type }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns a file descriptor to the given namespace of the process. 
+
+The caller is responsible for closing the returned file descriptor when it is no longer required.
+
+The returned namespace can used in the setns(...) call, or other calls that enter / manipulate namespaces.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pid} & The pid of the process to get the namespace of. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ns\+Type} & The type of namespace to get, it should be one of the CLONE\+\_\+\+NEWxxx constants, see the setns man page for possible values.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success the file descriptor to the given namespace, on failure -\/1 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a793342eb3b371f5e4d8d5370d4d57342}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_ae944dcf9c7f553bfc9e82b13a8a9b8dc}\label{classDobbyUtils_ae944dcf9c7f553bfc9e82b13a8a9b8dc}} 
+\index{DobbyUtils@{DobbyUtils}!insertEbtablesRule@{insertEbtablesRule}}
+\index{insertEbtablesRule@{insertEbtablesRule}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{insertEbtablesRule()}{insertEbtablesRule()}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::insert\+Ebtables\+Rule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inserts the given ebtables rule to the existing set. 
+
+This doesn\textquotesingle{}t flush out any old rules, it just adds the new one at the beginning of the table.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em args} & The args of one rule to add.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the rule was added, otherwise false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v3_a7acc3509bed72ea64fa58c32631b80c7}{IDobby\+Utils\+\_\+v3}}.
+
+\mbox{\Hypertarget{classDobbyUtils_af53933ebb0864b5a1e1acf90d6848799}\label{classDobbyUtils_af53933ebb0864b5a1e1acf90d6848799}} 
+\index{DobbyUtils@{DobbyUtils}!loopDeviceAssociate@{loopDeviceAssociate}}
+\index{loopDeviceAssociate@{loopDeviceAssociate}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{loopDeviceAssociate()}{loopDeviceAssociate()}}
+{\footnotesize\ttfamily int Dobby\+Utils\+::loop\+Device\+Associate (\begin{DoxyParamCaption}\item[{int}]{file\+Fd,  }\item[{std\+::string $\ast$}]{loop\+Dev\+Path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Associates a give file descriptor with a loop device. 
+
+First the function attempts to get a free loop device, if that succeeds it attaches the supplied file descriptor to it and returns an fd to the loop device and (optionally) writes the path to the loop device in the {\itshape loop\+Dev\+Path} string.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Fd} & An open file descriptor to associate with the loop device. \\
+\hline
+\mbox{\texttt{ out}}  & {\em loop\+Dev\+Path} & If not null, the method will write the path to the loop device dev node into the string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success returns the open file descriptor to the loop device associated with the file, on failure -\/1. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a3115fc5af9913b0cb56551bf1941b388}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a881f8d1c342d6c887a6db0a7a0ba3112}\label{classDobbyUtils_a881f8d1c342d6c887a6db0a7a0ba3112}} 
+\index{DobbyUtils@{DobbyUtils}!mkdirRecursive@{mkdirRecursive}}
+\index{mkdirRecursive@{mkdirRecursive}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{mkdirRecursive()}{mkdirRecursive()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::mkdir\+Recursive (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{mode\+\_\+t}]{mode }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Makes a directory and all parent directories as needed. 
+
+This is equivalent to the \textquotesingle{}mkdir -\/p $<$dir$>$\textquotesingle{} command.
+
+All directories created will have access mode set by {\itshape mode}, for this reason the mode should be at least \textquotesingle{}rwx-\/-\/-\/---\textquotesingle{}.
+
+If the pathname given in pathname is relative, then it is interpreted relative to the directory referred to by the file descriptor dir\+Fd, if dir\+Fd is not supplied then it\textquotesingle{}s relative to the cwd.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a399777342b6320b23c32650bfdb55a3b}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_aea841dd2249499e46d5a610328be5698}\label{classDobbyUtils_aea841dd2249499e46d5a610328be5698}} 
+\index{DobbyUtils@{DobbyUtils}!mkdirRecursive@{mkdirRecursive}}
+\index{mkdirRecursive@{mkdirRecursive}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{mkdirRecursive()}{mkdirRecursive()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::mkdir\+Recursive (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{const std\+::string \&}]{path,  }\item[{mode\+\_\+t}]{mode }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Makes a directory and all parent directories as needed. 
+
+This is equivalent to the \textquotesingle{}mkdir -\/p\textquotesingle{} command.
+
+All directories created will have access mode set by {\itshape mode}, for this reason the mode should be at least \textquotesingle{}rwx-\/-\/-\/---\textquotesingle{}.
+
+If the pathname given in {\itshape path} is relative, then it is interpreted relative to the directory referred to by the file descriptor dir\+Fd, if dir\+Fd is not supplied then it\textquotesingle{}s relative to the cwd.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_af92f68a698c306e0de0f93211d5c51ff}\label{classDobbyUtils_af92f68a698c306e0de0f93211d5c51ff}} 
+\index{DobbyUtils@{DobbyUtils}!nsThread@{nsThread}}
+\index{nsThread@{nsThread}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{nsThread()}{nsThread()}}
+{\footnotesize\ttfamily void Dobby\+Utils\+::ns\+Thread (\begin{DoxyParamCaption}\item[{int}]{new\+Ns\+Fd,  }\item[{int}]{ns\+Type,  }\item[{bool $\ast$}]{success,  }\item[{std\+::function$<$ void()$>$ \&}]{func }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Thread helper function that implements the setns syscall. 
+
+This must be executed as a thread as it calls setns which switches namespaces and you don\textquotesingle{}t really want to do this in the main thread.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+Ns\+Fd} & The namespace to switch into. \\
+\hline
+\mbox{\texttt{ in}}  & {\em func} & The function to execute in the new namespace.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successifully entered the namespace, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyUtils_a6cc9016cbf19e7e05a752feedd941ca4}\label{classDobbyUtils_a6cc9016cbf19e7e05a752feedd941ca4}} 
+\index{DobbyUtils@{DobbyUtils}!openLoopDevice@{openLoopDevice}}
+\index{openLoopDevice@{openLoopDevice}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{openLoopDevice()}{openLoopDevice()}}
+{\footnotesize\ttfamily int Dobby\+Utils\+::open\+Loop\+Device (\begin{DoxyParamCaption}\item[{std\+::string $\ast$}]{loop\+Device }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to open an available loop device. 
+
+\begin{DoxyReturn}{Returns}
+on success a positive file desccriptor corresponding to a free loop device, -\/1 on error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyUtils_a36712d5edf8f7a660c1fb28c8c6bc658}\label{classDobbyUtils_a36712d5edf8f7a660c1fb28c8c6bc658}} 
+\index{DobbyUtils@{DobbyUtils}!readTextFile@{readTextFile}}
+\index{readTextFile@{readTextFile}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{readTextFile()}{readTextFile()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Utils\+::read\+Text\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{size\+\_\+t}]{max\+Len }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Simply read a string from a file. 
+
+Not much more to say really.
+
+If the pathname given in {\itshape file\+Path} is relative, then it is interpreted relative to the directory referred to by the file descriptor {\itshape dir\+Fd}, if {\itshape dir\+Fd} is not supplied then it\textquotesingle{}s relative to the cwd.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to file to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+Len} & The maximum number of characters to read, defaults to 4096.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string read from the file, on failure an empty string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a32a7378abf4c6047eb1c1244e4f6706f}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a9ec402b2d0fd1452c2e6789d1fe34959}\label{classDobbyUtils_a9ec402b2d0fd1452c2e6789d1fe34959}} 
+\index{DobbyUtils@{DobbyUtils}!readTextFileAt@{readTextFileAt}}
+\index{readTextFileAt@{readTextFileAt}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{readTextFileAt()}{readTextFileAt()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Utils\+::read\+Text\+File\+At (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{const std\+::string \&}]{path,  }\item[{size\+\_\+t}]{max\+Len }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Simply read a string from a file. 
+
+Not much more to say really.
+
+If the pathname given in {\itshape file\+Path} is relative, then it is interpreted relative to the directory referred to by the file descriptor {\itshape dir\+Fd}, if {\itshape dir\+Fd} is not supplied then it\textquotesingle{}s relative to the cwd.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to file to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+Len} & The maximum number of characters to read, defaults to 4096.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the string read from the file, on failure an empty string. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a2134906151eb7e6b9e4300ab5b8f20ef}\label{classDobbyUtils_a2134906151eb7e6b9e4300ab5b8f20ef}} 
+\index{DobbyUtils@{DobbyUtils}!rmdirContents@{rmdirContents}}
+\index{rmdirContents@{rmdirContents}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{rmdirContents()}{rmdirContents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::rmdir\+Contents (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes the contents of a directory but leave the actual directory in place. 
+
+This is equivalent to the \textquotesingle{}rm -\/rf $<$dir$>$/ $\ast$\textquotesingle{} command.
+
+If the pathname given in pathname is relative, then it is interpreted relative to the directory referred to by the file descriptor dir\+Fd, if dir\+Fd is not supplied then it\textquotesingle{}s relative to the cwd.
+
+\begin{DoxyWarning}{Warning}
+This function only supports deleting directories with contents that are less than 128 levels deep, this is to avoid running out of file descriptors.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a5de5378547d50bb463a1c3f1b99bacf7}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_ab3d68994783455a05cff68e3c9c0e131}\label{classDobbyUtils_ab3d68994783455a05cff68e3c9c0e131}} 
+\index{DobbyUtils@{DobbyUtils}!rmdirContents@{rmdirContents}}
+\index{rmdirContents@{rmdirContents}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{rmdirContents()}{rmdirContents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::rmdir\+Contents (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes the contents of a directory but leave the actual directory in place. 
+
+This is equivalent to the \textquotesingle{}cd $<$dir$>$; rm -\/rf $\ast$\textquotesingle{} command.
+
+If the pathname given in {\itshape path} is relative, then it is interpreted relative to the directory referred to by the file descriptor {\itshape dir\+Fd}, if {\itshape dir\+Fd} is not supplied then it\textquotesingle{}s relative to the cwd.
+
+\begin{DoxyWarning}{Warning}
+This function only supports deleting directories with contents that are less than 128 levels deep, this is to avoid running out of file descriptors.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a4ef58044baea510ce498eb19f5dd6c1e}\label{classDobbyUtils_a4ef58044baea510ce498eb19f5dd6c1e}} 
+\index{DobbyUtils@{DobbyUtils}!rmdirRecursive@{rmdirRecursive}}
+\index{rmdirRecursive@{rmdirRecursive}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{rmdirRecursive()}{rmdirRecursive()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::rmdir\+Recursive (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes a directory and all it\textquotesingle{}s contents. 
+
+This is equivalent to the \textquotesingle{}rm -\/rf $<$dir$>$\textquotesingle{} command.
+
+If the pathname given in pathname is relative, then it is interpreted relative to the directory referred to by the file descriptor dir\+Fd, if dir\+Fd is not supplied then it\textquotesingle{}s relative to the cwd.
+
+\begin{DoxyWarning}{Warning}
+This function only supports deleting directories with contents that are less than 128 levels deep, this is to avoid running out of file descriptors.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_a689b8893888afc7d619175e787b370dd}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_aca5c20e4ee5b99a35300469fba3556c3}\label{classDobbyUtils_aca5c20e4ee5b99a35300469fba3556c3}} 
+\index{DobbyUtils@{DobbyUtils}!rmdirRecursive@{rmdirRecursive}}
+\index{rmdirRecursive@{rmdirRecursive}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{rmdirRecursive()}{rmdirRecursive()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::rmdir\+Recursive (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes a directory and all it\textquotesingle{}s contents. 
+
+This is equivalent to the \textquotesingle{}rm -\/rf\textquotesingle{} command.
+
+If the pathname given in pathname is relative, then it is interpreted relative to the directory referred to by the file descriptor dir\+Fd, if dir\+Fd is not supplied then it\textquotesingle{}s relative to the cwd.
+
+\begin{DoxyWarning}{Warning}
+This function only supports deleting directories with contents that are less than 128 levels deep, this is to avoid running out of file descriptors.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_abb215d57f040bbac85aa15db3db96ab3}\label{classDobbyUtils_abb215d57f040bbac85aa15db3db96ab3}} 
+\index{DobbyUtils@{DobbyUtils}!runE2fsTool@{runE2fsTool}}
+\index{runE2fsTool@{runE2fsTool}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{runE2fsTool()}{runE2fsTool()}}
+{\footnotesize\ttfamily int Dobby\+Utils\+::run\+E2fs\+Tool (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{std\+::list$<$ std\+::string $>$ $\ast$}]{console\+Output,  }\item[{const char $\ast$}]{e2fs\+Tool,  }\item[{}]{... }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Run the E2\+FS tool inside the given directory with given args. 
+
+This function does a fork/exec to launch the process, it drops root privileges and runs the tool as user 1000\+:1000, therefore the file that is being checked should be readable and writeble by user 1000.
+
+If this function returns false the image file should probably be deleted / reformatted.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & The fd of the directory containing the image to check. The function will switch to this directory before dropping permissions (provided it\textquotesingle{}s not AT\+\_\+\+FCWD). \\
+\hline
+\mbox{\texttt{ out}}  & {\em console\+Output} & String list to store the lines of output from the tool. \\
+\hline
+\mbox{\texttt{ in}}  & {\em e2fs\+Tool} & The tool to run, should be either \char`\"{}e2fsck\char`\"{} or \char`\"{}mke2fs\char`\"{}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ...} & Extra arguments to supply to the tool.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the file passes the check (or was successifully repaired) true is returned, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyUtils_a23fd9a987ebd196d222526690134eadc}\label{classDobbyUtils_a23fd9a987ebd196d222526690134eadc}} 
+\index{DobbyUtils@{DobbyUtils}!setIntegerMetaData@{setIntegerMetaData}}
+\index{setIntegerMetaData@{setIntegerMetaData}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{setIntegerMetaData()}{setIntegerMetaData()}}
+{\footnotesize\ttfamily void Dobby\+Utils\+::set\+Integer\+Meta\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{key,  }\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets / Gets integer meta data for the given container. 
+
+You can use this to share meta data about the container across different plugins. For example if network namespaces are enabled.
+
+The data is cleared automatically when the container is shutdown. 
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v2_a11ef5c9a28210047ffe773f228cc8369}{IDobby\+Utils\+\_\+v2}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a121da4f1b6e7972f5e014cc5bd76e82f}\label{classDobbyUtils_a121da4f1b6e7972f5e014cc5bd76e82f}} 
+\index{DobbyUtils@{DobbyUtils}!setStringMetaData@{setStringMetaData}}
+\index{setStringMetaData@{setStringMetaData}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{setStringMetaData()}{setStringMetaData()}}
+{\footnotesize\ttfamily void Dobby\+Utils\+::set\+String\+Meta\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{key,  }\item[{const std\+::string \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets / Gets string meta data for the given container. 
+
+You can use this to share meta data about the container across different plugins. For example the ip address assigned to the container.
+
+The data is cleared automatically when the container is shutdown. 
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v2_ae2375bdcbd779ab174b47ee34edfd4e1}{IDobby\+Utils\+\_\+v2}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a3902be9babf0947712ec8a597742bd6b}\label{classDobbyUtils_a3902be9babf0947712ec8a597742bd6b}} 
+\index{DobbyUtils@{DobbyUtils}!startTimerImpl@{startTimerImpl}}
+\index{startTimerImpl@{startTimerImpl}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{startTimerImpl()}{startTimerImpl()}}
+{\footnotesize\ttfamily int Dobby\+Utils\+::start\+Timer\+Impl (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::milliseconds \&}]{timeout,  }\item[{bool}]{one\+Shot,  }\item[{const std\+::function$<$ bool()$>$ \&}]{handler }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Adds a new timer to the timer queue. 
+
+The {\itshape handler} function will be called after the timeout period and then if {\itshape one\+Shot} is false periodically at the given timeout interval.
+
+The {\itshape handler} will be called from the context of the timer queue, bare in mind for any locking restrictions.
+
+A timer can be cancelled by either calling {\itshape \mbox{\hyperlink{classIDobbyUtils__v3_ada7807d22d0af211daab916d7bc2b128}{cancel\+Timer()}}} or returning false from the handler. One shot timers are automatically removed after they are fired, there is not need to call {\itshape \mbox{\hyperlink{classIDobbyUtils__v3_ada7807d22d0af211daab916d7bc2b128}{cancel\+Timer()}}} for them.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timeout} & The time after which to call the supplied handler. \\
+\hline
+\mbox{\texttt{ in}}  & {\em one\+Shot} & If true the timer is automatically removed after it times out the first time. \\
+\hline
+\mbox{\texttt{ in}}  & {\em handler} & The handler function to call when the timer times out.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success returns a (greater than zero) timer id integer which identifies the timer, on failure -\/1 is returned. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_aa5f6070c42f0d3e6c96bcac33b377665}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_ada13dac7e387faad2024c716e90e2d70}\label{classDobbyUtils_ada13dac7e387faad2024c716e90e2d70}} 
+\index{DobbyUtils@{DobbyUtils}!writeTextFile@{writeTextFile}}
+\index{writeTextFile@{writeTextFile}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{writeTextFile()}{writeTextFile()}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::write\+Text\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{const std\+::string \&}]{str,  }\item[{int}]{flags,  }\item[{mode\+\_\+t}]{mode }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Simply writes a string into a file. 
+
+Not much more to say really.
+
+If the pathname given in {\itshape file\+Path} is relative, then it is interpreted relative to the directory referred to by the file descriptor {\itshape dir\+Fd}, if {\itshape dir\+Fd} is not supplied then it\textquotesingle{}s relative to the cwd.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to file to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & Open flags, these will be OR\textquotesingle{}d with O\+\_\+\+WRONLY and O\+\_\+\+CLOEXEC. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to set if O\+\_\+\+CREAT was specified in flags and the file was created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1_af98f9f383a20991a5a04cde199972b83}{IDobby\+Utils\+\_\+v1}}.
+
+\mbox{\Hypertarget{classDobbyUtils_a9209146a91170fad8b62b91e53004d93}\label{classDobbyUtils_a9209146a91170fad8b62b91e53004d93}} 
+\index{DobbyUtils@{DobbyUtils}!writeTextFileAt@{writeTextFileAt}}
+\index{writeTextFileAt@{writeTextFileAt}!DobbyUtils@{DobbyUtils}}
+\doxysubsubsection{\texorpdfstring{writeTextFileAt()}{writeTextFileAt()}}
+{\footnotesize\ttfamily bool Dobby\+Utils\+::write\+Text\+File\+At (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{const std\+::string \&}]{path,  }\item[{const std\+::string \&}]{str,  }\item[{int}]{flags,  }\item[{mode\+\_\+t}]{mode }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Simply writes a string into a file. 
+
+Not much more to say really.
+
+If the pathname given in {\itshape file\+Path} is relative, then it is interpreted relative to the directory referred to by the file descriptor {\itshape dir\+Fd}, if {\itshape dir\+Fd} is not supplied then it\textquotesingle{}s relative to the cwd.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & If specified the path should be relative to to this directory. \\
+\hline
+\mbox{\texttt{ in}}  & {\em path} & The path to file to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & Open flags, these will be OR\textquotesingle{}d with O\+\_\+\+WRONLY and O\+\_\+\+CLOEXEC. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to set if O\+\_\+\+CREAT was specified in flags and the file was created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyUtils__v1}{IDobby\+Utils\+\_\+v1}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+utils/include/Dobby\+Utils.\+h\item 
+utils/source/Dobby\+Utils.\+cpp\end{DoxyCompactItemize}

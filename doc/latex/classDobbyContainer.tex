@@ -1,0 +1,178 @@
+\hypertarget{classDobbyContainer}{}\doxysection{Dobby\+Container Class Reference}
+\label{classDobbyContainer}\index{DobbyContainer@{DobbyContainer}}
+
+
+Wrapper object used to store container resources.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Container.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_aa3441ac25a31d473347e2afa5f7f1031}\label{classDobbyContainer_aa3441ac25a31d473347e2afa5f7f1031}} 
+enum class {\bfseries State} \{ \newline
+{\bfseries Starting}
+, {\bfseries Running}
+, {\bfseries Stopping}
+, {\bfseries Paused}
+, \newline
+{\bfseries Unknown}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_ace94f305a4d6fbb92434a04b16013c3d}\label{classDobbyContainer_ace94f305a4d6fbb92434a04b16013c3d}} 
+{\bfseries Dobby\+Container} (\mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} \&)=delete
+\item 
+\mbox{\Hypertarget{classDobbyContainer_ae74da66c5ed4ae9344a4336b23bbe459}\label{classDobbyContainer_ae74da66c5ed4ae9344a4336b23bbe459}} 
+{\bfseries Dobby\+Container} (\mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classDobbyContainer_af71ffcc40110e33581bc306a1509398e}\label{classDobbyContainer_af71ffcc40110e33581bc306a1509398e}} 
+void {\bfseries set\+Restart\+On\+Crash} (const std\+::list$<$ int $>$ \&files)
+\item 
+\mbox{\Hypertarget{classDobbyContainer_af9f3c735d010335d396a97faae34798d}\label{classDobbyContainer_af9f3c735d010335d396a97faae34798d}} 
+void {\bfseries clear\+Restart\+On\+Crash} ()
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a433d8df3c5bf2501f59a61973fb714b1}\label{classDobbyContainer_a433d8df3c5bf2501f59a61973fb714b1}} 
+bool {\bfseries should\+Restart} (int status\+Code)
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a473b53062b4c038f7a4dd5eeb4844acf}\label{classDobbyContainer_a473b53062b4c038f7a4dd5eeb4844acf}} 
+const std\+::list$<$ int $>$ \& {\bfseries files} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_aafaa4e8d414fc82853f4abb3139ba9fc}\label{classDobbyContainer_aafaa4e8d414fc82853f4abb3139ba9fc}} 
+const int32\+\_\+t {\bfseries descriptor}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_adafd36f092d83461e90c724dbe85bcf4}\label{classDobbyContainer_adafd36f092d83461e90c724dbe85bcf4}} 
+const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ {\bfseries bundle}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a33bc1de37c473b7fb482fd56e50c56fd}\label{classDobbyContainer_a33bc1de37c473b7fb482fd56e50c56fd}} 
+const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyConfig}{Dobby\+Config}} $>$ {\bfseries config}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a34d7847ebebd1626b47664019b45759b}\label{classDobbyContainer_a34d7847ebebd1626b47664019b45759b}} 
+const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyRootfs}{Dobby\+Rootfs}} $>$ {\bfseries rootfs}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a3656f92ca6ba29f342c348ba7188aafb}\label{classDobbyContainer_a3656f92ca6ba29f342c348ba7188aafb}} 
+const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyRdkPluginManager}{Dobby\+Rdk\+Plugin\+Manager}} $>$ {\bfseries rdk\+Plugin\+Manager}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a642bf1a0bc259a947b220d6fc33dde17}\label{classDobbyContainer_a642bf1a0bc259a947b220d6fc33dde17}} 
+pid\+\_\+t {\bfseries container\+Pid}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a7e51bc0f435eab60920eb06a90627941}\label{classDobbyContainer_a7e51bc0f435eab60920eb06a90627941}} 
+bool {\bfseries has\+Curse\+Of\+Death}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_af365abe83d2985dae2546c313c57bc12}\label{classDobbyContainer_af365abe83d2985dae2546c313c57bc12}} 
+enum Dobby\+Container\+::\+State {\bfseries state}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a9fec1b951e9f42b75992f123b41ff82c}\label{classDobbyContainer_a9fec1b951e9f42b75992f123b41ff82c}} 
+std\+::string {\bfseries custom\+Config\+File\+Path}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_af576f9e497b9192a7116d1ea3dec5de9}\label{classDobbyContainer_af576f9e497b9192a7116d1ea3dec5de9}} 
+{\bfseries Dobby\+Container} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&\+\_\+bundle, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyConfig}{Dobby\+Config}} $>$ \&\+\_\+config, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyRootfs}{Dobby\+Rootfs}} $>$ \&\+\_\+rootfs)
+\item 
+\mbox{\Hypertarget{classDobbyContainer_ab10beb72a5cbff5f8fed6a450f3a9220}\label{classDobbyContainer_ab10beb72a5cbff5f8fed6a450f3a9220}} 
+{\bfseries Dobby\+Container} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&\+\_\+bundle, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyConfig}{Dobby\+Config}} $>$ \&\+\_\+config, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyRootfs}{Dobby\+Rootfs}} $>$ \&\+\_\+rootfs, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyRdkPluginManager}{Dobby\+Rdk\+Plugin\+Manager}} $>$ \&\+\_\+rdk\+Plugin\+Manager)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int32\+\_\+t \mbox{\hyperlink{classDobbyContainer_a76771e414e9977e3c6861afc58ecf0ae}{alloc\+Descriptor}} ()
+\begin{DoxyCompactList}\small\item\em Alloc a unique descriptor from the pool. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classDobbyContainer_a53f577b0114b5a68dc094727d1d46c4d}{free\+Descriptor}} (int32\+\_\+t cd)
+\begin{DoxyCompactList}\small\item\em Frees a descriptor created with alloc\+Descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_ac6c74487390b8719c4f19e584c178b98}\label{classDobbyContainer_ac6c74487390b8719c4f19e584c178b98}} 
+bool {\bfseries m\+Restart\+On\+Crash}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a3ddcf0193dcc3c2389d60b6dd2e8d500}\label{classDobbyContainer_a3ddcf0193dcc3c2389d60b6dd2e8d500}} 
+std\+::list$<$ int $>$ {\bfseries m\+Files}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a67b5844b60030cb9071b6558d230c040}\label{classDobbyContainer_a67b5844b60030cb9071b6558d230c040}} 
+unsigned {\bfseries m\+Restart\+Count}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_aa9b7b065accabcf279a69ae2d1d1f439}\label{classDobbyContainer_aa9b7b065accabcf279a69ae2d1d1f439}} 
+std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::steady\+\_\+clock $>$ {\bfseries m\+Last\+Restart\+Attempt}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a0ad4bfdfb12886eb84e5ec4882b0a5d1}\label{classDobbyContainer_a0ad4bfdfb12886eb84e5ec4882b0a5d1}} 
+static std\+::mutex {\bfseries m\+Ids\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a87102501fa8e76900a295f4821058226}\label{classDobbyContainer_a87102501fa8e76900a295f4821058226}} 
+static std\+::bitset$<$ 1024 $>$ {\bfseries m\+Used\+Ids}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyContainer_a8422c31caccd2c092cd8aa5012b0d5bf}\label{classDobbyContainer_a8422c31caccd2c092cd8aa5012b0d5bf}} 
+class {\bfseries Dobby\+Manager}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper object used to store container resources. 
+
+This class stores the state of the container, along with it\textquotesingle{}s config, bundle directory, rootfs and console resources.
+
+In addition it stores the pid of the controller runc process managing the container, we need this to detect when the container has finially shutdown.
+
+Lastly we also store a unique descriptor for the container, this is used alongside the container id string to identify events from a container.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classDobbyManager}{Dobby\+Manager}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyContainer_a76771e414e9977e3c6861afc58ecf0ae}\label{classDobbyContainer_a76771e414e9977e3c6861afc58ecf0ae}} 
+\index{DobbyContainer@{DobbyContainer}!allocDescriptor@{allocDescriptor}}
+\index{allocDescriptor@{allocDescriptor}!DobbyContainer@{DobbyContainer}}
+\doxysubsubsection{\texorpdfstring{allocDescriptor()}{allocDescriptor()}}
+{\footnotesize\ttfamily int32\+\_\+t Dobby\+Container\+::alloc\+Descriptor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Alloc a unique descriptor from the pool. 
+
+The descriptor will be a number between 1 and 1024, it will be unique in the sense that no existing Container object will have the same descriptor.
+
+The descriptors themselves are created in a pseudo random repeating sequence, which should hopefully avoid getting the same descriptor number close together.
+
+\begin{DoxyReturn}{Returns}
+a unique descriptor number between 1 and 1024 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyContainer_a53f577b0114b5a68dc094727d1d46c4d}\label{classDobbyContainer_a53f577b0114b5a68dc094727d1d46c4d}} 
+\index{DobbyContainer@{DobbyContainer}!freeDescriptor@{freeDescriptor}}
+\index{freeDescriptor@{freeDescriptor}!DobbyContainer@{DobbyContainer}}
+\doxysubsubsection{\texorpdfstring{freeDescriptor()}{freeDescriptor()}}
+{\footnotesize\ttfamily void Dobby\+Container\+::free\+Descriptor (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Frees a descriptor created with alloc\+Descriptor. 
+
+This puts the given descriptor back in the pool for use again.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & the descriptor to release. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Container.\+h\item 
+daemon/lib/source/Dobby\+Container.\+cpp\end{DoxyCompactItemize}

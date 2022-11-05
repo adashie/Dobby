@@ -1,0 +1,75 @@
+\hypertarget{classIIpcServiceTest}{}\doxysection{IIpc\+Service\+Test Class Reference}
+\label{classIIpcServiceTest}\index{IIpcServiceTest@{IIpcServiceTest}}
+
+
+Inheritance diagram for IIpc\+Service\+Test\+:
+% FIG 0
+
+
+Collaboration diagram for IIpc\+Service\+Test\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_afbc65ce77d05aec9f2eed0e477ead0d9}\label{classIIpcServiceTest_afbc65ce77d05aec9f2eed0e477ead0d9}} 
+void {\bfseries Set\+Up} ()
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_ac5005d5622c7a0c0c2ef1e5f160cfc1e}\label{classIIpcServiceTest_ac5005d5622c7a0c0c2ef1e5f160cfc1e}} 
+void {\bfseries Tear\+Down} ()
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a45f24521f3c1eac9ff969558bea57ddc}\label{classIIpcServiceTest_a45f24521f3c1eac9ff969558bea57ddc}} 
+void {\bfseries method\+Handler} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplySender}{IAsync\+Reply\+Sender}} $>$ reply\+Sender)
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a82aa72d649534f6b898679f92957132a}\label{classIIpcServiceTest_a82aa72d649534f6b898679f92957132a}} 
+void {\bfseries method\+Handler\+No\+Response} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplySender}{IAsync\+Reply\+Sender}} $>$ reply\+Sender)
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a662f50f54e63e1a1c24c210fb82a60a0}\label{classIIpcServiceTest_a662f50f54e63e1a1c24c210fb82a60a0}} 
+void {\bfseries method\+Handler\+Delayed\+Response} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplySender}{IAsync\+Reply\+Sender}} $>$ reply\+Sender)
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a47613ed552f9d57da2985c80b3d5accc}\label{classIIpcServiceTest_a47613ed552f9d57da2985c80b3d5accc}} 
+void {\bfseries signal\+Handler} (const \mbox{\hyperlink{structAI__IPC_1_1Signal}{Signal}} \&signal, const Variant\+List \&args)
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a93771907a8ff846b23744d7a24f28253}\label{classIIpcServiceTest_a93771907a8ff846b23744d7a24f28253}} 
+bool {\bfseries register\+Server\+Handers} ()
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_ab1f808cf1e7d19dbf77fdbcfafac2f38}\label{classIIpcServiceTest_ab1f808cf1e7d19dbf77fdbcfafac2f38}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ {\bfseries create\+Ipc\+Service} (bool is\+Server)
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_acfa074531ca5377c5dd4e7d900166bd7}\label{classIIpcServiceTest_acfa074531ca5377c5dd4e7d900166bd7}} 
+bool {\bfseries wait\+For\+Received\+Signal\+Count} (unsigned int received\+Signal\+Count, unsigned int timeout\+Sec=2)
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a69aac1cdc34fa4d933f73758e0a2e5fa}\label{classIIpcServiceTest_a69aac1cdc34fa4d933f73758e0a2e5fa}} 
+bool {\bfseries wait\+For\+Received\+Method\+Call\+Count} (unsigned int received\+Method\+Count, unsigned int timeout\+Sec=2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a720895f21b98dc91695afd59a3f643f4}\label{classIIpcServiceTest_a720895f21b98dc91695afd59a3f643f4}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ {\bfseries m\+Ipc\+Client\+Service}
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a2cb1f1c19615687917fcae74b30aafa5}\label{classIIpcServiceTest_a2cb1f1c19615687917fcae74b30aafa5}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} $>$ {\bfseries m\+Ipc\+Server\+Service}
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a0c5dff91c6a0ffac28a32fb4128c5913}\label{classIIpcServiceTest_a0c5dff91c6a0ffac28a32fb4128c5913}} 
+std\+::vector$<$ Variant\+List $>$ {\bfseries m\+Received\+Signal\+Args}
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_aea8af47d89fd9b47f913293d5f950910}\label{classIIpcServiceTest_aea8af47d89fd9b47f913293d5f950910}} 
+std\+::vector$<$ Variant\+List $>$ {\bfseries m\+Received\+Method\+Args}
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a3bfb95ea50cd0171536e462f3a821c4d}\label{classIIpcServiceTest_a3bfb95ea50cd0171536e462f3a821c4d}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries m\+Reg\+Ids}
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a88a15d39c88ab3147a311f7f99ecaca7}\label{classIIpcServiceTest_a88a15d39c88ab3147a311f7f99ecaca7}} 
+std\+::mutex {\bfseries m\+Mutex}
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a2c4daf05d175a7ef416fbd492be48f72}\label{classIIpcServiceTest_a2c4daf05d175a7ef416fbd492be48f72}} 
+std\+::condition\+\_\+variable {\bfseries m\+Cond\+Var}
+\item 
+\mbox{\Hypertarget{classIIpcServiceTest_a65d33ea35c143f149d0faf76b961da94}\label{classIIpcServiceTest_a65d33ea35c143f149d0faf76b961da94}} 
+unsigned int {\bfseries m\+Method\+Call\+Count} = 0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/test/source/IIpc\+Service\+Tests.\+cpp\end{DoxyCompactItemize}

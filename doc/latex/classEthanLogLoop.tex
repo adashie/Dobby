@@ -1,0 +1,156 @@
+\hypertarget{classEthanLogLoop}{}\doxysection{Ethan\+Log\+Loop Class Reference}
+\label{classEthanLogLoop}\index{EthanLogLoop@{EthanLogLoop}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structEthanLogLoop_1_1AddClientEvent}{Add\+Client\+Event}}
+\item 
+struct \mbox{\hyperlink{structEthanLogLoop_1_1Event}{Event}}
+\item 
+struct \mbox{\hyperlink{structEthanLogLoop_1_1SetClientBasePidEvent}{Set\+Client\+Base\+Pid\+Event}}
+\item 
+struct \mbox{\hyperlink{structEthanLogLoop_1_1TerminateEvent}{Terminate\+Event}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEthanLogLoop_a06509d5c6a2e36ab0b6478cc1e889d78}\label{classEthanLogLoop_a06509d5c6a2e36ab0b6478cc1e889d78}} 
+{\bfseries Ethan\+Log\+Loop} (const std\+::string \&mem\+Cgroup\+Mount\+Point)
+\item 
+int \mbox{\hyperlink{classEthanLogLoop_adeacd697db18f6e74ffd0d319ec2bb58}{add\+Client}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&tag, unsigned allowed\+Levels, uint64\+\_\+t rate=0, uint64\+\_\+t burst\+Size=0)
+\begin{DoxyCompactList}\small\item\em Creates a new logging client, which is just pipe with some meta data stored. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthanLogLoop_a97b6ec8e92fce4c148c9704144aa4901}{set\+Client\+Base\+Pid}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, pid\+\_\+t base\+Pid)
+\begin{DoxyCompactList}\small\item\em Sets the base pid number for the given container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEthanLogLoop_a367678b6be01066699670e741a901cd6}{event\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structEthanLogLoop_1_1Event}{Event}} loop thread function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEthanLogLoop_a45ac981ab22b0cb99412cbfa2c2ad232}{wake\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em Wakes the event loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classEthanLogLoop_ac7aaa6849abd71b36b65fe7f8b381c3f}{event\+Fd\+Handler}} (sd\+\_\+event\+\_\+source $\ast$source, int fd, uint32\+\_\+t revents, void $\ast$user\+Data)
+\begin{DoxyCompactList}\small\item\em Handler for wake ups from the event fd. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEthanLogLoop_abcaa90641437dcf0fc3ffbfd3514ef29}\label{classEthanLogLoop_abcaa90641437dcf0fc3ffbfd3514ef29}} 
+const std\+::string {\bfseries m\+Mem\+Cgroup\+Mount\+Point}
+\item 
+\mbox{\Hypertarget{classEthanLogLoop_a62fa22ca7d731288580883580673e727}\label{classEthanLogLoop_a62fa22ca7d731288580883580673e727}} 
+std\+::thread {\bfseries m\+Thread}
+\item 
+\mbox{\Hypertarget{classEthanLogLoop_ac105637d996cd2e57a2cf1aedf665be4}\label{classEthanLogLoop_ac105637d996cd2e57a2cf1aedf665be4}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classEthanLogLoop_a7894136183d7a843af3e4ff6ade9c567}\label{classEthanLogLoop_a7894136183d7a843af3e4ff6ade9c567}} 
+int {\bfseries m\+Event\+Fd}
+\item 
+\mbox{\Hypertarget{classEthanLogLoop_afce08ab7f1c92cf5459cf06cf3e72203}\label{classEthanLogLoop_afce08ab7f1c92cf5459cf06cf3e72203}} 
+std\+::deque$<$ \mbox{\hyperlink{structEthanLogLoop_1_1Event}{Event}} $>$ {\bfseries m\+Events}
+\item 
+\mbox{\Hypertarget{classEthanLogLoop_ae8665caee2079a7686dd91c196959b87}\label{classEthanLogLoop_ae8665caee2079a7686dd91c196959b87}} 
+std\+::list$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classEthanLogClient}{Ethan\+Log\+Client}} $>$ $>$ {\bfseries m\+Clients}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEthanLogLoop_adeacd697db18f6e74ffd0d319ec2bb58}\label{classEthanLogLoop_adeacd697db18f6e74ffd0d319ec2bb58}} 
+\index{EthanLogLoop@{EthanLogLoop}!addClient@{addClient}}
+\index{addClient@{addClient}!EthanLogLoop@{EthanLogLoop}}
+\doxysubsubsection{\texorpdfstring{addClient()}{addClient()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Loop\+::add\+Client (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{tag,  }\item[{unsigned}]{allowed\+Levels,  }\item[{uint64\+\_\+t}]{rate = {\ttfamily 0},  }\item[{uint64\+\_\+t}]{burst\+Size = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Creates a new logging client, which is just pipe with some meta data stored. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The container id. \\
+\hline
+\mbox{\texttt{ in}}  & {\em tag} & The identifier to assign to all log messages. \\
+\hline
+\mbox{\texttt{ in}}  & {\em allowed\+Levels} & Bitmask of allowed levels. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rate} & The rate limit (actually limiting TBD) \\
+\hline
+\mbox{\texttt{ in}}  & {\em burst\+Size} & The burst limit (actually limiting TBD)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogLoop_ac7aaa6849abd71b36b65fe7f8b381c3f}\label{classEthanLogLoop_ac7aaa6849abd71b36b65fe7f8b381c3f}} 
+\index{EthanLogLoop@{EthanLogLoop}!eventFdHandler@{eventFdHandler}}
+\index{eventFdHandler@{eventFdHandler}!EthanLogLoop@{EthanLogLoop}}
+\doxysubsubsection{\texorpdfstring{eventFdHandler()}{eventFdHandler()}}
+{\footnotesize\ttfamily int Ethan\+Log\+Loop\+::event\+Fd\+Handler (\begin{DoxyParamCaption}\item[{sd\+\_\+event\+\_\+source $\ast$}]{source,  }\item[{int}]{fd,  }\item[{uint32\+\_\+t}]{revents,  }\item[{void $\ast$}]{user\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Handler for wake ups from the event fd. 
+
+This will either be called if the terminate flag is set or when a new client has been added to the list of clients.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The event loop source handler. \\
+\hline
+\mbox{\texttt{ in}}  & {\em fd} & Should be the event fd. \\
+\hline
+\mbox{\texttt{ in}}  & {\em revents} & The event that triggered the wake up. \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+Data} & Pointer back to the instance of \mbox{\hyperlink{classEthanLogLoop}{Ethan\+Log\+Loop}} class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogLoop_a367678b6be01066699670e741a901cd6}\label{classEthanLogLoop_a367678b6be01066699670e741a901cd6}} 
+\index{EthanLogLoop@{EthanLogLoop}!eventLoop@{eventLoop}}
+\index{eventLoop@{eventLoop}!EthanLogLoop@{EthanLogLoop}}
+\doxysubsubsection{\texorpdfstring{eventLoop()}{eventLoop()}}
+{\footnotesize\ttfamily void Ethan\+Log\+Loop\+::event\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\mbox{\hyperlink{structEthanLogLoop_1_1Event}{Event}} loop thread function. 
+
+Runs the event loop processing inputs from logging pipes until the terminate flag is set. \mbox{\Hypertarget{classEthanLogLoop_a97b6ec8e92fce4c148c9704144aa4901}\label{classEthanLogLoop_a97b6ec8e92fce4c148c9704144aa4901}} 
+\index{EthanLogLoop@{EthanLogLoop}!setClientBasePid@{setClientBasePid}}
+\index{setClientBasePid@{setClientBasePid}!EthanLogLoop@{EthanLogLoop}}
+\doxysubsubsection{\texorpdfstring{setClientBasePid()}{setClientBasePid()}}
+{\footnotesize\ttfamily void Ethan\+Log\+Loop\+::set\+Client\+Base\+Pid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{pid\+\_\+t}]{base\+Pid }\end{DoxyParamCaption})}
+
+
+
+Sets the base pid number for the given container. 
+
+This is used so we can pass the real pid to journald.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The container id. \\
+\hline
+\mbox{\texttt{ in}}  & {\em base\+Pid} & The pid of the init process inside the container. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEthanLogLoop_a45ac981ab22b0cb99412cbfa2c2ad232}\label{classEthanLogLoop_a45ac981ab22b0cb99412cbfa2c2ad232}} 
+\index{EthanLogLoop@{EthanLogLoop}!wakeLoop@{wakeLoop}}
+\index{wakeLoop@{wakeLoop}!EthanLogLoop@{EthanLogLoop}}
+\doxysubsubsection{\texorpdfstring{wakeLoop()}{wakeLoop()}}
+{\footnotesize\ttfamily void Ethan\+Log\+Loop\+::wake\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Wakes the event loop. 
+
+Writes to the eventfd which should wake the event loop thread. This is used when either a new client is added or we wish to terminate the event loop thread. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Ethan\+Log/source/Ethan\+Log\+Loop.\+h\item 
+plugins/\+Ethan\+Log/source/Ethan\+Log\+Loop.\+cpp\end{DoxyCompactItemize}

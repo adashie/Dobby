@@ -1,0 +1,651 @@
+\hypertarget{classDobbyManager}{}\doxysection{Dobby\+Manager Class Reference}
+\label{classDobbyManager}\index{DobbyManager@{DobbyManager}}
+
+
+The main object which starts / stops / manages the containers.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Manager.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a98e1ca669cd3eca740252b479e2775d4}\label{classDobbyManager_a98e1ca669cd3eca740252b479e2775d4}} 
+typedef std\+::function$<$ void(int32\+\_\+t cd, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id)$>$ {\bfseries Container\+Started\+Func}
+\item 
+\mbox{\Hypertarget{classDobbyManager_af578985ac1c6d98cf32df821a77c258f}\label{classDobbyManager_af578985ac1c6d98cf32df821a77c258f}} 
+typedef std\+::function$<$ void(int32\+\_\+t cd, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, int32\+\_\+t status)$>$ {\bfseries Container\+Stopped\+Func}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a7d91762c03601ea6e6fccb01af834d2b}\label{classDobbyManager_a7d91762c03601ea6e6fccb01af834d2b}} 
+{\bfseries Dobby\+Manager} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&env, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyIPCUtils}{IDobby\+IPCUtils}} $>$ \&ipc\+Utils, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&settings, const Container\+Started\+Func \&container\+Started\+Cb, const Container\+Stopped\+Func \&container\+Stopped\+Cb)
+\item 
+int32\+\_\+t \mbox{\hyperlink{classDobbyManager_a66e3c66c1edf14b1f292fb28004968d3}{start\+Container\+From\+Bundle}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&bundle\+Path, const std\+::list$<$ int $>$ \&files, const std\+::string \&command, const std\+::string \&display\+Socket, const std\+::vector$<$ std\+::string $>$ \&env\+Vars)
+\begin{DoxyCompactList}\small\item\em Where the magic begins ... attempts to create a container from an OCI bundle$\ast$. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_abc24032118b91fc1660ae4be7dedaf2f}{stop\+Container}} (int32\+\_\+t cd, bool with\+Prejudice)
+\begin{DoxyCompactList}\small\item\em Stops a running container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_ae68bb880628681639726ce3e0d48067d}{pause\+Container}} (int32\+\_\+t cd)
+\begin{DoxyCompactList}\small\item\em Freezes a running container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_a2d4e604d228f20045b2a4624d0295a30}{resume\+Container}} (int32\+\_\+t cd)
+\begin{DoxyCompactList}\small\item\em Thaws a frozen container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_a26f396a3d1f2f145aa05ff23bfc50685}{exec\+In\+Container}} (int32\+\_\+t cd, const std\+::string \&options, const std\+::string \&command)
+\begin{DoxyCompactList}\small\item\em Executes a command in a running container. \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::pair$<$ int32\+\_\+t, \mbox{\hyperlink{classContainerId}{Container\+Id}} $>$ $>$ \mbox{\hyperlink{classDobbyManager_a916432f3341a3eeae5de5e06807374e3}{list\+Containers}} () const
+\begin{DoxyCompactList}\small\item\em Returns a list of all the containers. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classDobbyManager_abceecde3a6a164e13f3799a5dd4a3636}{state\+Of\+Container}} (int32\+\_\+t cd) const
+\begin{DoxyCompactList}\small\item\em Returns the state of a given container. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyManager_a50849443ccba22c698d223234125471b}{stats\+Of\+Container}} (int32\+\_\+t cd) const
+\begin{DoxyCompactList}\small\item\em Gets the stats for the container. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyManager_a7ab07082f515abc77f157954747cad11}{oci\+Config\+Of\+Container}} (int32\+\_\+t cd) const
+\begin{DoxyCompactList}\small\item\em Debugging method to allow you to retrieve the OCI config.\+json spec used to create the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDobbyManager_a856645daacea432a97c72d88411f33cd}{setup\+System}} ()
+\begin{DoxyCompactList}\small\item\em Configures the linux system for enabling features needed for runc. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyManager_a918da197e28becc45718ec9b93076cf8}{setup\+Workspace}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&env)
+\begin{DoxyCompactList}\small\item\em Configures the workspace directory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyManager_a49230ba2390333687ef4f8270419c179}{cleanup\+Containers}} ()
+\begin{DoxyCompactList}\small\item\em Gets a list of running containers and tries to kill and delete them. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_a772377ca89b442f98c325b931cb94b6d}{cleanup\+Container}} (const \mbox{\hyperlink{structDobbyRunC_1_1ContainerListItem}{Dobby\+Run\+C\+::\+Container\+List\+Item}} \&container)
+\begin{DoxyCompactList}\small\item\em Cleans up a container that is in an unknown state -\/ used at \mbox{\hyperlink{classDobby}{Dobby}} startup to ensure the box is in a clean state with no leftover containers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyManager_a25898aed88e44f1677502ee50b25ca03}{cleanup\+Containers\+Shutdown}} ()
+\begin{DoxyCompactList}\small\item\em Gracefully stops and cleans up any running containers. Will emit the container stop event when a container stops. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyManager_ac8f31b2285c6a8a58aa7a6220233b79f}{handle\+Container\+Terminate}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&container, const int status)
+\begin{DoxyCompactList}\small\item\em Perform all the necessary cleanup and run plugins required when a container has terminated. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyManager_aa25e05574f4ae49bc565bd77c9464714}{on\+Child\+Exit}} ()
+\begin{DoxyCompactList}\small\item\em Called when we detect a child process has terminated. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyManager_aa21cf486212d6af9700206f4179079a2}\label{classDobbyManager_aa21cf486212d6af9700206f4179079a2}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyRdkLoggingPlugin}{IDobby\+Rdk\+Logging\+Plugin}} $>$ \mbox{\hyperlink{classDobbyManager_aa21cf486212d6af9700206f4179079a2}{Get\+Container\+Logger}} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&container)
+\begin{DoxyCompactList}\small\item\em Get the instance of the logging plugin for the current container (if one is loaded) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_a88a624aa69bcce692f4b8a66b5ea29ba}{create\+And\+Start}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&container, const std\+::list$<$ int $>$ \&files)
+\begin{DoxyCompactList}\small\item\em Create and start a container. Set up and capture logs from all container hooks if an RDK logging plugin is loaded. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_a9793aea16e8c37d663e3525925c42b28}{customise\+Config}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyConfig}{Dobby\+Config}} $>$ \&config, const std\+::string \&command, const std\+::string \&display\+Socket, const std\+::vector$<$ std\+::string $>$ \&env\+Vars)
+\begin{DoxyCompactList}\small\item\em Updates the container config with custom options provided by the start command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_a7d6ee8dcae4b071816a87dc118f1d04a}{create\+And\+Start\+Container}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&container, const std\+::list$<$ int $>$ \&files)
+\begin{DoxyCompactList}\small\item\em Creates and attempts to start the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_a188b03a5a04a14b67fdb198e692edb69}{restart\+Container}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&container)
+\begin{DoxyCompactList}\small\item\em Attempts to restart the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_abf86b6860cf4299e5a7b717762e37315}{on\+Post\+Installation\+Hook}} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&container)
+\begin{DoxyCompactList}\small\item\em Called at the post-\/installation stage of container startup. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_a9fb0c64d0bdee62013e83f1d7d28a419}{on\+Pre\+Creation\+Hook}} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&container)
+\begin{DoxyCompactList}\small\item\em Called at the pre-\/create stage of container startup. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyManager_a83da91c4507fffc613522c38cb99d802}{on\+Post\+Halt\+Hook}} (const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&container)
+\begin{DoxyCompactList}\small\item\em Called at the post-\/halt stage of container startup. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyManager_ae639a4fe073f7f781b7fcc73957646c6}{start\+Runc\+Monitor\+Thread}} ()
+\begin{DoxyCompactList}\small\item\em Starts a thread that monitors for SIGCHILD signals. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyManager_a2d7a3a490e39bcd401f920b74a3f190b}\label{classDobbyManager_a2d7a3a490e39bcd401f920b74a3f190b}} 
+void \mbox{\hyperlink{classDobbyManager_a2d7a3a490e39bcd401f920b74a3f190b}{stop\+Runc\+Monitor\+Thread}} ()
+\begin{DoxyCompactList}\small\item\em Stops the monitor thread and cleans up it\textquotesingle{}s resources. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyManager_a5765ba67fbcc48d3bf51a0ac4485032a}\label{classDobbyManager_a5765ba67fbcc48d3bf51a0ac4485032a}} 
+void \mbox{\hyperlink{classDobbyManager_a5765ba67fbcc48d3bf51a0ac4485032a}{runc\+Monitor\+Thread}} ()
+\begin{DoxyCompactList}\small\item\em Thread function that monitors for any SIGCHILD signals and if detected loops through the running containers to see if it was the runc process that spawned it (i.\+e. a containered init process) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyManager_af576f5ae627ff389028b0470cdd20052}\label{classDobbyManager_af576f5ae627ff389028b0470cdd20052}} 
+bool \mbox{\hyperlink{classDobbyManager_af576f5ae627ff389028b0470cdd20052}{invalid\+Container\+Cleanup\+Task}} ()
+\begin{DoxyCompactList}\small\item\em Task that will try and cleanup invalid/unknown state containers periodically -\/ if the container can be killed then kill it and release the id back to the pool so it can be restarted. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a65873f16f00d42c6421ff11c82a4d242}\label{classDobbyManager_a65873f16f00d42c6421ff11c82a4d242}} 
+Container\+Started\+Func {\bfseries m\+Container\+Started\+Cb}
+\item 
+\mbox{\Hypertarget{classDobbyManager_ae6ffb86e15281f1328d638579fcfaf35}\label{classDobbyManager_ae6ffb86e15281f1328d638579fcfaf35}} 
+Container\+Stopped\+Func {\bfseries m\+Container\+Stopped\+Cb}
+\item 
+\mbox{\Hypertarget{classDobbyManager_aa75bcbe3f85870d0ec0d5ff6cce44b96}\label{classDobbyManager_aa75bcbe3f85870d0ec0d5ff6cce44b96}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyManager_acfa3b1f9e385ff28eebe6f80e8e27e99}\label{classDobbyManager_acfa3b1f9e385ff28eebe6f80e8e27e99}} 
+std\+::map$<$ \mbox{\hyperlink{classContainerId}{Container\+Id}}, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ $>$ {\bfseries m\+Containers}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a34e886b8747d3aeb61aad9d2d71662db}\label{classDobbyManager_a34e886b8747d3aeb61aad9d2d71662db}} 
+std\+::multimap$<$ \mbox{\hyperlink{classContainerId}{Container\+Id}}, pid\+\_\+t $>$ {\bfseries m\+Container\+Exec\+Pids}
+\item 
+\mbox{\Hypertarget{classDobbyManager_adc3ba100fa161e0cf9a69b7d7128ec93}\label{classDobbyManager_adc3ba100fa161e0cf9a69b7d7128ec93}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ {\bfseries m\+Environment}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a77ac31ac87ea9cc08591c8037f02305e}\label{classDobbyManager_a77ac31ac87ea9cc08591c8037f02305e}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a0eaf42d1b47b2e7efd02da1223eb8f64}\label{classDobbyManager_a0eaf42d1b47b2e7efd02da1223eb8f64}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyIPCUtils}{IDobby\+IPCUtils}} $>$ {\bfseries m\+IPCUtilities}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a1afd423c7358f7450a212190f3fef966}\label{classDobbyManager_a1afd423c7358f7450a212190f3fef966}} 
+const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ {\bfseries m\+Settings}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a18fde94b51c263ed47b8fbbdeb9f1b36}\label{classDobbyManager_a18fde94b51c263ed47b8fbbdeb9f1b36}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyLogger}{Dobby\+Logger}} $>$ {\bfseries m\+Logger}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a8ea576b2e5826b9eab0d45b68093a741}\label{classDobbyManager_a8ea576b2e5826b9eab0d45b68093a741}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRunC}{Dobby\+RunC}} $>$ {\bfseries m\+Runc}
+\item 
+\mbox{\Hypertarget{classDobbyManager_af42f9b95845837eb6ca473e912c7a8ae}\label{classDobbyManager_af42f9b95845837eb6ca473e912c7a8ae}} 
+std\+::thread {\bfseries m\+Runc\+Monitor\+Thread}
+\item 
+\mbox{\Hypertarget{classDobbyManager_a9a9388fe2a9b8b1e53cac0bb78e9c856}\label{classDobbyManager_a9a9388fe2a9b8b1e53cac0bb78e9c856}} 
+std\+::atomic$<$ bool $>$ {\bfseries m\+Runc\+Monitor\+Terminate}
+\item 
+\mbox{\Hypertarget{classDobbyManager_af78b4cee675a5ad4086eab6c07a35902}\label{classDobbyManager_af78b4cee675a5ad4086eab6c07a35902}} 
+int {\bfseries m\+Cleanup\+Task\+Timer\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main object which starts / stops / manages the containers. 
+
+This is where most of the work is done for creating and monitoring containers.
+
+\href{https://groups.google.com/a/opencontainers.org/forum/m/\#!topic/dev/Y7p6YW8zr4s}{\texttt{ https\+://groups.\+google.\+com/a/opencontainers.\+org/forum/m/\#!topic/dev/\+Y7p6\+YW8zr4s}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyManager_a772377ca89b442f98c325b931cb94b6d}\label{classDobbyManager_a772377ca89b442f98c325b931cb94b6d}} 
+\index{DobbyManager@{DobbyManager}!cleanupContainer@{cleanupContainer}}
+\index{cleanupContainer@{cleanupContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{cleanupContainer()}{cleanupContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::cleanup\+Container (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structDobbyRunC_1_1ContainerListItem}{Dobby\+Run\+C\+::\+Container\+List\+Item}} \&}]{container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cleans up a container that is in an unknown state -\/ used at \mbox{\hyperlink{classDobby}{Dobby}} startup to ensure the box is in a clean state with no leftover containers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em container} & Container info returned by crun list command \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyManager_a49230ba2390333687ef4f8270419c179}\label{classDobbyManager_a49230ba2390333687ef4f8270419c179}} 
+\index{DobbyManager@{DobbyManager}!cleanupContainers@{cleanupContainers}}
+\index{cleanupContainers@{cleanupContainers}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{cleanupContainers()}{cleanupContainers()}}
+{\footnotesize\ttfamily void Dobby\+Manager\+::cleanup\+Containers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets a list of running containers and tries to kill and delete them. 
+
+Will run the post\+Halt hook for the container where possible (some hooks might fail as the container bundle cannot be guaranteed to exist at this time)
+
+Designed as a crash-\/recovery mechanism as we should clean up all our containers if the daemon shut down gracefully \mbox{\Hypertarget{classDobbyManager_a25898aed88e44f1677502ee50b25ca03}\label{classDobbyManager_a25898aed88e44f1677502ee50b25ca03}} 
+\index{DobbyManager@{DobbyManager}!cleanupContainersShutdown@{cleanupContainersShutdown}}
+\index{cleanupContainersShutdown@{cleanupContainersShutdown}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{cleanupContainersShutdown()}{cleanupContainersShutdown()}}
+{\footnotesize\ttfamily void Dobby\+Manager\+::cleanup\+Containers\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gracefully stops and cleans up any running containers. Will emit the container stop event when a container stops. 
+
+Designed to be called when the daemon is going down (e.\+g. SIGTERM) \mbox{\Hypertarget{classDobbyManager_a88a624aa69bcce692f4b8a66b5ea29ba}\label{classDobbyManager_a88a624aa69bcce692f4b8a66b5ea29ba}} 
+\index{DobbyManager@{DobbyManager}!createAndStart@{createAndStart}}
+\index{createAndStart@{createAndStart}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{createAndStart()}{createAndStart()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::create\+And\+Start (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&}]{container,  }\item[{const std\+::list$<$ int $>$ \&}]{files }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create and start a container. Set up and capture logs from all container hooks if an RDK logging plugin is loaded. 
+
+If container-\/$>$custom\+Config\+File\+Path is set, the container will use that config.\+json file instead of the onein the bundle
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & id of the container \\
+\hline
+\mbox{\texttt{ in}}  & {\em container} & The object that wraps up the container details. \\
+\hline
+\mbox{\texttt{ in}}  & {\em files} & List of fds to preserve inside the container \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyManager_a7d6ee8dcae4b071816a87dc118f1d04a}\label{classDobbyManager_a7d6ee8dcae4b071816a87dc118f1d04a}} 
+\index{DobbyManager@{DobbyManager}!createAndStartContainer@{createAndStartContainer}}
+\index{createAndStartContainer@{createAndStartContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{createAndStartContainer()}{createAndStartContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::create\+And\+Start\+Container (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&}]{container,  }\item[{const std\+::list$<$ int $>$ \&}]{files }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates and attempts to start the container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id string for the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container} & The object that wraps up the container details. \\
+\hline
+\mbox{\texttt{ in}}  & {\em start\+State} & The start state object of the files. \\
+\hline
+\mbox{\texttt{ in}}  & {\em command} & The custom command to run instead of the args in the config file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_a9793aea16e8c37d663e3525925c42b28}\label{classDobbyManager_a9793aea16e8c37d663e3525925c42b28}} 
+\index{DobbyManager@{DobbyManager}!customiseConfig@{customiseConfig}}
+\index{customiseConfig@{customiseConfig}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{customiseConfig()}{customiseConfig()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::customise\+Config (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyConfig}{Dobby\+Config}} $>$ \&}]{config,  }\item[{const std\+::string \&}]{command,  }\item[{const std\+::string \&}]{display\+Socket,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{env\+Vars }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Updates the container config with custom options provided by the start command. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em command} & The custom command to run instead of the args in the config file \\
+\hline
+\mbox{\texttt{ in}}  & {\em display\+Socket} & Path to a westeros socket to mount into the container \\
+\hline
+\mbox{\texttt{ in}}  & {\em env\+Vars} & Custom env vars to add to the container\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if modifications were made, false if no changes made 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_a26f396a3d1f2f145aa05ff23bfc50685}\label{classDobbyManager_a26f396a3d1f2f145aa05ff23bfc50685}} 
+\index{DobbyManager@{DobbyManager}!execInContainer@{execInContainer}}
+\index{execInContainer@{execInContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{execInContainer()}{execInContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::exec\+In\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd,  }\item[{const std\+::string \&}]{options,  }\item[{const std\+::string \&}]{command }\end{DoxyParamCaption})}
+
+
+
+Executes a command in a running container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The descriptor of the container to execute the command in. \\
+\hline
+\mbox{\texttt{ in}}  & {\em command} & Command to be executed. \\
+\hline
+\mbox{\texttt{ in}}  & {\em options} & Options to execute the command with.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a container with a matching descriptor was found and the command was run 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_ac8f31b2285c6a8a58aa7a6220233b79f}\label{classDobbyManager_ac8f31b2285c6a8a58aa7a6220233b79f}} 
+\index{DobbyManager@{DobbyManager}!handleContainerTerminate@{handleContainerTerminate}}
+\index{handleContainerTerminate@{handleContainerTerminate}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{handleContainerTerminate()}{handleContainerTerminate()}}
+{\footnotesize\ttfamily void Dobby\+Manager\+::handle\+Container\+Terminate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&}]{container,  }\item[{const int}]{status }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Perform all the necessary cleanup and run plugins required when a container has terminated. 
+
+Will also delete the container so the ID can be re-\/used
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & ID of the container that has terminated \\
+\hline
+\mbox{\texttt{ in}}  & {\em container} & Information about the container that has terminated (rootfs, config etc) \\
+\hline
+\mbox{\texttt{ in}}  & {\em status} & Exit status of the container runtime \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyManager_a916432f3341a3eeae5de5e06807374e3}\label{classDobbyManager_a916432f3341a3eeae5de5e06807374e3}} 
+\index{DobbyManager@{DobbyManager}!listContainers@{listContainers}}
+\index{listContainers@{listContainers}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{listContainers()}{listContainers()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::pair$<$ int32\+\_\+t, \mbox{\hyperlink{classContainerId}{Container\+Id}} $>$ $>$ Dobby\+Manager\+::list\+Containers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a list of all the containers. 
+
+The returned list contains the id of all the containers we know about in their various states. Just because a container id is in the list it doesn\textquotesingle{}t necessarily mean it\textquotesingle{}s actually running, it could be in either the starting or stopping phase.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classDobbyManager_abceecde3a6a164e13f3799a5dd4a3636}{Dobby\+Manager\+::state\+Of\+Container}} for a way to retrieve the status of the container.
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+a list of all the containers. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_a7ab07082f515abc77f157954747cad11}\label{classDobbyManager_a7ab07082f515abc77f157954747cad11}} 
+\index{DobbyManager@{DobbyManager}!ociConfigOfContainer@{ociConfigOfContainer}}
+\index{ociConfigOfContainer@{ociConfigOfContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{ociConfigOfContainer()}{ociConfigOfContainer()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Manager\+::oci\+Config\+Of\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption}) const}
+
+
+
+Debugging method to allow you to retrieve the OCI config.\+json spec used to create the container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The descriptor of the container to get the config.\+json of.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the config.\+json string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_aa25e05574f4ae49bc565bd77c9464714}\label{classDobbyManager_aa25e05574f4ae49bc565bd77c9464714}} 
+\index{DobbyManager@{DobbyManager}!onChildExit@{onChildExit}}
+\index{onChildExit@{onChildExit}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{onChildExit()}{onChildExit()}}
+{\footnotesize\ttfamily void Dobby\+Manager\+::on\+Child\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called when we detect a child process has terminated. 
+
+The child process will typically be a runc instance for a container. To check we need to iterate over the pids we know about and check if they have terminated.
+
+This is how we determine when a container dies, we look for the child process death signal. \mbox{\Hypertarget{classDobbyManager_a83da91c4507fffc613522c38cb99d802}\label{classDobbyManager_a83da91c4507fffc613522c38cb99d802}} 
+\index{DobbyManager@{DobbyManager}!onPostHaltHook@{onPostHaltHook}}
+\index{onPostHaltHook@{onPostHaltHook}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{onPostHaltHook()}{onPostHaltHook()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::on\+Post\+Halt\+Hook (\begin{DoxyParamCaption}\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&}]{container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called at the post-\/halt stage of container startup. 
+
+Uses the map of rdk\+Plugin names/data in the container config to determine which plugins to execute. RDK plugins are loaded from disk in the ctor of \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} if any rdk plugins are required
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em container} & Container wrapper object for the container to execute the plugins on\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all required post\+Installation hooks were successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_abf86b6860cf4299e5a7b717762e37315}\label{classDobbyManager_abf86b6860cf4299e5a7b717762e37315}} 
+\index{DobbyManager@{DobbyManager}!onPostInstallationHook@{onPostInstallationHook}}
+\index{onPostInstallationHook@{onPostInstallationHook}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{onPostInstallationHook()}{onPostInstallationHook()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::on\+Post\+Installation\+Hook (\begin{DoxyParamCaption}\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&}]{container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called at the post-\/installation stage of container startup. 
+
+Uses the map of rdk\+Plugin names/data in the container config to determine which plugins to execute. RDK plugins are loaded from disk in the constructor of \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} if any rdk plugins are required
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em container} & Container wrapper object for the container to execute the plugins on\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all required post\+Installation hooks were successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_a9fb0c64d0bdee62013e83f1d7d28a419}\label{classDobbyManager_a9fb0c64d0bdee62013e83f1d7d28a419}} 
+\index{DobbyManager@{DobbyManager}!onPreCreationHook@{onPreCreationHook}}
+\index{onPreCreationHook@{onPreCreationHook}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{onPreCreationHook()}{onPreCreationHook()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::on\+Pre\+Creation\+Hook (\begin{DoxyParamCaption}\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&}]{container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Called at the pre-\/create stage of container startup. 
+
+Uses the map of rdk\+Plugin names/data in the container config to determine which plugins to execute. RDK plugins are loaded from disk in the constructor of \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} if any rdk plugins are required
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em container} & Container wrapper object for the container to execute the plugins on\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all required pre\+Create hooks were successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_ae68bb880628681639726ce3e0d48067d}\label{classDobbyManager_ae68bb880628681639726ce3e0d48067d}} 
+\index{DobbyManager@{DobbyManager}!pauseContainer@{pauseContainer}}
+\index{pauseContainer@{pauseContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{pauseContainer()}{pauseContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::pause\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption})}
+
+
+
+Freezes a running container. 
+
+Currently we have no use case for pause/resume containers so the method hasn\textquotesingle{}t been implemented, however when testing manually I\textquotesingle{}ve discovered it actually works quite well.
+
+If wanting to have a play you can run the following on the command line \begin{DoxyVerb}runc --root /var/run/runc pause <id>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The descriptor of the container to pause.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a container with a matching descriptor was found and it was frozen. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_a188b03a5a04a14b67fdb198e692edb69}\label{classDobbyManager_a188b03a5a04a14b67fdb198e692edb69}} 
+\index{DobbyManager@{DobbyManager}!restartContainer@{restartContainer}}
+\index{restartContainer@{restartContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{restartContainer()}{restartContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::restart\+Container (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} $>$ \&}]{container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to restart the container. 
+
+Called internally when we\textquotesingle{}ve detected a container shutdown and the config has indicated we should try and auto-\/restart the container.
+
+From the runc tool\textquotesingle{}s POV this is start of a new container.
+
+Note when restarting, we don\textquotesingle{}t regenerate the rootfs or config.\+json files for the bundle and the post\+Construction hook is not called. However the pre\+Start, post\+Start and post\+Stop hooks will be called.
+
+Any file descriptors that were passed into the container when it was first launched will be passed in again. The \mbox{\hyperlink{classDobbyContainer}{Dobby\+Container}} object will have stored them when the container was created the first time.
+
+\begin{DoxyWarning}{Warning}
+this function is called from the thread that monitors the child pids, not the main thread, however it is called with m\+Lock held.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container to re-\/start. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container} & The container object storing the container details.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if runc executed the request, however this doesn\textquotesingle{}t necessarily mean the container is up and running successfully. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_a2d4e604d228f20045b2a4624d0295a30}\label{classDobbyManager_a2d4e604d228f20045b2a4624d0295a30}} 
+\index{DobbyManager@{DobbyManager}!resumeContainer@{resumeContainer}}
+\index{resumeContainer@{resumeContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{resumeContainer()}{resumeContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::resume\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption})}
+
+
+
+Thaws a frozen container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The descriptor of the container to resume.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a container with a matching descriptor was found and it was resumed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_a856645daacea432a97c72d88411f33cd}\label{classDobbyManager_a856645daacea432a97c72d88411f33cd}} 
+\index{DobbyManager@{DobbyManager}!setupSystem@{setupSystem}}
+\index{setupSystem@{setupSystem}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{setupSystem()}{setupSystem()}}
+{\footnotesize\ttfamily void Dobby\+Manager\+::setup\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Configures the linux system for enabling features needed for runc. 
+
+This method is equivalent to performing the following on the cmdline \begin{DoxyVerb}ulimit -c unlimited
+
+echo "1" > /proc/sys/net/ipv4/ip_forward
+
+echo "-1" > /proc/sys/kernel/sched_rt_runtime_us
+echo "-1" > /sys/fs/cgroup/cpu/cpu.rt_runtime_us
+\end{DoxyVerb}
+ See the comments in the code for why each step is needed \mbox{\Hypertarget{classDobbyManager_a918da197e28becc45718ec9b93076cf8}\label{classDobbyManager_a918da197e28becc45718ec9b93076cf8}} 
+\index{DobbyManager@{DobbyManager}!setupWorkspace@{setupWorkspace}}
+\index{setupWorkspace@{setupWorkspace}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{setupWorkspace()}{setupWorkspace()}}
+{\footnotesize\ttfamily void Dobby\+Manager\+::setup\+Workspace (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&}]{env }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Configures the workspace directory. 
+
+The supplied path will be created if it doesn\textquotesingle{}t exist. It should be on writable mount point with an adequate amount of space available.
+
+The workspace is where bundle directories are created for each container and also where various temporary files are created. However the runc tool doesn\textquotesingle{}t use it and log files are written to /var/log/...
+
+TODO\+: show tree of workspace layout
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & The absolute path to the workspace \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyManager_a66e3c66c1edf14b1f292fb28004968d3}\label{classDobbyManager_a66e3c66c1edf14b1f292fb28004968d3}} 
+\index{DobbyManager@{DobbyManager}!startContainerFromBundle@{startContainerFromBundle}}
+\index{startContainerFromBundle@{startContainerFromBundle}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{startContainerFromBundle()}{startContainerFromBundle()}}
+{\footnotesize\ttfamily int32\+\_\+t Dobby\+Manager\+::start\+Container\+From\+Bundle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{bundle\+Path,  }\item[{const std\+::list$<$ int $>$ \&}]{files,  }\item[{const std\+::string \&}]{command,  }\item[{const std\+::string \&}]{display\+Socket,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{env\+Vars }\end{DoxyParamCaption})}
+
+
+
+Where the magic begins ... attempts to create a container from an OCI bundle$\ast$. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id string for the container \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle\+Path} & The absolute path to the OCI bundle$\ast$ \\
+\hline
+\mbox{\texttt{ in}}  & {\em files} & A list of file descriptors to pass into the container, can be empty. \\
+\hline
+\mbox{\texttt{ in}}  & {\em command} & The custom command to run instead of the args in the config file (optional)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a container descriptor, which is just a unique number that identifies the container. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_ae639a4fe073f7f781b7fcc73957646c6}\label{classDobbyManager_ae639a4fe073f7f781b7fcc73957646c6}} 
+\index{DobbyManager@{DobbyManager}!startRuncMonitorThread@{startRuncMonitorThread}}
+\index{startRuncMonitorThread@{startRuncMonitorThread}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{startRuncMonitorThread()}{startRuncMonitorThread()}}
+{\footnotesize\ttfamily void Dobby\+Manager\+::start\+Runc\+Monitor\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Starts a thread that monitors for SIGCHILD signals. 
+
+This thread is used to determine when one of our spawned child runc processes has died.
+
+Failure to create the thread should be considered fatal.
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_abceecde3a6a164e13f3799a5dd4a3636}\label{classDobbyManager_abceecde3a6a164e13f3799a5dd4a3636}} 
+\index{DobbyManager@{DobbyManager}!stateOfContainer@{stateOfContainer}}
+\index{stateOfContainer@{stateOfContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{stateOfContainer()}{stateOfContainer()}}
+{\footnotesize\ttfamily int32\+\_\+t Dobby\+Manager\+::state\+Of\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption}) const}
+
+
+
+Returns the state of a given container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The descriptor of the container to get the state of.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+one of the possible state values. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_a50849443ccba22c698d223234125471b}\label{classDobbyManager_a50849443ccba22c698d223234125471b}} 
+\index{DobbyManager@{DobbyManager}!statsOfContainer@{statsOfContainer}}
+\index{statsOfContainer@{statsOfContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{statsOfContainer()}{statsOfContainer()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Manager\+::stats\+Of\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd }\end{DoxyParamCaption}) const}
+
+
+
+Gets the stats for the container. 
+
+This is primarily a debugging method, used to get statistics on the container and roughly correlates to the \textquotesingle{}runc events --stats $<$id$>$\textquotesingle{} call.
+
+The reply is a json formatted string containing some info, it\textquotesingle{}s form may change over time. \begin{DoxyVerb}{
+    "id": "blah",
+    "state": "running",
+    "timestamp": 348134887768,
+    "pids": [ 1234, 1245 ],
+    "cpu": {
+        "usage": {
+            "total":734236982,
+            "percpu":[348134887,386102095]
+        }
+    },
+    "memory":{
+        "user": {
+            "limit":41943040,
+            "usage":356352,
+            "max":524288,
+            "failcnt":0
+        }
+    }
+    "gpu":{
+        "memory": {
+            "limit":41943040,
+            "usage":356352,
+            "max":524288,
+            "failcnt":0
+        }
+    }
+    ...
+}
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The container descriptor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Json formatted string with the info for the container, on failure an empty string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyManager_abc24032118b91fc1660ae4be7dedaf2f}\label{classDobbyManager_abc24032118b91fc1660ae4be7dedaf2f}} 
+\index{DobbyManager@{DobbyManager}!stopContainer@{stopContainer}}
+\index{stopContainer@{stopContainer}!DobbyManager@{DobbyManager}}
+\doxysubsubsection{\texorpdfstring{stopContainer()}{stopContainer()}}
+{\footnotesize\ttfamily bool Dobby\+Manager\+::stop\+Container (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{cd,  }\item[{bool}]{with\+Prejudice }\end{DoxyParamCaption})}
+
+
+
+Stops a running container. 
+
+If with\+Prejudice is not specified (the default) then we send the init process within the container a SIGTERM.
+
+If the with\+Prejudice is true then we use the SIGKILL signal.
+
+This call is asynchronous, i.\+e. it is a request to stop rather than a blocking call that ensures the container is stopped before returning.
+
+The {\itshape m\+Container\+Stopped\+Cb} callback will be called when the container has actually been torn down.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cd} & The descriptor of the container to stop. \\
+\hline
+\mbox{\texttt{ in}}  & {\em with\+Prejudice} & If true the container process is killed with SIGKILL, otherwise SIGTERM is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a container with a matching id was found and a signal sent successfully to it. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Manager.\+h\item 
+daemon/lib/source/Dobby\+Manager.\+cpp\end{DoxyCompactItemize}

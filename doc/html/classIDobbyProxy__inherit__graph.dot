@@ -1,0 +1,13 @@
+digraph "IDobbyProxy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="IDobbyProxy",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Wrapper around an IpcService object that provides simpler method calls to the Dobby 'hypervisor' daem..."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="AICommon::Notifier\l\< IDobbyProxyEvents \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1Notifier.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="AICommon::Polymorphic",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classAICommon_1_1Polymorphic.html",tooltip="Inherit from this from all types that have virtual functions."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="DobbyProxy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDobbyProxy.html",tooltip="Wrapper around an IpcService object that provides simpler method calls to the dobby daemon."];
+}

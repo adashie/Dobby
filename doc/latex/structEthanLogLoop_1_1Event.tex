@@ -1,0 +1,63 @@
+\hypertarget{structEthanLogLoop_1_1Event}{}\doxysection{Ethan\+Log\+Loop\+::Event Struct Reference}
+\label{structEthanLogLoop_1_1Event}\index{EthanLogLoop::Event@{EthanLogLoop::Event}}
+
+
+Inheritance diagram for Ethan\+Log\+Loop\+::Event\+:
+% FIG 0
+
+
+Collaboration diagram for Ethan\+Log\+Loop\+::Event\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_a49cb3b8339a747fc92637780259d581f}\label{structEthanLogLoop_1_1Event_a49cb3b8339a747fc92637780259d581f}} 
+enum {\bfseries Type} \{ {\bfseries Terminate}
+, {\bfseries Add\+Client}
+, {\bfseries Set\+Client\+Base\+Pid}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_a2b4a0b5d26ace676e8f5cc544ebea5f6}\label{structEthanLogLoop_1_1Event_a2b4a0b5d26ace676e8f5cc544ebea5f6}} 
+enum Ethan\+Log\+Loop\+::\+Event\+::\+Type {\bfseries type}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_ae3e3fca45e7fa5029181d3e613b34608}\label{structEthanLogLoop_1_1Event_ae3e3fca45e7fa5029181d3e613b34608}} 
+\mbox{\hyperlink{classContainerId}{Container\+Id}} {\bfseries id}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_a12953cb4eb43e41f77db70338122be7c}\label{structEthanLogLoop_1_1Event_a12953cb4eb43e41f77db70338122be7c}} 
+int {\bfseries pipe\+Fd}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_ae6f784162e5bb65f00474acde4ca1dec}\label{structEthanLogLoop_1_1Event_ae6f784162e5bb65f00474acde4ca1dec}} 
+pid\+\_\+t {\bfseries base\+Pid}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_a1a31c89d3253ee86d1cfd81da3911e39}\label{structEthanLogLoop_1_1Event_a1a31c89d3253ee86d1cfd81da3911e39}} 
+std\+::string {\bfseries tag}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_a2173269eb109dbf877da18caa6b2af05}\label{structEthanLogLoop_1_1Event_a2173269eb109dbf877da18caa6b2af05}} 
+unsigned {\bfseries allowed\+Levels}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_a027be22d9ca16516bbf3e7c28ee11f90}\label{structEthanLogLoop_1_1Event_a027be22d9ca16516bbf3e7c28ee11f90}} 
+uint64\+\_\+t {\bfseries rate}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_ae92295acd41e581407d4d7b9f73028b6}\label{structEthanLogLoop_1_1Event_ae92295acd41e581407d4d7b9f73028b6}} 
+uint64\+\_\+t {\bfseries burst\+Size}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_ab5dbbd1cd61e0274b51fd68a2f6e6067}\label{structEthanLogLoop_1_1Event_ab5dbbd1cd61e0274b51fd68a2f6e6067}} 
+{\bfseries Event} (Type type\+\_\+)
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_a16c7ea4e7b91f3ce9f9b8fe410cfe93d}\label{structEthanLogLoop_1_1Event_a16c7ea4e7b91f3ce9f9b8fe410cfe93d}} 
+{\bfseries Event} (Type type\+\_\+, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id\+\_\+, const std\+::string \&name, int fd, unsigned levels, uint64\+\_\+t rate, uint64\+\_\+t burst)
+\item 
+\mbox{\Hypertarget{structEthanLogLoop_1_1Event_a6301007f02dd7705b91e7804f2f13f25}\label{structEthanLogLoop_1_1Event_a6301007f02dd7705b91e7804f2f13f25}} 
+{\bfseries Event} (Type type\+\_\+, const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id\+\_\+, pid\+\_\+t base\+Pid\+\_\+)
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Ethan\+Log/source/Ethan\+Log\+Loop.\+h\end{DoxyCompactItemize}

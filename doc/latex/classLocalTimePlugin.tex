@@ -1,0 +1,136 @@
+\hypertarget{classLocalTimePlugin}{}\doxysection{Local\+Time\+Plugin Class Reference}
+\label{classLocalTimePlugin}\index{LocalTimePlugin@{LocalTimePlugin}}
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} Local\+Time plugin.  
+
+
+
+
+{\ttfamily \#include $<$Local\+Time\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Local\+Time\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Local\+Time\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalTimePlugin_a439fcb6ae53e0c9cebf4fca416b46e29}\label{classLocalTimePlugin_a439fcb6ae53e0c9cebf4fca416b46e29}} 
+{\bfseries Local\+Time\+Plugin} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\item 
+std\+::string \mbox{\hyperlink{classLocalTimePlugin_ac0f1e7eaea2aaec2904003e4ec30fdbc}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classLocalTimePlugin_a7e07ca69a12621d05be5c9bef6774f25}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Should return a bitfield of the hook points implemented by the plugin. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLocalTimePlugin_a16282ff0b11d9c01c2db284a0654f16a}{post\+Installation}} () override
+\begin{DoxyCompactList}\small\item\em post\+Installation OCI hook. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classLocalTimePlugin_a4c40ae64dc28e8dbed9c4607f9a5b834}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalTimePlugin_a9b0f95ecc42e705f889d42137a0159ca}\label{classLocalTimePlugin_a9b0f95ecc42e705f889d42137a0159ca}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classLocalTimePlugin_a8c163f937cc0be5c37465f01b3859ac8}\label{classLocalTimePlugin_a8c163f937cc0be5c37465f01b3859ac8}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classLocalTimePlugin_a6804c1264fe91160d819de5e633dabf7}\label{classLocalTimePlugin_a6804c1264fe91160d819de5e633dabf7}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDobby}{Dobby}} Local\+Time plugin. 
+
+This plugin simply creates a symlink to the real /etc/localtime file in the rootfs of the container. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLocalTimePlugin_a4c40ae64dc28e8dbed9c4607f9a5b834}\label{classLocalTimePlugin_a4c40ae64dc28e8dbed9c4607f9a5b834}} 
+\index{LocalTimePlugin@{LocalTimePlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!LocalTimePlugin@{LocalTimePlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Local\+Time\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classLocalTimePlugin_a7e07ca69a12621d05be5c9bef6774f25}\label{classLocalTimePlugin_a7e07ca69a12621d05be5c9bef6774f25}} 
+\index{LocalTimePlugin@{LocalTimePlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!LocalTimePlugin@{LocalTimePlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Local\+Time\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return a bitfield of the hook points implemented by the plugin. 
+
+Only bits that are set will be called as hooks. This is to optimise the implementation of the hook code to ensure we don\textquotesingle{}t waste time trying to run hooks that don\textquotesingle{}t do anything
+
+The value returned should be constant for the lifetime of the class
+
+\begin{DoxyReturn}{Returns}
+bitmask of the Hint\+Flags bits. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classLocalTimePlugin_ac0f1e7eaea2aaec2904003e4ec30fdbc}\label{classLocalTimePlugin_ac0f1e7eaea2aaec2904003e4ec30fdbc}} 
+\index{LocalTimePlugin@{LocalTimePlugin}!name@{name}}
+\index{name@{name}!LocalTimePlugin@{LocalTimePlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Local\+Time\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classLocalTimePlugin_a16282ff0b11d9c01c2db284a0654f16a}\label{classLocalTimePlugin_a16282ff0b11d9c01c2db284a0654f16a}} 
+\index{LocalTimePlugin@{LocalTimePlugin}!postInstallation@{postInstallation}}
+\index{postInstallation@{postInstallation}!LocalTimePlugin@{LocalTimePlugin}}
+\doxysubsubsection{\texorpdfstring{postInstallation()}{postInstallation()}}
+{\footnotesize\ttfamily bool Local\+Time\+Plugin\+::post\+Installation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+post\+Installation OCI hook. 
+
+All we need to do create symlink in the container rootfs to the real time zone file -\/ matching the /etc/localtime entry outside the container.
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_afb8522eece4b1948ea815d12a1fdd08b}{Rdk\+Plugin\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Local\+Time/source/Local\+Time\+Plugin.\+h\item 
+rdk\+Plugins/\+Local\+Time/source/Local\+Time\+Plugin.\+cpp\end{DoxyCompactItemize}

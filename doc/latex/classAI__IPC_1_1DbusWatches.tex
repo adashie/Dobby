@@ -1,0 +1,220 @@
+\hypertarget{classAI__IPC_1_1DbusWatches}{}\doxysection{AI\+\_\+\+IPC\+::Dbus\+Watches Class Reference}
+\label{classAI__IPC_1_1DbusWatches}\index{AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}}
+
+
+Utility object to handle installing / removing dbus watches from the poll loop.  
+
+
+
+
+{\ttfamily \#include $<$Dbus\+Watches.\+h$>$}
+
+
+
+Collaboration diagram for AI\+\_\+\+IPC\+::Dbus\+Watches\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAI__IPC_1_1DbusWatches_1_1__WatchEntry}{\+\_\+\+Watch\+Entry}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_ab099478ef23bbdfba1b1b5dcf27623de}\label{classAI__IPC_1_1DbusWatches_ab099478ef23bbdfba1b1b5dcf27623de}} 
+{\bfseries Dbus\+Watches} (DBus\+Connection $\ast$conn)
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_ad4f75d6911647887a70c5f4f8d36bb2b}\label{classAI__IPC_1_1DbusWatches_ad4f75d6911647887a70c5f4f8d36bb2b}} 
+int \mbox{\hyperlink{classAI__IPC_1_1DbusWatches_ad4f75d6911647887a70c5f4f8d36bb2b}{fd}} () const
+\begin{DoxyCompactList}\small\item\em Returns the epoll fd that the dispatcher should poll on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusWatches_a0bb89656678e40b59dc968841d397053}{process\+Event}} (unsigned int poll\+Events)
+\begin{DoxyCompactList}\small\item\em Called when something has happened on the epoll event loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a400d7a954558bcb25b7b2cbd6d46e77f}\label{classAI__IPC_1_1DbusWatches_a400d7a954558bcb25b7b2cbd6d46e77f}} 
+typedef struct \mbox{\hyperlink{structAI__IPC_1_1DbusWatches_1_1__WatchEntry}{AI\+\_\+\+IPC\+::\+Dbus\+Watches\+::\+\_\+\+Watch\+Entry}} {\bfseries Watch\+Entry}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+dbus\+\_\+bool\+\_\+t \mbox{\hyperlink{classAI__IPC_1_1DbusWatches_a45e0d776611014797000c280f2cb38ce}{add\+Watch}} (DBus\+Watch $\ast$watch)
+\begin{DoxyCompactList}\small\item\em Callback from dbus to add a new watch to poll on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusWatches_a05cae5ba4c25f7a5797c89e1b0bdcd6f}{toggle\+Watch}} (DBus\+Watch $\ast$watch)
+\begin{DoxyCompactList}\small\item\em Toggles the watch flags on the given watch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusWatches_a61c35733dc42fea285eae359b832666e}{remove\+Watch}} (DBus\+Watch $\ast$watch)
+\begin{DoxyCompactList}\small\item\em Removes the watch from the epoll loop and our local array. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classAI__IPC_1_1DbusWatches_aa52bf030c7dda5d522e78315bcae5e91}{create\+Watch}} (DBus\+Watch $\ast$watch, int dupped\+Fd)
+\begin{DoxyCompactList}\small\item\em Tries to find a slot to put the watch into. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAI__IPC_1_1DbusWatches_ad12ecd6ef21447f7721ee5113d285382}{delete\+Watch}} (uint64\+\_\+t tag)
+\begin{DoxyCompactList}\small\item\em Removes a watch from our internal array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_afebce8516bd7f410552f6e4c561b9c1c}\label{classAI__IPC_1_1DbusWatches_afebce8516bd7f410552f6e4c561b9c1c}} 
+static dbus\+\_\+bool\+\_\+t {\bfseries add\+Watch\+Cb} (DBus\+Watch $\ast$watch, void $\ast$user\+Data)
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_aba6b9dc22c4431f79b01cc360295b81b}\label{classAI__IPC_1_1DbusWatches_aba6b9dc22c4431f79b01cc360295b81b}} 
+static void {\bfseries toggle\+Watch\+Cb} (DBus\+Watch $\ast$watch, void $\ast$user\+Data)
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a05c56cff48afaa1b4cedc55350af45e0}\label{classAI__IPC_1_1DbusWatches_a05c56cff48afaa1b4cedc55350af45e0}} 
+static void {\bfseries remove\+Watch\+Cb} (DBus\+Watch $\ast$watch, void $\ast$user\+Data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a698e88b1a2917e500a352884fff47f06}\label{classAI__IPC_1_1DbusWatches_a698e88b1a2917e500a352884fff47f06}} 
+DBus\+Connection $\ast$const {\bfseries m\+Dbus\+Connection}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a358c12d7cc10e2e00012150814138a8f}\label{classAI__IPC_1_1DbusWatches_a358c12d7cc10e2e00012150814138a8f}} 
+int {\bfseries m\+Epoll\+Fd}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a8156b02763f8851ead760e11e107466c}\label{classAI__IPC_1_1DbusWatches_a8156b02763f8851ead760e11e107466c}} 
+uint64\+\_\+t {\bfseries m\+Tag\+Counter}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_ab9c661e815636a0bbac4c4463eb62b00}\label{classAI__IPC_1_1DbusWatches_ab9c661e815636a0bbac4c4463eb62b00}} 
+\mbox{\hyperlink{structAI__IPC_1_1DbusWatches_1_1__WatchEntry}{Watch\+Entry}} {\bfseries m\+Watches} \mbox{[}m\+Max\+Watches\mbox{]}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a644c7d0e0266e4bad9c356b5b5611ea5}\label{classAI__IPC_1_1DbusWatches_a644c7d0e0266e4bad9c356b5b5611ea5}} 
+struct epoll\+\_\+event {\bfseries m\+Epoll\+Events} \mbox{[}m\+Max\+Watches\mbox{]}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a4b5b8392f503d8e4179d451f3af31186}\label{classAI__IPC_1_1DbusWatches_a4b5b8392f503d8e4179d451f3af31186}} 
+const std\+::thread\+::id {\bfseries m\+Expected\+Thread\+Id}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a0f50141e0a729f8370f20d623a894f15}\label{classAI__IPC_1_1DbusWatches_a0f50141e0a729f8370f20d623a894f15}} 
+static const unsigned {\bfseries m\+Max\+Watches} = 128
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility object to handle installing / removing dbus watches from the poll loop. 
+
+\begin{DoxyWarning}{Warning}
+This class is not thread safe, it is designed to only be called from one thread which is the same thread the libdbus callbacks will be called from. On debug builds an error will be reported if called from an invalid thread.
+\end{DoxyWarning}
+Internally it creates an epoll object that has watches (which are just fds) added to / removed from it. The epoll fd is returned by this object, and the dispatch poll loop will poll on this. So in effect this is a second level of poll file descriptors.
+
+This code automatically installs the dbus callbacks on the connection at construction time, and removes the callbacks at destruction.
+
+When watches are added we dup the file descriptors, and add the dupped fd to epoll. The reason for this is that libdbus tends to have more than one watch associated with a single fd and you can\textquotesingle{}t add the same fd more once to an epoll event loop. By dup\textquotesingle{}ing the file descriptors it means we can have one epoll event entry per dbus watch. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a45e0d776611014797000c280f2cb38ce}\label{classAI__IPC_1_1DbusWatches_a45e0d776611014797000c280f2cb38ce}} 
+\index{AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}!addWatch@{addWatch}}
+\index{addWatch@{addWatch}!AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}}
+\doxysubsubsection{\texorpdfstring{addWatch()}{addWatch()}}
+{\footnotesize\ttfamily dbus\+\_\+bool\+\_\+t Dbus\+Watches\+::add\+Watch (\begin{DoxyParamCaption}\item[{DBus\+Watch $\ast$}]{watch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Callback from dbus to add a new watch to poll on. 
+
+libdus should call this function from the dispatch loop thread. We are responsible for adding the watch file descriptor to the poll loop with the given watch flags. When we\textquotesingle{}re woken by one of these we then need to call the watch\textquotesingle{}s dispatch function (called in \mbox{\hyperlink{classAI__IPC_1_1DbusWatches_a0bb89656678e40b59dc968841d397053}{process\+Event()}}).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em watch} & The dbus watch object to add\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE on success and FALSE on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_aa52bf030c7dda5d522e78315bcae5e91}\label{classAI__IPC_1_1DbusWatches_aa52bf030c7dda5d522e78315bcae5e91}} 
+\index{AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}!createWatch@{createWatch}}
+\index{createWatch@{createWatch}!AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}}
+\doxysubsubsection{\texorpdfstring{createWatch()}{createWatch()}}
+{\footnotesize\ttfamily uint64\+\_\+t Dbus\+Watches\+::create\+Watch (\begin{DoxyParamCaption}\item[{DBus\+Watch $\ast$}]{watch,  }\item[{int}]{dupped\+Fd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tries to find a slot to put the watch into. 
+
+We store the watches in an internal array, each watch has a unique 64-\/bit tag number, this tag is added to the epoll event so we can quickly find the watch that triggered the event.
+
+The lower bits of the tag number are the index into the internal array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em watch} & The dbus watch object \\
+\hline
+\mbox{\texttt{ in}}  & {\em dupped\+Fd} & The dup\textquotesingle{}ed file descriptor for the watch\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success a non-\/zero tag number, on failure 0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_ad12ecd6ef21447f7721ee5113d285382}\label{classAI__IPC_1_1DbusWatches_ad12ecd6ef21447f7721ee5113d285382}} 
+\index{AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}!deleteWatch@{deleteWatch}}
+\index{deleteWatch@{deleteWatch}!AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}}
+\doxysubsubsection{\texorpdfstring{deleteWatch()}{deleteWatch()}}
+{\footnotesize\ttfamily void Dbus\+Watches\+::delete\+Watch (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Removes a watch from our internal array. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tag} & The tag number of the watch to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a0bb89656678e40b59dc968841d397053}\label{classAI__IPC_1_1DbusWatches_a0bb89656678e40b59dc968841d397053}} 
+\index{AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}!processEvent@{processEvent}}
+\index{processEvent@{processEvent}!AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}}
+\doxysubsubsection{\texorpdfstring{processEvent()}{processEvent()}}
+{\footnotesize\ttfamily void Dbus\+Watches\+::process\+Event (\begin{DoxyParamCaption}\item[{unsigned int}]{poll\+Events }\end{DoxyParamCaption})}
+
+
+
+Called when something has happened on the epoll event loop. 
+
+The main disaptcher loop polls on the fd we supply, when anything changes then this method is called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poll\+Events} & Bitmask of the poll events that woke the main loop. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a61c35733dc42fea285eae359b832666e}\label{classAI__IPC_1_1DbusWatches_a61c35733dc42fea285eae359b832666e}} 
+\index{AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}!removeWatch@{removeWatch}}
+\index{removeWatch@{removeWatch}!AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}}
+\doxysubsubsection{\texorpdfstring{removeWatch()}{removeWatch()}}
+{\footnotesize\ttfamily void Dbus\+Watches\+::remove\+Watch (\begin{DoxyParamCaption}\item[{DBus\+Watch $\ast$}]{watch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Removes the watch from the epoll loop and our local array. 
+
+libdus should call this function from the dispatch loop thread. We check whether the watch has been added, and if so we remove it from epoll.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em watch} & The dbus watch object to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAI__IPC_1_1DbusWatches_a05cae5ba4c25f7a5797c89e1b0bdcd6f}\label{classAI__IPC_1_1DbusWatches_a05cae5ba4c25f7a5797c89e1b0bdcd6f}} 
+\index{AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}!toggleWatch@{toggleWatch}}
+\index{toggleWatch@{toggleWatch}!AI\_IPC::DbusWatches@{AI\_IPC::DbusWatches}}
+\doxysubsubsection{\texorpdfstring{toggleWatch()}{toggleWatch()}}
+{\footnotesize\ttfamily void Dbus\+Watches\+::toggle\+Watch (\begin{DoxyParamCaption}\item[{DBus\+Watch $\ast$}]{watch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Toggles the watch flags on the given watch. 
+
+libdus should call this function from the dispatch loop thread. This just changes the epoll event flags to match the new dbus watch flags for the given watch.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em watch} & The dbus watch object to add \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+Watches.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+Watches.\+cpp\end{DoxyCompactItemize}

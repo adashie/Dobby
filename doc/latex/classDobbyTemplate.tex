@@ -1,0 +1,235 @@
+\hypertarget{classDobbyTemplate}{}\doxysection{Dobby\+Template Class Reference}
+\label{classDobbyTemplate}\index{DobbyTemplate@{DobbyTemplate}}
+
+
+Singleton class that returns the OCI JSON template.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Template.\+h$>$}
+
+
+
+Collaboration diagram for Dobby\+Template\+:
+% FIG 0
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTemplate_a031394304afcfa3b701d6975d3e58c1f}\label{classDobbyTemplate_a031394304afcfa3b701d6975d3e58c1f}} 
+static void \mbox{\hyperlink{classDobbyTemplate_a031394304afcfa3b701d6975d3e58c1f}{set\+Settings}} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&settings)
+\begin{DoxyCompactList}\small\item\em Applies the settings to the global template values. \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classDobbyTemplate_a53cc8d3f245761324c18cc9d37d12ec0}{apply}} (const ctemplate\+::\+Template\+Dictionary\+Interface $\ast$dictionary, bool pretty\+Print)
+\begin{DoxyCompactList}\small\item\em Applies the dictionary to the template. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classDobbyTemplate_aa1cb060337e849da982f26179e7aadb8}{apply\+At}} (int dir\+Fd, const std\+::string \&file\+Name, const ctemplate\+::\+Template\+Dictionary\+Interface $\ast$dictionary, bool pretty\+Print)
+\begin{DoxyCompactList}\small\item\em Applies the dictionary to the template and writes the output into the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDobbyTemplate_aae841eb57fd57714786e0bbab39f851c}{set\+Template\+Dev\+Nodes}} (const std\+::list$<$ std\+::string $>$ \&dev\+Nodes)
+\begin{DoxyCompactList}\small\item\em Sets up the global template values for the device nodes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyTemplate_ae8de0b1223d16d4e164671cd6b89f0bb}\label{classDobbyTemplate_ae8de0b1223d16d4e164671cd6b89f0bb}} 
+void \mbox{\hyperlink{classDobbyTemplate_ae8de0b1223d16d4e164671cd6b89f0bb}{set\+Template\+Env\+Vars}} (const std\+::map$<$ std\+::string, std\+::string $>$ \&env\+Vars)
+\begin{DoxyCompactList}\small\item\em Converts the env\+Vars map to json formatted string and sets it as the EXTRA\+\_\+\+ENV\+\_\+\+VARS template value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyTemplate_a9576ad7c3b03f386132db1546a850983}{set\+Template\+Platform\+Env\+Vars}} ()
+\begin{DoxyCompactList}\small\item\em Sets the environment variables used to identify the platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyTemplate_a043fd1569012d16228874c161afb35e0}{set\+Template\+Cpu\+Rt\+Sched}} ()
+\begin{DoxyCompactList}\small\item\em Determines if the kernel\textquotesingle{}s CONFIG\+\_\+\+RT\+\_\+\+GROUP\+\_\+\+SCHED is set or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyTemplate_abccf0597e940c5d3aa2d065ab5c707c6}{\+\_\+set\+Settings}} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&settings)
+\begin{DoxyCompactList}\small\item\em Applies the settings to the global template values. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyTemplate_a28c4b9765c24510147cc2ce3ded23bcc}{\+\_\+apply}} (const ctemplate\+::\+Template\+Dictionary\+Interface $\ast$dictionary, bool pretty\+Print) const
+\begin{DoxyCompactList}\small\item\em Applies the dictionary to the template. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyTemplate_a83b7fd4ce619ea6095fb7e68e0e289d8}{\+\_\+apply\+At}} (int dir\+Fd, const std\+::string \&file\+Name, const ctemplate\+::\+Template\+Dictionary\+Interface $\ast$dictionary, bool pretty\+Print) const
+\begin{DoxyCompactList}\small\item\em Applies the dictionary to the template and writes the output into the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classDobbyTemplate_a96b1541f8f69374655334f7e5f0fa3bc}{clean\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Called at shutdown time to clean up the singleton. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyTemplate_a6c212bb06a58e625e2290223b4e0549d}\label{classDobbyTemplate_a6c212bb06a58e625e2290223b4e0549d}} 
+static \mbox{\hyperlink{classDobbyTemplate}{Dobby\+Template}} $\ast$ \mbox{\hyperlink{classDobbyTemplate_a6c212bb06a58e625e2290223b4e0549d}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Returns / creates singleton instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTemplate_a587ead887dbc5d759494db3171346a61}\label{classDobbyTemplate_a587ead887dbc5d759494db3171346a61}} 
+const ctemplate\+::\+Template\+String {\bfseries m\+Template\+Key}
+\item 
+\mbox{\Hypertarget{classDobbyTemplate_a11ddb589b61574dfb84d90b75d578ed4}\label{classDobbyTemplate_a11ddb589b61574dfb84d90b75d578ed4}} 
+const std\+::unique\+\_\+ptr$<$ ctemplate\+::\+Template\+Cache $>$ {\bfseries m\+Template\+Cache}
+\item 
+\mbox{\Hypertarget{classDobbyTemplate_a4062c4b5d82b5f61b41dc9bebf0aff8b}\label{classDobbyTemplate_a4062c4b5d82b5f61b41dc9bebf0aff8b}} 
+std\+::map$<$ std\+::string, std\+::string $>$ {\bfseries m\+Extra\+Env\+Vars}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTemplate_a9cb27fc566aedc8c36fa4ca98afffb80}\label{classDobbyTemplate_a9cb27fc566aedc8c36fa4ca98afffb80}} 
+static pthread\+\_\+rwlock\+\_\+t {\bfseries m\+Instance\+Lock} = PTHREAD\+\_\+\+RWLOCK\+\_\+\+INITIALIZER
+\item 
+\mbox{\Hypertarget{classDobbyTemplate_a3eb594425dd7bbc11f46ef0923ebe5f7}\label{classDobbyTemplate_a3eb594425dd7bbc11f46ef0923ebe5f7}} 
+static \mbox{\hyperlink{classDobbyTemplate}{Dobby\+Template}} $\ast$ {\bfseries m\+Instance} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton class that returns the OCI JSON template. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyTemplate_a28c4b9765c24510147cc2ce3ded23bcc}\label{classDobbyTemplate_a28c4b9765c24510147cc2ce3ded23bcc}} 
+\index{DobbyTemplate@{DobbyTemplate}!\_apply@{\_apply}}
+\index{\_apply@{\_apply}!DobbyTemplate@{DobbyTemplate}}
+\doxysubsubsection{\texorpdfstring{\_apply()}{\_apply()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Template\+::\+\_\+apply (\begin{DoxyParamCaption}\item[{const ctemplate\+::\+Template\+Dictionary\+Interface $\ast$}]{dictionary,  }\item[{bool}]{pretty\+Print }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Applies the dictionary to the template. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dictionary} & The dictionary to apply\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the expanded template string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyTemplate_a83b7fd4ce619ea6095fb7e68e0e289d8}\label{classDobbyTemplate_a83b7fd4ce619ea6095fb7e68e0e289d8}} 
+\index{DobbyTemplate@{DobbyTemplate}!\_applyAt@{\_applyAt}}
+\index{\_applyAt@{\_applyAt}!DobbyTemplate@{DobbyTemplate}}
+\doxysubsubsection{\texorpdfstring{\_applyAt()}{\_applyAt()}}
+{\footnotesize\ttfamily bool Dobby\+Template\+::\+\_\+apply\+At (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{const std\+::string \&}]{file\+Name,  }\item[{const ctemplate\+::\+Template\+Dictionary\+Interface $\ast$}]{dictionary,  }\item[{bool}]{pretty\+Print }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Applies the dictionary to the template and writes the output into the file. 
+
+If the pathname given in {\itshape file\+Name} is relative, then it is interpreted relative to the directory referred to by the file descriptor dirfd. If {\itshape file\+Name} is relative and dirfd is the special value AT\+\_\+\+FDCWD, then {\itshape file\+Name} is interpreted relative to the current working directory
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & The directory of the file. \\
+\hline
+\mbox{\texttt{ in}}  & {\em file\+Name} & The path to the file to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em dictionary} & The dictionary to apply.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyTemplate_abccf0597e940c5d3aa2d065ab5c707c6}\label{classDobbyTemplate_abccf0597e940c5d3aa2d065ab5c707c6}} 
+\index{DobbyTemplate@{DobbyTemplate}!\_setSettings@{\_setSettings}}
+\index{\_setSettings@{\_setSettings}!DobbyTemplate@{DobbyTemplate}}
+\doxysubsubsection{\texorpdfstring{\_setSettings()}{\_setSettings()}}
+{\footnotesize\ttfamily void Dobby\+Template\+::\+\_\+set\+Settings (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Applies the settings to the global template values. 
+
+This includes settings for the environment variables and GPU. \mbox{\Hypertarget{classDobbyTemplate_a53cc8d3f245761324c18cc9d37d12ec0}\label{classDobbyTemplate_a53cc8d3f245761324c18cc9d37d12ec0}} 
+\index{DobbyTemplate@{DobbyTemplate}!apply@{apply}}
+\index{apply@{apply}!DobbyTemplate@{DobbyTemplate}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Template\+::apply (\begin{DoxyParamCaption}\item[{const ctemplate\+::\+Template\+Dictionary\+Interface $\ast$}]{dictionary,  }\item[{bool}]{pretty\+Print }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies the dictionary to the template. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dictionary} & The dictionary to apply \\
+\hline
+\mbox{\texttt{ in}}  & {\em pretty\+Print} & Format the json file using pretty printer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the expanded template string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyTemplate_aa1cb060337e849da982f26179e7aadb8}\label{classDobbyTemplate_aa1cb060337e849da982f26179e7aadb8}} 
+\index{DobbyTemplate@{DobbyTemplate}!applyAt@{applyAt}}
+\index{applyAt@{applyAt}!DobbyTemplate@{DobbyTemplate}}
+\doxysubsubsection{\texorpdfstring{applyAt()}{applyAt()}}
+{\footnotesize\ttfamily bool Dobby\+Template\+::apply\+At (\begin{DoxyParamCaption}\item[{int}]{dir\+Fd,  }\item[{const std\+::string \&}]{file\+Name,  }\item[{const ctemplate\+::\+Template\+Dictionary\+Interface $\ast$}]{dictionary,  }\item[{bool}]{pretty\+Print }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies the dictionary to the template and writes the output into the file. 
+
+If the pathname given in {\itshape file\+Name} is relative, then it is interpreted relative to the directory referred to by the file descriptor dirfd. If {\itshape file\+Name} is relative and dirfd is the special value AT\+\_\+\+FDCWD, then {\itshape file\+Name} is interpreted relative to the current working directory
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dir\+Fd} & The directory of the file. \\
+\hline
+\mbox{\texttt{ in}}  & {\em file\+Name} & The path to the file to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em dictionary} & The dictionary to apply. \\
+\hline
+\mbox{\texttt{ in}}  & {\em pretty\+Print} & Pretty print the json output.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyTemplate_a96b1541f8f69374655334f7e5f0fa3bc}\label{classDobbyTemplate_a96b1541f8f69374655334f7e5f0fa3bc}} 
+\index{DobbyTemplate@{DobbyTemplate}!cleanUp@{cleanUp}}
+\index{cleanUp@{cleanUp}!DobbyTemplate@{DobbyTemplate}}
+\doxysubsubsection{\texorpdfstring{cleanUp()}{cleanUp()}}
+{\footnotesize\ttfamily void Dobby\+Template\+::clean\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Called at shutdown time to clean up the singleton. 
+
+Callback installed as atexit(), frees the instance pointer. \mbox{\Hypertarget{classDobbyTemplate_a043fd1569012d16228874c161afb35e0}\label{classDobbyTemplate_a043fd1569012d16228874c161afb35e0}} 
+\index{DobbyTemplate@{DobbyTemplate}!setTemplateCpuRtSched@{setTemplateCpuRtSched}}
+\index{setTemplateCpuRtSched@{setTemplateCpuRtSched}!DobbyTemplate@{DobbyTemplate}}
+\doxysubsubsection{\texorpdfstring{setTemplateCpuRtSched()}{setTemplateCpuRtSched()}}
+{\footnotesize\ttfamily void Dobby\+Template\+::set\+Template\+Cpu\+Rt\+Sched (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Determines if the kernel\textquotesingle{}s CONFIG\+\_\+\+RT\+\_\+\+GROUP\+\_\+\+SCHED is set or not. 
+
+If CONFIG\+\_\+\+RT\+\_\+\+GROUP\+\_\+\+SCHED is set in the kernel config we need to give all containers a slice of runtime scheduler. So we check if the kernel is configured that way and if it is we enabled CGROUP\+\_\+\+RTSCHD\+\_\+\+ENABLED section in the template. \mbox{\Hypertarget{classDobbyTemplate_aae841eb57fd57714786e0bbab39f851c}\label{classDobbyTemplate_aae841eb57fd57714786e0bbab39f851c}} 
+\index{DobbyTemplate@{DobbyTemplate}!setTemplateDevNodes@{setTemplateDevNodes}}
+\index{setTemplateDevNodes@{setTemplateDevNodes}!DobbyTemplate@{DobbyTemplate}}
+\doxysubsubsection{\texorpdfstring{setTemplateDevNodes()}{setTemplateDevNodes()}}
+{\footnotesize\ttfamily void Dobby\+Template\+::set\+Template\+Dev\+Nodes (\begin{DoxyParamCaption}\item[{const std\+::list$<$ std\+::string $>$ \&}]{dev\+Nodes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets up the global template values for the device nodes. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000001}{Deprecated}}]This is now down lazily in the \mbox{\hyperlink{classDobbyConfig}{Dobby\+Config}} component when starting the first container that requires the GPU.\end{DoxyRefDesc}
+
+
+Currently the device nodes are only for the xegl/opengl.
+
+We need to get the device numbers from the file system as runc won\textquotesingle{}t do that automatically for us. We could hard code them, but it\textquotesingle{}s perfectly reasonable that they could change between driver releases.
+
+Nb\+: this feels like the wrong place to be doing this, however for now it is convenient and the most efficient. \mbox{\Hypertarget{classDobbyTemplate_a9576ad7c3b03f386132db1546a850983}\label{classDobbyTemplate_a9576ad7c3b03f386132db1546a850983}} 
+\index{DobbyTemplate@{DobbyTemplate}!setTemplatePlatformEnvVars@{setTemplatePlatformEnvVars}}
+\index{setTemplatePlatformEnvVars@{setTemplatePlatformEnvVars}!DobbyTemplate@{DobbyTemplate}}
+\doxysubsubsection{\texorpdfstring{setTemplatePlatformEnvVars()}{setTemplatePlatformEnvVars()}}
+{\footnotesize\ttfamily void Dobby\+Template\+::set\+Template\+Platform\+Env\+Vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sets the environment variables used to identify the platform. 
+
+All containers get two environment variables that define the platform; \begin{DoxyVerb}ETHAN_STB_TYPE  = [ "GW" | "MR" | "HIP" ]
+ETHAN_STB_MODEL = [ "ES140" | "ES130" | "EM150" | "ES240" | "ESi240" | ... ]
+\end{DoxyVerb}
+ For a list of model names refer to the following confluence page \begin{DoxyVerb}https://www.stb.bskyb.com/confluence/display/2016/STB+HW+ID
+\end{DoxyVerb}
+ To determine platform we check for the AI\+\_\+\+PLATFORM\+\_\+\+IDENT environment variable. This should have been set by the user (or upstart script) that started this daemon. If it\textquotesingle{}s not present then we set both templates as empty and log an error. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bundle/lib/include/Dobby\+Template.\+h\item 
+bundle/lib/source/Dobby\+Template.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,196 @@
+\hypertarget{classDobbyEnv}{}\doxysection{Dobby\+Env Class Reference}
+\label{classDobbyEnv}\index{DobbyEnv@{DobbyEnv}}
+
+
+Basic class used to store the stb environment.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Env.\+h$>$}
+
+
+
+Inheritance diagram for Dobby\+Env\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Env\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyEnv_a6a35f1d5214d8683ee6c8afb1835efa8}\label{classDobbyEnv_a6a35f1d5214d8683ee6c8afb1835efa8}} 
+{\bfseries Dobby\+Env} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&settings)
+\item 
+std\+::string \mbox{\hyperlink{classDobbyEnv_afd71956854459463409cd194a6a36191}{workspace\+Mount\+Path}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the absolute AI workspace mount point path. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyEnv_af902994d91f902922610d9a5dcf1aaf9}{flash\+Mount\+Path}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the absolute path to the AI area on flash. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyEnv_adbc91b490efd9e88ba6dfd9de34fe504}{plugins\+Workspace\+Path}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the path to directory that plugins can write to. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyEnv_a7d59f697f700d25c7790d11d77f6b3f9}{cgroup\+Mount\+Path}} (Cgroup cgroup) const override
+\begin{DoxyCompactList}\small\item\em Returns the absolute path to the cgroup mount point for the given cgroup. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classDobbyEnv_ab1d6b875d7bb3d1084754f5d03394b29}{platform\+Ident}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the two byte platform identification number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::map$<$ IDobby\+Env\+::\+Cgroup, std\+::string $>$ \mbox{\hyperlink{classDobbyEnv_ac6b9d0f564c408491f2ae2f326e7fd46}{get\+Cgroup\+Mount\+Points}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to get the mount points of the cgroup filesystems. \end{DoxyCompactList}\item 
+static uint16\+\_\+t \mbox{\hyperlink{classDobbyEnv_a2ca51ad6c47f1a4794dee966668be229}{get\+Platform\+Ident}} ()
+\begin{DoxyCompactList}\small\item\em Attempts to get the STB platform identifier bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyEnv_a11c9937b9110d9578aa27126f0319140}\label{classDobbyEnv_a11c9937b9110d9578aa27126f0319140}} 
+const std\+::string {\bfseries m\+Workspace\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyEnv_a3f4cb7071a7be1ebbcaa032baba72e2b}\label{classDobbyEnv_a3f4cb7071a7be1ebbcaa032baba72e2b}} 
+const std\+::string {\bfseries m\+Flash\+Mount\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyEnv_aea7bebf64318a32a0e2e5560e29301e6}\label{classDobbyEnv_aea7bebf64318a32a0e2e5560e29301e6}} 
+const std\+::string {\bfseries m\+Plugins\+Workspace\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyEnv_a9f8396350dfbeb4a6b5c3d7654777563}\label{classDobbyEnv_a9f8396350dfbeb4a6b5c3d7654777563}} 
+const std\+::map$<$ IDobby\+Env\+::\+Cgroup, std\+::string $>$ {\bfseries m\+Cgroup\+Mount\+Paths}
+\item 
+\mbox{\Hypertarget{classDobbyEnv_ab068d63eabf02f7482c2ec62cf6c17fb}\label{classDobbyEnv_ab068d63eabf02f7482c2ec62cf6c17fb}} 
+const uint16\+\_\+t {\bfseries m\+Platform\+Ident}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Basic class used to store the stb environment. 
+
+Used to store constant stuff, like the flash mount point and platform type.
+
+An instance of this class is passed to all plugins when they are initialised as well as storing information for the daemon\textquotesingle{}s own use. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyEnv_a7d59f697f700d25c7790d11d77f6b3f9}\label{classDobbyEnv_a7d59f697f700d25c7790d11d77f6b3f9}} 
+\index{DobbyEnv@{DobbyEnv}!cgroupMountPath@{cgroupMountPath}}
+\index{cgroupMountPath@{cgroupMountPath}!DobbyEnv@{DobbyEnv}}
+\doxysubsubsection{\texorpdfstring{cgroupMountPath()}{cgroupMountPath()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Env\+::cgroup\+Mount\+Path (\begin{DoxyParamCaption}\item[{Cgroup}]{cgroup }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the absolute path to the cgroup mount point for the given cgroup. 
+
+This is typically \char`\"{}/sys/fs/cgroup/$<$cgroup$>$\char`\"{} 
+
+Implements \mbox{\hyperlink{classIDobbyEnv_a1af7ebfbb60a41133de6514ad61bb008}{IDobby\+Env}}.
+
+\mbox{\Hypertarget{classDobbyEnv_af902994d91f902922610d9a5dcf1aaf9}\label{classDobbyEnv_af902994d91f902922610d9a5dcf1aaf9}} 
+\index{DobbyEnv@{DobbyEnv}!flashMountPath@{flashMountPath}}
+\index{flashMountPath@{flashMountPath}!DobbyEnv@{DobbyEnv}}
+\doxysubsubsection{\texorpdfstring{flashMountPath()}{flashMountPath()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Env\+::flash\+Mount\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the absolute path to the AI area on flash. 
+
+This is the flash mount used to store things like package widget files and any other sort of persistent data.
+
+The path changes depending on the platform, but the following is typical \char`\"{}/mnt/nds/dev\+\_\+17/part\+\_\+0/appmanager\char`\"{} 
+
+Implements \mbox{\hyperlink{classIDobbyEnv_a926d20a348eac6f581d135eb2138ee2b}{IDobby\+Env}}.
+
+\mbox{\Hypertarget{classDobbyEnv_ac6b9d0f564c408491f2ae2f326e7fd46}\label{classDobbyEnv_ac6b9d0f564c408491f2ae2f326e7fd46}} 
+\index{DobbyEnv@{DobbyEnv}!getCgroupMountPoints@{getCgroupMountPoints}}
+\index{getCgroupMountPoints@{getCgroupMountPoints}!DobbyEnv@{DobbyEnv}}
+\doxysubsubsection{\texorpdfstring{getCgroupMountPoints()}{getCgroupMountPoints()}}
+{\footnotesize\ttfamily std\+::map$<$ IDobby\+Env\+::\+Cgroup, std\+::string $>$ Dobby\+Env\+::get\+Cgroup\+Mount\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Attempts to get the mount points of the cgroup filesystems. 
+
+This scans the mount table looking for the cgroups mounts, if this fails it\textquotesingle{}s pretty fatal.
+
+This is typically the name of the cgroup prefixed with \char`\"{}/sys/fs/cgroup\char`\"{}
+
+\begin{DoxyReturn}{Returns}
+a map of cgroup type to path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyEnv_a2ca51ad6c47f1a4794dee966668be229}\label{classDobbyEnv_a2ca51ad6c47f1a4794dee966668be229}} 
+\index{DobbyEnv@{DobbyEnv}!getPlatformIdent@{getPlatformIdent}}
+\index{getPlatformIdent@{getPlatformIdent}!DobbyEnv@{DobbyEnv}}
+\doxysubsubsection{\texorpdfstring{getPlatformIdent()}{getPlatformIdent()}}
+{\footnotesize\ttfamily uint16\+\_\+t Dobby\+Env\+::get\+Platform\+Ident (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Attempts to get the STB platform identifier bytes. 
+
+The bytes should be set in the AI\+\_\+\+PLATFORM\+\_\+\+IDENT environment variable, if they aren\textquotesingle{}t, or the env var is invalid then we return 0x0000 for the platform.
+
+\begin{DoxyReturn}{Returns}
+the two platform identifier bytes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyEnv_ab1d6b875d7bb3d1084754f5d03394b29}\label{classDobbyEnv_ab1d6b875d7bb3d1084754f5d03394b29}} 
+\index{DobbyEnv@{DobbyEnv}!platformIdent@{platformIdent}}
+\index{platformIdent@{platformIdent}!DobbyEnv@{DobbyEnv}}
+\doxysubsubsection{\texorpdfstring{platformIdent()}{platformIdent()}}
+{\footnotesize\ttfamily uint16\+\_\+t Dobby\+Env\+::platform\+Ident (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the two byte platform identification number. 
+
+The following list the platforms at time of writing, for a complete list refer to \href{https://www.stb.bskyb.com/confluence/display/SKYQ/Sky+Q+Hardware}{\texttt{ https\+://www.\+stb.\+bskyb.\+com/confluence/display/\+SKYQ/\+Sky+\+Q+\+Hardware}} \begin{DoxyVerb}32B0  :  Falcon (broadcom 7445)
+32B1  :  FalconV2 UK (ST 419 Gateway)
+32B2  :  Titan (Broadcom 7278 Gateway)
+32C0  :  X-Wing (ST 412 Gateway)
+32C1  :  HIP Box (SKYH412 X-Wing)
+32D0  :  MR Box (ST 412 IP-Client)
+7D67  :  Amidala (ST 418 Gateway Satellite)
+3400  :  Amidala (ST 418 Gateway Cable)
+6763  :  Amidala (ST 418 GW Satellite & Cable)
+32C2  :  AX2 m-star 64bit platform
+\end{DoxyVerb}
+ 
+
+Implements \mbox{\hyperlink{classIDobbyEnv_ace7562b3e6f2d415720ba78a907cf90e}{IDobby\+Env}}.
+
+\mbox{\Hypertarget{classDobbyEnv_adbc91b490efd9e88ba6dfd9de34fe504}\label{classDobbyEnv_adbc91b490efd9e88ba6dfd9de34fe504}} 
+\index{DobbyEnv@{DobbyEnv}!pluginsWorkspacePath@{pluginsWorkspacePath}}
+\index{pluginsWorkspacePath@{pluginsWorkspacePath}!DobbyEnv@{DobbyEnv}}
+\doxysubsubsection{\texorpdfstring{pluginsWorkspacePath()}{pluginsWorkspacePath()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Env\+::plugins\+Workspace\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the path to directory that plugins can write to. 
+
+This is non-\/persistent storage and is just a subdirectory of the workspace. Plugins should use this to store any temporary files, mount points, etc.
+
+The path is typically \char`\"{}/mnt/nds/tmpfs/\+APPLICATIONS\+\_\+\+WORKSPACE/plugins\char`\"{} 
+
+Implements \mbox{\hyperlink{classIDobbyEnv_af38a17c90a878c2c90efd0220ff79317}{IDobby\+Env}}.
+
+\mbox{\Hypertarget{classDobbyEnv_afd71956854459463409cd194a6a36191}\label{classDobbyEnv_afd71956854459463409cd194a6a36191}} 
+\index{DobbyEnv@{DobbyEnv}!workspaceMountPath@{workspaceMountPath}}
+\index{workspaceMountPath@{workspaceMountPath}!DobbyEnv@{DobbyEnv}}
+\doxysubsubsection{\texorpdfstring{workspaceMountPath()}{workspaceMountPath()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Env\+::workspace\+Mount\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the absolute AI workspace mount point path. 
+
+This is the tmpfs mount used by all AI code as a place to store non-\/persistent files.
+
+The path is typically \char`\"{}/mnt/nds/tmpfs/\+APPLICATIONS\+\_\+\+WORKSPACE\char`\"{} 
+
+Implements \mbox{\hyperlink{classIDobbyEnv_a89e1d27b2338cf19db6cfe485912c910}{IDobby\+Env}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Env.\+h\item 
+daemon/lib/source/Dobby\+Env.\+cpp\end{DoxyCompactItemize}

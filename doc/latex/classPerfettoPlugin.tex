@@ -1,0 +1,114 @@
+\hypertarget{classPerfettoPlugin}{}\doxysection{Perfetto\+Plugin Class Reference}
+\label{classPerfettoPlugin}\index{PerfettoPlugin@{PerfettoPlugin}}
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} plugin for granting access to system perfetto tracing in the container.  
+
+
+
+
+{\ttfamily \#include $<$Perfetto\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Perfetto\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Perfetto\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfettoPlugin_add4218d37026ec6a795535bd133cf777}\label{classPerfettoPlugin_add4218d37026ec6a795535bd133cf777}} 
+{\bfseries Perfetto\+Plugin} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&env, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils)
+\item 
+std\+::string \mbox{\hyperlink{classPerfettoPlugin_a19b2f367e75470ef94b7474c0c6d18b7}{name}} () const final
+\begin{DoxyCompactList}\small\item\em Boilerplate that just returns the name of the plugin. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classPerfettoPlugin_a002925ab6cf2afc154766811fef001fb}{hook\+Hints}} () const final
+\begin{DoxyCompactList}\small\item\em Indicates which hook points we want and whether to run the asynchronously or synchronously with the other hooks. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPerfettoPlugin_a02a36777b71b6083d19d76040ae4844a}{post\+Construction}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&startup\+State, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) final
+\begin{DoxyCompactList}\small\item\em Adds bind mounts for the perfetto producer socket if it exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfettoPlugin_accb7f1eb75dc22149b36a7a8a5748eca}\label{classPerfettoPlugin_accb7f1eb75dc22149b36a7a8a5748eca}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classPerfettoPlugin_a6417e94e3193907684a4f61bc14ef5c3}\label{classPerfettoPlugin_a6417e94e3193907684a4f61bc14ef5c3}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classPerfettoPlugin_a3212dcdee65765bbe39bdff1457509a6}\label{classPerfettoPlugin_a3212dcdee65765bbe39bdff1457509a6}} 
+const std\+::string {\bfseries m\+Default\+Perfetto\+Sock\+Path}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classDobby}{Dobby}} plugin for granting access to system perfetto tracing in the container. 
+
+For now this just bind mounts in the standard perfetto socket used for IPC. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPerfettoPlugin_a002925ab6cf2afc154766811fef001fb}\label{classPerfettoPlugin_a002925ab6cf2afc154766811fef001fb}} 
+\index{PerfettoPlugin@{PerfettoPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!PerfettoPlugin@{PerfettoPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Perfetto\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Indicates which hook points we want and whether to run the asynchronously or synchronously with the other hooks. 
+
+For \mbox{\hyperlink{classPerfettoPlugin}{Perfetto\+Plugin}} everything is done in the post\+Construction phase. 
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_ad44f4df1de4848fa3d43066760329e3a}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classPerfettoPlugin_a19b2f367e75470ef94b7474c0c6d18b7}\label{classPerfettoPlugin_a19b2f367e75470ef94b7474c0c6d18b7}} 
+\index{PerfettoPlugin@{PerfettoPlugin}!name@{name}}
+\index{name@{name}!PerfettoPlugin@{PerfettoPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Perfetto\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Boilerplate that just returns the name of the plugin. 
+
+This string needs to match the name specified in the container spec json. 
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_adf25d402500239a690246da6fc312a7b}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classPerfettoPlugin_a02a36777b71b6083d19d76040ae4844a}\label{classPerfettoPlugin_a02a36777b71b6083d19d76040ae4844a}} 
+\index{PerfettoPlugin@{PerfettoPlugin}!postConstruction@{postConstruction}}
+\index{postConstruction@{postConstruction}!PerfettoPlugin@{PerfettoPlugin}}
+\doxysubsubsection{\texorpdfstring{postConstruction()}{postConstruction()}}
+{\footnotesize\ttfamily bool Perfetto\+Plugin\+::post\+Construction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&}]{startup\+State,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Adds bind mounts for the perfetto producer socket if it exists. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em startup\+State} & The start-\/up state of the container (ignored) \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The absolute path to the rootfs of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Data} & The parsed json data from the container spec file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPluginBase_ae713819ad289f213ce5b5a9cb099f9b7}{Plugin\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Perfetto/source/Perfetto\+Plugin.\+h\item 
+plugins/\+Perfetto/source/Perfetto\+Plugin.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,181 @@
+\hypertarget{classReadLine}{}\doxysection{Read\+Line Class Reference}
+\label{classReadLine}\index{ReadLine@{ReadLine}}
+
+
+Inheritance diagram for Read\+Line\+:
+% FIG 0
+
+
+Collaboration diagram for Read\+Line\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structReadLine_1_1__ReadLineCommand}{\+\_\+\+Read\+Line\+Command}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classReadLine_a004112c54010308c854e31d2bbda480f}\label{classReadLine_a004112c54010308c854e31d2bbda480f}} 
+bool \mbox{\hyperlink{classReadLine_a004112c54010308c854e31d2bbda480f}{is\+Valid}} () const override
+\begin{DoxyCompactList}\small\item\em Tests if the class is valid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a20d375dfd924bcf7b396c939f3dbf60e}\label{classReadLine_a20d375dfd924bcf7b396c939f3dbf60e}} 
+void \mbox{\hyperlink{classReadLine_a20d375dfd924bcf7b396c939f3dbf60e}{run}} () override
+\begin{DoxyCompactList}\small\item\em Run loop, blocks until quit is called. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a854aa9621e948b1f3ee391f42fbecb9c}\label{classReadLine_a854aa9621e948b1f3ee391f42fbecb9c}} 
+bool \mbox{\hyperlink{classReadLine_a854aa9621e948b1f3ee391f42fbecb9c}{add\+Command}} (const std\+::string \&name, Command\+Handler handler, const std\+::string \&desc, const std\+::string \&help, const std\+::string \&opts) override
+\begin{DoxyCompactList}\small\item\em Adds a new command to the readline loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a13fd926e86fdca27846c74145f1c1998}\label{classReadLine_a13fd926e86fdca27846c74145f1c1998}} 
+void {\bfseries run\+Command} (int argc, char $\ast$const $\ast$argv) override
+\item 
+\mbox{\Hypertarget{classReadLine_ab12908f2889728c3bffcb3d5d64dd314}\label{classReadLine_ab12908f2889728c3bffcb3d5d64dd314}} 
+void \mbox{\hyperlink{classReadLine_ab12908f2889728c3bffcb3d5d64dd314}{process}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&poll\+Loop, epoll\+\_\+event event) override
+\begin{DoxyCompactList}\small\item\em Callback from the Poll\+Loop that is listening on stdin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a4ff6885e5b423510768169376ce3dae7}\label{classReadLine_a4ff6885e5b423510768169376ce3dae7}} 
+std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIReadLineContext}{IRead\+Line\+Context}} $>$ \mbox{\hyperlink{classReadLine_a4ff6885e5b423510768169376ce3dae7}{get\+Context}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the print context. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a2c3c183d4a0ae1e54715f12142fede13}\label{classReadLine_a2c3c183d4a0ae1e54715f12142fede13}} 
+void \mbox{\hyperlink{classReadLine_a2c3c183d4a0ae1e54715f12142fede13}{quit}} () const override
+\begin{DoxyCompactList}\small\item\em Triggers an exit from the readline loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a9dd7ccad4c10406b5fdedeb9bf8cd9a7}\label{classReadLine_a9dd7ccad4c10406b5fdedeb9bf8cd9a7}} 
+void \mbox{\hyperlink{classReadLine_a9dd7ccad4c10406b5fdedeb9bf8cd9a7}{print\+Ln}} (const char $\ast$fmt,...) const override
+\begin{DoxyCompactList}\small\item\em Prints out the message from the command handler. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_ac0df5398bb4652f1ed8c96954a14cedf}\label{classReadLine_ac0df5398bb4652f1ed8c96954a14cedf}} 
+void \mbox{\hyperlink{classReadLine_ac0df5398bb4652f1ed8c96954a14cedf}{print\+Ln\+Error}} (const char $\ast$fmt,...) const override
+\begin{DoxyCompactList}\small\item\em Prints out an error message from the command handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classReadLine_a94ca0868dd6faaed0c0ec40bf33a6308}\label{classReadLine_a94ca0868dd6faaed0c0ec40bf33a6308}} 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classReadLine}{Read\+Line}} $>$ {\bfseries instance} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classReadLine_aa054a2811f316db0c6cd77bc56650b17}\label{classReadLine_aa054a2811f316db0c6cd77bc56650b17}} 
+typedef struct \mbox{\hyperlink{structReadLine_1_1__ReadLineCommand}{Read\+Line\+::\+\_\+\+Read\+Line\+Command}} {\bfseries Read\+Line\+Command}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classReadLine_a74c7ef9a39b82f98ab1b5c0ed21b88e4}{init\+Lib}} ()
+\begin{DoxyCompactList}\small\item\em Initialises access to the readline library. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{classReadLine_afb630473530e0e15b08b58e43bd29220}{command\+Generator}} (const char $\ast$text, int state)
+\begin{DoxyCompactList}\small\item\em Completion function for libreadline. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_aee763648d92a33c6d3a2cd8afceb2ade}\label{classReadLine_aee763648d92a33c6d3a2cd8afceb2ade}} 
+void \mbox{\hyperlink{classReadLine_aee763648d92a33c6d3a2cd8afceb2ade}{command\+Line\+Handler}} (const char $\ast$text)
+\begin{DoxyCompactList}\small\item\em Callback handler from the readline library. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a383ba2eeb0d25838c7d0ee1220dd27d1}\label{classReadLine_a383ba2eeb0d25838c7d0ee1220dd27d1}} 
+void \mbox{\hyperlink{classReadLine_a383ba2eeb0d25838c7d0ee1220dd27d1}{command\+Execute}} (const std\+::string \&cmd\+Str, const std\+::vector$<$ std\+::string $>$ \&args)
+\begin{DoxyCompactList}\small\item\em Executes the given command, called from readline callback handler. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a3cc2ae1525f011e9e0df2971543cb218}\label{classReadLine_a3cc2ae1525f011e9e0df2971543cb218}} 
+void \mbox{\hyperlink{classReadLine_a3cc2ae1525f011e9e0df2971543cb218}{help\+Command}} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIReadLineContext}{IRead\+Line\+Context}} $>$ \&context, const std\+::vector$<$ std\+::string $>$ \&args)
+\begin{DoxyCompactList}\small\item\em Called when the user types help. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a1105e80cade6232ee3b91a590ee6d9a0}\label{classReadLine_a1105e80cade6232ee3b91a590ee6d9a0}} 
+void \mbox{\hyperlink{classReadLine_a1105e80cade6232ee3b91a590ee6d9a0}{quit\+Command}} (const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIReadLineContext}{IRead\+Line\+Context}} $>$ \&context, const std\+::vector$<$ std\+::string $>$ \&args)
+\begin{DoxyCompactList}\small\item\em Called when the user types quit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classReadLine_af10d02ac58d1da1352b9986a046bae70}\label{classReadLine_af10d02ac58d1da1352b9986a046bae70}} 
+static char $\ast$ \mbox{\hyperlink{classReadLine_af10d02ac58d1da1352b9986a046bae70}{\+\_\+command\+Generator}} (const char $\ast$text, int state)
+\begin{DoxyCompactList}\small\item\em Callback handler for the tab completion callback. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a6f9f5502d8addbd2c01cd29ef1dfb241}\label{classReadLine_a6f9f5502d8addbd2c01cd29ef1dfb241}} 
+static char $\ast$$\ast$ \mbox{\hyperlink{classReadLine_a6f9f5502d8addbd2c01cd29ef1dfb241}{\+\_\+completion\+Callback}} (const char $\ast$text, int start, int end)
+\begin{DoxyCompactList}\small\item\em Callback handler for the tab completion callback. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a64756ec79b0d1d88b7c1f97ae476d540}\label{classReadLine_a64756ec79b0d1d88b7c1f97ae476d540}} 
+static void \mbox{\hyperlink{classReadLine_a64756ec79b0d1d88b7c1f97ae476d540}{\+\_\+command\+Line\+Handler}} (char $\ast$text)
+\begin{DoxyCompactList}\small\item\em Callback handler from the readline library. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classReadLine_a59938738efb83c332073823165c39ab0}\label{classReadLine_a59938738efb83c332073823165c39ab0}} 
+static void \mbox{\hyperlink{classReadLine_a59938738efb83c332073823165c39ab0}{signal\+Handler}} (int dummy)
+\begin{DoxyCompactList}\small\item\em Signal handler for capturing ctrl-\/c and restoring the terminal state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classReadLine_a3b3eff1eb7585ec7fbf5e75a02731e81}\label{classReadLine_a3b3eff1eb7585ec7fbf5e75a02731e81}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classReadLine_a9286f4e3068478b3d80a9a16c9a76b5d}\label{classReadLine_a9286f4e3068478b3d80a9a16c9a76b5d}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1PollLoop}{AICommon\+::\+Poll\+Loop}} $>$ {\bfseries m\+Poll\+Loop}
+\item 
+\mbox{\Hypertarget{classReadLine_abd4a3b901a968260aa1ce7ce883c02ac}\label{classReadLine_abd4a3b901a968260aa1ce7ce883c02ac}} 
+void $\ast$ {\bfseries m\+Lib\+Handle}
+\item 
+\mbox{\Hypertarget{classReadLine_ab9736ff67d033ec599040e5ba8de9cfe}\label{classReadLine_ab9736ff67d033ec599040e5ba8de9cfe}} 
+bool {\bfseries m\+Quit}
+\item 
+\mbox{\Hypertarget{classReadLine_ad46af6802ae71f42298b3ef013fb1a2d}\label{classReadLine_ad46af6802ae71f42298b3ef013fb1a2d}} 
+std\+::mutex {\bfseries m\+Quit\+Lock}
+\item 
+\mbox{\Hypertarget{classReadLine_a2a84b1f338e30a1ea1303fa1285c5503}\label{classReadLine_a2a84b1f338e30a1ea1303fa1285c5503}} 
+std\+::condition\+\_\+variable {\bfseries m\+Quit\+Conditional}
+\item 
+\mbox{\Hypertarget{classReadLine_a6b7e5b32a593fc2fe7f97e536f710d6a}\label{classReadLine_a6b7e5b32a593fc2fe7f97e536f710d6a}} 
+std\+::vector$<$ \mbox{\hyperlink{structReadLine_1_1__ReadLineCommand}{Read\+Line\+::\+Read\+Line\+Command}} $>$ {\bfseries m\+Commands}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classReadLine_afb834484f942c36d0b3b023d70f4b44a}\label{classReadLine_afb834484f942c36d0b3b023d70f4b44a}} 
+static std\+::mutex {\bfseries m\+Instance\+Lock}
+\item 
+\mbox{\Hypertarget{classReadLine_ad7e63a9be8326b510454eb57d6fd0daa}\label{classReadLine_ad7e63a9be8326b510454eb57d6fd0daa}} 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classReadLine}{Read\+Line}} $>$ {\bfseries m\+Instance}
+\item 
+\mbox{\Hypertarget{classReadLine_a862f8a72587244d6495fec5b9de70134}\label{classReadLine_a862f8a72587244d6495fec5b9de70134}} 
+static rl\+\_\+crlf\+\_\+t {\bfseries \+\_\+rl\+\_\+crlf} = nullptr
+\item 
+\mbox{\Hypertarget{classReadLine_a67584d216caaf7f9fee61c4e6db98362}\label{classReadLine_a67584d216caaf7f9fee61c4e6db98362}} 
+static rl\+\_\+on\+\_\+new\+\_\+line\+\_\+t {\bfseries \+\_\+rl\+\_\+on\+\_\+new\+\_\+line} = nullptr
+\item 
+\mbox{\Hypertarget{classReadLine_a8a4e20a87afc67b6e4cafc854d919be3}\label{classReadLine_a8a4e20a87afc67b6e4cafc854d919be3}} 
+static rl\+\_\+forced\+\_\+update\+\_\+display\+\_\+t {\bfseries \+\_\+rl\+\_\+forced\+\_\+update\+\_\+display} = nullptr
+\item 
+\mbox{\Hypertarget{classReadLine_a1673d3c24e30787b43dfc408d3cc6e46}\label{classReadLine_a1673d3c24e30787b43dfc408d3cc6e46}} 
+static rl\+\_\+completion\+\_\+matches\+\_\+t {\bfseries \+\_\+rl\+\_\+completion\+\_\+matches} = nullptr
+\item 
+\mbox{\Hypertarget{classReadLine_a2059146c82cbab5ac6408bec56491087}\label{classReadLine_a2059146c82cbab5ac6408bec56491087}} 
+static rl\+\_\+bind\+\_\+key\+\_\+t {\bfseries \+\_\+rl\+\_\+bind\+\_\+key} = nullptr
+\item 
+\mbox{\Hypertarget{classReadLine_a0c5eb6314d6b511d4d3d71e622414269}\label{classReadLine_a0c5eb6314d6b511d4d3d71e622414269}} 
+static rl\+\_\+callback\+\_\+handler\+\_\+install\+\_\+t {\bfseries \+\_\+rl\+\_\+callback\+\_\+handler\+\_\+install} = nullptr
+\item 
+\mbox{\Hypertarget{classReadLine_a1d53bd5457ea1eeaf57055c3acf648c8}\label{classReadLine_a1d53bd5457ea1eeaf57055c3acf648c8}} 
+static rl\+\_\+callback\+\_\+read\+\_\+char\+\_\+t {\bfseries \+\_\+rl\+\_\+callback\+\_\+read\+\_\+char} = nullptr
+\item 
+\mbox{\Hypertarget{classReadLine_aa5a299acafe26c7b610f7b02fed35db7}\label{classReadLine_aa5a299acafe26c7b610f7b02fed35db7}} 
+static rl\+\_\+callback\+\_\+handler\+\_\+remove\+\_\+t {\bfseries \+\_\+rl\+\_\+callback\+\_\+handler\+\_\+remove} = nullptr
+\item 
+\mbox{\Hypertarget{classReadLine_a61fef50aca80e0e3bc6504af2bfb58ad}\label{classReadLine_a61fef50aca80e0e3bc6504af2bfb58ad}} 
+static add\+\_\+history\+\_\+t {\bfseries \+\_\+add\+\_\+history} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classReadLine_afb630473530e0e15b08b58e43bd29220}\label{classReadLine_afb630473530e0e15b08b58e43bd29220}} 
+\index{ReadLine@{ReadLine}!commandGenerator@{commandGenerator}}
+\index{commandGenerator@{commandGenerator}!ReadLine@{ReadLine}}
+\doxysubsubsection{\texorpdfstring{commandGenerator()}{commandGenerator()}}
+{\footnotesize\ttfamily char $\ast$ Read\+Line\+::command\+Generator (\begin{DoxyParamCaption}\item[{const char $\ast$}]{text,  }\item[{int}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Completion function for libreadline. 
+
+Generator function for command completion. STATE lets us know whether to start from scratch; without any state (i.\+e. STATE == 0), then we start at the top of the list. \mbox{\Hypertarget{classReadLine_a74c7ef9a39b82f98ab1b5c0ed21b88e4}\label{classReadLine_a74c7ef9a39b82f98ab1b5c0ed21b88e4}} 
+\index{ReadLine@{ReadLine}!initLib@{initLib}}
+\index{initLib@{initLib}!ReadLine@{ReadLine}}
+\doxysubsubsection{\texorpdfstring{initLib()}{initLib()}}
+{\footnotesize\ttfamily void Read\+Line\+::init\+Lib (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialises access to the readline library. 
+
+Because we don\textquotesingle{}t have access to the readline headers of library in the SI build system, we use dlsym to try and get the symbols. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Read\+Line/source/Read\+Line.\+h\item 
+App\+Infrastructure/\+Read\+Line/source/Read\+Line.\+cpp\end{DoxyCompactItemize}

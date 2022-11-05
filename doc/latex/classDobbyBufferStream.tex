@@ -1,0 +1,110 @@
+\hypertarget{classDobbyBufferStream}{}\doxysection{Dobby\+Buffer\+Stream Class Reference}
+\label{classDobbyBufferStream}\index{DobbyBufferStream@{DobbyBufferStream}}
+
+
+Stream that just redirects all the input to an internal memory buffer.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Stream.\+h$>$}
+
+
+
+Inheritance diagram for Dobby\+Buffer\+Stream\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Buffer\+Stream\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDobbyBufferStream_a2ff24e652f741c457dee712b0ac8a462}{Dobby\+Buffer\+Stream}} (ssize\+\_\+t limit=-\/1)
+\begin{DoxyCompactList}\small\item\em Constructs the buffer using an memfd. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDobbyBufferStream_a5ea289609d8e1e946240fab18bca085b}{dup\+Write\+FD}} (int new\+Fd, bool close\+Exec) const override
+\begin{DoxyCompactList}\small\item\em Returns a dup\textquotesingle{}d file descriptor for the write side of the stream. \end{DoxyCompactList}\item 
+std\+::vector$<$ char $>$ \mbox{\hyperlink{classDobbyBufferStream_a9c4110c3008d4d9043739dc4dc2a7750}{get\+Buffer}} () const
+\begin{DoxyCompactList}\small\item\em Reads all the data in the buffer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyBufferStream_a96cbaf88df71ea8055a3bc583e439fe0}\label{classDobbyBufferStream_a96cbaf88df71ea8055a3bc583e439fe0}} 
+int {\bfseries get\+Mem\+Fd} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyBufferStream_ae5eb7a6985cfdc451ce68f5e32fff114}\label{classDobbyBufferStream_ae5eb7a6985cfdc451ce68f5e32fff114}} 
+int {\bfseries m\+Mem\+Fd}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stream that just redirects all the input to an internal memory buffer. 
+
+This is useful for capturing the stderr output, or other small bits of text output from a command line tool.
+
+\begin{DoxyNote}{Note}
+This object is not very efficient and should only be used for small amounts of text data. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDobbyBufferStream_a2ff24e652f741c457dee712b0ac8a462}\label{classDobbyBufferStream_a2ff24e652f741c457dee712b0ac8a462}} 
+\index{DobbyBufferStream@{DobbyBufferStream}!DobbyBufferStream@{DobbyBufferStream}}
+\index{DobbyBufferStream@{DobbyBufferStream}!DobbyBufferStream@{DobbyBufferStream}}
+\doxysubsubsection{\texorpdfstring{DobbyBufferStream()}{DobbyBufferStream()}}
+{\footnotesize\ttfamily Dobby\+Buffer\+Stream\+::\+Dobby\+Buffer\+Stream (\begin{DoxyParamCaption}\item[{ssize\+\_\+t}]{limit = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs the buffer using an memfd. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em limit} & The maximum number of bytes that can be written into the buffer. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyBufferStream_a5ea289609d8e1e946240fab18bca085b}\label{classDobbyBufferStream_a5ea289609d8e1e946240fab18bca085b}} 
+\index{DobbyBufferStream@{DobbyBufferStream}!dupWriteFD@{dupWriteFD}}
+\index{dupWriteFD@{dupWriteFD}!DobbyBufferStream@{DobbyBufferStream}}
+\doxysubsubsection{\texorpdfstring{dupWriteFD()}{dupWriteFD()}}
+{\footnotesize\ttfamily int Dobby\+Buffer\+Stream\+::dup\+Write\+FD (\begin{DoxyParamCaption}\item[{int}]{new\+Fd,  }\item[{bool}]{close\+Exec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns a dup\textquotesingle{}d file descriptor for the write side of the stream. 
+
+If the file descriptor {\itshape newfd} was previously open, it is silently closed before being reused. If {\itshape new\+Fd} is -\/1 then the lowest-\/numbered unused file descriptor number is used.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+Fd} & The number to give the new dup\textquotesingle{}d file descriptor. \\
+\hline
+\mbox{\texttt{ in}}  & {\em close\+Exec} & If true the O\+\_\+\+CLOEXEC flag is set on the new fd\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new file descriptor, on error -\/1. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}}.
+
+\mbox{\Hypertarget{classDobbyBufferStream_a9c4110c3008d4d9043739dc4dc2a7750}\label{classDobbyBufferStream_a9c4110c3008d4d9043739dc4dc2a7750}} 
+\index{DobbyBufferStream@{DobbyBufferStream}!getBuffer@{getBuffer}}
+\index{getBuffer@{getBuffer}!DobbyBufferStream@{DobbyBufferStream}}
+\doxysubsubsection{\texorpdfstring{getBuffer()}{getBuffer()}}
+{\footnotesize\ttfamily std\+::vector$<$ char $>$ Dobby\+Buffer\+Stream\+::get\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Reads all the data in the buffer. 
+
+This doesn\textquotesingle{}t do a flush or anything, this just returns everything written into the buffer. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Stream.\+h\item 
+daemon/lib/source/Dobby\+Stream.\+cpp\end{DoxyCompactItemize}

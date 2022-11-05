@@ -1,0 +1,34 @@
+\hypertarget{classPerfettoTracing}{}\doxysection{Perfetto\+Tracing Class Reference}
+\label{classPerfettoTracing}\index{PerfettoTracing@{PerfettoTracing}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfettoTracing_a2b28c5e4f1e5b308bbaae05c8fc5b23c}\label{classPerfettoTracing_a2b28c5e4f1e5b308bbaae05c8fc5b23c}} 
+enum {\bfseries Backend} \+: unsigned \{ {\bfseries System\+Backend} = 0x1
+, {\bfseries In\+Process\+Backend} = 0x2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfettoTracing_ac40847fb867307647269ec146bf40e24}\label{classPerfettoTracing_ac40847fb867307647269ec146bf40e24}} 
+static bool {\bfseries initialise} (unsigned backends=(System\+Backend$\vert$In\+Process\+Backend))
+\item 
+\mbox{\Hypertarget{classPerfettoTracing_a1db3a31ec59cfba2e097cf3b5fc00dd4}\label{classPerfettoTracing_a1db3a31ec59cfba2e097cf3b5fc00dd4}} 
+static bool {\bfseries is\+Tracing} ()
+\item 
+\mbox{\Hypertarget{classPerfettoTracing_a1452a4c5c822931361ad1a55431ea63f}\label{classPerfettoTracing_a1452a4c5c822931361ad1a55431ea63f}} 
+static bool {\bfseries start\+In\+Process\+Tracing} (const std\+::string \&trace\+File, const std\+::string \&category\+Filter=std\+::string())
+\item 
+\mbox{\Hypertarget{classPerfettoTracing_a166a2972f92a2830853490995d71939d}\label{classPerfettoTracing_a166a2972f92a2830853490995d71939d}} 
+static bool {\bfseries start\+In\+Process\+Tracing} (int fd, const std\+::string \&category\+Filter=std\+::string())
+\item 
+\mbox{\Hypertarget{classPerfettoTracing_a34ab24e188282ea5d1c3e366caa1c9e5}\label{classPerfettoTracing_a34ab24e188282ea5d1c3e366caa1c9e5}} 
+static void {\bfseries stop\+In\+Process\+Tracing} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tracing/include/Perfetto\+Tracing.\+h\item 
+tracing/source/Perfetto\+Tracing.\+cpp\end{DoxyCompactItemize}

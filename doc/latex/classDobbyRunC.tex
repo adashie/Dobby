@@ -1,0 +1,379 @@
+\hypertarget{classDobbyRunC}{}\doxysection{Dobby\+RunC Class Reference}
+\label{classDobbyRunC}\index{DobbyRunC@{DobbyRunC}}
+
+
+Wrapper around the runc command line app.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Run\+C.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDobbyRunC_1_1ContainerListItem}{Container\+List\+Item}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRunC_afad0ba02323c06a39e1343533d2bf5b0}\label{classDobbyRunC_afad0ba02323c06a39e1343533d2bf5b0}} 
+enum class {\bfseries Container\+Status} \{ \newline
+{\bfseries Unknown}
+, {\bfseries Created}
+, {\bfseries Running}
+, {\bfseries Pausing}
+, \newline
+{\bfseries Paused}
+, {\bfseries Stopped}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRunC_a593ddded678131b12ca9083807802f39}\label{classDobbyRunC_a593ddded678131b12ca9083807802f39}} 
+{\bfseries Dobby\+RunC} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbySettings}{IDobby\+Settings}} $>$ \&settings)
+\item 
+std\+::pair$<$ pid\+\_\+t, pid\+\_\+t $>$ \mbox{\hyperlink{classDobbyRunC_a9e5cdaef2fe100fa18f291c9cb809723}{create}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&bundle, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&console, const std\+::list$<$ int $>$ \&files=std\+::list$<$ int $>$(), const std\+::string \&custom\+Config\+Path=\char`\"{}\char`\"{}) const
+\begin{DoxyCompactList}\small\item\em Creates the container but doesn\textquotesingle{}t start the init process. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRunC_a061a2f219117f2545b32848b30fda254}{destroy}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&console, bool force=false) const
+\begin{DoxyCompactList}\small\item\em Runs the runc command line tool with the \textquotesingle{}delete\textquotesingle{} command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRunC_a42581f202bddd15bca1166a164984510}{start}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&console) const
+\begin{DoxyCompactList}\small\item\em Starts a container created with {\itshape create} command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRunC_a2215bee2d785483c5225671b24beada3}{kill\+Cont}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, int signal, bool all=false) const
+\begin{DoxyCompactList}\small\item\em Runs the runc command line tool with the \textquotesingle{}kill\textquotesingle{} command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRunC_a9786887de4f52b7ca793d378f97e77e5}{pause}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id) const
+\begin{DoxyCompactList}\small\item\em Runs the runc command line tool with the \textquotesingle{}pause\textquotesingle{} command. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRunC_ab4353e59e4db26bad9d48bb59de3f1fe}{resume}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id) const
+\begin{DoxyCompactList}\small\item\em Runs the runc command line tool with the \textquotesingle{}resume\textquotesingle{} command. \end{DoxyCompactList}\item 
+std\+::pair$<$ pid\+\_\+t, pid\+\_\+t $>$ \mbox{\hyperlink{classDobbyRunC_ac126f92e4fff7226ccf309977b8932df}{exec}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::string \&options, const std\+::string \&command) const
+\begin{DoxyCompactList}\small\item\em Runs the crun command line tool with the \textquotesingle{}exec\textquotesingle{} command. \end{DoxyCompactList}\item 
+Container\+Status \mbox{\hyperlink{classDobbyRunC_a8e10ced10e2ddd397379a4a93468085d}{state}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id) const
+\begin{DoxyCompactList}\small\item\em Runs the runc command line tool with the \textquotesingle{}state\textquotesingle{} command. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{structDobbyRunC_1_1ContainerListItem}{Container\+List\+Item}} $>$ \mbox{\hyperlink{classDobbyRunC_a386478adb4467dc95c108e9e1c155f00}{list}} () const
+\begin{DoxyCompactList}\small\item\em Runs the runc command line tool with the \textquotesingle{}list\textquotesingle{} command. \end{DoxyCompactList}\item 
+pid\+\_\+t \mbox{\hyperlink{classDobbyRunC_afddb9167812aa2aca4318660e635b3b3}{run}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&bundle, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&console, const std\+::list$<$ int $>$ \&files=std\+::list$<$ int $>$()) const
+\begin{DoxyCompactList}\small\item\em Runs the runc command line tool with the \textquotesingle{}run\textquotesingle{} command. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyRunC_a39c087c63547fe4efe9ef99a6d33967d}\label{classDobbyRunC_a39c087c63547fe4efe9ef99a6d33967d}} 
+const std\+::string {\bfseries get\+Working\+Dir} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+pid\+\_\+t \mbox{\hyperlink{classDobbyRunC_a9966d759b5b584c895001c1e9714df2e}{fork\+Exec\+RunC}} (const std\+::vector$<$ const char $\ast$ $>$ \&args, const std\+::initializer\+\_\+list$<$ const char $\ast$ $>$ \&envs, const std\+::list$<$ int $>$ \&files=std\+::list$<$ int $>$(), const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&stdout\+Stream=nullptr, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&stderr\+Stream=nullptr) const
+\begin{DoxyCompactList}\small\item\em Performs a fork then exec of the runC binary with the supplied args. \end{DoxyCompactList}\item 
+pid\+\_\+t \mbox{\hyperlink{classDobbyRunC_a728d384bd10625de282e15eb8c4b8210}{read\+Pid\+File}} (const std\+::string pid\+File\+Path) const
+\begin{DoxyCompactList}\small\item\em Reads file with pid of the container and converts it into pid\+\_\+t type variable. \end{DoxyCompactList}\item 
+Container\+Status \mbox{\hyperlink{classDobbyRunC_af4048c712e0b231d8e539fd798b7050c}{get\+Container\+Status\+From\+Json}} (const Json\+::\+Value \&\mbox{\hyperlink{classDobbyRunC_a8e10ced10e2ddd397379a4a93468085d}{state}}) const
+\begin{DoxyCompactList}\small\item\em Gets the container status from the json object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRunC_a6d6c37415f1723ac6e363eeaa61aa3bd}\label{classDobbyRunC_a6d6c37415f1723ac6e363eeaa61aa3bd}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classDobbyRunC_a78a11a441ce20f983c8fbea56920fb7f}\label{classDobbyRunC_a78a11a441ce20f983c8fbea56920fb7f}} 
+const std\+::string {\bfseries m\+Runc\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyRunC_aecff2c774f87382c8b3c6800ebdc5d23}\label{classDobbyRunC_aecff2c774f87382c8b3c6800ebdc5d23}} 
+const std\+::string {\bfseries m\+Working\+Dir}
+\item 
+\mbox{\Hypertarget{classDobbyRunC_a6e3790205167a124ac036b9cbea059a7}\label{classDobbyRunC_a6e3790205167a124ac036b9cbea059a7}} 
+const std\+::string {\bfseries m\+Log\+Dir}
+\item 
+\mbox{\Hypertarget{classDobbyRunC_a4ac882f040f5d1b5e105343df0a64d8b}\label{classDobbyRunC_a4ac882f040f5d1b5e105343df0a64d8b}} 
+const std\+::string {\bfseries m\+Log\+File\+Path}
+\item 
+\mbox{\Hypertarget{classDobbyRunC_a7b7d62d5985a400042cab3507a00e2fd}\label{classDobbyRunC_a7b7d62d5985a400042cab3507a00e2fd}} 
+const std\+::string {\bfseries m\+Console\+Socket}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper around the runc command line app. 
+
+This class just formats the args and environment variables to give the runc command line app, which we launch with a fork/exec. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyRunC_a9e5cdaef2fe100fa18f291c9cb809723}\label{classDobbyRunC_a9e5cdaef2fe100fa18f291c9cb809723}} 
+\index{DobbyRunC@{DobbyRunC}!create@{create}}
+\index{create@{create}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily std\+::pair$<$ pid\+\_\+t, pid\+\_\+t $>$ Dobby\+Run\+C\+::create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&}]{bundle,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&}]{console,  }\item[{const std\+::list$<$ int $>$ \&}]{files = {\ttfamily std\+:\+:list$<$int$>$()},  }\item[{const std\+::string \&}]{custom\+Config\+Path = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption}) const}
+
+
+
+Creates the container but doesn\textquotesingle{}t start the init process. 
+
+This is equivalent to calling the following on the command line /usr/sbin/runc create --bundle $<$dir$>$ $<$id$>$
+
+The pid of the runc tool is returned, this will survive until the container is destroyed. A watch should be placed on the pid to determine when it quits and this is the point the container is destroyed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id / name of the container to create \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle} & The bundle directory to pass to the runc tool \\
+\hline
+\mbox{\texttt{ in}}  & {\em console} & The stream to attach to the stdout / stderr of the runc tool. \\
+\hline
+\mbox{\texttt{ in}}  & {\em files} & A list of file descriptors to pass into the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em custom\+Config\+Path} & Path to a different config.\+json file to use instead of the one in the bundle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pair of PIDs. First PID is the PID of the crun process, used to match the launched process to the logging connection. Second PID is the contents of the container pidfile and is the actual PID of the container 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_a061a2f219117f2545b32848b30fda254}\label{classDobbyRunC_a061a2f219117f2545b32848b30fda254}} 
+\index{DobbyRunC@{DobbyRunC}!destroy@{destroy}}
+\index{destroy@{destroy}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily bool Dobby\+Run\+C\+::destroy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&}]{console,  }\item[{bool}]{force = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+Runs the runc command line tool with the \textquotesingle{}delete\textquotesingle{} command. 
+
+This is equivalent to calling the following on the command line \begin{DoxyVerb}/usr/sbin/runc delete <id>
+\end{DoxyVerb}
+ This command will delete any cruft that the runc tool has left behind, things like cgroups, log and or pid files, etc.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id / name of the container to create.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false based on the return code of the runc tool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_ac126f92e4fff7226ccf309977b8932df}\label{classDobbyRunC_ac126f92e4fff7226ccf309977b8932df}} 
+\index{DobbyRunC@{DobbyRunC}!exec@{exec}}
+\index{exec@{exec}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{exec()}{exec()}}
+{\footnotesize\ttfamily std\+::pair$<$ pid\+\_\+t, pid\+\_\+t $>$ Dobby\+Run\+C\+::exec (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::string \&}]{options,  }\item[{const std\+::string \&}]{command }\end{DoxyParamCaption}) const}
+
+
+
+Runs the crun command line tool with the \textquotesingle{}exec\textquotesingle{} command. 
+
+This is equivalent to calling the following on the command line \begin{DoxyVerb}/usr/sbin/crun exec [options...] --detach <id> <command>
+\end{DoxyVerb}
+ The exec is run with the --detach option enabled so we\textquotesingle{}re not stuck waiting for the command to finish execution.
+
+TODO\+:\+: Fix bug where \mbox{\hyperlink{classDobby}{Dobby}} does not correctly detect when container exits after running exec due to zombie process issue
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id / name of the container to execute the command in. \\
+\hline
+\mbox{\texttt{ in}}  & {\em options} & The options to execute the command with. \\
+\hline
+\mbox{\texttt{ in}}  & {\em command} & The command to execute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pair of PIDs. First PID is the PID of the crun process, used to match the launched process to the logging connection. Second PID is the PID of the newly launched process 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_a9966d759b5b584c895001c1e9714df2e}\label{classDobbyRunC_a9966d759b5b584c895001c1e9714df2e}} 
+\index{DobbyRunC@{DobbyRunC}!forkExecRunC@{forkExecRunC}}
+\index{forkExecRunC@{forkExecRunC}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{forkExecRunC()}{forkExecRunC()}}
+{\footnotesize\ttfamily pid\+\_\+t Dobby\+Run\+C\+::fork\+Exec\+RunC (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ const char $\ast$ $>$ \&}]{args,  }\item[{const std\+::initializer\+\_\+list$<$ const char $\ast$ $>$ \&}]{envs,  }\item[{const std\+::list$<$ int $>$ \&}]{files = {\ttfamily std\+:\+:list$<$int$>$()},  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&}]{stdout\+Stream = {\ttfamily nullptr},  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&}]{stderr\+Stream = {\ttfamily nullptr} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Performs a fork then exec of the runC binary with the supplied args. 
+
+This function blocks until the runC process has finished, then it returns the integer result.
+
+stdin is redirected to /dev/null before the exec. If a stdout\+Stream or stderr\+Stream arguments are supplied then the stdout/stderr output will be written into the supplied streams, otherwise they\textquotesingle{}ll also be redirected to /dev/null. \mbox{\Hypertarget{classDobbyRunC_af4048c712e0b231d8e539fd798b7050c}\label{classDobbyRunC_af4048c712e0b231d8e539fd798b7050c}} 
+\index{DobbyRunC@{DobbyRunC}!getContainerStatusFromJson@{getContainerStatusFromJson}}
+\index{getContainerStatusFromJson@{getContainerStatusFromJson}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{getContainerStatusFromJson()}{getContainerStatusFromJson()}}
+{\footnotesize\ttfamily Dobby\+Run\+C\+::\+Container\+Status Dobby\+Run\+C\+::get\+Container\+Status\+From\+Json (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{state }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the container status from the json object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & Json object containing the container state.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the container state, or Container\+Status\+::\+Unknown. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_a2215bee2d785483c5225671b24beada3}\label{classDobbyRunC_a2215bee2d785483c5225671b24beada3}} 
+\index{DobbyRunC@{DobbyRunC}!killCont@{killCont}}
+\index{killCont@{killCont}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{killCont()}{killCont()}}
+{\footnotesize\ttfamily bool Dobby\+Run\+C\+::kill\+Cont (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{int}]{signal,  }\item[{bool}]{all = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+Runs the runc command line tool with the \textquotesingle{}kill\textquotesingle{} command. 
+
+This is equivalent to calling the following on the command line /usr/sbin/runc kill $<$id$>$ $<$signal$>$
+
+We only support the following signals; SIGTERM, SIGKILL, SIGUSR1, SIGUSR2 \& SIGUSR2.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id / name of the container to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em signal} & The signal number to send.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false based on the return code of the runc tool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_a386478adb4467dc95c108e9e1c155f00}\label{classDobbyRunC_a386478adb4467dc95c108e9e1c155f00}} 
+\index{DobbyRunC@{DobbyRunC}!list@{list}}
+\index{list@{list}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{list()}{list()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{structDobbyRunC_1_1ContainerListItem}{Dobby\+Run\+C\+::\+Container\+List\+Item}} $>$ Dobby\+Run\+C\+::list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Runs the runc command line tool with the \textquotesingle{}list\textquotesingle{} command. 
+
+This is equivalent to calling the following on the command line \begin{DoxyVerb}/usr/sbin/runc list
+\end{DoxyVerb}
+ We use the json formatted response for easy parsing of the container data.
+
+\begin{DoxyReturn}{Returns}
+A map of current container ids and their status. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_a9786887de4f52b7ca793d378f97e77e5}\label{classDobbyRunC_a9786887de4f52b7ca793d378f97e77e5}} 
+\index{DobbyRunC@{DobbyRunC}!pause@{pause}}
+\index{pause@{pause}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}}
+{\footnotesize\ttfamily bool Dobby\+Run\+C\+::pause (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Runs the runc command line tool with the \textquotesingle{}pause\textquotesingle{} command. 
+
+This is equivalent to calling the following on the command line\+: \begin{DoxyVerb}/usr/sbin/runc pause <id>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id / name of the container to pause.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false based on the return code of the runc tool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_a728d384bd10625de282e15eb8c4b8210}\label{classDobbyRunC_a728d384bd10625de282e15eb8c4b8210}} 
+\index{DobbyRunC@{DobbyRunC}!readPidFile@{readPidFile}}
+\index{readPidFile@{readPidFile}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{readPidFile()}{readPidFile()}}
+{\footnotesize\ttfamily pid\+\_\+t Dobby\+Run\+C\+::read\+Pid\+File (\begin{DoxyParamCaption}\item[{const std\+::string}]{pid\+File\+Path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads file with pid of the container and converts it into pid\+\_\+t type variable. 
+
+\begin{DoxyReturn}{Returns}
+container pid, -\/1 if failed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_ab4353e59e4db26bad9d48bb59de3f1fe}\label{classDobbyRunC_ab4353e59e4db26bad9d48bb59de3f1fe}} 
+\index{DobbyRunC@{DobbyRunC}!resume@{resume}}
+\index{resume@{resume}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{resume()}{resume()}}
+{\footnotesize\ttfamily bool Dobby\+Run\+C\+::resume (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Runs the runc command line tool with the \textquotesingle{}resume\textquotesingle{} command. 
+
+This is equivalent to calling the following on the command line \begin{DoxyVerb}/usr/sbin/runc resume <id>
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id / name of the container to resume.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false based on the return code of the runc tool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_afddb9167812aa2aca4318660e635b3b3}\label{classDobbyRunC_afddb9167812aa2aca4318660e635b3b3}} 
+\index{DobbyRunC@{DobbyRunC}!run@{run}}
+\index{run@{run}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily pid\+\_\+t Dobby\+Run\+C\+::run (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classDobbyBundle}{Dobby\+Bundle}} $>$ \&}]{bundle,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&}]{console,  }\item[{const std\+::list$<$ int $>$ \&}]{files = {\ttfamily std\+:\+:list$<$int$>$()} }\end{DoxyParamCaption}) const}
+
+
+
+Runs the runc command line tool with the \textquotesingle{}run\textquotesingle{} command. 
+
+This is equivalent to calling the following on the command line \begin{DoxyVerb}/usr/sbin/runc run --bundle <dir> <id>
+\end{DoxyVerb}
+ The pid of the runc tool is returned, this will survive until the container is destroyed. A watch should be placed on the pid to determine when it quits and this is the point the container is destroyed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id / name of the container to create \\
+\hline
+\mbox{\texttt{ in}}  & {\em bundle} & The bundle directory to pass to the runc tool \\
+\hline
+\mbox{\texttt{ in}}  & {\em console} & The stream to attach to the stdout / stderr of the runc tool. This in effect is the console out of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em files} & A list of file descriptors to pass into the container.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the pid of the runc process if successful, otherwise -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_a42581f202bddd15bca1166a164984510}\label{classDobbyRunC_a42581f202bddd15bca1166a164984510}} 
+\index{DobbyRunC@{DobbyRunC}!start@{start}}
+\index{start@{start}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool Dobby\+Run\+C\+::start (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIDobbyStream}{IDobby\+Stream}} $>$ \&}]{console }\end{DoxyParamCaption}) const}
+
+
+
+Starts a container created with {\itshape create} command. 
+
+This is equivalent to calling the following on the command line /usr/sbin/runc start --bundle $<$dir$>$ $<$id$>$
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container created earlier \\
+\hline
+\mbox{\texttt{ in}}  & {\em console} & The stream to attach to the stdout / stderr of the runc tool.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRunC_a8e10ced10e2ddd397379a4a93468085d}\label{classDobbyRunC_a8e10ced10e2ddd397379a4a93468085d}} 
+\index{DobbyRunC@{DobbyRunC}!state@{state}}
+\index{state@{state}!DobbyRunC@{DobbyRunC}}
+\doxysubsubsection{\texorpdfstring{state()}{state()}}
+{\footnotesize\ttfamily Dobby\+Run\+C\+::\+Container\+Status Dobby\+Run\+C\+::state (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Runs the runc command line tool with the \textquotesingle{}state\textquotesingle{} command. 
+
+This is equivalent to calling the following on the command line \begin{DoxyVerb}/usr/sbin/runc state <id>
+\end{DoxyVerb}
+ The response is json formatted for easy parsing of the container data.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id / name of the container to get the state for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the container state, or Container\+Status\+::\+Unknown if the container isn\textquotesingle{}t running. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Run\+C.\+h\item 
+daemon/lib/source/Dobby\+Run\+C.\+cpp\end{DoxyCompactItemize}

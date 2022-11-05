@@ -1,0 +1,52 @@
+\hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache}{}\doxysection{AI\+\_\+\+IPC\+::Dbus\+User\+Id\+Sender\+Id\+Cache Class Reference}
+\label{classAI__IPC_1_1DbusUserIdSenderIdCache}\index{AI\_IPC::DbusUserIdSenderIdCache@{AI\_IPC::DbusUserIdSenderIdCache}}
+
+
+Inheritance diagram for AI\+\_\+\+IPC\+::Dbus\+User\+Id\+Sender\+Id\+Cache\+:
+% FIG 0
+
+
+Collaboration diagram for AI\+\_\+\+IPC\+::Dbus\+User\+Id\+Sender\+Id\+Cache\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_ac179bc6ce9942a33b8a13b1101ab8ea6}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_ac179bc6ce9942a33b8a13b1101ab8ea6}} 
+{\bfseries Dbus\+User\+Id\+Sender\+Id\+Cache} (\mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} \&parent\+Ipc\+Service, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IDbusPackageEntitlements}{IDbus\+Package\+Entitlements}} $>$ \&dbus\+Package\+Entitlements)
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_ae1bdd89b42061228f909f9490d8cd565}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_ae1bdd89b42061228f909f9490d8cd565}} 
+void {\bfseries name\+Changed} (const AI\+\_\+\+IPC\+::\+Variant\+List \&args)
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_a1f52e5f2734e505d9bfa1a5c5ba3dd24}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_a1f52e5f2734e505d9bfa1a5c5ba3dd24}} 
+virtual void {\bfseries add\+Sender\+IUser\+Id} (const std\+::string \&sender\+Id, uid\+\_\+t user\+Id) override
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_ade72605b5a7ca659f57c5c87eab2b0b0}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_ade72605b5a7ca659f57c5c87eab2b0b0}} 
+virtual boost\+::optional$<$ uid\+\_\+t $>$ {\bfseries get\+User\+Id} (const std\+::string \&sender\+Id) const override
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_a3774197188fea508a936ca778767bd70}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_a3774197188fea508a936ca778767bd70}} 
+virtual void {\bfseries remove\+User\+Id} (const std\+::string \&sender\+Id) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_a61c8eabb45ee06e9ff3926615730b98c}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_a61c8eabb45ee06e9ff3926615730b98c}} 
+std\+::unordered\+\_\+map$<$ std\+::string, uid\+\_\+t $>$ {\bfseries m\+Sender\+Id\+User\+Id\+Cache}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_a1be59530f1f7c53c9e8ba4f63c332187}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_a1be59530f1f7c53c9e8ba4f63c332187}} 
+std\+::mutex {\bfseries m\+Mutex}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_a62736d0ad955d565dc80593258dcf947}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_a62736d0ad955d565dc80593258dcf947}} 
+std\+::string {\bfseries m\+Name\+Changed\+Signal\+Handler}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_a0224e6d4017ad3e976ca6b6d947ab095}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_a0224e6d4017ad3e976ca6b6d947ab095}} 
+\mbox{\hyperlink{classAI__IPC_1_1IIpcService}{AI\+\_\+\+IPC\+::\+IIpc\+Service}} \& {\bfseries m\+Parent\+Ipc\+Service}
+\item 
+\mbox{\Hypertarget{classAI__IPC_1_1DbusUserIdSenderIdCache_ad3279ed16a4b5ac0628fe72131ffb1cd}\label{classAI__IPC_1_1DbusUserIdSenderIdCache_ad3279ed16a4b5ac0628fe72131ffb1cd}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IDbusPackageEntitlements}{IDbus\+Package\+Entitlements}} $>$ {\bfseries m\+Dbus\+Package\+Entitlements}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+User\+Id\+Sender\+Id\+Cache.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/libdbus/Dbus\+User\+Id\+Sender\+Id\+Cache.\+cpp\end{DoxyCompactItemize}

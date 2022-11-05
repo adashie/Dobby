@@ -1,0 +1,129 @@
+\hypertarget{classFileSink}{}\doxysection{File\+Sink Class Reference}
+\label{classFileSink}\index{FileSink@{FileSink}}
+
+
+Inheritance diagram for File\+Sink\+:
+% FIG 0
+
+
+Collaboration diagram for File\+Sink\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFileSink_ad78e9e8c80523675bbbcdb4412662a0d}{File\+Sink}} (const std\+::string \&container\+Id, std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config)
+\begin{DoxyCompactList}\small\item\em A logging sink that sends the contents of the container stdout/err to a given file. The file can have a size limit set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileSink_a0d1de4b3b5a9a456720e7a801baf3c27}{Dump\+Log}} (const int buffer\+Fd) override
+\begin{DoxyCompactList}\small\item\em Reads all the available data from the provided fd and writes it to the output file. Does not attempt to seek the file descriptor back to the start. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFileSink_ae489b8a6dafdbdbf13c136186b3c2c5b}{process}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&poll\+Loop, epoll\+\_\+event event) override
+\begin{DoxyCompactList}\small\item\em Called by the poll\+Loop when an event occurs on the container ptty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classFileSink_a42659e456d81d13f7808f569c373d3af}{open\+File}} (const std\+::string \&path\+Name)
+\begin{DoxyCompactList}\small\item\em Opens the log file at a given path. Will create a new file when called, and subsequent writes will append to the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileSink_aaf6f7e342c91dac9e32d2be52e95794d}\label{classFileSink_aaf6f7e342c91dac9e32d2be52e95794d}} 
+const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classFileSink_a7eb727e57bd9e349a5c58078c007961a}\label{classFileSink_a7eb727e57bd9e349a5c58078c007961a}} 
+const std\+::string {\bfseries m\+Container\+Id}
+\item 
+\mbox{\Hypertarget{classFileSink_afc928b0081361bcb8393b404cb4330a4}\label{classFileSink_afc928b0081361bcb8393b404cb4330a4}} 
+ssize\+\_\+t {\bfseries m\+File\+Size\+Limit}
+\item 
+\mbox{\Hypertarget{classFileSink_a75b4b411a85018850aad33e8c46d8513}\label{classFileSink_a75b4b411a85018850aad33e8c46d8513}} 
+std\+::string {\bfseries m\+Output\+File\+Path}
+\item 
+\mbox{\Hypertarget{classFileSink_aeb01a97d22473b026daf36d8e9e68c16}\label{classFileSink_aeb01a97d22473b026daf36d8e9e68c16}} 
+int {\bfseries m\+Output\+File\+Fd}
+\item 
+\mbox{\Hypertarget{classFileSink_ad1d87a71bc22c8b8aa1d426b9e4cdf56}\label{classFileSink_ad1d87a71bc22c8b8aa1d426b9e4cdf56}} 
+int {\bfseries m\+Dev\+Null\+Fd}
+\item 
+\mbox{\Hypertarget{classFileSink_af88aa201b1bcd3282626476df292d301}\label{classFileSink_af88aa201b1bcd3282626476df292d301}} 
+bool {\bfseries m\+Limit\+Hit}
+\item 
+\mbox{\Hypertarget{classFileSink_a741db8bedc7697a295e06cfe86ee79a5}\label{classFileSink_a741db8bedc7697a295e06cfe86ee79a5}} 
+char {\bfseries m\+Buf} \mbox{[}PTY\+\_\+\+BUFFER\+\_\+\+SIZE\mbox{]}
+\item 
+\mbox{\Hypertarget{classFileSink_aa464704b8398e68151926febc0bcafa4}\label{classFileSink_aa464704b8398e68151926febc0bcafa4}} 
+std\+::mutex {\bfseries m\+Lock}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFileSink_ad78e9e8c80523675bbbcdb4412662a0d}\label{classFileSink_ad78e9e8c80523675bbbcdb4412662a0d}} 
+\index{FileSink@{FileSink}!FileSink@{FileSink}}
+\index{FileSink@{FileSink}!FileSink@{FileSink}}
+\doxysubsubsection{\texorpdfstring{FileSink()}{FileSink()}}
+{\footnotesize\ttfamily File\+Sink\+::\+File\+Sink (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Id,  }\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&}]{container\+Config }\end{DoxyParamCaption})}
+
+
+
+A logging sink that sends the contents of the container stdout/err to a given file. The file can have a size limit set. 
+
+Will create the requested file providing the directory exists. Creates a new file each time this class is instantiated 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileSink_a0d1de4b3b5a9a456720e7a801baf3c27}\label{classFileSink_a0d1de4b3b5a9a456720e7a801baf3c27}} 
+\index{FileSink@{FileSink}!DumpLog@{DumpLog}}
+\index{DumpLog@{DumpLog}!FileSink@{FileSink}}
+\doxysubsubsection{\texorpdfstring{DumpLog()}{DumpLog()}}
+{\footnotesize\ttfamily void File\+Sink\+::\+Dump\+Log (\begin{DoxyParamCaption}\item[{const int}]{buffer\+Fd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reads all the available data from the provided fd and writes it to the output file. Does not attempt to seek the file descriptor back to the start. 
+
+If file limit is hit, will send data to /dev/null
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buffer\+Fd} & The fd to read from \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classILoggingSink}{ILogging\+Sink}}.
+
+\mbox{\Hypertarget{classFileSink_a42659e456d81d13f7808f569c373d3af}\label{classFileSink_a42659e456d81d13f7808f569c373d3af}} 
+\index{FileSink@{FileSink}!openFile@{openFile}}
+\index{openFile@{openFile}!FileSink@{FileSink}}
+\doxysubsubsection{\texorpdfstring{openFile()}{openFile()}}
+{\footnotesize\ttfamily int File\+Sink\+::open\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Opens the log file at a given path. Will create a new file when called, and subsequent writes will append to the file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path\+Name} & Where to create the file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Opened file descriptor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classFileSink_ae489b8a6dafdbdbf13c136186b3c2c5b}\label{classFileSink_ae489b8a6dafdbdbf13c136186b3c2c5b}} 
+\index{FileSink@{FileSink}!process@{process}}
+\index{process@{process}!FileSink@{FileSink}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily void File\+Sink\+::process (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAICommon_1_1IPollLoop}{AICommon\+::\+IPoll\+Loop}} $>$ \&}]{poll\+Loop,  }\item[{epoll\+\_\+event}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Called by the poll\+Loop when an event occurs on the container ptty. 
+
+Reads the contents of the ptty and logs to a file 
+
+Implements \mbox{\hyperlink{classAICommon_1_1IPollSource}{AICommon\+::\+IPoll\+Source}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Logging/source/File\+Sink.\+h\item 
+rdk\+Plugins/\+Logging/source/File\+Sink.\+cpp\end{DoxyCompactItemize}

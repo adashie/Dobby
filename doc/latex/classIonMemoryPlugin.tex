@@ -1,0 +1,193 @@
+\hypertarget{classIonMemoryPlugin}{}\doxysection{Ion\+Memory\+Plugin Class Reference}
+\label{classIonMemoryPlugin}\index{IonMemoryPlugin@{IonMemoryPlugin}}
+
+
+Plugin used to setup the ION cgroup controller for the container.  
+
+
+
+
+{\ttfamily \#include $<$Ion\+Memory\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Ion\+Memory\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Ion\+Memory\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIonMemoryPlugin_a2aa18f0c5df064729c436ce7f353110c}\label{classIonMemoryPlugin_a2aa18f0c5df064729c436ce7f353110c}} 
+{\bfseries Ion\+Memory\+Plugin} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\item 
+std\+::string \mbox{\hyperlink{classIonMemoryPlugin_ac44e3f630c4da579bd87c04d93cfde16}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIonMemoryPlugin_a5001bf1c83875ebeca39ff7decd45c95}\label{classIonMemoryPlugin_a5001bf1c83875ebeca39ff7decd45c95}} 
+unsigned \mbox{\hyperlink{classIonMemoryPlugin_a5001bf1c83875ebeca39ff7decd45c95}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIonMemoryPlugin_a81fdcec28338912d4ccf31e45dd1ce06}{create\+Runtime}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in host namespace. We use this point to create a cgroup and put the containered process into it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIonMemoryPlugin_ae6887efb263d5db1ad99894f09bc04fd}{post\+Stop}} () override
+\begin{DoxyCompactList}\small\item\em Poststop hook, we use this point to remove the cgroup directory created in the pre start phase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classIonMemoryPlugin_a7d96786527b6d94c57fb73ebd0923ae4}{find\+Ion\+CGroup\+Mount\+Point}} () const
+\begin{DoxyCompactList}\small\item\em Attempts to get the mount points of the ION cgroup filesystem. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classIonMemoryPlugin_ab8b645df691745530f76c00bb3b899a6}{setup\+Container\+Ion\+Limits}} (const std\+::string \&c\+Group\+Dir\+Path, pid\+\_\+t container\+Pid, const std\+::map$<$ std\+::string, uint64\+\_\+t $>$ \&heap\+Limits, uint64\+\_\+t default\+Limit)
+\begin{DoxyCompactList}\small\item\em Creates a ion cgroup for the container and moves the container into it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIonMemoryPlugin_ad45516da43d6c081eb87b987fe397a35}\label{classIonMemoryPlugin_ad45516da43d6c081eb87b987fe397a35}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classIonMemoryPlugin_a40bb22ee650a12304cd8245239bbecd5}\label{classIonMemoryPlugin_a40bb22ee650a12304cd8245239bbecd5}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classIonMemoryPlugin_a00c7ce7b162ca8326d40eb8e04221159}\label{classIonMemoryPlugin_a00c7ce7b162ca8326d40eb8e04221159}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classIonMemoryPlugin_a12234fe5b310d98c0f74dc2e91241533}\label{classIonMemoryPlugin_a12234fe5b310d98c0f74dc2e91241533}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classIonMemoryPlugin_af592a1e7e37171031e9b823a31045f48}\label{classIonMemoryPlugin_af592a1e7e37171031e9b823a31045f48}} 
+bool {\bfseries m\+Valid}
+\item 
+\mbox{\Hypertarget{classIonMemoryPlugin_a5cd9fb72262e6af949db02ffc98fcf7b}\label{classIonMemoryPlugin_a5cd9fb72262e6af949db02ffc98fcf7b}} 
+const rt\+\_\+defs\+\_\+plugins\+\_\+ion\+\_\+memory\+\_\+data $\ast$ {\bfseries m\+Plugin\+Data}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Plugin used to setup the ION cgroup controller for the container. 
+
+ION is the raw memory allocator from Android, it is used on RDK platforms by some vendors to allocate memory buffers for the following systems\+:
+\begin{DoxyItemize}
+\item (wayland) EGL / Open\+GL surface buffers
+\item gstreamer / OMX Media decode buffers 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIonMemoryPlugin_a81fdcec28338912d4ccf31e45dd1ce06}\label{classIonMemoryPlugin_a81fdcec28338912d4ccf31e45dd1ce06}} 
+\index{IonMemoryPlugin@{IonMemoryPlugin}!createRuntime@{createRuntime}}
+\index{createRuntime@{createRuntime}!IonMemoryPlugin@{IonMemoryPlugin}}
+\doxysubsubsection{\texorpdfstring{createRuntime()}{createRuntime()}}
+{\footnotesize\ttfamily bool Ion\+Memory\+Plugin\+::create\+Runtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+OCI Hook -\/ Run in host namespace. We use this point to create a cgroup and put the containered process into it. 
+
+We also set any limits from the plugin JSON data provided.
+
+The cgroup is given the same name as the container.
+
+\begin{DoxyReturn}{Returns}
+True on success, false on failure. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_af00763b74d9b809a46bbf025e485d010}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classIonMemoryPlugin_a7d96786527b6d94c57fb73ebd0923ae4}\label{classIonMemoryPlugin_a7d96786527b6d94c57fb73ebd0923ae4}} 
+\index{IonMemoryPlugin@{IonMemoryPlugin}!findIonCGroupMountPoint@{findIonCGroupMountPoint}}
+\index{findIonCGroupMountPoint@{findIonCGroupMountPoint}!IonMemoryPlugin@{IonMemoryPlugin}}
+\doxysubsubsection{\texorpdfstring{findIonCGroupMountPoint()}{findIonCGroupMountPoint()}}
+{\footnotesize\ttfamily std\+::string Ion\+Memory\+Plugin\+::find\+Ion\+CGroup\+Mount\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to get the mount points of the ION cgroup filesystem. 
+
+This scans the mount table looking for the cgroups mounts. This is typically the name of the cgroup prefixed with \char`\"{}/sys/fs/cgroup\char`\"{}
+
+\begin{DoxyReturn}{Returns}
+path to the ION cgroup mount, or empty string if failed to find it. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIonMemoryPlugin_ac44e3f630c4da579bd87c04d93cfde16}\label{classIonMemoryPlugin_ac44e3f630c4da579bd87c04d93cfde16}} 
+\index{IonMemoryPlugin@{IonMemoryPlugin}!name@{name}}
+\index{name@{name}!IonMemoryPlugin@{IonMemoryPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Ion\+Memory\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classIonMemoryPlugin_ae6887efb263d5db1ad99894f09bc04fd}\label{classIonMemoryPlugin_ae6887efb263d5db1ad99894f09bc04fd}} 
+\index{IonMemoryPlugin@{IonMemoryPlugin}!postStop@{postStop}}
+\index{postStop@{postStop}!IonMemoryPlugin@{IonMemoryPlugin}}
+\doxysubsubsection{\texorpdfstring{postStop()}{postStop()}}
+{\footnotesize\ttfamily bool Ion\+Memory\+Plugin\+::post\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Poststop hook, we use this point to remove the cgroup directory created in the pre start phase. 
+
+The directory will have the same name as the container id.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em config} & The container config. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs} & The path to the container rootfs.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful otherwise false. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a5f6d9df3768beed63fe0361af3bb050c}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classIonMemoryPlugin_ab8b645df691745530f76c00bb3b899a6}\label{classIonMemoryPlugin_ab8b645df691745530f76c00bb3b899a6}} 
+\index{IonMemoryPlugin@{IonMemoryPlugin}!setupContainerIonLimits@{setupContainerIonLimits}}
+\index{setupContainerIonLimits@{setupContainerIonLimits}!IonMemoryPlugin@{IonMemoryPlugin}}
+\doxysubsubsection{\texorpdfstring{setupContainerIonLimits()}{setupContainerIonLimits()}}
+{\footnotesize\ttfamily bool Ion\+Memory\+Plugin\+::setup\+Container\+Ion\+Limits (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{c\+Group\+Dir\+Path,  }\item[{pid\+\_\+t}]{container\+Pid,  }\item[{const std\+::map$<$ std\+::string, uint64\+\_\+t $>$ \&}]{heap\+Limits,  }\item[{uint64\+\_\+t}]{default\+Limit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a ion cgroup for the container and moves the container into it. 
+
+The amount of memory to assign is retrieved from the config object.
+
+The cgroup is given the same name as the container.
+
+\begin{DoxyWarning}{Warning}
+This requires a version of crun with the following PR\+: \href{https://github.com/containers/crun/pull/609}{\texttt{ https\+://github.\+com/containers/crun/pull/609}} to ensure cgroup controllers are correctly mounted. Without the PR applied, the ION cgroup is mounted incorrectly, see \href{https://github.com/containers/crun/issues/625}{\texttt{ https\+://github.\+com/containers/crun/issues/625}} for more info
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Pid} & The pid of the process in the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em heap\+Limits} & Map of the heap name to its limits. \\
+\hline
+\mbox{\texttt{ in}}  & {\em default\+Limit} & The default limit to set on a heap if not in the heap\+Limits map.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful otherwise false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+IONMemory/source/Ion\+Memory\+Plugin.\+h\item 
+rdk\+Plugins/\+IONMemory/source/Ion\+Memory\+Plugin.\+cpp\end{DoxyCompactItemize}

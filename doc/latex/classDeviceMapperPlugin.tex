@@ -1,0 +1,120 @@
+\hypertarget{classDeviceMapperPlugin}{}\doxysection{Device\+Mapper\+Plugin Class Reference}
+\label{classDeviceMapperPlugin}\index{DeviceMapperPlugin@{DeviceMapperPlugin}}
+
+
+Inheritance diagram for Device\+Mapper\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Device\+Mapper\+Plugin\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDeviceMapperPlugin_1_1DevNode}{Dev\+Node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDeviceMapperPlugin_a91783c3ca6ed8a5d9f848c8582113f36}\label{classDeviceMapperPlugin_a91783c3ca6ed8a5d9f848c8582113f36}} 
+{\bfseries Device\+Mapper\+Plugin} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\item 
+std\+::string \mbox{\hyperlink{classDeviceMapperPlugin_a72ac5d989b1ac87053e314c8e9e5e9f7}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDeviceMapperPlugin_a438d82359b687e9a1ae8e43cbc237b18}\label{classDeviceMapperPlugin_a438d82359b687e9a1ae8e43cbc237b18}} 
+unsigned \mbox{\hyperlink{classDeviceMapperPlugin_a438d82359b687e9a1ae8e43cbc237b18}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDeviceMapperPlugin_aae6e6c68c92801d14a13a955902b7369}\label{classDeviceMapperPlugin_aae6e6c68c92801d14a13a955902b7369}} 
+bool \mbox{\hyperlink{classDeviceMapperPlugin_aae6e6c68c92801d14a13a955902b7369}{pre\+Creation}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ run in host namespace before container creation process. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classDeviceMapperPlugin_ab6f9f91325f1e883c2ab535be4643898}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDeviceMapperPlugin_aafaad1b4578aad96d71a6e5fd6edb132}{get\+Dev\+Node\+From\+Path}} (const std\+::string \&path, \mbox{\hyperlink{structDeviceMapperPlugin_1_1DevNode}{Dev\+Node}} \&node)
+\begin{DoxyCompactList}\small\item\em Gets the actual details about the device node (major/minor ids) at a given path. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDeviceMapperPlugin_add12b88529777604bce0bab3e11bb36d}\label{classDeviceMapperPlugin_add12b88529777604bce0bab3e11bb36d}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classDeviceMapperPlugin_abfb54369ca6a3435816b034b987a44f4}\label{classDeviceMapperPlugin_abfb54369ca6a3435816b034b987a44f4}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classDeviceMapperPlugin_a51c2718e8db3ba81a752fbd98c5ddb81}\label{classDeviceMapperPlugin_a51c2718e8db3ba81a752fbd98c5ddb81}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classDeviceMapperPlugin_aca9053088b35acdfbf12be916d2d6144}\label{classDeviceMapperPlugin_aca9053088b35acdfbf12be916d2d6144}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classDeviceMapperPlugin_aecb4e4afb07790f94c32c372009b3bf3}\label{classDeviceMapperPlugin_aecb4e4afb07790f94c32c372009b3bf3}} 
+bool {\bfseries m\+Valid}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDeviceMapperPlugin_ab6f9f91325f1e883c2ab535be4643898}\label{classDeviceMapperPlugin_ab6f9f91325f1e883c2ab535be4643898}} 
+\index{DeviceMapperPlugin@{DeviceMapperPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!DeviceMapperPlugin@{DeviceMapperPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Device\+Mapper\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classDeviceMapperPlugin_aafaad1b4578aad96d71a6e5fd6edb132}\label{classDeviceMapperPlugin_aafaad1b4578aad96d71a6e5fd6edb132}} 
+\index{DeviceMapperPlugin@{DeviceMapperPlugin}!getDevNodeFromPath@{getDevNodeFromPath}}
+\index{getDevNodeFromPath@{getDevNodeFromPath}!DeviceMapperPlugin@{DeviceMapperPlugin}}
+\doxysubsubsection{\texorpdfstring{getDevNodeFromPath()}{getDevNodeFromPath()}}
+{\footnotesize\ttfamily bool Device\+Mapper\+Plugin\+::get\+Dev\+Node\+From\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{\mbox{\hyperlink{structDeviceMapperPlugin_1_1DevNode}{Device\+Mapper\+Plugin\+::\+Dev\+Node}} \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets the actual details about the device node (major/minor ids) at a given path. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & The path of the device \\
+\hline
+\mbox{\texttt{ out}}  & {\em node} & The details about the device\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if device node details got successfully 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeviceMapperPlugin_a72ac5d989b1ac87053e314c8e9e5e9f7}\label{classDeviceMapperPlugin_a72ac5d989b1ac87053e314c8e9e5e9f7}} 
+\index{DeviceMapperPlugin@{DeviceMapperPlugin}!name@{name}}
+\index{name@{name}!DeviceMapperPlugin@{DeviceMapperPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Device\+Mapper\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Device\+Mapper/source/Device\+Mapper.\+h\item 
+rdk\+Plugins/\+Device\+Mapper/source/Device\+Mapper.\+cpp\end{DoxyCompactItemize}

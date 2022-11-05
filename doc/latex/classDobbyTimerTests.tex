@@ -1,0 +1,54 @@
+\hypertarget{classDobbyTimerTests}{}\doxysection{Dobby\+Timer\+Tests Class Reference}
+\label{classDobbyTimerTests}\index{DobbyTimerTests@{DobbyTimerTests}}
+
+
+Inheritance diagram for Dobby\+Timer\+Tests\+:
+% FIG 0
+
+
+Collaboration diagram for Dobby\+Timer\+Tests\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTimerTests_a00d5f873cc4f8a083ec50987cd32916d}\label{classDobbyTimerTests_a00d5f873cc4f8a083ec50987cd32916d}} 
+typedef std\+::chrono\+::time\+\_\+point$<$ std\+::chrono\+::steady\+\_\+clock $>$ {\bfseries Time\+Point}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTimerTests_a740f107e1b4a77c740ecfcf7afc53314}\label{classDobbyTimerTests_a740f107e1b4a77c740ecfcf7afc53314}} 
+void {\bfseries Set\+Up} ()
+\item 
+\mbox{\Hypertarget{classDobbyTimerTests_adf9deba86cf5967a5b955fba6b6919be}\label{classDobbyTimerTests_adf9deba86cf5967a5b955fba6b6919be}} 
+void {\bfseries Tear\+Down} ()
+\item 
+\mbox{\Hypertarget{classDobbyTimerTests_adc8436004382d757baec8d8a2c112ab0}\label{classDobbyTimerTests_adc8436004382d757baec8d8a2c112ab0}} 
+bool {\bfseries on\+Timer\+Event} (int event\+Id)
+\item 
+\mbox{\Hypertarget{classDobbyTimerTests_a2fd53aff6190e006d2a88e3b71b55936}\label{classDobbyTimerTests_a2fd53aff6190e006d2a88e3b71b55936}} 
+bool {\bfseries on\+Timer\+Event\+Cancel} (int event\+Id)
+\item 
+\mbox{\Hypertarget{classDobbyTimerTests_a61662c98eed77930a67e72b292cb2999}\label{classDobbyTimerTests_a61662c98eed77930a67e72b292cb2999}} 
+bool {\bfseries on\+Timer\+Event\+Remove} (int event\+Id)
+\item 
+\mbox{\Hypertarget{classDobbyTimerTests_a63052ee88f79844aa3a6463c92538518}\label{classDobbyTimerTests_a63052ee88f79844aa3a6463c92538518}} 
+long long {\bfseries time\+Diff} (const Time\+Point \&a, const Time\+Point \&b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTimerTests_afdba1a391908aae05f493c98ec041f80}\label{classDobbyTimerTests_afdba1a391908aae05f493c98ec041f80}} 
+std\+::vector$<$ std\+::pair$<$ int, Time\+Point $>$ $>$ {\bfseries m\+Timer\+Events}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTimerTests_a4966e80b492e0542ab084c4b1d5a43e5}\label{classDobbyTimerTests_a4966e80b492e0542ab084c4b1d5a43e5}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyTimer}{Dobby\+Timer}} $>$ {\bfseries m\+Timer}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+daemon/test/source/Dobby\+Timer\+Tests.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,42 @@
+\hypertarget{classIReadLine}{}\doxysection{IRead\+Line Class Reference}
+\label{classIReadLine}\index{IReadLine@{IReadLine}}
+
+
+Inheritance diagram for IRead\+Line\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIReadLine_a40a7be840c9d480c1739fdaad545a705}\label{classIReadLine_a40a7be840c9d480c1739fdaad545a705}} 
+typedef std\+::function$<$ void(const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIReadLineContext}{IRead\+Line\+Context}} $>$ \&read\+Line, const std\+::vector$<$ std\+::string $>$ \&args)$>$ {\bfseries Command\+Handler}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIReadLine_a504ad8cbf75155f80bfcc0753a2a298f}\label{classIReadLine_a504ad8cbf75155f80bfcc0753a2a298f}} 
+virtual bool {\bfseries is\+Valid} () const =0
+\item 
+\mbox{\Hypertarget{classIReadLine_a6eb69bae2bd0099dbd089c1996926f7e}\label{classIReadLine_a6eb69bae2bd0099dbd089c1996926f7e}} 
+virtual void {\bfseries run} ()=0
+\item 
+\mbox{\Hypertarget{classIReadLine_acd09d54047946e458df78a9fa812a2d7}\label{classIReadLine_acd09d54047946e458df78a9fa812a2d7}} 
+virtual std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classIReadLineContext}{IRead\+Line\+Context}} $>$ {\bfseries get\+Context} () const =0
+\item 
+\mbox{\Hypertarget{classIReadLine_a8b14700c67158f28e178ff6e3d2418ae}\label{classIReadLine_a8b14700c67158f28e178ff6e3d2418ae}} 
+virtual bool {\bfseries add\+Command} (const std\+::string \&name, Command\+Handler handler, const std\+::string \&desc, const std\+::string \&help, const std\+::string \&opts)=0
+\item 
+\mbox{\Hypertarget{classIReadLine_adcd9433de4e1a7624ef524b61c059e1e}\label{classIReadLine_adcd9433de4e1a7624ef524b61c059e1e}} 
+virtual void {\bfseries run\+Command} (int argc, char $\ast$const $\ast$argv)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIReadLine_a1dd3a00de1c1f8ec7e23a161e4843812}\label{classIReadLine_a1dd3a00de1c1f8ec7e23a161e4843812}} 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIReadLine}{IRead\+Line}} $>$ {\bfseries create} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Read\+Line/include/IRead\+Line.\+h\item 
+App\+Infrastructure/\+Read\+Line/source/Read\+Line.\+cpp\end{DoxyCompactItemize}

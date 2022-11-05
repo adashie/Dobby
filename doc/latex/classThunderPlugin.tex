@@ -1,0 +1,302 @@
+\hypertarget{classThunderPlugin}{}\doxysection{Thunder\+Plugin Class Reference}
+\label{classThunderPlugin}\index{ThunderPlugin@{ThunderPlugin}}
+
+
+Plugin used to map in the wpeframework (aka thunder) server.  
+
+
+
+
+{\ttfamily \#include $<$Thunder\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Thunder\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Thunder\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classThunderPlugin_ae37b084b6318690ddcad7f5772de18a2}{Thunder\+Plugin}} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ called when plugin is loaded by Plugin\+Launcher. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classThunderPlugin_a0c688a9544cbb94f5c3a59fda838125f}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classThunderPlugin_aae8a2a5a73a984446deb3154a5f0d4b6}{hook\+Hints}} () const final
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classThunderPlugin_a4a78c716e7d7bbcea9a885dd2cb9089f}{post\+Installation}} () final
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ run in host namespace {\itshape once} when container bundle is downloaded. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classThunderPlugin_a5f23ce9eb5e897fadafb4e1660e0bf9d}{pre\+Creation}} () final
+\item 
+bool \mbox{\hyperlink{classThunderPlugin_a04a35aa7d3925a199ab45a2333a6631b}{create\+Runtime}} () final
+\item 
+bool \mbox{\hyperlink{classThunderPlugin_a651b963053dfe1e6221d7185e33815aa}{post\+Halt}} () final
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classThunderPlugin_af32528613812bb2d9a423dc36347b7cf}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_ae79919a8d53992004d4a272c00680636}\label{classThunderPlugin_ae79919a8d53992004d4a272c00680636}} 
+Netfilter\+::\+Rule\+Set {\bfseries construct\+Rules} () const
+\item 
+std\+::string \mbox{\hyperlink{classThunderPlugin_a831f22e20aedb3831c704a8e2028dab5}{construct\+DNATRule}} (const std\+::string \&container\+Ip, in\+\_\+port\+\_\+t port) const
+\begin{DoxyCompactList}\small\item\em Constructs a DNAT PREROUTING rule to send anything from the container on the given port to localhost outside the container. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classThunderPlugin_ac5a09f76aa1f00a76ba62560a3ceb9c0}{construct\+CONNLIMITRule}} (const std\+::string \&container\+Ip, const std\+::string \&veth\+Name, in\+\_\+port\+\_\+t port, uint32\+\_\+t conn\+Limit) const
+\begin{DoxyCompactList}\small\item\em Constructs an INPUT REJECT rule to reject connection if exceed the limit. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classThunderPlugin_acff0f802a505176b5e77ca213f7e7cc4}{construct\+ACCEPTRule}} (const std\+::string \&container\+Ip, const std\+::string \&veth\+Name, in\+\_\+port\+\_\+t port) const
+\begin{DoxyCompactList}\small\item\em Constructs a INPUT ACCEPT rule to allow packets from the container over the dobby0 bridge to localhost. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classThunderPlugin_a61807c47ac6f64192d2ab7d6c99d3e68}\label{classThunderPlugin_a61807c47ac6f64192d2ab7d6c99d3e68}} 
+bool {\bfseries is\+Nat\+Network\+Mode} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_a6767c781146922a751f4b52dab1bd63a}\label{classThunderPlugin_a6767c781146922a751f4b52dab1bd63a}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_a510a6ecb675379e222687b18fc3a35f6}\label{classThunderPlugin_a510a6ecb675379e222687b18fc3a35f6}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_ae169d13ff7e39ee4add1decb87e2272c}\label{classThunderPlugin_ae169d13ff7e39ee4add1decb87e2272c}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_a9ea2f6b9761d6dd3250d88100fa5bdd9}\label{classThunderPlugin_a9ea2f6b9761d6dd3250d88100fa5bdd9}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_a2bcf5c8d7bc6f3e401e8b5611e6f9753}\label{classThunderPlugin_a2bcf5c8d7bc6f3e401e8b5611e6f9753}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetfilter}{Netfilter}} $>$ {\bfseries m\+Netfilter}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_a8699f495e0a98c1fe04f319310146a17}\label{classThunderPlugin_a8699f495e0a98c1fe04f319310146a17}} 
+in\+\_\+port\+\_\+t {\bfseries m\+Thunder\+Port}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_a6ad6517d5b74dd1590bfdc2e4f0177bd}\label{classThunderPlugin_a6ad6517d5b74dd1590bfdc2e4f0177bd}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_a58a08d1da443fe52ee657d2e13f8f498}\label{classThunderPlugin_a58a08d1da443fe52ee657d2e13f8f498}} 
+const bool {\bfseries m\+Enable\+Conn\+Limit}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_aaa9d66a0582dda02ec831019e5ce6a9d}\label{classThunderPlugin_aaa9d66a0582dda02ec831019e5ce6a9d}} 
+const std\+::string {\bfseries m\+Socket\+Directory}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_afaa6736748146aa114304c32d64fcb00}\label{classThunderPlugin_afaa6736748146aa114304c32d64fcb00}} 
+const std\+::string {\bfseries m\+Socket\+Path}
+\item 
+\mbox{\Hypertarget{classThunderPlugin_a4e9130da1c233e8c4d4cd7c8032dcfd2}\label{classThunderPlugin_a4e9130da1c233e8c4d4cd7c8032dcfd2}} 
+bool {\bfseries m\+Socket\+Exists}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Plugin used to map in the wpeframework (aka thunder) server. 
+
+\begin{DoxyNote}{Note}
+This is NOT a \char`\"{}thunder plugin\char`\"{} for the WPEFramework, instead it is plugin to dobby to allow containers to access the WPEFramework services.
+\end{DoxyNote}
+This plugin does two things; it uses iptables to setup routing to the wpeframework server, and it optionally creates a security token for the app and puts it in the containers env variables. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classThunderPlugin_ae37b084b6318690ddcad7f5772de18a2}\label{classThunderPlugin_ae37b084b6318690ddcad7f5772de18a2}} 
+\index{ThunderPlugin@{ThunderPlugin}!ThunderPlugin@{ThunderPlugin}}
+\index{ThunderPlugin@{ThunderPlugin}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{ThunderPlugin()}{ThunderPlugin()}}
+{\footnotesize\ttfamily Thunder\+Plugin\+::\+Thunder\+Plugin (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&}]{container\+Config,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption})}
+
+
+
+Constructor -\/ called when plugin is loaded by Plugin\+Launcher. 
+
+Do not change the parameters for this constructor -\/ must match C methods created by REGISTER\+\_\+\+RDK\+\_\+\+PLUGIN macro
+
+Note plugin name is not case sensitive 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classThunderPlugin_acff0f802a505176b5e77ca213f7e7cc4}\label{classThunderPlugin_acff0f802a505176b5e77ca213f7e7cc4}} 
+\index{ThunderPlugin@{ThunderPlugin}!constructACCEPTRule@{constructACCEPTRule}}
+\index{constructACCEPTRule@{constructACCEPTRule}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{constructACCEPTRule()}{constructACCEPTRule()}}
+{\footnotesize\ttfamily std\+::string Thunder\+Plugin\+::construct\+ACCEPTRule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Ip,  }\item[{const std\+::string \&}]{veth\+Name,  }\item[{in\+\_\+port\+\_\+t}]{port }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs a INPUT ACCEPT rule to allow packets from the container over the dobby0 bridge to localhost. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Ip} & The ip address inside the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em veth\+Name} & The name of the veth device (outside the container) that belongs to the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em port} & The port number to add the DNAT rule for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the iptables formatted string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classThunderPlugin_ac5a09f76aa1f00a76ba62560a3ceb9c0}\label{classThunderPlugin_ac5a09f76aa1f00a76ba62560a3ceb9c0}} 
+\index{ThunderPlugin@{ThunderPlugin}!constructCONNLIMITRule@{constructCONNLIMITRule}}
+\index{constructCONNLIMITRule@{constructCONNLIMITRule}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{constructCONNLIMITRule()}{constructCONNLIMITRule()}}
+{\footnotesize\ttfamily std\+::string Thunder\+Plugin\+::construct\+CONNLIMITRule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Ip,  }\item[{const std\+::string \&}]{veth\+Name,  }\item[{in\+\_\+port\+\_\+t}]{port,  }\item[{uint32\+\_\+t}]{conn\+Limit }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs an INPUT REJECT rule to reject connection if exceed the limit. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Ip} & The ip address inside the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em veth\+Name} & The name of the veth device (outside the container) that belongs to the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em port} & The port number to add the DNAT rule for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the iptables formatted string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classThunderPlugin_a831f22e20aedb3831c704a8e2028dab5}\label{classThunderPlugin_a831f22e20aedb3831c704a8e2028dab5}} 
+\index{ThunderPlugin@{ThunderPlugin}!constructDNATRule@{constructDNATRule}}
+\index{constructDNATRule@{constructDNATRule}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{constructDNATRule()}{constructDNATRule()}}
+{\footnotesize\ttfamily std\+::string Thunder\+Plugin\+::construct\+DNATRule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{container\+Ip,  }\item[{in\+\_\+port\+\_\+t}]{port }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructs a DNAT PREROUTING rule to send anything from the container on the given port to localhost outside the container. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em container\+Ip} & The ip address inside the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em port} & The port number to add the DNAT rule for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the iptables formatted string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classThunderPlugin_a04a35aa7d3925a199ab45a2333a6631b}\label{classThunderPlugin_a04a35aa7d3925a199ab45a2333a6631b}} 
+\index{ThunderPlugin@{ThunderPlugin}!createRuntime@{createRuntime}}
+\index{createRuntime@{createRuntime}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{createRuntime()}{createRuntime()}}
+{\footnotesize\ttfamily bool Thunder\+Plugin\+::create\+Runtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+Hook Name\+: create\+Runtime Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: OCI Runtime (runc/crun)
+
+Hook Description\+: Run during the create operation, after the runtime environment has been created and before the pivot root or any equivalent operation.
+
+Called after the container namespaces are created, so provides an opportunity to customize the container (e.\+g. the network namespace could be specified in this hook). 
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_af00763b74d9b809a46bbf025e485d010}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classThunderPlugin_af32528613812bb2d9a423dc36347b7cf}\label{classThunderPlugin_af32528613812bb2d9a423dc36347b7cf}} 
+\index{ThunderPlugin@{ThunderPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Thunder\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classThunderPlugin_aae8a2a5a73a984446deb3154a5f0d4b6}\label{classThunderPlugin_aae8a2a5a73a984446deb3154a5f0d4b6}} 
+\index{ThunderPlugin@{ThunderPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Thunder\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Set the bit flags for which hooks we\textquotesingle{}re going to use. 
+
+This plugin uses all the hooks so set all the flags 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classThunderPlugin_a0c688a9544cbb94f5c3a59fda838125f}\label{classThunderPlugin_a0c688a9544cbb94f5c3a59fda838125f}} 
+\index{ThunderPlugin@{ThunderPlugin}!name@{name}}
+\index{name@{name}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Thunder\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classThunderPlugin_a651b963053dfe1e6221d7185e33815aa}\label{classThunderPlugin_a651b963053dfe1e6221d7185e33815aa}} 
+\index{ThunderPlugin@{ThunderPlugin}!postHalt@{postHalt}}
+\index{postHalt@{postHalt}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{postHalt()}{postHalt()}}
+{\footnotesize\ttfamily bool Thunder\+Plugin\+::post\+Halt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+Hook Name\+: post\+Halt Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: \mbox{\hyperlink{classDobby}{Dobby}}
+
+Hook Description\+: When a SIGTERM signal is received from the container. Before the delete operation is called
+
+For example, this hook could perform clean up when a container closes 
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a690f2542922c5c88a9ff4654732fea99}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classThunderPlugin_a4a78c716e7d7bbcea9a885dd2cb9089f}\label{classThunderPlugin_a4a78c716e7d7bbcea9a885dd2cb9089f}} 
+\index{ThunderPlugin@{ThunderPlugin}!postInstallation@{postInstallation}}
+\index{postInstallation@{postInstallation}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{postInstallation()}{postInstallation()}}
+{\footnotesize\ttfamily bool Thunder\+Plugin\+::post\+Installation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ run in host namespace {\itshape once} when container bundle is downloaded. 
+
+Updates the /etc/services and /etc/hosts file to point to the mapped thunder server 
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_afb8522eece4b1948ea815d12a1fdd08b}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classThunderPlugin_a5f23ce9eb5e897fadafb4e1660e0bf9d}\label{classThunderPlugin_a5f23ce9eb5e897fadafb4e1660e0bf9d}} 
+\index{ThunderPlugin@{ThunderPlugin}!preCreation@{preCreation}}
+\index{preCreation@{preCreation}!ThunderPlugin@{ThunderPlugin}}
+\doxysubsubsection{\texorpdfstring{preCreation()}{preCreation()}}
+{\footnotesize\ttfamily bool Thunder\+Plugin\+::pre\+Creation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+Hook Name\+: pre\+Creation Hook Execution Namespace\+: host Hook Path Resolution\+: host
+
+Execution\+: \mbox{\hyperlink{classDobby}{Dobby}}
+
+Hook Description\+: Runs before the runtime’s create operation is called. This hook runs every time container need to be created. 
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_ac4766784eaa83e35b83b817af85ea045}{Rdk\+Plugin\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Thunder/source/Thunder\+Plugin.\+h\item 
+rdk\+Plugins/\+Thunder/source/Thunder\+Plugin.\+cpp\end{DoxyCompactItemize}

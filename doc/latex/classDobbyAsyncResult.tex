@@ -1,0 +1,53 @@
+\hypertarget{classDobbyAsyncResult}{}\doxysection{Dobby\+Async\+Result Class Reference}
+\label{classDobbyAsyncResult}\index{DobbyAsyncResult@{DobbyAsyncResult}}
+
+
+Result object for async and deferred results.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Async.\+h$>$}
+
+
+
+Collaboration diagram for Dobby\+Async\+Result\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyAsyncResult_a963a13855a591c7d5e0de859adf8d71f}\label{classDobbyAsyncResult_a963a13855a591c7d5e0de859adf8d71f}} 
+bool {\bfseries get\+Result} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyAsyncResult_a5264afe6dd22afa4a429242a7ba9cb1e}\label{classDobbyAsyncResult_a5264afe6dd22afa4a429242a7ba9cb1e}} 
+{\bfseries Dobby\+Async\+Result} (\mbox{\hyperlink{classIDobbyAsyncResultPrivate}{IDobby\+Async\+Result\+Private}} $\ast$priv)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyAsyncResult_a534b932a891ef856bdda8680e08ff059}\label{classDobbyAsyncResult_a534b932a891ef856bdda8680e08ff059}} 
+\mbox{\hyperlink{classIDobbyAsyncResultPrivate}{IDobby\+Async\+Result\+Private}} $\ast$const {\bfseries m\+Private}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyAsyncResult_a9ea8493a3719bfc2f02de795ea550620}\label{classDobbyAsyncResult_a9ea8493a3719bfc2f02de795ea550620}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyAsyncResult}{Dobby\+Async\+Result}} $>$ {\bfseries Dobby\+Async\+Impl} (const std\+::string \&name, const std\+::function$<$ bool()$>$ \&func)
+\item 
+\mbox{\Hypertarget{classDobbyAsyncResult_a07e69888ce25a33c0ba39a927fbe227a}\label{classDobbyAsyncResult_a07e69888ce25a33c0ba39a927fbe227a}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyAsyncResult}{Dobby\+Async\+Result}} $>$ {\bfseries Dobby\+Deferred\+Impl} (const std\+::function$<$ bool()$>$ \&func)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Result object for async and deferred results. 
+
+The behaviour of this object is different depending on how it was created; for Dobby\+Async objects, the get\+Results() method will wait for the function to complete in a separate thread before returning the results. For Dobby\+Deferred objects, the function is executed in the current thread when the get\+Results() method is called. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/source/Dobby\+Async.\+h\item 
+daemon/lib/source/Dobby\+Async.\+cpp\end{DoxyCompactItemize}

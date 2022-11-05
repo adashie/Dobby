@@ -1,0 +1,169 @@
+\hypertarget{classIDobbyStartState}{}\doxysection{IDobby\+Start\+State Class Reference}
+\label{classIDobbyStartState}\index{IDobbyStartState@{IDobbyStartState}}
+
+
+Utility interface passed in at the post-\/construction phase, to allow some final tweaking of the container before it\textquotesingle{}s launched.  
+
+
+
+
+{\ttfamily \#include $<$IDobby\+Start\+State.\+h$>$}
+
+
+
+Inheritance diagram for IDobby\+Start\+State\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \mbox{\hyperlink{classIDobbyStartState_ab1e46878e415f0f3dd2b4ce933396831}{add\+File\+Descriptor}} (const std\+::string \&plugin\+Name, int fd)=0
+\begin{DoxyCompactList}\small\item\em Adds another file descriptor to be passed into the container. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyStartState_a81310cf1a93b3b0a7ebfda6d52ff8780}{add\+Environment\+Variable}} (const std\+::string \&env\+Var)=0
+\begin{DoxyCompactList}\small\item\em Adds an environment variable to the container. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classIDobbyStartState_ab23e6cc3dacdb61104b2d0a4086a3b70}{add\+Mount}} (const std\+::string \&source, const std\+::string \&target, const std\+::string \&fs\+Type, unsigned long mount\+Flags=0, const std\+::list$<$ std\+::string $>$ \&mount\+Options=std\+::list$<$ std\+::string $>$())=0
+\begin{DoxyCompactList}\small\item\em Adds a new mount to the container. \end{DoxyCompactList}\item 
+virtual std\+::list$<$ int $>$ \mbox{\hyperlink{classIDobbyStartState_a76353449e1af68c93926ee36750ec4f7}{files}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets all file descriptor registered by any client. \end{DoxyCompactList}\item 
+virtual std\+::list$<$ int $>$ \mbox{\hyperlink{classIDobbyStartState_a51ffa609b5ddabbcf7cb7b6df012afc6}{files}} (const std\+::string \&plugin\+Name) const =0
+\begin{DoxyCompactList}\small\item\em Gets all file descriptor registered by concrete client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility interface passed in at the post-\/construction phase, to allow some final tweaking of the container before it\textquotesingle{}s launched. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIDobbyStartState_a81310cf1a93b3b0a7ebfda6d52ff8780}\label{classIDobbyStartState_a81310cf1a93b3b0a7ebfda6d52ff8780}} 
+\index{IDobbyStartState@{IDobbyStartState}!addEnvironmentVariable@{addEnvironmentVariable}}
+\index{addEnvironmentVariable@{addEnvironmentVariable}!IDobbyStartState@{IDobbyStartState}}
+\doxysubsubsection{\texorpdfstring{addEnvironmentVariable()}{addEnvironmentVariable()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Start\+State\+::add\+Environment\+Variable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{env\+Var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Adds an environment variable to the container. 
+
+Simple appends another environment variable to the container
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em env\+Var} & The environment variable to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyStartState_a4f8606613324f000d48e3fb2a366c08f}{Dobby\+Start\+State}}.
+
+\mbox{\Hypertarget{classIDobbyStartState_ab1e46878e415f0f3dd2b4ce933396831}\label{classIDobbyStartState_ab1e46878e415f0f3dd2b4ce933396831}} 
+\index{IDobbyStartState@{IDobbyStartState}!addFileDescriptor@{addFileDescriptor}}
+\index{addFileDescriptor@{addFileDescriptor}!IDobbyStartState@{IDobbyStartState}}
+\doxysubsubsection{\texorpdfstring{addFileDescriptor()}{addFileDescriptor()}}
+{\footnotesize\ttfamily virtual int IDobby\+Start\+State\+::add\+File\+Descriptor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name,  }\item[{int}]{fd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Adds another file descriptor to be passed into the container. 
+
+The number of the file descriptor in the container namespace is returned, unless there was an error in which case a negative value is returned. File descriptors start at 3.
+
+The method dups the supplied file descriptor so it can be closed immmediatly after the call. The file descriptor will be closed after the container is started and handed over.
+
+File descriptors are recorded per client (plugin name).
+
+Lastly to help find issues, this function will log an error and reject the file descriptor if it doesn\textquotesingle{}t have the FD\+\_\+\+CLOEXEC bit set.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & The plugin name for which fd will be recorded \\
+\hline
+\mbox{\texttt{ in}}  & {\em fd} & The file descriptor to pass to the container\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of the file descriptor inside the container on success, on failure -\/1 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyStartState_a6276eb8d930d26a44acebe44e3f1de4a}{Dobby\+Start\+State}}.
+
+\mbox{\Hypertarget{classIDobbyStartState_ab23e6cc3dacdb61104b2d0a4086a3b70}\label{classIDobbyStartState_ab23e6cc3dacdb61104b2d0a4086a3b70}} 
+\index{IDobbyStartState@{IDobbyStartState}!addMount@{addMount}}
+\index{addMount@{addMount}!IDobbyStartState@{IDobbyStartState}}
+\doxysubsubsection{\texorpdfstring{addMount()}{addMount()}}
+{\footnotesize\ttfamily virtual bool IDobby\+Start\+State\+::add\+Mount (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{source,  }\item[{const std\+::string \&}]{target,  }\item[{const std\+::string \&}]{fs\+Type,  }\item[{unsigned long}]{mount\+Flags = {\ttfamily 0},  }\item[{const std\+::list$<$ std\+::string $>$ \&}]{mount\+Options = {\ttfamily std\+:\+:list$<$~std\+:\+:string~$>$()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Adds a new mount to the container. 
+
+Adds a mount entry to the config.\+json for the container.
+
+\begin{DoxyWarning}{Warning}
+this can\textquotesingle{}t be used to add loopback mounts, only standard /dev mounts or bind mounts of directories and files.
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The source of the mount \\
+\hline
+\mbox{\texttt{ in}}  & {\em target} & The target mount point \\
+\hline
+\mbox{\texttt{ in}}  & {\em fs\+Type} & The filesystem type of the mount \\
+\hline
+\mbox{\texttt{ in}}  & {\em mount\+Flags} & The mount flags (i.\+e. MS\+\_\+\+BIND, MS\+\_\+??) \\
+\hline
+\mbox{\texttt{ in}}  & {\em mount\+Options} & Any additional mount options.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyStartState_a18a99da15ddb8a90dddc2db8fe78c954}{Dobby\+Start\+State}}.
+
+\mbox{\Hypertarget{classIDobbyStartState_a76353449e1af68c93926ee36750ec4f7}\label{classIDobbyStartState_a76353449e1af68c93926ee36750ec4f7}} 
+\index{IDobbyStartState@{IDobbyStartState}!files@{files}}
+\index{files@{files}!IDobbyStartState@{IDobbyStartState}}
+\doxysubsubsection{\texorpdfstring{files()}{files()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual std\+::list$<$int$>$ IDobby\+Start\+State\+::files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets all file descriptor registered by any client. 
+
+\begin{DoxyReturn}{Returns}
+List of all file descriptors 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyStartState_a72704fd01700b1995f6e817171bf1e2d}{Dobby\+Start\+State}}.
+
+\mbox{\Hypertarget{classIDobbyStartState_a51ffa609b5ddabbcf7cb7b6df012afc6}\label{classIDobbyStartState_a51ffa609b5ddabbcf7cb7b6df012afc6}} 
+\index{IDobbyStartState@{IDobbyStartState}!files@{files}}
+\index{files@{files}!IDobbyStartState@{IDobbyStartState}}
+\doxysubsubsection{\texorpdfstring{files()}{files()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual std\+::list$<$int$>$ IDobby\+Start\+State\+::files (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets all file descriptor registered by concrete client. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & RDK plugin name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of file descriptors assiociated with given plugin name 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classDobbyStartState_a126ba5d863fef4077eb4e193e1e7277e}{Dobby\+Start\+State}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+daemon/lib/include/IDobby\+Start\+State.\+h\end{DoxyCompactItemize}

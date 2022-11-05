@@ -1,0 +1,100 @@
+\hypertarget{classAnonymousFile}{}\doxysection{Anonymous\+File Class Reference}
+\label{classAnonymousFile}\index{AnonymousFile@{AnonymousFile}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAnonymousFile_a770dcd9356dc41603c8b744efa88a307}{Anonymous\+File}} (int fd=-\/1)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ called when content of already created volatile file matters. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAnonymousFile_a73d50010a68335d8de276e48389f0733}{create}} ()
+\begin{DoxyCompactList}\small\item\em Creates a volatile file that lives in RAM. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAnonymousFile_a9bdfded4fa8a2e6266c85d31413a1484}{copy\+Content\+To}} (const std\+::string \&dest\+File)
+\begin{DoxyCompactList}\small\item\em Copies content of volatile file from RAM to a disk. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{classAnonymousFile_ae417b24e19bb2dbf03d3e609482325bf}{get\+File\+Size}} (FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Calculates file size for provided file pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAnonymousFile_a1ad58b9596000eb5859ab06dd72978ce}\label{classAnonymousFile_a1ad58b9596000eb5859ab06dd72978ce}} 
+int {\bfseries m\+Fd}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAnonymousFile_a770dcd9356dc41603c8b744efa88a307}\label{classAnonymousFile_a770dcd9356dc41603c8b744efa88a307}} 
+\index{AnonymousFile@{AnonymousFile}!AnonymousFile@{AnonymousFile}}
+\index{AnonymousFile@{AnonymousFile}!AnonymousFile@{AnonymousFile}}
+\doxysubsubsection{\texorpdfstring{AnonymousFile()}{AnonymousFile()}}
+{\footnotesize\ttfamily Anonymous\+File\+::\+Anonymous\+File (\begin{DoxyParamCaption}\item[{int}]{fd = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor -\/ called when content of already created volatile file matters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fd} & file descriptor to previously created volatile file \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAnonymousFile_a9bdfded4fa8a2e6266c85d31413a1484}\label{classAnonymousFile_a9bdfded4fa8a2e6266c85d31413a1484}} 
+\index{AnonymousFile@{AnonymousFile}!copyContentTo@{copyContentTo}}
+\index{copyContentTo@{copyContentTo}!AnonymousFile@{AnonymousFile}}
+\doxysubsubsection{\texorpdfstring{copyContentTo()}{copyContentTo()}}
+{\footnotesize\ttfamily bool Anonymous\+File\+::copy\+Content\+To (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{dest\+File }\end{DoxyParamCaption})}
+
+
+
+Copies content of volatile file from RAM to a disk. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dest\+File} & destination file path\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True on success or false on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAnonymousFile_a73d50010a68335d8de276e48389f0733}\label{classAnonymousFile_a73d50010a68335d8de276e48389f0733}} 
+\index{AnonymousFile@{AnonymousFile}!create@{create}}
+\index{create@{create}!AnonymousFile@{AnonymousFile}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily int Anonymous\+File\+::create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a volatile file that lives in RAM. 
+
+\begin{DoxyReturn}{Returns}
+File descriptor to a volatile file on success or -\/1 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAnonymousFile_ae417b24e19bb2dbf03d3e609482325bf}\label{classAnonymousFile_ae417b24e19bb2dbf03d3e609482325bf}} 
+\index{AnonymousFile@{AnonymousFile}!getFileSize@{getFileSize}}
+\index{getFileSize@{getFileSize}!AnonymousFile@{AnonymousFile}}
+\doxysubsubsection{\texorpdfstring{getFileSize()}{getFileSize()}}
+{\footnotesize\ttfamily long Anonymous\+File\+::get\+File\+Size (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates file size for provided file pointer. 
+
+Please note that file position indicator is reset to begining
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fp} & file pointer for which size calculation will happen\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+File size 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Minidump/source/Anonymous\+File.\+h\item 
+rdk\+Plugins/\+Minidump/source/Anonymous\+File.\+cpp\end{DoxyCompactItemize}

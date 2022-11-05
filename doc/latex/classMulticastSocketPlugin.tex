@@ -1,0 +1,157 @@
+\hypertarget{classMulticastSocketPlugin}{}\doxysection{Multicast\+Socket\+Plugin Class Reference}
+\label{classMulticastSocketPlugin}\index{MulticastSocketPlugin@{MulticastSocketPlugin}}
+
+
+Plugin used to setup multicast server and client sockets out of the container and passes their file descriptors to process inside the container.  
+
+
+
+
+{\ttfamily \#include $<$Multicast\+Sockets\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Multicast\+Socket\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Multicast\+Socket\+Plugin\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMulticastSocketPlugin_1_1MulticastSocket}{Multicast\+Socket}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMulticastSocketPlugin_afa644aee817a99d05c6a36a51d80b2c1}\label{classMulticastSocketPlugin_afa644aee817a99d05c6a36a51d80b2c1}} 
+{\bfseries Multicast\+Socket\+Plugin} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&env, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils)
+\item 
+std\+::string \mbox{\hyperlink{classMulticastSocketPlugin_abf861f2f12cb9988d3fd1d8f28bc1034}{name}} () const final
+\begin{DoxyCompactList}\small\item\em Boilerplate that just returns the name of the hook. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classMulticastSocketPlugin_a681ba5a8ab74c73e3758b3ddb57d37be}{hook\+Hints}} () const final
+\begin{DoxyCompactList}\small\item\em Indiciates which hook points we want and whether to run the asynchronously or synchronously with the other hooks. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMulticastSocketPlugin_ae5bb65019c289b22672e7ec484af8dc6}{post\+Construction}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&startup\+State, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) final
+\begin{DoxyCompactList}\small\item\em Creates multicast server and client sockets out of the container and passes their file descriptors to the container in env variables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structMulticastSocketPlugin_1_1MulticastSocket}{Multicast\+Socket}} $>$ \mbox{\hyperlink{classMulticastSocketPlugin_a7b22b83aa55274f277889e7fe2398b80}{parse\+Server\+Sockets\+Array}} (const Json\+::\+Value \&json\+Data) const
+\begin{DoxyCompactList}\small\item\em Parses and verifies server socket data from json array. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classMulticastSocketPlugin_aee1187fe55205a0ae06a2fdac3e3c8eb}{parse\+Client\+Sockets\+Array}} (const Json\+::\+Value \&json\+Data) const
+\begin{DoxyCompactList}\small\item\em Parses and verifies client socket data from json array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMulticastSocketPlugin_acd8e7ca9f764def510948f00d110c903}\label{classMulticastSocketPlugin_acd8e7ca9f764def510948f00d110c903}} 
+int \mbox{\hyperlink{classMulticastSocketPlugin_acd8e7ca9f764def510948f00d110c903}{create\+Server\+Socket}} (in\+\_\+addr\+\_\+t ip, in\+\_\+port\+\_\+t port)
+\begin{DoxyCompactList}\small\item\em Creates socket and binds it to multicast {\itshape ip} and {\itshape port}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMulticastSocketPlugin_a678da3ee7edcdbfab4445acc1431a836}\label{classMulticastSocketPlugin_a678da3ee7edcdbfab4445acc1431a836}} 
+int \mbox{\hyperlink{classMulticastSocketPlugin_a678da3ee7edcdbfab4445acc1431a836}{create\+Client\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Creates client udp socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMulticastSocketPlugin_a32cf59b8bd700e5c8357714231bc74cd}\label{classMulticastSocketPlugin_a32cf59b8bd700e5c8357714231bc74cd}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classMulticastSocketPlugin_a5019ba6b7f23239f0cd35a767062a9a4}\label{classMulticastSocketPlugin_a5019ba6b7f23239f0cd35a767062a9a4}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Plugin used to setup multicast server and client sockets out of the container and passes their file descriptors to process inside the container. 
+
+This plugin creates all necessary sockets when the container is started and closes them when the container is stopped. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMulticastSocketPlugin_a681ba5a8ab74c73e3758b3ddb57d37be}\label{classMulticastSocketPlugin_a681ba5a8ab74c73e3758b3ddb57d37be}} 
+\index{MulticastSocketPlugin@{MulticastSocketPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!MulticastSocketPlugin@{MulticastSocketPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Multicast\+Socket\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Indiciates which hook points we want and whether to run the asynchronously or synchronously with the other hooks. 
+
+For \mbox{\hyperlink{classMulticastSocketPlugin}{Multicast\+Socket\+Plugin}} everything is done in the Post\+Construction phase. 
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_ad44f4df1de4848fa3d43066760329e3a}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classMulticastSocketPlugin_abf861f2f12cb9988d3fd1d8f28bc1034}\label{classMulticastSocketPlugin_abf861f2f12cb9988d3fd1d8f28bc1034}} 
+\index{MulticastSocketPlugin@{MulticastSocketPlugin}!name@{name}}
+\index{name@{name}!MulticastSocketPlugin@{MulticastSocketPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Multicast\+Socket\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Boilerplate that just returns the name of the hook. 
+
+This string needs to match the name specified in the container spec json. 
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_adf25d402500239a690246da6fc312a7b}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classMulticastSocketPlugin_aee1187fe55205a0ae06a2fdac3e3c8eb}\label{classMulticastSocketPlugin_aee1187fe55205a0ae06a2fdac3e3c8eb}} 
+\index{MulticastSocketPlugin@{MulticastSocketPlugin}!parseClientSocketsArray@{parseClientSocketsArray}}
+\index{parseClientSocketsArray@{parseClientSocketsArray}!MulticastSocketPlugin@{MulticastSocketPlugin}}
+\doxysubsubsection{\texorpdfstring{parseClientSocketsArray()}{parseClientSocketsArray()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Multicast\+Socket\+Plugin\+::parse\+Client\+Sockets\+Array (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parses and verifies client socket data from json array. 
+
+The json data is expected (required) to be formatted like the following
+
+\char`\"{}client\+Sockets\char`\"{}\+: \mbox{[} \{ \char`\"{}name\char`\"{}\+: \char`\"{}\+NAME1\char`\"{} \} \mbox{]} \mbox{\Hypertarget{classMulticastSocketPlugin_a7b22b83aa55274f277889e7fe2398b80}\label{classMulticastSocketPlugin_a7b22b83aa55274f277889e7fe2398b80}} 
+\index{MulticastSocketPlugin@{MulticastSocketPlugin}!parseServerSocketsArray@{parseServerSocketsArray}}
+\index{parseServerSocketsArray@{parseServerSocketsArray}!MulticastSocketPlugin@{MulticastSocketPlugin}}
+\doxysubsubsection{\texorpdfstring{parseServerSocketsArray()}{parseServerSocketsArray()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structMulticastSocketPlugin_1_1MulticastSocket}{Multicast\+Socket\+Plugin\+::\+Multicast\+Socket}} $>$ Multicast\+Socket\+Plugin\+::parse\+Server\+Sockets\+Array (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parses and verifies server socket data from json array. 
+
+The json data is expected (required) to be formatted like the following
+
+\char`\"{}server\+Sockets\char`\"{}\+: \mbox{[} \{ \char`\"{}name\char`\"{}\+: \char`\"{}\+NAME\char`\"{} \char`\"{}ip\char`\"{}\+: \char`\"{}239.\+255.\+255.\+250\char`\"{}, \char`\"{}port\char`\"{}\+: 1900 \} \mbox{]} \mbox{\Hypertarget{classMulticastSocketPlugin_ae5bb65019c289b22672e7ec484af8dc6}\label{classMulticastSocketPlugin_ae5bb65019c289b22672e7ec484af8dc6}} 
+\index{MulticastSocketPlugin@{MulticastSocketPlugin}!postConstruction@{postConstruction}}
+\index{postConstruction@{postConstruction}!MulticastSocketPlugin@{MulticastSocketPlugin}}
+\doxysubsubsection{\texorpdfstring{postConstruction()}{postConstruction()}}
+{\footnotesize\ttfamily bool Multicast\+Socket\+Plugin\+::post\+Construction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&}]{startup\+State,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Creates multicast server and client sockets out of the container and passes their file descriptors to the container in env variables. 
+
+The json data is expected to be formatted like the following\+: \begin{DoxyVerb}{
+    "name": "MulticastSockets",
+    "data": {
+        "serverSockets": [
+            {
+                "name": "NAME"
+                "ip": "239.255.255.250",
+                "port": 1900
+            }
+        ],
+        "clientSockets": [
+            {
+                "name": "NAME1"
+            }
+        ]
+    }
+}
+\end{DoxyVerb}
+ \char`\"{}server\+Sockets\char`\"{} and \char`\"{}client\+Sockets\char`\"{} are optional 
+
+Reimplemented from \mbox{\hyperlink{classPluginBase_ae713819ad289f213ce5b5a9cb099f9b7}{Plugin\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Multicast\+Sockets/source/Multicast\+Sockets\+Plugin.\+h\item 
+plugins/\+Multicast\+Sockets/source/Multicast\+Sockets\+Plugin.\+cpp\end{DoxyCompactItemize}

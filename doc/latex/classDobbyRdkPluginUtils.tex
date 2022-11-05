@@ -1,0 +1,417 @@
+\hypertarget{classDobbyRdkPluginUtils}{}\doxysection{Dobby\+Rdk\+Plugin\+Utils Class Reference}
+\label{classDobbyRdkPluginUtils}\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+
+
+Class for useful utility methods for plugins such as adding mounts and environment variables.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Rdk\+Plugin\+Utils.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_acd06e9ec0e8c452403fbf2dbe211452f}\label{classDobbyRdkPluginUtils_acd06e9ec0e8c452403fbf2dbe211452f}} 
+{\bfseries Dobby\+Rdk\+Plugin\+Utils} (const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&cfg, const std\+::string \&container\+Id)
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a70b74ef99bf14d97c33e4bffef33c995}\label{classDobbyRdkPluginUtils_a70b74ef99bf14d97c33e4bffef33c995}} 
+{\bfseries Dobby\+Rdk\+Plugin\+Utils} (const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&cfg, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&start\+State, const std\+::string \&container\+Id)
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a51f08dbd7c66a015e50042692a20e14d}\label{classDobbyRdkPluginUtils_a51f08dbd7c66a015e50042692a20e14d}} 
+{\bfseries Dobby\+Rdk\+Plugin\+Utils} (const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&cfg, const std\+::shared\+\_\+ptr$<$ const rt\+\_\+state\+\_\+schema $>$ \&state, const std\+::string \&container\+Id)
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a8c0efaff2a4c385cb3c3ca36b4572db6}\label{classDobbyRdkPluginUtils_a8c0efaff2a4c385cb3c3ca36b4572db6}} 
+{\bfseries Dobby\+Rdk\+Plugin\+Utils} (const std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&cfg, const std\+::shared\+\_\+ptr$<$ const rt\+\_\+state\+\_\+schema $>$ \&state, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&start\+State, const std\+::string \&container\+Id)
+\item 
+{\footnotesize template$<$class Function , class... Args$>$ }\\bool \mbox{\hyperlink{classDobbyRdkPluginUtils_add6426222c787db15058b456cb47d7ec}{call\+In\+Namespace}} (pid\+\_\+t pid, int ns\+Type, Function \&\&f, Args \&\&... args) const
+\begin{DoxyCompactList}\small\item\em Slightly nicer version of call\+In\+Namespace, handles the function bind for you automatically. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginUtils_a19bded6705500ee359b0eee916af9e7f}{call\+In\+Namespace\+Impl}} (pid\+\_\+t pid, int ns\+Type, const std\+::function$<$ bool()$>$ \&func) const
+\begin{DoxyCompactList}\small\item\em Utility function to run some code in a specific namespace of the container. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDobbyRdkPluginUtils_a6c5ac08e5062adc2646e7b68fd27ede3}{ns\+Thread}} (int new\+Ns\+Fd, int ns\+Type, bool $\ast$success, std\+::function$<$ bool()$>$ \&func) const
+\begin{DoxyCompactList}\small\item\em Thread helper function that implements the setns syscall. \end{DoxyCompactList}\item 
+pid\+\_\+t \mbox{\hyperlink{classDobbyRdkPluginUtils_a33e21d9f62844a6d4266c7f99c2cf9c1}{get\+Container\+Pid}} () const
+\begin{DoxyCompactList}\small\item\em Gets the container pid from the stdin string of a hook. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyRdkPluginUtils_aac3296a638db185fdc928030a4dbb84f}{get\+Container\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Gets the container ID. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginUtils_a5f640e9568013e5b5f1e3bceadb48e39}{get\+Container\+Network\+Info}} (\mbox{\hyperlink{structContainerNetworkInfo}{Container\+Network\+Info}} \&network\+Info)
+\begin{DoxyCompactList}\small\item\em Gets network info about the container (veth/\+IP) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginUtils_a8039cb98f35c3c462a43902a2ecabb61}{get\+Taken\+Veths}} (std\+::vector$<$ std\+::string $>$ \&taken\+Veths)
+\begin{DoxyCompactList}\small\item\em Gets allocated veth devices. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginUtils_ac0a44c66ccc0cf0dd2e7d277076cd24f}{write\+Text\+File}} (const std\+::string \&path, const std\+::string \&str, int flags, mode\+\_\+t mode) const
+\begin{DoxyCompactList}\small\item\em Simply writes a string into a file. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDobbyRdkPluginUtils_a2389b0cca21c57df57eaa7cf3d6afa3b}{read\+Text\+File}} (const std\+::string \&path) const
+\begin{DoxyCompactList}\small\item\em Simply reads a file into a string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginUtils_ad13d4a2119a4a1975b7ebcf27ced4aad}{add\+Mount}} (const std\+::string \&source, const std\+::string \&target, const std\+::string \&fs\+Type, const std\+::list$<$ std\+::string $>$ \&mount\+Options) const
+\begin{DoxyCompactList}\small\item\em Public api to allow for adding additional mounts to a container\textquotesingle{}s config file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyRdkPluginUtils_af2cea7366a132052e00d7ce83071351c}{add\+Environment\+Var}} (const std\+::string \&env\+Var) const
+\begin{DoxyCompactList}\small\item\em Public api to allow for adding additional environment variables. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDobbyRdkPluginUtils_aa193e0536c1399d45c5cdc785674e57b}{add\+File\+Descriptor}} (const std\+::string \&plugin\+Name, int fd)
+\begin{DoxyCompactList}\small\item\em Adds another file descriptor to be passed into the container. \end{DoxyCompactList}\item 
+std\+::list$<$ int $>$ \mbox{\hyperlink{classDobbyRdkPluginUtils_a8bbedd056aff2b246a0bc503df741b22}{files}} () const
+\begin{DoxyCompactList}\small\item\em Gets all file descriptor registered by any client. \end{DoxyCompactList}\item 
+std\+::list$<$ int $>$ \mbox{\hyperlink{classDobbyRdkPluginUtils_ac70e4ea2fb1816c82265d55ca8f9def4}{files}} (const std\+::string \&plugin\+Name) const
+\begin{DoxyCompactList}\small\item\em Gets all file descriptor registered by concrete client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classDobbyRdkPluginUtils_a625de02c9793e7da91cee9a2cdd30777}{mkdir\+Recursive}} (const std\+::string \&path, mode\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Makes a directory and all parent directories as needed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a4ebf2a95e0fb860ec720343199e5a29c}\label{classDobbyRdkPluginUtils_a4ebf2a95e0fb860ec720343199e5a29c}} 
+int {\bfseries exit\+Status}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a3bd04dfdda0ed8eefa6d67b3198c2d07}\label{classDobbyRdkPluginUtils_a3bd04dfdda0ed8eefa6d67b3198c2d07}} 
+std\+::string {\bfseries ip\+Address\+To\+String} (const in\+\_\+addr\+\_\+t \&ip\+Address)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_aa42c2a9d3fd7ba28f88d0eda94984bf9}\label{classDobbyRdkPluginUtils_aa42c2a9d3fd7ba28f88d0eda94984bf9}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_abb44b4b860ce8d026200e7bfdbcb7554}\label{classDobbyRdkPluginUtils_abb44b4b860ce8d026200e7bfdbcb7554}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Conf}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a2d324b4f6a76be79c907b11a62036588}\label{classDobbyRdkPluginUtils_a2d324b4f6a76be79c907b11a62036588}} 
+std\+::shared\+\_\+ptr$<$ const rt\+\_\+state\+\_\+schema $>$ {\bfseries m\+State}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_ac4a0c16b2c508980c6a97788f5e063ff}\label{classDobbyRdkPluginUtils_ac4a0c16b2c508980c6a97788f5e063ff}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ {\bfseries m\+Start\+State}
+\item 
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a4d09cd1897690ac7e62838a22df8f976}\label{classDobbyRdkPluginUtils_a4d09cd1897690ac7e62838a22df8f976}} 
+const std\+::string {\bfseries m\+Container\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for useful utility methods for plugins such as adding mounts and environment variables. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_af2cea7366a132052e00d7ce83071351c}\label{classDobbyRdkPluginUtils_af2cea7366a132052e00d7ce83071351c}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!addEnvironmentVar@{addEnvironmentVar}}
+\index{addEnvironmentVar@{addEnvironmentVar}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{addEnvironmentVar()}{addEnvironmentVar()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Utils\+::add\+Environment\+Var (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{env\+Var }\end{DoxyParamCaption}) const}
+
+
+
+Public api to allow for adding additional environment variables. 
+
+This can only obviously be called before the config file is persisted to disk.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cfg} & Pointer to OCI config struct \\
+\hline
+\mbox{\texttt{ in}}  & {\em env\+Var} & The environment variable to set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the env var was added, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_aa193e0536c1399d45c5cdc785674e57b}\label{classDobbyRdkPluginUtils_aa193e0536c1399d45c5cdc785674e57b}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!addFileDescriptor@{addFileDescriptor}}
+\index{addFileDescriptor@{addFileDescriptor}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{addFileDescriptor()}{addFileDescriptor()}}
+{\footnotesize\ttfamily int Dobby\+Rdk\+Plugin\+Utils\+::add\+File\+Descriptor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name,  }\item[{int}]{fd }\end{DoxyParamCaption})}
+
+
+
+Adds another file descriptor to be passed into the container. 
+
+The number of the file descriptor in the container namespace is returned, unless there was an error in which case a negative value is returned. File descriptors start at 3.
+
+The method dups the supplied file descriptor so it can be closed immmediatly after the call. The file descriptor will be closed after the container is started and handed over.
+
+File descriptors are recorded per client (plugin name).
+
+Lastly to help find issues, this function will log an error and reject the file descriptor if it doesn\textquotesingle{}t have the FD\+\_\+\+CLOEXEC bit set.
+
+Please mind that this call should be used only in pre\+Creation hook. That\textquotesingle{}s due to the fact preserve fds list should be initialized before container starts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & The plugin name for which fd will be recorded \\
+\hline
+\mbox{\texttt{ in}}  & {\em fd} & The file descriptor to pass to the container\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of the file descriptor inside the container on success, on failure -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_ad13d4a2119a4a1975b7ebcf27ced4aad}\label{classDobbyRdkPluginUtils_ad13d4a2119a4a1975b7ebcf27ced4aad}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!addMount@{addMount}}
+\index{addMount@{addMount}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{addMount()}{addMount()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Utils\+::add\+Mount (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{source,  }\item[{const std\+::string \&}]{destination,  }\item[{const std\+::string \&}]{type,  }\item[{const std\+::list$<$ std\+::string $>$ \&}]{mount\+Options }\end{DoxyParamCaption}) const}
+
+
+
+Public api to allow for adding additional mounts to a container\textquotesingle{}s config file. 
+
+This can only obviously be called before the config file is persisted to disk.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The mount source \\
+\hline
+\mbox{\texttt{ in}}  & {\em destination} & The mount destination \\
+\hline
+\mbox{\texttt{ in}}  & {\em type} & The file system type of the mount \\
+\hline
+\mbox{\texttt{ in}}  & {\em mount\+Options} & The mount options (mount(2) data parameter)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the mount point was added, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_add6426222c787db15058b456cb47d7ec}\label{classDobbyRdkPluginUtils_add6426222c787db15058b456cb47d7ec}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!callInNamespace@{callInNamespace}}
+\index{callInNamespace@{callInNamespace}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{callInNamespace()}{callInNamespace()}}
+{\footnotesize\ttfamily template$<$class Function , class... Args$>$ \\
+bool Dobby\+Rdk\+Plugin\+Utils\+::call\+In\+Namespace (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{pid,  }\item[{int}]{ns\+Type,  }\item[{Function \&\&}]{f,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Slightly nicer version of call\+In\+Namespace, handles the function bind for you automatically. 
+
+You\textquotesingle{}d typically use this to perform options in the namespace of a container. The {\itshape pid} argument would be the pid of the containered process.
+
+The {\itshape ns\+Type} argument should be one of the following values\+: CLONE\+\_\+\+NEWIPC -\/ run in a IPC namespace CLONE\+\_\+\+NEWNET -\/ run in a network namespace CLONE\+\_\+\+NEWNS -\/ run in a mount namespace CLONE\+\_\+\+NEWPID -\/ run in a PID namespace CLONE\+\_\+\+NEWUSER -\/ run in a user namespace CLONE\+\_\+\+NEWUTS -\/ run in a UTS namespace
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pid} & The pid owner of the namespace to enter, typically the pid of the process in the container. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ns\+Type} & The type of the namespace to enter, see above. \\
+\hline
+\mbox{\texttt{ in}}  & {\em func} & The actual function to execute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a19bded6705500ee359b0eee916af9e7f}\label{classDobbyRdkPluginUtils_a19bded6705500ee359b0eee916af9e7f}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!callInNamespaceImpl@{callInNamespaceImpl}}
+\index{callInNamespaceImpl@{callInNamespaceImpl}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{callInNamespaceImpl()}{callInNamespaceImpl()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Utils\+::call\+In\+Namespace\+Impl (\begin{DoxyParamCaption}\item[{pid\+\_\+t}]{pid,  }\item[{int}]{ns\+Type,  }\item[{const std\+::function$<$ bool()$>$ \&}]{func }\end{DoxyParamCaption}) const}
+
+
+
+Utility function to run some code in a specific namespace of the container. 
+
+This function uses the setns syscall and therefore it must spawn a thread to run the callback in. However this function blocks until the thread completes, so although it is multi-\/threaded it\textquotesingle{}s API is blocking, i.\+e. effectively single threaded.
+
+The {\itshape ns\+Type} argument should be one of the following values\+: CLONE\+\_\+\+NEWIPC -\/ run in a IPC namespace CLONE\+\_\+\+NEWNET -\/ run in a network namespace CLONE\+\_\+\+NEWNS -\/ run in a mount namespace CLONE\+\_\+\+NEWPID -\/ run in a PID namespace CLONE\+\_\+\+NEWUSER -\/ run in a user namespace CLONE\+\_\+\+NEWUTS -\/ run in a UTS namespace
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pid} & The pid of the process namespace to enter. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ns\+Type} & The namespace to run the function in, see above. \\
+\hline
+\mbox{\texttt{ in}}  & {\em func} & The function to execute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successifully entered the namespace, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a8bbedd056aff2b246a0bc503df741b22}\label{classDobbyRdkPluginUtils_a8bbedd056aff2b246a0bc503df741b22}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!files@{files}}
+\index{files@{files}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{files()}{files()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::list$<$ int $>$ Dobby\+Rdk\+Plugin\+Utils\+::files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets all file descriptor registered by any client. 
+
+\begin{DoxyReturn}{Returns}
+List of all file descriptors 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_ac70e4ea2fb1816c82265d55ca8f9def4}\label{classDobbyRdkPluginUtils_ac70e4ea2fb1816c82265d55ca8f9def4}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!files@{files}}
+\index{files@{files}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{files()}{files()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::list$<$ int $>$ Dobby\+Rdk\+Plugin\+Utils\+::files (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{plugin\+Name }\end{DoxyParamCaption}) const}
+
+
+
+Gets all file descriptor registered by concrete client. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plugin\+Name} & RDK plugin name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of file descriptors assiociated with given plugin name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_aac3296a638db185fdc928030a4dbb84f}\label{classDobbyRdkPluginUtils_aac3296a638db185fdc928030a4dbb84f}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!getContainerId@{getContainerId}}
+\index{getContainerId@{getContainerId}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{getContainerId()}{getContainerId()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Rdk\+Plugin\+Utils\+::get\+Container\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the container ID. 
+
+\begin{DoxyReturn}{Returns}
+Container ID as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a5f640e9568013e5b5f1e3bceadb48e39}\label{classDobbyRdkPluginUtils_a5f640e9568013e5b5f1e3bceadb48e39}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!getContainerNetworkInfo@{getContainerNetworkInfo}}
+\index{getContainerNetworkInfo@{getContainerNetworkInfo}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{getContainerNetworkInfo()}{getContainerNetworkInfo()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Utils\+::get\+Container\+Network\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structContainerNetworkInfo}{Container\+Network\+Info}} \&}]{network\+Info }\end{DoxyParamCaption})}
+
+
+
+Gets network info about the container (veth/\+IP) 
+
+Designed to allow other plugins to create their own iptables rules once the networking plugin has run.
+
+@params\mbox{[}out\mbox{]} network\+Info struct containing veth/ip address
+
+\begin{DoxyReturn}{Returns}
+true if successfully got info, false for failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a33e21d9f62844a6d4266c7f99c2cf9c1}\label{classDobbyRdkPluginUtils_a33e21d9f62844a6d4266c7f99c2cf9c1}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!getContainerPid@{getContainerPid}}
+\index{getContainerPid@{getContainerPid}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{getContainerPid()}{getContainerPid()}}
+{\footnotesize\ttfamily pid\+\_\+t Dobby\+Rdk\+Plugin\+Utils\+::get\+Container\+Pid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the container pid from the stdin string of a hook. 
+
+The stdin needs to be read from within the context of the hook. This function only parses the pid from a string.
+
+\begin{DoxyWarning}{Warning}
+Only returns a valid PID once the container is running. Only works for OCI hooks.
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+container pid, 0 if none found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a8039cb98f35c3c462a43902a2ecabb61}\label{classDobbyRdkPluginUtils_a8039cb98f35c3c462a43902a2ecabb61}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!getTakenVeths@{getTakenVeths}}
+\index{getTakenVeths@{getTakenVeths}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{getTakenVeths()}{getTakenVeths()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Utils\+::get\+Taken\+Veths (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{taken\+Veths }\end{DoxyParamCaption})}
+
+
+
+Gets allocated veth devices. 
+
+As we are storing veth device names in the files we should be able to tell which veth devices are \char`\"{}taken\char`\"{}.
+
+@params\mbox{[}out\mbox{]} taken\+Veths vector of veth devices that are thaken
+
+\begin{DoxyReturn}{Returns}
+true if successfully got info, false for failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a625de02c9793e7da91cee9a2cdd30777}\label{classDobbyRdkPluginUtils_a625de02c9793e7da91cee9a2cdd30777}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!mkdirRecursive@{mkdirRecursive}}
+\index{mkdirRecursive@{mkdirRecursive}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{mkdirRecursive()}{mkdirRecursive()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Utils\+::mkdir\+Recursive (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{mode\+\_\+t}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Makes a directory and all parent directories as needed. 
+
+This is equivalent to the \textquotesingle{}mkdir -\/p\textquotesingle{} command.
+
+All directories created will have access mode set by {\itshape mode}, for this reason the mode should be at least \textquotesingle{}rwx-\/-\/-\/---\textquotesingle{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & The path to the directory to create. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to give to all directories created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a6c5ac08e5062adc2646e7b68fd27ede3}\label{classDobbyRdkPluginUtils_a6c5ac08e5062adc2646e7b68fd27ede3}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!nsThread@{nsThread}}
+\index{nsThread@{nsThread}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{nsThread()}{nsThread()}}
+{\footnotesize\ttfamily void Dobby\+Rdk\+Plugin\+Utils\+::ns\+Thread (\begin{DoxyParamCaption}\item[{int}]{new\+Ns\+Fd,  }\item[{int}]{ns\+Type,  }\item[{bool $\ast$}]{success,  }\item[{std\+::function$<$ bool()$>$ \&}]{func }\end{DoxyParamCaption}) const}
+
+
+
+Thread helper function that implements the setns syscall. 
+
+This must be executed as a thread as it calls setns which switches namespaces and you don\textquotesingle{}t really want to do this in the main thread.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em new\+Ns\+Fd} & The file descriptor for the namespace to switch into. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ns\+Type} & The type of namespace to switch into i.\+e. \char`\"{}\+CLONE\+\_\+\+NEWIPC\char`\"{}. \\
+\hline
+\mbox{\texttt{ out}}  & {\em success} & Return if thread execution of the function was the success. \\
+\hline
+\mbox{\texttt{ in}}  & {\em func} & The function to execute in the new namespace. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_a2389b0cca21c57df57eaa7cf3d6afa3b}\label{classDobbyRdkPluginUtils_a2389b0cca21c57df57eaa7cf3d6afa3b}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!readTextFile@{readTextFile}}
+\index{readTextFile@{readTextFile}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{readTextFile()}{readTextFile()}}
+{\footnotesize\ttfamily std\+::string Dobby\+Rdk\+Plugin\+Utils\+::read\+Text\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption}) const}
+
+
+
+Simply reads a file into a string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & The path to file to read from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string read from file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyRdkPluginUtils_ac0a44c66ccc0cf0dd2e7d277076cd24f}\label{classDobbyRdkPluginUtils_ac0a44c66ccc0cf0dd2e7d277076cd24f}} 
+\index{DobbyRdkPluginUtils@{DobbyRdkPluginUtils}!writeTextFile@{writeTextFile}}
+\index{writeTextFile@{writeTextFile}!DobbyRdkPluginUtils@{DobbyRdkPluginUtils}}
+\doxysubsubsection{\texorpdfstring{writeTextFile()}{writeTextFile()}}
+{\footnotesize\ttfamily bool Dobby\+Rdk\+Plugin\+Utils\+::write\+Text\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{const std\+::string \&}]{str,  }\item[{int}]{flags,  }\item[{mode\+\_\+t}]{mode }\end{DoxyParamCaption}) const}
+
+
+
+Simply writes a string into a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & The path to file to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em str} & String to write to the file. \\
+\hline
+\mbox{\texttt{ in}}  & {\em flags} & Open flags, these will be OR\textquotesingle{}d with O\+\_\+\+WRONLY and O\+\_\+\+CLOEXEC. \\
+\hline
+\mbox{\texttt{ in}}  & {\em mode} & The file access mode to set if O\+\_\+\+CREAT was specified in flags and the file was created.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugin\+Launcher/lib/include/Dobby\+Rdk\+Plugin\+Utils.\+h\item 
+plugin\+Launcher/lib/source/Dobby\+Rdk\+Plugin\+Utils.\+cpp\end{DoxyCompactItemize}

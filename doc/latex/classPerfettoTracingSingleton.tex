@@ -1,0 +1,98 @@
+\hypertarget{classPerfettoTracingSingleton}{}\doxysection{Perfetto\+Tracing\+Singleton Class Reference}
+\label{classPerfettoTracingSingleton}\index{PerfettoTracingSingleton@{PerfettoTracingSingleton}}
+
+
+Collaboration diagram for Perfetto\+Tracing\+Singleton\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classPerfettoTracingSingleton_af49ed2ad9b85d56264c6a81f60729ea6}{initialise}} (unsigned backends)
+\item 
+bool \mbox{\hyperlink{classPerfettoTracingSingleton_acaf0e8cfb6ec62c1377745f6805e2755}{is\+Tracing}} () const
+\item 
+bool \mbox{\hyperlink{classPerfettoTracingSingleton_ad51ee4411a719dbe62e7cfae12b928e1}{start\+In\+Process\+Tracing}} (int fd, const std\+::string \&category\+Filter)
+\item 
+void \mbox{\hyperlink{classPerfettoTracingSingleton_a4a1f539e70dbc44aeb3c72090f8d93d7}{stop\+In\+Process\+Tracing}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classPerfettoTracingSingleton}{Perfetto\+Tracing\+Singleton}} $\ast$ \mbox{\hyperlink{classPerfettoTracingSingleton_a7c1f5d5604cb4a343c3c3477f31a2ddf}{instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfettoTracingSingleton_a2fb1a99f54161e669b8ef864f429b689}\label{classPerfettoTracingSingleton_a2fb1a99f54161e669b8ef864f429b689}} 
+static void {\bfseries clean\+Up} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfettoTracingSingleton_a6eab38c526a83014f4b86f079d316346}\label{classPerfettoTracingSingleton_a6eab38c526a83014f4b86f079d316346}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classPerfettoTracingSingleton_a956c7a6f62c006bd8f81ce2ed7799016}\label{classPerfettoTracingSingleton_a956c7a6f62c006bd8f81ce2ed7799016}} 
+bool {\bfseries m\+Initialised}
+\item 
+\mbox{\Hypertarget{classPerfettoTracingSingleton_aa33ec07029037aa57f748480454add08}\label{classPerfettoTracingSingleton_aa33ec07029037aa57f748480454add08}} 
+unsigned {\bfseries m\+Backends}
+\item 
+\mbox{\Hypertarget{classPerfettoTracingSingleton_a963bb447f5caabc67fdf26f5577f3631}\label{classPerfettoTracingSingleton_a963bb447f5caabc67fdf26f5577f3631}} 
+int {\bfseries m\+Trace\+File\+Fd}
+\item 
+\mbox{\Hypertarget{classPerfettoTracingSingleton_af19f8f825eef635314e04f5b80a89286}\label{classPerfettoTracingSingleton_af19f8f825eef635314e04f5b80a89286}} 
+std\+::unique\+\_\+ptr$<$ perfetto\+::\+Tracing\+Session $>$ {\bfseries m\+In\+Process\+Session}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerfettoTracingSingleton_add5baddcf31a4f3c7215533f1785b30b}\label{classPerfettoTracingSingleton_add5baddcf31a4f3c7215533f1785b30b}} 
+static \mbox{\hyperlink{classPerfettoTracingSingleton}{Perfetto\+Tracing\+Singleton}} $\ast$ {\bfseries m\+Instance} = nullptr
+\item 
+\mbox{\Hypertarget{classPerfettoTracingSingleton_a0785c1b1f733c1c92efb6d8425336fda}\label{classPerfettoTracingSingleton_a0785c1b1f733c1c92efb6d8425336fda}} 
+static pthread\+\_\+rwlock\+\_\+t {\bfseries m\+Instance\+Lock} = PTHREAD\+\_\+\+RWLOCK\+\_\+\+INITIALIZER
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPerfettoTracingSingleton_af49ed2ad9b85d56264c6a81f60729ea6}\label{classPerfettoTracingSingleton_af49ed2ad9b85d56264c6a81f60729ea6}} 
+\index{PerfettoTracingSingleton@{PerfettoTracingSingleton}!initialise@{initialise}}
+\index{initialise@{initialise}!PerfettoTracingSingleton@{PerfettoTracingSingleton}}
+\doxysubsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily bool Perfetto\+Tracing\+Singleton\+::initialise (\begin{DoxyParamCaption}\item[{unsigned}]{backends }\end{DoxyParamCaption})}
+
+Sets the tracing mode to either \textquotesingle{}system\textquotesingle{} or \textquotesingle{}in process\textquotesingle{}.
+
+This is a one time operation, it is not possible to change the mode once set. \mbox{\Hypertarget{classPerfettoTracingSingleton_a7c1f5d5604cb4a343c3c3477f31a2ddf}\label{classPerfettoTracingSingleton_a7c1f5d5604cb4a343c3c3477f31a2ddf}} 
+\index{PerfettoTracingSingleton@{PerfettoTracingSingleton}!instance@{instance}}
+\index{instance@{instance}!PerfettoTracingSingleton@{PerfettoTracingSingleton}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPerfettoTracingSingleton}{Perfetto\+Tracing\+Singleton}} $\ast$ Perfetto\+Tracing\+Singleton\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the singleton instance of the Perfetto tracing interface. \mbox{\Hypertarget{classPerfettoTracingSingleton_acaf0e8cfb6ec62c1377745f6805e2755}\label{classPerfettoTracingSingleton_acaf0e8cfb6ec62c1377745f6805e2755}} 
+\index{PerfettoTracingSingleton@{PerfettoTracingSingleton}!isTracing@{isTracing}}
+\index{isTracing@{isTracing}!PerfettoTracingSingleton@{PerfettoTracingSingleton}}
+\doxysubsubsection{\texorpdfstring{isTracing()}{isTracing()}}
+{\footnotesize\ttfamily bool Perfetto\+Tracing\+Singleton\+::is\+Tracing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns {\ttfamily true} if currently tracing.
+
+For in process tracing, this will return {\ttfamily true} if \mbox{\hyperlink{classPerfettoTracingSingleton_ad51ee4411a719dbe62e7cfae12b928e1}{start\+In\+Process\+Tracing()}} was called. For system tracing this will only return {\ttfamily true} if the system traced daemon has started the trace. \mbox{\Hypertarget{classPerfettoTracingSingleton_ad51ee4411a719dbe62e7cfae12b928e1}\label{classPerfettoTracingSingleton_ad51ee4411a719dbe62e7cfae12b928e1}} 
+\index{PerfettoTracingSingleton@{PerfettoTracingSingleton}!startInProcessTracing@{startInProcessTracing}}
+\index{startInProcessTracing@{startInProcessTracing}!PerfettoTracingSingleton@{PerfettoTracingSingleton}}
+\doxysubsubsection{\texorpdfstring{startInProcessTracing()}{startInProcessTracing()}}
+{\footnotesize\ttfamily bool Perfetto\+Tracing\+Singleton\+::start\+In\+Process\+Tracing (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{const std\+::string \&}]{category\+Filter }\end{DoxyParamCaption})}
+
+Starts an in process trace, writing the trace file to the given {\itshape fd}. \mbox{\Hypertarget{classPerfettoTracingSingleton_a4a1f539e70dbc44aeb3c72090f8d93d7}\label{classPerfettoTracingSingleton_a4a1f539e70dbc44aeb3c72090f8d93d7}} 
+\index{PerfettoTracingSingleton@{PerfettoTracingSingleton}!stopInProcessTracing@{stopInProcessTracing}}
+\index{stopInProcessTracing@{stopInProcessTracing}!PerfettoTracingSingleton@{PerfettoTracingSingleton}}
+\doxysubsubsection{\texorpdfstring{stopInProcessTracing()}{stopInProcessTracing()}}
+{\footnotesize\ttfamily void Perfetto\+Tracing\+Singleton\+::stop\+In\+Process\+Tracing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stops the \textquotesingle{}in process\textquotesingle{} tracing. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tracing/source/Perfetto\+Tracing\+Singleton.\+h\item 
+tracing/source/Perfetto\+Tracing\+Singleton.\+cpp\end{DoxyCompactItemize}

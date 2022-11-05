@@ -1,0 +1,324 @@
+\hypertarget{classSDBusIpcService}{}\doxysection{SDBus\+Ipc\+Service Class Reference}
+\label{classSDBusIpcService}\index{SDBusIpcService@{SDBusIpcService}}
+
+
+Inheritance diagram for SDBus\+Ipc\+Service\+:
+% FIG 0
+
+
+Collaboration diagram for SDBus\+Ipc\+Service\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSDBusIpcService_1_1Executor}{Executor}}
+\item 
+struct \mbox{\hyperlink{structSDBusIpcService_1_1RegisteredMethod}{Registered\+Method}}
+\item 
+struct \mbox{\hyperlink{structSDBusIpcService_1_1RegisteredSignal}{Registered\+Signal}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a8dd6892daeaac9c3cdefc2d18d639daa}\label{classSDBusIpcService_a8dd6892daeaac9c3cdefc2d18d639daa}} 
+enum {\bfseries Bus\+Type} \{ {\bfseries Session\+Bus}
+, {\bfseries System\+Bus}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_aa3a7cd570b7b44ac48b83d9de9858a54}\label{classSDBusIpcService_aa3a7cd570b7b44ac48b83d9de9858a54}} 
+{\bfseries SDBus\+Ipc\+Service} (Bus\+Type bus\+Type, const std\+::string \&service\+Name, int default\+Timeout\+Ms=-\/1)
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a4a3be6f2933708a8e16989dd371b41e4}\label{classSDBusIpcService_a4a3be6f2933708a8e16989dd371b41e4}} 
+{\bfseries SDBus\+Ipc\+Service} (const std\+::string \&bus\+Address, const std\+::string \&service\+Name, int default\+Timeout\+Ms=-\/1)
+\item 
+bool \mbox{\hyperlink{classSDBusIpcService_aeaea745e35a48cf7f0a925d477e59730}{is\+Valid}} () const override
+\begin{DoxyCompactList}\small\item\em Returns true if we initialised ourselves successfully. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplyGetter}{AI\+\_\+\+IPC\+::\+IAsync\+Reply\+Getter}} $>$ \mbox{\hyperlink{classSDBusIpcService_ad3ecfc0eb95173ec8be6c7c5a2f36721}{invoke\+Method}} (const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&method, const AI\+\_\+\+IPC\+::\+Variant\+List \&args, int timeout\+Ms) override
+\item 
+bool \mbox{\hyperlink{classSDBusIpcService_a71f0e60279bb15570bb473fe14dd82ad}{invoke\+Method}} (const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&method, const AI\+\_\+\+IPC\+::\+Variant\+List \&args, AI\+\_\+\+IPC\+::\+Variant\+List \&reply\+Args, int timeout\+Ms) override
+\item 
+bool \mbox{\hyperlink{classSDBusIpcService_a4d1d6d151e22e775ab8e47b38166005c}{emit\+Signal}} (const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} \&signal, const AI\+\_\+\+IPC\+::\+Variant\+List \&args) override
+\item 
+std\+::string \mbox{\hyperlink{classSDBusIpcService_a26ccee7079ca00c132ebf747496563e1}{register\+Method\+Handler}} (const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&method, const AI\+\_\+\+IPC\+::\+Method\+Handler \&handler) override
+\item 
+std\+::string \mbox{\hyperlink{classSDBusIpcService_a7742f57e9cf9ae4cd6d1b3409299613b}{register\+Signal\+Handler}} (const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} \&signal, const AI\+\_\+\+IPC\+::\+Signal\+Handler \&handler) override
+\item 
+bool \mbox{\hyperlink{classSDBusIpcService_ae06046438971c5f46c4da8f315de1086}{unregister\+Handler}} (const std\+::string \&reg\+Id) override
+\item 
+bool \mbox{\hyperlink{classSDBusIpcService_a121952fade4d11322070224e0782c8c2}{enable\+Monitor}} (const std\+::set$<$ std\+::string $>$ \&match\+Rules, const AI\+\_\+\+IPC\+::\+Monitor\+Handler \&handler) override
+\item 
+bool \mbox{\hyperlink{classSDBusIpcService_ac662e758328deef6187abc339bbd2050}{disable\+Monitor}} () override
+\item 
+void \mbox{\hyperlink{classSDBusIpcService_a8bab6db74aa9d66f53d97d0c31e2c76b}{flush}} () override
+\item 
+bool \mbox{\hyperlink{classSDBusIpcService_a177dc1c593e938aac399be4aee8ee97a}{start}} () override
+\item 
+bool \mbox{\hyperlink{classSDBusIpcService_a123d068c15def8f7521470ffad39b6f1}{stop}} () override
+\item 
+bool \mbox{\hyperlink{classSDBusIpcService_a8dbea517feac75cb2781fd334d84cc03}{is\+Service\+Available}} (const std\+::string \&service\+Name) const override
+\item 
+std\+::string \mbox{\hyperlink{classSDBusIpcService_a18e3035501f3b53c8d86792af50eda1a}{get\+Bus\+Address}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a4e13749c617648b4d2af79f6c8dce24b}\label{classSDBusIpcService_a4e13749c617648b4d2af79f6c8dce24b}} 
+void {\bfseries free\+Method\+Reply} (uint32\+\_\+t reply\+Id)
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a32472306156c297dc66fc9a38ae481a2}\label{classSDBusIpcService_a32472306156c297dc66fc9a38ae481a2}} 
+bool {\bfseries send\+Method\+Reply} (uint32\+\_\+t reply\+Id, const AI\+\_\+\+IPC\+::\+Variant\+List \&reply\+Args)
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a153c147c608b5bab59d1afebd6c7df09}\label{classSDBusIpcService_a153c147c608b5bab59d1afebd6c7df09}} 
+uid\+\_\+t {\bfseries get\+Sender\+Uid} (const std\+::string \&sender\+Name)
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a8b1b003f0d6dcbf4ad2ad054dec074d1}\label{classSDBusIpcService_a8b1b003f0d6dcbf4ad2ad054dec074d1}} 
+bool {\bfseries init} (const std\+::string \&service\+Name, int default\+Timeout\+Ms)
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a24c3049fee9e315a6d88ab18728db5da}\label{classSDBusIpcService_a24c3049fee9e315a6d88ab18728db5da}} 
+void {\bfseries event\+Loop\+Thread} ()
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a5ac118f1265dc9794a7b2ce84311f29c}\label{classSDBusIpcService_a5ac118f1265dc9794a7b2ce84311f29c}} 
+bool {\bfseries run\+On\+Event\+Loop\+Thread} (std\+::function$<$ void()$>$ \&\&fn) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a3e72697ebca8b4e3a72866c5e6329f49}\label{classSDBusIpcService_a3e72697ebca8b4e3a72866c5e6329f49}} 
+static int {\bfseries on\+Exec\+Call} (sd\+\_\+event\+\_\+source $\ast$s, int fd, uint32\+\_\+t revents, void $\ast$userdata)
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a605b4fa3b0623ad4e5fe2da96e8146bf}\label{classSDBusIpcService_a605b4fa3b0623ad4e5fe2da96e8146bf}} 
+static int {\bfseries on\+Rule\+Match} (sd\+\_\+bus\+\_\+message $\ast$m, void $\ast$user\+Data, void $\ast$ret\+Error)
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a8222a4d695798725c4ebb8cdbf711406}\label{classSDBusIpcService_a8222a4d695798725c4ebb8cdbf711406}} 
+static int {\bfseries on\+Method\+Call} (sd\+\_\+bus\+\_\+message $\ast$reply, void $\ast$user\+Data, void $\ast$ret\+Error)
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a91f7d650fa4acf1beae9effab514333c}\label{classSDBusIpcService_a91f7d650fa4acf1beae9effab514333c}} 
+static int {\bfseries on\+Method\+Reply} (sd\+\_\+bus\+\_\+message $\ast$reply, void $\ast$user\+Data, void $\ast$ret\+Error)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_ad21d9983d57c01280ee634a8e17043fe}\label{classSDBusIpcService_ad21d9983d57c01280ee634a8e17043fe}} 
+uint64\+\_\+t {\bfseries m\+Default\+Timeout\+Usecs}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a9ca117d2a78fcda5a5ec6e7171345531}\label{classSDBusIpcService_a9ca117d2a78fcda5a5ec6e7171345531}} 
+std\+::thread {\bfseries m\+Thread}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a5ca9964b0aa17354fe37e75c5e2ad486}\label{classSDBusIpcService_a5ca9964b0aa17354fe37e75c5e2ad486}} 
+sd\+\_\+bus $\ast$ {\bfseries m\+SDBus}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_add098e0b4b26b88b6b03b877d59c3695}\label{classSDBusIpcService_add098e0b4b26b88b6b03b877d59c3695}} 
+std\+::atomic$<$ bool $>$ {\bfseries m\+Started}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_ad5d54339e61fe4ba6afa528f20248956}\label{classSDBusIpcService_ad5d54339e61fe4ba6afa528f20248956}} 
+bool {\bfseries m\+Valid}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a59386482138e51625347594f7a71fbcb}\label{classSDBusIpcService_a59386482138e51625347594f7a71fbcb}} 
+uint64\+\_\+t {\bfseries m\+Handler\+Tag}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a27ee5becba25f8370f1963d6286f591f}\label{classSDBusIpcService_a27ee5becba25f8370f1963d6286f591f}} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{structSDBusIpcService_1_1RegisteredMethod}{Registered\+Method}} $>$ {\bfseries m\+Method\+Handlers}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a2481b863efbc86ffd51c194b141c663b}\label{classSDBusIpcService_a2481b863efbc86ffd51c194b141c663b}} 
+std\+::map$<$ std\+::string, \mbox{\hyperlink{structSDBusIpcService_1_1RegisteredSignal}{Registered\+Signal}} $>$ {\bfseries m\+Signal\+Handlers}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_aa14f76da88b0d46e246fd3ef7fbc8e90}\label{classSDBusIpcService_aa14f76da88b0d46e246fd3ef7fbc8e90}} 
+uint64\+\_\+t {\bfseries m\+Exec\+Counter}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a0d1f467e445612fb49e1d4d00b9eca1d}\label{classSDBusIpcService_a0d1f467e445612fb49e1d4d00b9eca1d}} 
+uint64\+\_\+t {\bfseries m\+Last\+Exec\+Tag}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a0f352456956b88cb224851deb4e19926}\label{classSDBusIpcService_a0f352456956b88cb224851deb4e19926}} 
+int {\bfseries m\+Exec\+Event\+Fd}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_ac3728c1fe4d6d6bb3babd616db666d34}\label{classSDBusIpcService_ac3728c1fe4d6d6bb3babd616db666d34}} 
+std\+::mutex {\bfseries m\+Exec\+Lock}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a96be47f890563fcb0806e1f9a2240dcf}\label{classSDBusIpcService_a96be47f890563fcb0806e1f9a2240dcf}} 
+std\+::condition\+\_\+variable {\bfseries m\+Exec\+Cond}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a6ba899bd1496f8a0f37511511bebad20}\label{classSDBusIpcService_a6ba899bd1496f8a0f37511511bebad20}} 
+std\+::deque$<$ \mbox{\hyperlink{structSDBusIpcService_1_1Executor}{Executor}} $>$ {\bfseries m\+Exec\+Queue}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a894be437f5734cb76723b261c735e741}\label{classSDBusIpcService_a894be437f5734cb76723b261c735e741}} 
+std\+::map$<$ uint64\+\_\+t, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSDBusAsyncReplyGetter}{SDBus\+Async\+Reply\+Getter}} $>$ $>$ {\bfseries m\+Calls}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a8c7598dc3eb25217bb0bee4508481bf2}\label{classSDBusIpcService_a8c7598dc3eb25217bb0bee4508481bf2}} 
+std\+::map$<$ uint32\+\_\+t, sd\+\_\+bus\+\_\+message $\ast$ $>$ {\bfseries m\+Call\+Replies}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a6051747a87029c40675da0ece049112a}\label{classSDBusIpcService_a6051747a87029c40675da0ece049112a}} 
+std\+::queue$<$ uint32\+\_\+t $>$ {\bfseries m\+Reply\+Identifiers}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSDBusIpcService_a6a32bbbb0464e119f9f04ac553af7a58}\label{classSDBusIpcService_a6a32bbbb0464e119f9f04ac553af7a58}} 
+class {\bfseries SDBus\+Async\+Reply\+Sender}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSDBusIpcService_ac662e758328deef6187abc339bbd2050}\label{classSDBusIpcService_ac662e758328deef6187abc339bbd2050}} 
+\index{SDBusIpcService@{SDBusIpcService}!disableMonitor@{disableMonitor}}
+\index{disableMonitor@{disableMonitor}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{disableMonitor()}{disableMonitor()}}
+{\footnotesize\ttfamily bool SDBus\+Ipc\+Service\+::disable\+Monitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a66ac0e4572db1ee18e8522f533987228}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a4d1d6d151e22e775ab8e47b38166005c}\label{classSDBusIpcService_a4d1d6d151e22e775ab8e47b38166005c}} 
+\index{SDBusIpcService@{SDBusIpcService}!emitSignal@{emitSignal}}
+\index{emitSignal@{emitSignal}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{emitSignal()}{emitSignal()}}
+{\footnotesize\ttfamily bool SDBus\+Ipc\+Service\+::emit\+Signal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} \&}]{signal,  }\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a978d4b9b348675a36ea6f3b52b5c4ddc}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a121952fade4d11322070224e0782c8c2}\label{classSDBusIpcService_a121952fade4d11322070224e0782c8c2}} 
+\index{SDBusIpcService@{SDBusIpcService}!enableMonitor@{enableMonitor}}
+\index{enableMonitor@{enableMonitor}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{enableMonitor()}{enableMonitor()}}
+{\footnotesize\ttfamily bool SDBus\+Ipc\+Service\+::enable\+Monitor (\begin{DoxyParamCaption}\item[{const std\+::set$<$ std\+::string $>$ \&}]{match\+Rules,  }\item[{const AI\+\_\+\+IPC\+::\+Monitor\+Handler \&}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a86e1d81176c9c69d0c4078345b8eaf69}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a8bab6db74aa9d66f53d97d0c31e2c76b}\label{classSDBusIpcService_a8bab6db74aa9d66f53d97d0c31e2c76b}} 
+\index{SDBusIpcService@{SDBusIpcService}!flush@{flush}}
+\index{flush@{flush}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily void SDBus\+Ipc\+Service\+::flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+This is a NOP for the SDBus implementation. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a498461ed015c331ea10ec1bb68724aa6}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a18e3035501f3b53c8d86792af50eda1a}\label{classSDBusIpcService_a18e3035501f3b53c8d86792af50eda1a}} 
+\index{SDBusIpcService@{SDBusIpcService}!getBusAddress@{getBusAddress}}
+\index{getBusAddress@{getBusAddress}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{getBusAddress()}{getBusAddress()}}
+{\footnotesize\ttfamily std\+::string SDBus\+Ipc\+Service\+::get\+Bus\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a5b80d9555f4b0fe11d704caaba008f16}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a71f0e60279bb15570bb473fe14dd82ad}\label{classSDBusIpcService_a71f0e60279bb15570bb473fe14dd82ad}} 
+\index{SDBusIpcService@{SDBusIpcService}!invokeMethod@{invokeMethod}}
+\index{invokeMethod@{invokeMethod}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{invokeMethod()}{invokeMethod()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool SDBus\+Ipc\+Service\+::invoke\+Method (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&}]{method,  }\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{args,  }\item[{AI\+\_\+\+IPC\+::\+Variant\+List \&}]{reply\+Args,  }\item[{int}]{timeout\+Ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_ac165426012fc609627410bba146d7b75}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_ad3ecfc0eb95173ec8be6c7c5a2f36721}\label{classSDBusIpcService_ad3ecfc0eb95173ec8be6c7c5a2f36721}} 
+\index{SDBusIpcService@{SDBusIpcService}!invokeMethod@{invokeMethod}}
+\index{invokeMethod@{invokeMethod}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{invokeMethod()}{invokeMethod()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplyGetter}{IAsync\+Reply\+Getter}} $>$ SDBus\+Ipc\+Service\+::invoke\+Method (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&}]{method,  }\item[{const AI\+\_\+\+IPC\+::\+Variant\+List \&}]{args,  }\item[{int}]{timeout\+Ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_afc594ab5e4901c867bbf4406b0ad7310}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a8dbea517feac75cb2781fd334d84cc03}\label{classSDBusIpcService_a8dbea517feac75cb2781fd334d84cc03}} 
+\index{SDBusIpcService@{SDBusIpcService}!isServiceAvailable@{isServiceAvailable}}
+\index{isServiceAvailable@{isServiceAvailable}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{isServiceAvailable()}{isServiceAvailable()}}
+{\footnotesize\ttfamily bool SDBus\+Ipc\+Service\+::is\+Service\+Available (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{service\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Checks if the service with the given name {\itshape service\+Name} is registered on the bus and therefore available. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a6ab4e79545b182becef319ea3e1be968}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_aeaea745e35a48cf7f0a925d477e59730}\label{classSDBusIpcService_aeaea745e35a48cf7f0a925d477e59730}} 
+\index{SDBusIpcService@{SDBusIpcService}!isValid@{isValid}}
+\index{isValid@{isValid}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool SDBus\+Ipc\+Service\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns true if we initialised ourselves successfully. 
+
+\begin{DoxyReturn}{Returns}
+True if the service was initialised successfully. False if we failed to initialise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a7d3732611d03cdcb087a7cae159c5bec}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a26ccee7079ca00c132ebf747496563e1}\label{classSDBusIpcService_a26ccee7079ca00c132ebf747496563e1}} 
+\index{SDBusIpcService@{SDBusIpcService}!registerMethodHandler@{registerMethodHandler}}
+\index{registerMethodHandler@{registerMethodHandler}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{registerMethodHandler()}{registerMethodHandler()}}
+{\footnotesize\ttfamily std\+::string SDBus\+Ipc\+Service\+::register\+Method\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Method}{AI\+\_\+\+IPC\+::\+Method}} \&}]{method,  }\item[{const AI\+\_\+\+IPC\+::\+Method\+Handler \&}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a1691c3775a36c6176a6f2048bac542e0}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a7742f57e9cf9ae4cd6d1b3409299613b}\label{classSDBusIpcService_a7742f57e9cf9ae4cd6d1b3409299613b}} 
+\index{SDBusIpcService@{SDBusIpcService}!registerSignalHandler@{registerSignalHandler}}
+\index{registerSignalHandler@{registerSignalHandler}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{registerSignalHandler()}{registerSignalHandler()}}
+{\footnotesize\ttfamily std\+::string SDBus\+Ipc\+Service\+::register\+Signal\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Signal}{AI\+\_\+\+IPC\+::\+Signal}} \&}]{signal,  }\item[{const AI\+\_\+\+IPC\+::\+Signal\+Handler \&}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_af4460211de8c7a7b0dff13c7a6d3246c}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a177dc1c593e938aac399be4aee8ee97a}\label{classSDBusIpcService_a177dc1c593e938aac399be4aee8ee97a}} 
+\index{SDBusIpcService@{SDBusIpcService}!start@{start}}
+\index{start@{start}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily bool SDBus\+Ipc\+Service\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Starts the \mbox{\hyperlink{classIpcService}{Ipc\+Service}}, this is a bit of NOP for sd-\/bus, it just sets a flag to say that handlers will now be called. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a4950f93c98f60d1cab672744119de44a}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_a123d068c15def8f7521470ffad39b6f1}\label{classSDBusIpcService_a123d068c15def8f7521470ffad39b6f1}} 
+\index{SDBusIpcService@{SDBusIpcService}!stop@{stop}}
+\index{stop@{stop}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily bool SDBus\+Ipc\+Service\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Stops the \mbox{\hyperlink{classIpcService}{Ipc\+Service}} by terminating the event loop thread. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_ab21b638ab17be229062ceb4bca31fd34}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+\mbox{\Hypertarget{classSDBusIpcService_ae06046438971c5f46c4da8f315de1086}\label{classSDBusIpcService_ae06046438971c5f46c4da8f315de1086}} 
+\index{SDBusIpcService@{SDBusIpcService}!unregisterHandler@{unregisterHandler}}
+\index{unregisterHandler@{unregisterHandler}!SDBusIpcService@{SDBusIpcService}}
+\doxysubsubsection{\texorpdfstring{unregisterHandler()}{unregisterHandler()}}
+{\footnotesize\ttfamily bool SDBus\+Ipc\+Service\+::unregister\+Handler (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{reg\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Implements \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a6ac0fec32ad8d21a5295a7c1df51fc42}{AI\+\_\+\+IPC\+::\+IIpc\+Service}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/source/sdbus/SDBus\+Ipc\+Service.\+h\item 
+App\+Infrastructure/\+Ipc\+Service/source/sdbus/SDBus\+Ipc\+Service.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,32 @@
+\hypertarget{classAICommon_1_1Spinlock}{}\doxysection{AICommon\+::Spinlock Class Reference}
+\label{classAICommon_1_1Spinlock}\index{AICommon::Spinlock@{AICommon::Spinlock}}
+
+
+{\ttfamily \#include $<$Spin\+Lock.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Spinlock_a59f3759c64b372a6a6c95d54eb66e797}\label{classAICommon_1_1Spinlock_a59f3759c64b372a6a6c95d54eb66e797}} 
+void {\bfseries lock} ()
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Spinlock_a76ee5d933cdb0ff7826b3eec59af76a3}\label{classAICommon_1_1Spinlock_a76ee5d933cdb0ff7826b3eec59af76a3}} 
+void {\bfseries unlock} ()
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Spinlock_a667deda6578ad530e943aa0f26c2b06c}\label{classAICommon_1_1Spinlock_a667deda6578ad530e943aa0f26c2b06c}} 
+bool {\bfseries try\+\_\+lock} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1Spinlock_a0023ed7761f6fa358270c1c88bfb7ff3}\label{classAICommon_1_1Spinlock_a0023ed7761f6fa358270c1c88bfb7ff3}} 
+std\+::atomic\+\_\+flag {\bfseries m\+Locked}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basic spinlock used in the \mbox{\hyperlink{classAICommon_1_1PollLoop}{Poll\+Loop}} and Jumper objects as locking is needed but a mutex is overkill. It has the same basic API as std\+::mutex so can be swapped out, in addition it implements the C++ Basic\+Lockable and Lockable requirements meaning it can be used as a template for std\+::unique\+\_\+lock and std\+::lock\+\_\+guard. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Common/include/Spin\+Lock.\+h\end{DoxyCompactItemize}

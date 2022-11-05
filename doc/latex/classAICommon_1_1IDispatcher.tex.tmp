@@ -1,0 +1,51 @@
+\hypertarget{classAICommon_1_1IDispatcher}{}\doxysection{AICommon\+::IDispatcher Class Reference}
+\label{classAICommon_1_1IDispatcher}\index{AICommon::IDispatcher@{AICommon::IDispatcher}}
+
+
+A dispatcher interface.  
+
+
+
+
+{\ttfamily \#include $<$IDispatcher.\+h$>$}
+
+
+
+Inheritance diagram for AICommon\+::IDispatcher\+:
+% FIG 0
+
+
+Collaboration diagram for AICommon\+::IDispatcher\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classAICommon_1_1IDispatcher_a7d488400d6249dc3456feaf1ad80e860}{post}} (std\+::function$<$ void()$>$ work)=0
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDispatcher_a7e2c831333f742bde55ba5d83223ea7d}\label{classAICommon_1_1IDispatcher_a7e2c831333f742bde55ba5d83223ea7d}} 
+virtual void \mbox{\hyperlink{classAICommon_1_1IDispatcher_a7e2c831333f742bde55ba5d83223ea7d}{sync}} ()=0
+\begin{DoxyCompactList}\small\item\em Ensures that anything that was in the queue before the call has been executed before returning. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAICommon_1_1IDispatcher_ae5d6f53385c01814042a2736f237a849}\label{classAICommon_1_1IDispatcher_ae5d6f53385c01814042a2736f237a849}} 
+virtual bool \mbox{\hyperlink{classAICommon_1_1IDispatcher_ae5d6f53385c01814042a2736f237a849}{invoked\+From\+Dispatcher\+Thread}} ()=0
+\begin{DoxyCompactList}\small\item\em If it is a threaded dispatcher then the dispatcher thread id, otherwise nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A dispatcher interface. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAICommon_1_1IDispatcher_a7d488400d6249dc3456feaf1ad80e860}\label{classAICommon_1_1IDispatcher_a7d488400d6249dc3456feaf1ad80e860}} 
+\index{AICommon::IDispatcher@{AICommon::IDispatcher}!post@{post}}
+\index{post@{post}!AICommon::IDispatcher@{AICommon::IDispatcher}}
+\doxysubsubsection{\texorpdfstring{post()}{post()}}
+{\footnotesize\ttfamily virtual void AICommon\+::\+IDispatcher\+::post (\begin{DoxyParamCaption}\item[{std\+::function$<$ void()$>$}]{work }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Post an item of work to be executed. 
+
+Implemented in \mbox{\hyperlink{classDobbyProxyNotifyDispatcher_ae3ba958bf2d1e1cc10a90e1cdda7616c}{Dobby\+Proxy\+Notify\+Dispatcher}}, and \mbox{\hyperlink{classAICommon_1_1ThreadedDispatcher_a82f37e1c9e1bea9ac804fea058c58f2b}{AICommon\+::\+Threaded\+Dispatcher}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Public/\+Common/IDispatcher.\+h\end{DoxyCompactItemize}

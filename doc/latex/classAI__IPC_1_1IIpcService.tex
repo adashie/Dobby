@@ -1,0 +1,338 @@
+\hypertarget{classAI__IPC_1_1IIpcService}{}\doxysection{AI\+\_\+\+IPC\+::IIpc\+Service Class Reference}
+\label{classAI__IPC_1_1IIpcService}\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+
+
+IPC service that enables us to invoke remote method and emit signals as well as to handle incoming method calls and received signals.  
+
+
+
+
+{\ttfamily \#include $<$IIpc\+Service.\+h$>$}
+
+
+
+Inheritance diagram for AI\+\_\+\+IPC\+::IIpc\+Service\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a7d3732611d03cdcb087a7cae159c5bec}{is\+Valid}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns true if we initialised ourselves successfully. \end{DoxyCompactList}\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classAI__IPC_1_1IAsyncReplyGetter}{IAsync\+Reply\+Getter}} $>$ \mbox{\hyperlink{classAI__IPC_1_1IIpcService_afc594ab5e4901c867bbf4406b0ad7310}{invoke\+Method}} (const \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} \&method, const Variant\+List \&args, int timeout\+Ms=-\/1)=0
+\begin{DoxyCompactList}\small\item\em Invoke a method and get reply asynchronously. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IIpcService_ac165426012fc609627410bba146d7b75}{invoke\+Method}} (const \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} \&method, const Variant\+List \&args, Variant\+List \&reply\+Args, int timeout\+Ms=-\/1)=0
+\begin{DoxyCompactList}\small\item\em Invoke a method and get reply synchronously. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a978d4b9b348675a36ea6f3b52b5c4ddc}{emit\+Signal}} (const \mbox{\hyperlink{structAI__IPC_1_1Signal}{Signal}} \&signal, const Variant\+List \&args)=0
+\begin{DoxyCompactList}\small\item\em Emit a signal. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a1691c3775a36c6176a6f2048bac542e0}{register\+Method\+Handler}} (const \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} \&method, const Method\+Handler \&handler)=0
+\begin{DoxyCompactList}\small\item\em Register a method handler. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classAI__IPC_1_1IIpcService_af4460211de8c7a7b0dff13c7a6d3246c}{register\+Signal\+Handler}} (const \mbox{\hyperlink{structAI__IPC_1_1Signal}{Signal}} \&signal, const Signal\+Handler \&handler)=0
+\begin{DoxyCompactList}\small\item\em Register a signal handler. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a6ac0fec32ad8d21a5295a7c1df51fc42}{unregister\+Handler}} (const std\+::string \&reg\+Id)=0
+\begin{DoxyCompactList}\small\item\em Unregister a method or signal handler. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a86e1d81176c9c69d0c4078345b8eaf69}{enable\+Monitor}} (const std\+::set$<$ std\+::string $>$ \&match\+Rules, const Monitor\+Handler \&handler)=0
+\begin{DoxyCompactList}\small\item\em Enables monitor mode for the service. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a66ac0e4572db1ee18e8522f533987228}{disable\+Monitor}} ()=0
+\begin{DoxyCompactList}\small\item\em Disables monitor mode for the service. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a6ab4e79545b182becef319ea3e1be968}{is\+Service\+Available}} (const std\+::string \&service\+Name) const =0
+\begin{DoxyCompactList}\small\item\em Checks if the given service name is currently registered on the bus. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a498461ed015c331ea10ec1bb68724aa6}{flush}} ()=0
+\begin{DoxyCompactList}\small\item\em Flushes all messages out. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a4950f93c98f60d1cab672744119de44a}{start}} ()=0
+\begin{DoxyCompactList}\small\item\em Start IPC service. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classAI__IPC_1_1IIpcService_ab21b638ab17be229062ceb4bca31fd34}{stop}} ()=0
+\begin{DoxyCompactList}\small\item\em Stop IPC service. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classAI__IPC_1_1IIpcService_a5b80d9555f4b0fe11d704caaba008f16}{get\+Bus\+Address}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the dbus address the service is using. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+IPC service that enables us to invoke remote method and emit signals as well as to handle incoming method calls and received signals. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a66ac0e4572db1ee18e8522f533987228}\label{classAI__IPC_1_1IIpcService_a66ac0e4572db1ee18e8522f533987228}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!disableMonitor@{disableMonitor}}
+\index{disableMonitor@{disableMonitor}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{disableMonitor()}{disableMonitor()}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IIpc\+Service\+::disable\+Monitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Disables monitor mode for the service. 
+
+\begin{DoxyReturn}{Returns}
+On success\+: True. 
+
+On failure\+: False. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_ac662e758328deef6187abc339bbd2050}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_ad7682a0b3acd546a0f4f09081e5cde6e}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a978d4b9b348675a36ea6f3b52b5c4ddc}\label{classAI__IPC_1_1IIpcService_a978d4b9b348675a36ea6f3b52b5c4ddc}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!emitSignal@{emitSignal}}
+\index{emitSignal@{emitSignal}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{emitSignal()}{emitSignal()}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IIpc\+Service\+::emit\+Signal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Signal}{Signal}} \&}]{signal,  }\item[{const Variant\+List \&}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Emit a signal. 
+
+@parameter\mbox{[}in\mbox{]} signal \mbox{\hyperlink{structAI__IPC_1_1Signal}{Signal}} definition @parameter\mbox{[}in\mbox{]} args \mbox{\hyperlink{structAI__IPC_1_1Signal}{Signal}} arguments/data
+
+\begin{DoxyReturn}{Returns}
+On success\+: True. 
+
+On failure\+: False. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_a4d1d6d151e22e775ab8e47b38166005c}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_af9962a553561ec2605aa21304804ff0c}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a86e1d81176c9c69d0c4078345b8eaf69}\label{classAI__IPC_1_1IIpcService_a86e1d81176c9c69d0c4078345b8eaf69}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!enableMonitor@{enableMonitor}}
+\index{enableMonitor@{enableMonitor}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{enableMonitor()}{enableMonitor()}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IIpc\+Service\+::enable\+Monitor (\begin{DoxyParamCaption}\item[{const std\+::set$<$ std\+::string $>$ \&}]{match\+Rules,  }\item[{const Monitor\+Handler \&}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Enables monitor mode for the service. 
+
+@parameter\mbox{[}in\mbox{]} match\+Rules Optional set of match rules for monitor mode, can be empty @parameter\mbox{[}in\mbox{]} handler Handler callback for all events received in monitor mode
+
+\begin{DoxyReturn}{Returns}
+On success\+: True. 
+
+On failure\+: False. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_a121952fade4d11322070224e0782c8c2}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_a6ca2bb613f3c58b0c56d676df3f7d4d6}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a498461ed015c331ea10ec1bb68724aa6}\label{classAI__IPC_1_1IIpcService_a498461ed015c331ea10ec1bb68724aa6}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!flush@{flush}}
+\index{flush@{flush}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily virtual void AI\+\_\+\+IPC\+::\+IIpc\+Service\+::flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Flushes all messages out. 
+
+This method ensures that any message or signal handlers queued before this function was called are processed before the function returns.
+
+For obvious reasons do not hold any lock that a handler might need while calling this function. 
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_a8bab6db74aa9d66f53d97d0c31e2c76b}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_a1011b5f0b5589bec049044acc60871c7}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a5b80d9555f4b0fe11d704caaba008f16}\label{classAI__IPC_1_1IIpcService_a5b80d9555f4b0fe11d704caaba008f16}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!getBusAddress@{getBusAddress}}
+\index{getBusAddress@{getBusAddress}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{getBusAddress()}{getBusAddress()}}
+{\footnotesize\ttfamily virtual std\+::string AI\+\_\+\+IPC\+::\+IIpc\+Service\+::get\+Bus\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the dbus address the service is using. 
+
+Note the address is formatted like a dbus address and is NOT just the path to the unix socket.
+
+\begin{DoxyReturn}{Returns}
+The dbus address. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_a18e3035501f3b53c8d86792af50eda1a}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_a4b3063972628f711f9c06110a46df3cd}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_afc594ab5e4901c867bbf4406b0ad7310}\label{classAI__IPC_1_1IIpcService_afc594ab5e4901c867bbf4406b0ad7310}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!invokeMethod@{invokeMethod}}
+\index{invokeMethod@{invokeMethod}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{invokeMethod()}{invokeMethod()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classAI__IPC_1_1IAsyncReplyGetter}{IAsync\+Reply\+Getter}}$>$ AI\+\_\+\+IPC\+::\+IIpc\+Service\+::invoke\+Method (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} \&}]{method,  }\item[{const Variant\+List \&}]{args,  }\item[{int}]{timeout\+Ms = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Invoke a method and get reply asynchronously. 
+
+@parameter\mbox{[}in\mbox{]} method \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} definition @parameter\mbox{[}in\mbox{]} args \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} arguments @parameter\mbox{[}in\mbox{]} timeout\+Ms Timeout in milliseconds, -\/1 for default (30 seconds)
+
+\begin{DoxyReturn}{Returns}
+On success\+: Shared pointer pointing to a reply getter to receive reply asynchronously. 
+
+On failure\+: Empty shared pointer. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classIpcService_af342303de84e188a478fd7721cb4e930}{Ipc\+Service}}, and \mbox{\hyperlink{classSDBusIpcService_ad3ecfc0eb95173ec8be6c7c5a2f36721}{SDBus\+Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_ac165426012fc609627410bba146d7b75}\label{classAI__IPC_1_1IIpcService_ac165426012fc609627410bba146d7b75}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!invokeMethod@{invokeMethod}}
+\index{invokeMethod@{invokeMethod}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{invokeMethod()}{invokeMethod()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IIpc\+Service\+::invoke\+Method (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} \&}]{method,  }\item[{const Variant\+List \&}]{args,  }\item[{Variant\+List \&}]{reply\+Args,  }\item[{int}]{timeout\+Ms = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Invoke a method and get reply synchronously. 
+
+@parameter\mbox{[}in\mbox{]} method \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} definition @parameter\mbox{[}in\mbox{]} args \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} arguments @parameter\mbox{[}in\mbox{]} reply\+Args Reply return by the method call @parameter\mbox{[}in\mbox{]} timeout\+Ms Timeout in milliseconds, -\/1 for default (30 seconds)
+
+\begin{DoxyReturn}{Returns}
+On success\+: True. 
+
+On failure\+: False. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classIpcService_a44453a07378eccdc5b74d08699e7b84b}{Ipc\+Service}}, and \mbox{\hyperlink{classSDBusIpcService_a71f0e60279bb15570bb473fe14dd82ad}{SDBus\+Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a6ab4e79545b182becef319ea3e1be968}\label{classAI__IPC_1_1IIpcService_a6ab4e79545b182becef319ea3e1be968}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!isServiceAvailable@{isServiceAvailable}}
+\index{isServiceAvailable@{isServiceAvailable}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{isServiceAvailable()}{isServiceAvailable()}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IIpc\+Service\+::is\+Service\+Available (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{service\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checks if the given service name is currently registered on the bus. 
+
+@parameter\mbox{[}in\mbox{]} service\+Name The name of the service to look for
+
+\begin{DoxyReturn}{Returns}
+On success\+: True. 
+
+On failure\+: False. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_a8dbea517feac75cb2781fd334d84cc03}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_af3b02ea4009c1f61dce173f9c954e941}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a7d3732611d03cdcb087a7cae159c5bec}\label{classAI__IPC_1_1IIpcService_a7d3732611d03cdcb087a7cae159c5bec}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!isValid@{isValid}}
+\index{isValid@{isValid}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IIpc\+Service\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns true if we initialised ourselves successfully. 
+
+\begin{DoxyReturn}{Returns}
+True if the service was initialised successfully. False if we failed to initialise 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_aeaea745e35a48cf7f0a925d477e59730}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_af596f6d5bec85ec7eb4ffae7111037af}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a1691c3775a36c6176a6f2048bac542e0}\label{classAI__IPC_1_1IIpcService_a1691c3775a36c6176a6f2048bac542e0}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!registerMethodHandler@{registerMethodHandler}}
+\index{registerMethodHandler@{registerMethodHandler}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{registerMethodHandler()}{registerMethodHandler()}}
+{\footnotesize\ttfamily virtual std\+::string AI\+\_\+\+IPC\+::\+IIpc\+Service\+::register\+Method\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} \&}]{method,  }\item[{const Method\+Handler \&}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Register a method handler. 
+
+@parameter\mbox{[}in\mbox{]} method \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} definition @parameter\mbox{[}in\mbox{]} handler \mbox{\hyperlink{structAI__IPC_1_1Method}{Method}} handler
+
+\begin{DoxyReturn}{Returns}
+On success\+: Registration ID. 
+
+On failure\+: Empty string. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_a26ccee7079ca00c132ebf747496563e1}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_a46658b010b3fbb0249bc37376595cf33}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_af4460211de8c7a7b0dff13c7a6d3246c}\label{classAI__IPC_1_1IIpcService_af4460211de8c7a7b0dff13c7a6d3246c}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!registerSignalHandler@{registerSignalHandler}}
+\index{registerSignalHandler@{registerSignalHandler}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{registerSignalHandler()}{registerSignalHandler()}}
+{\footnotesize\ttfamily virtual std\+::string AI\+\_\+\+IPC\+::\+IIpc\+Service\+::register\+Signal\+Handler (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAI__IPC_1_1Signal}{Signal}} \&}]{signal,  }\item[{const Signal\+Handler \&}]{handler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Register a signal handler. 
+
+@parameter\mbox{[}in\mbox{]} method \mbox{\hyperlink{structAI__IPC_1_1Signal}{Signal}} definition @parameter\mbox{[}in\mbox{]} handler \mbox{\hyperlink{structAI__IPC_1_1Signal}{Signal}} handler
+
+\begin{DoxyReturn}{Returns}
+On success\+: Registration ID. 
+
+On failure\+: Empty string. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_a7742f57e9cf9ae4cd6d1b3409299613b}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_abb2f3e3e96d5b4e272c56f739973950f}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a4950f93c98f60d1cab672744119de44a}\label{classAI__IPC_1_1IIpcService_a4950f93c98f60d1cab672744119de44a}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!start@{start}}
+\index{start@{start}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IIpc\+Service\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Start IPC service. 
+
+It needs to be invoked to start the event dispatcher, which is required to handle method and signals, as well as to get method call reply.
+
+\begin{DoxyReturn}{Returns}
+On success\+: True. 
+
+On failure\+: False. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_a177dc1c593e938aac399be4aee8ee97a}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_a0a9be1b370da1db371c85771493e5fc0}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_ab21b638ab17be229062ceb4bca31fd34}\label{classAI__IPC_1_1IIpcService_ab21b638ab17be229062ceb4bca31fd34}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!stop@{stop}}
+\index{stop@{stop}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IIpc\+Service\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Stop IPC service. 
+
+The event dispatcher thread will be terminated.
+
+\begin{DoxyReturn}{Returns}
+On success\+: True. 
+
+On failure\+: False. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_a123d068c15def8f7521470ffad39b6f1}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_ae321ebade3fb4da4c453e6dcb66bb6b4}{Ipc\+Service}}.
+
+\mbox{\Hypertarget{classAI__IPC_1_1IIpcService_a6ac0fec32ad8d21a5295a7c1df51fc42}\label{classAI__IPC_1_1IIpcService_a6ac0fec32ad8d21a5295a7c1df51fc42}} 
+\index{AI\_IPC::IIpcService@{AI\_IPC::IIpcService}!unregisterHandler@{unregisterHandler}}
+\index{unregisterHandler@{unregisterHandler}!AI\_IPC::IIpcService@{AI\_IPC::IIpcService}}
+\doxysubsubsection{\texorpdfstring{unregisterHandler()}{unregisterHandler()}}
+{\footnotesize\ttfamily virtual bool AI\+\_\+\+IPC\+::\+IIpc\+Service\+::unregister\+Handler (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{reg\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Unregister a method or signal handler. 
+
+@parameter\mbox{[}in\mbox{]} reg\+Id Registration Id
+
+\begin{DoxyReturn}{Returns}
+On success\+: True. 
+
+On failure\+: False. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classSDBusIpcService_ae06046438971c5f46c4da8f315de1086}{SDBus\+Ipc\+Service}}, and \mbox{\hyperlink{classIpcService_a98de18a9ca4ff3ee3da0b46b1298036b}{Ipc\+Service}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/include/IIpc\+Service.\+h\end{DoxyCompactItemize}

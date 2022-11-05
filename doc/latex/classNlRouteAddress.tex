@@ -1,0 +1,53 @@
+\hypertarget{classNlRouteAddress}{}\doxysection{Nl\+Route\+Address Class Reference}
+\label{classNlRouteAddress}\index{NlRouteAddress@{NlRouteAddress}}
+
+
+Wrapper around the rtnl\+\_\+addr object.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNlRouteAddress_a1779b50fe77a04b266a27f7cf04fc308}\label{classNlRouteAddress_a1779b50fe77a04b266a27f7cf04fc308}} 
+{\bfseries Nl\+Route\+Address} (in\+\_\+addr\+\_\+t address, in\+\_\+addr\+\_\+t netmask=0xffffffff)
+\item 
+\mbox{\Hypertarget{classNlRouteAddress_ae3c850c05c65129d8c2c3a16b3948351}\label{classNlRouteAddress_ae3c850c05c65129d8c2c3a16b3948351}} 
+{\bfseries Nl\+Route\+Address} (struct in6\+\_\+addr address, int netmask=128)
+\item 
+\mbox{\Hypertarget{classNlRouteAddress_a3e90c9ea733ceac2851dd15bebd9fa70}\label{classNlRouteAddress_a3e90c9ea733ceac2851dd15bebd9fa70}} 
+{\bfseries operator bool} () const noexcept
+\item 
+\mbox{\Hypertarget{classNlRouteAddress_a86e8eaf29034854ecca7f5d920584ad8}\label{classNlRouteAddress_a86e8eaf29034854ecca7f5d920584ad8}} 
+{\bfseries operator struct rtnl\+\_\+addr $\ast$} () const noexcept
+\item 
+\mbox{\Hypertarget{classNlRouteAddress_ae130cf95ceecb996d2e89bd5529ed145}\label{classNlRouteAddress_ae130cf95ceecb996d2e89bd5529ed145}} 
+std\+::string {\bfseries to\+String} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNlRouteAddress_aa29a7ac24fdcc41620983ffa29f23e67}\label{classNlRouteAddress_aa29a7ac24fdcc41620983ffa29f23e67}} 
+static struct rtnl\+\_\+addr $\ast$ {\bfseries from\+Ipv4} (in\+\_\+addr\+\_\+t address, in\+\_\+addr\+\_\+t netmask)
+\item 
+\mbox{\Hypertarget{classNlRouteAddress_abca0e8861dcd6c61dbd180b6f506b5d1}\label{classNlRouteAddress_abca0e8861dcd6c61dbd180b6f506b5d1}} 
+static struct rtnl\+\_\+addr $\ast$ {\bfseries from\+Ipv6} (struct in6\+\_\+addr address, int netmask)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNlRouteAddress_aa16307b83aba723f0640736d3158dac2}\label{classNlRouteAddress_aa16307b83aba723f0640736d3158dac2}} 
+struct rtnl\+\_\+addr $\ast$const {\bfseries m\+Address}
+\item 
+\mbox{\Hypertarget{classNlRouteAddress_a0914093b7eba0c0a78e9dc2be20a02b0}\label{classNlRouteAddress_a0914093b7eba0c0a78e9dc2be20a02b0}} 
+int {\bfseries m\+Address\+Family}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Wrapper around the rtnl\+\_\+addr object. 
+
+Simple wrapper used to handle construction and safe destruction of a rtnl addr object. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Networking/source/Netlink.\+cpp\end{DoxyCompactItemize}

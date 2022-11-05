@@ -1,0 +1,105 @@
+\hypertarget{classRefCountFile}{}\doxysection{Ref\+Count\+File Class Reference}
+\label{classRefCountFile}\index{RefCountFile@{RefCountFile}}
+
+
+Class that represents a reference count file.  
+
+
+
+
+{\ttfamily \#include $<$Ref\+Count\+File.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRefCountFile_a61aa4edcd4f12c5712498824616e8953}\label{classRefCountFile_a61aa4edcd4f12c5712498824616e8953}} 
+{\bfseries Ref\+Count\+File} (std\+::string file)
+\item 
+\mbox{\Hypertarget{classRefCountFile_aaa85180392489386f985fdc4e1cc4ca7}\label{classRefCountFile_aaa85180392489386f985fdc4e1cc4ca7}} 
+bool {\bfseries Is\+Open} () const
+\item 
+\mbox{\Hypertarget{classRefCountFile_ab412ae11f6dba50ddead619c4a72c50f}\label{classRefCountFile_ab412ae11f6dba50ddead619c4a72c50f}} 
+const std\+::string \& {\bfseries Get\+File\+Path} () const
+\item 
+\mbox{\Hypertarget{classRefCountFile_ac2467b8a256f46d2a9e83ec9b8780aaf}\label{classRefCountFile_ac2467b8a256f46d2a9e83ec9b8780aaf}} 
+void {\bfseries Lock} ()
+\item 
+\mbox{\Hypertarget{classRefCountFile_a8cd0a4b324912720b2c09e708e5f542c}\label{classRefCountFile_a8cd0a4b324912720b2c09e708e5f542c}} 
+void {\bfseries Unlock} ()
+\item 
+\mbox{\Hypertarget{classRefCountFile_a912cfd23af80c0e1cb9439c5e8ceea38}\label{classRefCountFile_a912cfd23af80c0e1cb9439c5e8ceea38}} 
+void \mbox{\hyperlink{classRefCountFile_a912cfd23af80c0e1cb9439c5e8ceea38}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset the reference count in the file if it is not 0. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRefCountFile_a26f04be58dbcc0a2dd63d80b73e75b38}\label{classRefCountFile_a26f04be58dbcc0a2dd63d80b73e75b38}} 
+int \mbox{\hyperlink{classRefCountFile_a26f04be58dbcc0a2dd63d80b73e75b38}{Increment}} ()
+\begin{DoxyCompactList}\small\item\em Increment the reference count in the file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRefCountFile_a5d468614fdb6a55a85a7b4c0c43f5b9b}\label{classRefCountFile_a5d468614fdb6a55a85a7b4c0c43f5b9b}} 
+int \mbox{\hyperlink{classRefCountFile_a5d468614fdb6a55a85a7b4c0c43f5b9b}{Decrement}} ()
+\begin{DoxyCompactList}\small\item\em Decrement the reference count in the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classRefCountFile_abb4ee775b1d75db98f51dd9e1d7cbdb1}{Read}} ()
+\begin{DoxyCompactList}\small\item\em Read the reference count file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRefCountFile_accbefe541fdd491c7c64300932f7fd13}\label{classRefCountFile_accbefe541fdd491c7c64300932f7fd13}} 
+void \mbox{\hyperlink{classRefCountFile_accbefe541fdd491c7c64300932f7fd13}{Close}} ()
+\begin{DoxyCompactList}\small\item\em Close the file descriptor if it\textquotesingle{}s not already closed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRefCountFile_a5d15eb13a702383b04386de80a630a4f}{Write}} (int ref)
+\begin{DoxyCompactList}\small\item\em Write the reference count to file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRefCountFile_aaef7844357bd92e84ad6501f6b990aaa}\label{classRefCountFile_aaef7844357bd92e84ad6501f6b990aaa}} 
+std\+::string {\bfseries m\+File\+Path}
+\item 
+\mbox{\Hypertarget{classRefCountFile_ad4a94728052167b16e490651992b5fef}\label{classRefCountFile_ad4a94728052167b16e490651992b5fef}} 
+int {\bfseries m\+Fd}
+\item 
+\mbox{\Hypertarget{classRefCountFile_af938e813c3cdd77d2823844468ee7f11}\label{classRefCountFile_af938e813c3cdd77d2823844468ee7f11}} 
+bool {\bfseries m\+Open}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that represents a reference count file. 
+
+This class is only intended to be used internally by \mbox{\hyperlink{classStorage}{Storage}} plugin do not use from external code.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classStorage}{Storage}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRefCountFile_abb4ee775b1d75db98f51dd9e1d7cbdb1}\label{classRefCountFile_abb4ee775b1d75db98f51dd9e1d7cbdb1}} 
+\index{RefCountFile@{RefCountFile}!Read@{Read}}
+\index{Read@{Read}!RefCountFile@{RefCountFile}}
+\doxysubsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily int Ref\+Count\+File\+::\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Read the reference count file. 
+
+\begin{DoxyReturn}{Returns}
+reference count 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRefCountFile_a5d15eb13a702383b04386de80a630a4f}\label{classRefCountFile_a5d15eb13a702383b04386de80a630a4f}} 
+\index{RefCountFile@{RefCountFile}!Write@{Write}}
+\index{Write@{Write}!RefCountFile@{RefCountFile}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily int Ref\+Count\+File\+::\+Write (\begin{DoxyParamCaption}\item[{int}]{ref }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Write the reference count to file. 
+
+\begin{DoxyReturn}{Returns}
+reference count 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Storage/source/Ref\+Count\+File.\+h\item 
+rdk\+Plugins/\+Storage/source/Ref\+Count\+File.\+cpp\end{DoxyCompactItemize}

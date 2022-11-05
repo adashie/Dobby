@@ -1,0 +1,364 @@
+\hypertarget{classNetfilter}{}\doxysection{Netfilter Class Reference}
+\label{classNetfilter}\index{Netfilter@{Netfilter}}
+
+
+Class that can read / write iptables rule sets.  
+
+
+
+
+{\ttfamily \#include $<$Netfilter.\+h$>$}
+
+
+
+Collaboration diagram for Netfilter\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNetfilter_1_1IptablesVersion}{Iptables\+Version}}
+\item 
+struct \mbox{\hyperlink{structNetfilter_1_1RuleSets}{Rule\+Sets}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetfilter_a5d9bb8ed665704dad8eef0e4f3b6b1fe}\label{classNetfilter_a5d9bb8ed665704dad8eef0e4f3b6b1fe}} 
+enum class {\bfseries Table\+Type} \{ \newline
+{\bfseries Invalid}
+, {\bfseries Raw}
+, {\bfseries Nat}
+, {\bfseries Mangle}
+, \newline
+{\bfseries Filter}
+, {\bfseries Security}
+ \}
+\item 
+\mbox{\Hypertarget{classNetfilter_aade76b2fef49e3f618dfff796a405773}\label{classNetfilter_aade76b2fef49e3f618dfff796a405773}} 
+enum class {\bfseries Operation} \{ {\bfseries Append}
+, {\bfseries Insert}
+, {\bfseries Delete}
+, {\bfseries Unchanged}
+ \}
+\item 
+\mbox{\Hypertarget{classNetfilter_a687f9053f31d2458d7914b4cba35710d}\label{classNetfilter_a687f9053f31d2458d7914b4cba35710d}} 
+typedef std\+::map$<$ Table\+Type, std\+::list$<$ std\+::string $>$ $>$ {\bfseries Rule\+Set}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Rule\+Set \mbox{\hyperlink{classNetfilter_af3954dfb0fbd37028a9816294d219e31}{rules}} (const int ip\+Version) const
+\begin{DoxyCompactList}\small\item\em Returns the current iptables ruleset. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetfilter_ada36b2505ca640a76bc8a7f8bfa48a90}\label{classNetfilter_ada36b2505ca640a76bc8a7f8bfa48a90}} 
+bool {\bfseries set\+Rules} (const Rule\+Set \&rule\+Set, const int ip\+Version)
+\item 
+bool \mbox{\hyperlink{classNetfilter_a3127e9514d7bc0edf4e7e36f8bc4484f}{add\+Rules}} (Rule\+Set \&rule\+Set, const int ip\+Version, Operation operation)
+\begin{DoxyCompactList}\small\item\em Adds rules to the internal rule caches. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetfilter_a8a5332c9a474a77f2f42d3578cfed593}{create\+New\+Chain}} (Table\+Type table, const std\+::string \&name, const int ip\+Version)
+\begin{DoxyCompactList}\small\item\em Creates a new IPTables chain with the given name and put it in the rule cache to write later. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetfilter_aa34e61aa7e0daa8a6e45622b588c394a}{apply\+Rules}} (const int ip\+Version)
+\begin{DoxyCompactList}\small\item\em Uses the iptables-\/restore tool to apply the rules stored in m\+Rulesets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetfilter_af0e677755e20579ee1368e4fb78a43ea}\label{classNetfilter_af0e677755e20579ee1368e4fb78a43ea}} 
+typedef struct \mbox{\hyperlink{structNetfilter_1_1RuleSets}{Netfilter\+::\+Rule\+Sets}} {\bfseries Rule\+Sets}
+\item 
+\mbox{\Hypertarget{classNetfilter_a513db17c5d2007a19052ec912d8fa0ff}\label{classNetfilter_a513db17c5d2007a19052ec912d8fa0ff}} 
+typedef struct \mbox{\hyperlink{structNetfilter_1_1IptablesVersion}{Netfilter\+::\+Iptables\+Version}} {\bfseries Iptables\+Version}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classNetfilter_a483c8c45f60f09106929b545ce3f2d25}{fork\+Exec}} (const std\+::string \&file, const std\+::list$<$ std\+::string $>$ \&args, int stdin\+Fd, int stdout\+Fd, int stderr\+Fd) const
+\begin{DoxyCompactList}\small\item\em Performs a fork/exec operation and waits for the child to terminate. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetfilter_a019d9c3936611bcaf63f10fd1cfbcbf6}{write\+String}} (int fd, const std\+::string \&str) const
+\begin{DoxyCompactList}\small\item\em Writes the string into the supplied file descriptor. \end{DoxyCompactList}\item 
+Rule\+Set \mbox{\hyperlink{classNetfilter_a57e3a7da569d093d02a798ccad024fe9}{get\+Rule\+Set}} (const int ip\+Version) const
+\begin{DoxyCompactList}\small\item\em Uses the iptables-\/save tool to get the current rules. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetfilter_a277bdb12c2b49ce94afd73e9d18d31c4}{rule\+In\+List}} (const std\+::string \&rule, const std\+::list$<$ std\+::string $>$ \&rules\+List) const
+\begin{DoxyCompactList}\small\item\em Returns true if the rule is in the rules\+List. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetfilter_ac44b3e828e91393f59e488e18052a385}{trim\+Duplicates}} (Rule\+Set \&existing, Rule\+Set \&new\+Rule\+Set, Operation operation) const
+\begin{DoxyCompactList}\small\item\em Trims duplicates from m\+Rule\+Sets based on the operation. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetfilter_a8e967d31fd479a371fabeecb0a6e9943}{check\+Duplicates}} (\mbox{\hyperlink{structNetfilter_1_1RuleSets}{Rule\+Sets}} rule\+Cache, const int ip\+Version) const
+\begin{DoxyCompactList}\small\item\em Checks all rulesets in a rule cache for duplicates to check which rules need to be applied. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetfilter_ab53e4233f324c6aa8d11d733521f0e64}\label{classNetfilter_ab53e4233f324c6aa8d11d733521f0e64}} 
+void \mbox{\hyperlink{classNetfilter_ab53e4233f324c6aa8d11d733521f0e64}{dump}} (const Rule\+Set \&rule\+Set, const char $\ast$title=nullptr) const
+\begin{DoxyCompactList}\small\item\em Debugging function to print out the supplied ruleset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNetfilter_1_1IptablesVersion}{Iptables\+Version}} \mbox{\hyperlink{classNetfilter_ad87c414535d82191017836507361b167}{get\+Iptables\+Version}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetfilter_a6ca7b667c1d1ee14fd5fb83b4a0a6fa7}\label{classNetfilter_a6ca7b667c1d1ee14fd5fb83b4a0a6fa7}} 
+\mbox{\hyperlink{structNetfilter_1_1RuleSets}{Rule\+Sets}} {\bfseries m\+Ipv4\+Rule\+Cache}
+\item 
+\mbox{\Hypertarget{classNetfilter_a503c0a919e3e47141c5eccaf05476599}\label{classNetfilter_a503c0a919e3e47141c5eccaf05476599}} 
+\mbox{\hyperlink{structNetfilter_1_1RuleSets}{Rule\+Sets}} {\bfseries m\+Ipv6\+Rule\+Cache}
+\item 
+\mbox{\Hypertarget{classNetfilter_a6d700a1d56b40285be3415701ab4ccf6}\label{classNetfilter_a6d700a1d56b40285be3415701ab4ccf6}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classNetfilter_a80c0a41cab5fe31733fa124be9ba232a}\label{classNetfilter_a80c0a41cab5fe31733fa124be9ba232a}} 
+\mbox{\hyperlink{structNetfilter_1_1IptablesVersion}{Iptables\+Version}} {\bfseries m\+Iptables\+Version}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that can read / write iptables rule sets. 
+
+There is no programming API for iptables, so this class uses the iptables-\/save and iptables-\/restore cmdline tools for reading and writing the rules.
+
+TODO\+: replace use of iptables-\/save and iptables-\/restore with libiptc 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetfilter_a3127e9514d7bc0edf4e7e36f8bc4484f}\label{classNetfilter_a3127e9514d7bc0edf4e7e36f8bc4484f}} 
+\index{Netfilter@{Netfilter}!addRules@{addRules}}
+\index{addRules@{addRules}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{addRules()}{addRules()}}
+{\footnotesize\ttfamily bool Netfilter\+::add\+Rules (\begin{DoxyParamCaption}\item[{Rule\+Set \&}]{rule\+Set,  }\item[{const int}]{ip\+Version,  }\item[{Operation}]{operation }\end{DoxyParamCaption})}
+
+
+
+Adds rules to the internal rule caches. 
+
+The rules are added to the correct cache depending on the input ip\+Version and operation type.
+
+ip\+Version is set to either AF\+\_\+\+INET or AF\+\_\+\+INET6 depending on whether the rule is an IPv4 rule for iptables or IPv6 rule for ip6tables.
+
+The operation types match the following iptables/ip6tables options\+: \begin{DoxyVerb}Netfilter::Append: -A
+Netfilter::Insert: -I
+Netfilter::Delete: -D
+Netfilter::Unchanged: not used in this method, @see createNewChain()
+\end{DoxyVerb}
+ NB\+: The rules are not written into iptables until the \mbox{\hyperlink{classNetfilter_aa34e61aa7e0daa8a6e45622b588c394a}{Netfilter\+::apply\+Rules()}} method is called.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rule\+Set} & The ruleset to apply. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ip\+Version} & iptables version to use. \\
+\hline
+\mbox{\texttt{ in}}  & {\em operation} & iptables operation to use for rules.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns true on success, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetfilter_aa34e61aa7e0daa8a6e45622b588c394a}\label{classNetfilter_aa34e61aa7e0daa8a6e45622b588c394a}} 
+\index{Netfilter@{Netfilter}!applyRules@{applyRules}}
+\index{applyRules@{applyRules}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{applyRules()}{applyRules()}}
+{\footnotesize\ttfamily bool Netfilter\+::apply\+Rules (\begin{DoxyParamCaption}\item[{const int}]{ip\+Version }\end{DoxyParamCaption})}
+
+
+
+Uses the iptables-\/restore tool to apply the rules stored in m\+Rulesets. 
+
+The method creates a pipe to feed in the rules to the iptables-\/restore cmdline app, it then writes all the rules from the ruleset correctly formatted.
+
+Its publicly stated that iptables doesn\textquotesingle{}t provide a stable C/\+C++ API for adding / removing rules, hence the reason we go to the extra pain of fork/exec. Running benchmark tests with an implementation of a libiptc wrapper resulted in slower results compared to using fork/exec \mbox{[}RDK-\/29283\mbox{]}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ip\+Version} & iptables version to use.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetfilter_a8e967d31fd479a371fabeecb0a6e9943}\label{classNetfilter_a8e967d31fd479a371fabeecb0a6e9943}} 
+\index{Netfilter@{Netfilter}!checkDuplicates@{checkDuplicates}}
+\index{checkDuplicates@{checkDuplicates}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{checkDuplicates()}{checkDuplicates()}}
+{\footnotesize\ttfamily bool Netfilter\+::check\+Duplicates (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNetfilter_1_1RuleSets}{Rule\+Sets}}}]{rule\+Cache,  }\item[{const int}]{ip\+Version }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks all rulesets in a rule cache for duplicates to check which rules need to be applied. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rule\+Cache} & cache of rules to check for duplicates. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ip\+Version} & iptables version to use.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there are any new rules to write, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetfilter_a8a5332c9a474a77f2f42d3578cfed593}\label{classNetfilter_a8a5332c9a474a77f2f42d3578cfed593}} 
+\index{Netfilter@{Netfilter}!createNewChain@{createNewChain}}
+\index{createNewChain@{createNewChain}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{createNewChain()}{createNewChain()}}
+{\footnotesize\ttfamily bool Netfilter\+::create\+New\+Chain (\begin{DoxyParamCaption}\item[{Table\+Type}]{table,  }\item[{const std\+::string \&}]{name,  }\item[{const int}]{ip\+Version }\end{DoxyParamCaption})}
+
+
+
+Creates a new IPTables chain with the given name and put it in the rule cache to write later. 
+
+The Netfilter\+::\+Unchanged operation type is used to add new chains.
+
+This is equivalent to\+: iptables -\/t \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{0}{|X[-1]}|}
+\hline
+\end{longtabu}
+N $<$name$>$
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em table} & The table to add the new chain to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em name} & Name of the chain to add. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ip\+Version} & iptables version to use.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+always returns true. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetfilter_a483c8c45f60f09106929b545ce3f2d25}\label{classNetfilter_a483c8c45f60f09106929b545ce3f2d25}} 
+\index{Netfilter@{Netfilter}!forkExec@{forkExec}}
+\index{forkExec@{forkExec}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{forkExec()}{forkExec()}}
+{\footnotesize\ttfamily bool Netfilter\+::fork\+Exec (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{exec\+File,  }\item[{const std\+::list$<$ std\+::string $>$ \&}]{args,  }\item[{int}]{stdin\+Fd,  }\item[{int}]{stdout\+Fd,  }\item[{int}]{stderr\+Fd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Performs a fork/exec operation and waits for the child to terminate. 
+
+If any of the {\itshape stdin\+Fd}, {\itshape stdout\+Fd} or {\itshape stderr\+Fd} are less than 0 then the corresponding fd is redirected to /dev/null.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em exec\+File} & The path to the file to execute \\
+\hline
+\mbox{\texttt{ in}}  & {\em args} & The args to supply to the exec call \\
+\hline
+\mbox{\texttt{ in}}  & {\em stdin\+Fd} & The fd to redirect stdin to \\
+\hline
+\mbox{\texttt{ in}}  & {\em stdout\+Fd} & The fd to redirect stdout to \\
+\hline
+\mbox{\texttt{ in}}  & {\em stderr\+Fd} & The fd to redirect stderr to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetfilter_ad87c414535d82191017836507361b167}\label{classNetfilter_ad87c414535d82191017836507361b167}} 
+\index{Netfilter@{Netfilter}!getIptablesVersion@{getIptablesVersion}}
+\index{getIptablesVersion@{getIptablesVersion}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{getIptablesVersion()}{getIptablesVersion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNetfilter_1_1IptablesVersion}{Netfilter\+::\+Iptables\+Version}} Netfilter\+::get\+Iptables\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Gets the version of iptables that\textquotesingle{}s installed
+
+\begin{DoxyReturn}{Returns}
+iptables version 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetfilter_a57e3a7da569d093d02a798ccad024fe9}\label{classNetfilter_a57e3a7da569d093d02a798ccad024fe9}} 
+\index{Netfilter@{Netfilter}!getRuleSet@{getRuleSet}}
+\index{getRuleSet@{getRuleSet}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{getRuleSet()}{getRuleSet()}}
+{\footnotesize\ttfamily Netfilter\+::\+Rule\+Set Netfilter\+::get\+Rule\+Set (\begin{DoxyParamCaption}\item[{const int}]{ip\+Version }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Uses the iptables-\/save tool to get the current rules. 
+
+A ruleset is just a list of strings containing the iptables rule formatted in the same form the iptables-\/save reports.
+
+Each list of rules is grouped by the table they belong to.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ip\+Version} & iptables version to use.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an list of all the rules read (ruleset) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetfilter_a277bdb12c2b49ce94afd73e9d18d31c4}\label{classNetfilter_a277bdb12c2b49ce94afd73e9d18d31c4}} 
+\index{Netfilter@{Netfilter}!ruleInList@{ruleInList}}
+\index{ruleInList@{ruleInList}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{ruleInList()}{ruleInList()}}
+{\footnotesize\ttfamily bool Netfilter\+::rule\+In\+List (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{rule,  }\item[{const std\+::list$<$ std\+::string $>$ \&}]{rules\+List }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns true if the rule is in the rules\+List. 
+
+Both rule and the contents of rules\+List are strings, however they are parsed as if they are command line args to the iptables tool.
+
+\begin{DoxyReturn}{Returns}
+true if the rule exists in the list, otherwise false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetfilter_af3954dfb0fbd37028a9816294d219e31}\label{classNetfilter_af3954dfb0fbd37028a9816294d219e31}} 
+\index{Netfilter@{Netfilter}!rules@{rules}}
+\index{rules@{rules}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{rules()}{rules()}}
+{\footnotesize\ttfamily Netfilter\+::\+Rule\+Set Netfilter\+::rules (\begin{DoxyParamCaption}\item[{const int}]{ip\+Version }\end{DoxyParamCaption}) const}
+
+
+
+Returns the current iptables ruleset. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ip\+Version} & iptables version to use.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an list of all the rules read (ruleset) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetfilter_ac44b3e828e91393f59e488e18052a385}\label{classNetfilter_ac44b3e828e91393f59e488e18052a385}} 
+\index{Netfilter@{Netfilter}!trimDuplicates@{trimDuplicates}}
+\index{trimDuplicates@{trimDuplicates}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{trimDuplicates()}{trimDuplicates()}}
+{\footnotesize\ttfamily void Netfilter\+::trim\+Duplicates (\begin{DoxyParamCaption}\item[{Rule\+Set \&}]{existing,  }\item[{Rule\+Set \&}]{new\+Rule\+Set,  }\item[{Operation}]{operation }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Trims duplicates from m\+Rule\+Sets based on the operation. 
+
+Rules with \textquotesingle{}Delete\textquotesingle{} operation will be removed from m\+Rule\+Sets if the rule is not found in iptables-\/save, so we avoid deleting rules that aren\textquotesingle{}t there.
+
+Conversely, any other rules are removed from m\+Rule\+Sets if they are found in iptables-\/save, so we avoid adding duplicate rules.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em existing} & existing rules from iptables-\/save. \\
+\hline
+\mbox{\texttt{ in}}  & {\em new\+Rule\+Set} & new ruleset to add from m\+Rule\+Sets. \\
+\hline
+\mbox{\texttt{ in}}  & {\em operation} & operation intended to be added for the ruleset. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetfilter_a019d9c3936611bcaf63f10fd1cfbcbf6}\label{classNetfilter_a019d9c3936611bcaf63f10fd1cfbcbf6}} 
+\index{Netfilter@{Netfilter}!writeString@{writeString}}
+\index{writeString@{writeString}!Netfilter@{Netfilter}}
+\doxysubsubsection{\texorpdfstring{writeString()}{writeString()}}
+{\footnotesize\ttfamily bool Netfilter\+::write\+String (\begin{DoxyParamCaption}\item[{int}]{fd,  }\item[{const std\+::string \&}]{str }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Writes the string into the supplied file descriptor. 
+
+Attempts to write the entire string until an error occurs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fd} & The fd to write to \\
+\hline
+\mbox{\texttt{ in}}  & {\em str} & The string to write into the fd\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the entire string was written, otherwise false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Networking/include/Netfilter.\+h\item 
+rdk\+Plugins/\+Networking/source/Netfilter.\+cpp\end{DoxyCompactItemize}

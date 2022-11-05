@@ -1,0 +1,187 @@
+\hypertarget{classEthanLogPlugin}{}\doxysection{Ethan\+Log\+Plugin Class Reference}
+\label{classEthanLogPlugin}\index{EthanLogPlugin@{EthanLogPlugin}}
+
+
+Plugin library that create a DIAG logging pipe for a container.  
+
+
+
+
+{\ttfamily \#include $<$Ethan\+Log\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Ethan\+Log\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Ethan\+Log\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEthanLogPlugin_ada7eb5d89f1e8c5cf6aa831ec6de09e7}\label{classEthanLogPlugin_ada7eb5d89f1e8c5cf6aa831ec6de09e7}} 
+{\bfseries Ethan\+Log\+Plugin} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyEnv}{IDobby\+Env}} $>$ \&env, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ \&utils)
+\item 
+std\+::string \mbox{\hyperlink{classEthanLogPlugin_a8f66463b982fa407e5c48a3dfd64e37d}{name}} () const final
+\begin{DoxyCompactList}\small\item\em Boilerplate that just returns the name of the hook. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classEthanLogPlugin_a9df344ca210e9f46c0c4ae4309ba09ad}{hook\+Hints}} () const final
+\begin{DoxyCompactList}\small\item\em Indicates which hook points we want and whether to run the asynchronously or synchronously with the other hooks. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEthanLogPlugin_ae3c0386ad9e4afc57f54e24f286d20e2}{post\+Construction}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&startup\+State, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) final
+\begin{DoxyCompactList}\small\item\em We hook the post\+Construction point to create a logging pipe for the container which we then given to the init process of the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEthanLogPlugin_a01a8ce5f46b59e13eb286c1b5037b441}{pre\+Start}} (const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&id, pid\+\_\+t pid, const std\+::string \&rootfs\+Path, const Json\+::\+Value \&json\+Data) final
+\begin{DoxyCompactList}\small\item\em We hook the pre\+Start point so we can tell the Ethan\+Log code the base pid of the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{classEthanLogPlugin_a0a10e4c2cee13d5c3ab82f88cecaf3de}{parse\+Log\+Levels}} (const Json\+::\+Value \&json\+Array) const
+\begin{DoxyCompactList}\small\item\em Parses the supplied json array and returns a bitmask of the log levels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEthanLogPlugin_a9b1efc0048978c999ab0861112556d81}\label{classEthanLogPlugin_a9b1efc0048978c999ab0861112556d81}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classEthanLogPlugin_ae8406fa2bd5f98c2ae20320c8dd7246f}\label{classEthanLogPlugin_ae8406fa2bd5f98c2ae20320c8dd7246f}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyUtils__v3}{IDobby\+Utils}} $>$ {\bfseries m\+Utilities}
+\item 
+\mbox{\Hypertarget{classEthanLogPlugin_a37e60a884d63b8ebffa7d8535bf5bdb2}\label{classEthanLogPlugin_a37e60a884d63b8ebffa7d8535bf5bdb2}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEthanLogLoop}{Ethan\+Log\+Loop}} $>$ {\bfseries m\+Log\+Loop}
+\item 
+\mbox{\Hypertarget{classEthanLogPlugin_a758e9c43ac5b4bc4dad370ff827fd25e}\label{classEthanLogPlugin_a758e9c43ac5b4bc4dad370ff827fd25e}} 
+const unsigned {\bfseries m\+Default\+Log\+Levels\+Mask}
+\item 
+\mbox{\Hypertarget{classEthanLogPlugin_a3cf54669ffe18144a461b238f331199c}\label{classEthanLogPlugin_a3cf54669ffe18144a461b238f331199c}} 
+int {\bfseries m\+Dev\+Null\+Fd}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Plugin library that create a DIAG logging pipe for a container. 
+
+This plugin uses the IPC / DBUS fusion interface to request a new logging pipe from APP\+\_\+\+Process (the AI App\+Logger component). The write end of the pipe file descriptor is then inserted into the container and an environment variable is set with the number of the fd. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEthanLogPlugin_a9df344ca210e9f46c0c4ae4309ba09ad}\label{classEthanLogPlugin_a9df344ca210e9f46c0c4ae4309ba09ad}} 
+\index{EthanLogPlugin@{EthanLogPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!EthanLogPlugin@{EthanLogPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Ethan\+Log\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Indicates which hook points we want and whether to run the asynchronously or synchronously with the other hooks. 
+
+For this plugin everything is done in the post\+Construction and pre\+Start hooks and synchronously with any other plugins / hooks. 
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_ad44f4df1de4848fa3d43066760329e3a}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classEthanLogPlugin_a8f66463b982fa407e5c48a3dfd64e37d}\label{classEthanLogPlugin_a8f66463b982fa407e5c48a3dfd64e37d}} 
+\index{EthanLogPlugin@{EthanLogPlugin}!name@{name}}
+\index{name@{name}!EthanLogPlugin@{EthanLogPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Ethan\+Log\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+Boilerplate that just returns the name of the hook. 
+
+This string needs to match the name specified in the container spec json. 
+
+Implements \mbox{\hyperlink{classIDobbyPlugin_adf25d402500239a690246da6fc312a7b}{IDobby\+Plugin}}.
+
+\mbox{\Hypertarget{classEthanLogPlugin_a0a10e4c2cee13d5c3ab82f88cecaf3de}\label{classEthanLogPlugin_a0a10e4c2cee13d5c3ab82f88cecaf3de}} 
+\index{EthanLogPlugin@{EthanLogPlugin}!parseLogLevels@{parseLogLevels}}
+\index{parseLogLevels@{parseLogLevels}!EthanLogPlugin@{EthanLogPlugin}}
+\doxysubsubsection{\texorpdfstring{parseLogLevels()}{parseLogLevels()}}
+{\footnotesize\ttfamily unsigned Ethan\+Log\+Plugin\+::parse\+Log\+Levels (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{json\+Array }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parses the supplied json array and returns a bitmask of the log levels. 
+
+The json object should be an array of strings which may contain any of the following strings \begin{DoxyVerb}"default", "fatal", "error", "warning", "info", "debug", "milestone"
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em json\+Array} & The json array object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the bitmask of log levels, maybe 0 if the array was empty. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEthanLogPlugin_ae3c0386ad9e4afc57f54e24f286d20e2}\label{classEthanLogPlugin_ae3c0386ad9e4afc57f54e24f286d20e2}} 
+\index{EthanLogPlugin@{EthanLogPlugin}!postConstruction@{postConstruction}}
+\index{postConstruction@{postConstruction}!EthanLogPlugin@{EthanLogPlugin}}
+\doxysubsubsection{\texorpdfstring{postConstruction()}{postConstruction()}}
+{\footnotesize\ttfamily bool Ethan\+Log\+Plugin\+::post\+Construction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classIDobbyStartState}{IDobby\+Start\+State}} $>$ \&}]{startup\+State,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+We hook the post\+Construction point to create a logging pipe for the container which we then given to the init process of the container. 
+
+The json for the plugin data should be formatted like so \begin{DoxyVerb}{
+    "name" : "SomeApp",
+    "loglevels" : [ "fatal", "milestone", "info", "debug" ],
+    "rateLimit" { "rate": 1234, "burstSize": 12345 }
+}
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container \\
+\hline
+\mbox{\texttt{ in}}  & {\em startup\+State} & The startup state of the container (ignored) \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The absolute path to the rootfs of the container \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Data} & The json data from the spec file (ignored)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the hardlink ws created, otherwise false. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPluginBase_ae713819ad289f213ce5b5a9cb099f9b7}{Plugin\+Base}}.
+
+\mbox{\Hypertarget{classEthanLogPlugin_a01a8ce5f46b59e13eb286c1b5037b441}\label{classEthanLogPlugin_a01a8ce5f46b59e13eb286c1b5037b441}} 
+\index{EthanLogPlugin@{EthanLogPlugin}!preStart@{preStart}}
+\index{preStart@{preStart}!EthanLogPlugin@{EthanLogPlugin}}
+\doxysubsubsection{\texorpdfstring{preStart()}{preStart()}}
+{\footnotesize\ttfamily bool Ethan\+Log\+Plugin\+::pre\+Start (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContainerId}{Container\+Id}} \&}]{id,  }\item[{pid\+\_\+t}]{pid,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{const Json\+::\+Value \&}]{json\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+
+
+We hook the pre\+Start point so we can tell the Ethan\+Log code the base pid of the container. 
+
+We need this because the logging library reports it\textquotesingle{}s own pid and that is relative to it\textquotesingle{}s own pid namespace.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & The id of the container \\
+\hline
+\mbox{\texttt{ in}}  & {\em pid} & The pid of the init process inside the container \\
+\hline
+\mbox{\texttt{ in}}  & {\em rootfs\+Path} & The absolute path to the rootfs of the container \\
+\hline
+\mbox{\texttt{ in}}  & {\em json\+Data} & The json data from the spec file (ignored)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Always return true. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPluginBase_ae684b4cb9b9180474184687c493d4f84}{Plugin\+Base}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+plugins/\+Ethan\+Log/source/Ethan\+Log\+Plugin.\+h\item 
+plugins/\+Ethan\+Log/source/Ethan\+Log\+Plugin.\+cpp\end{DoxyCompactItemize}

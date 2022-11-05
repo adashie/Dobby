@@ -1,0 +1,166 @@
+\hypertarget{classDobbyTimer}{}\doxysection{Dobby\+Timer Class Reference}
+\label{classDobbyTimer}\index{DobbyTimer@{DobbyTimer}}
+
+
+Utility object that can be used to register a callback function to execute in the future.  
+
+
+
+
+{\ttfamily \#include $<$Dobby\+Timer.\+h$>$}
+
+
+
+Collaboration diagram for Dobby\+Timer\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDobbyTimer_1_1tagTimerEntry}{tag\+Timer\+Entry}}
+\item 
+class \mbox{\hyperlink{classDobbyTimer_1_1TimerEntryCompare}{Timer\+Entry\+Compare}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTimer_a3a5567296c1adeeafd31a2b44c4e1ff7}\label{classDobbyTimer_a3a5567296c1adeeafd31a2b44c4e1ff7}} 
+void \mbox{\hyperlink{classDobbyTimer_a3a5567296c1adeeafd31a2b44c4e1ff7}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Stops the poll loop thread and cancels all timers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDobbyTimer_abc3b17930cd005d1c77637a06c89c878}{add}} (const std\+::chrono\+::milliseconds \&timeout, bool one\+Shot, const std\+::function$<$ bool()$>$ \&func)
+\begin{DoxyCompactList}\small\item\em Adds a new timer to the timer queue. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDobbyTimer_aff2937926dd0798374ce6205629afe24}{remove}} (int timer\+Id)
+\begin{DoxyCompactList}\small\item\em Removes the given timer from the timer queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTimer_a57dc72be0801778cee1924a48820216c}\label{classDobbyTimer_a57dc72be0801778cee1924a48820216c}} 
+typedef struct \mbox{\hyperlink{structDobbyTimer_1_1tagTimerEntry}{Dobby\+Timer\+::tag\+Timer\+Entry}} {\bfseries Timer\+Entry}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDobbyTimer_ad3ef6c3c89577747b6c239093513222a}{timer\+Thread}} ()
+\begin{DoxyCompactList}\small\item\em The thread function that runs the timer poll loop. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDobbyTimer_a7e55f35499dc69b766840142ba7cb063}\label{classDobbyTimer_a7e55f35499dc69b766840142ba7cb063}} 
+void \mbox{\hyperlink{classDobbyTimer_a7e55f35499dc69b766840142ba7cb063}{update\+Timer\+Fd}} () const
+\begin{DoxyCompactList}\small\item\em Writes the item on the head of the expiry queue into the timerfd for the next wake-\/up time. \end{DoxyCompactList}\item 
+struct timespec \mbox{\hyperlink{classDobbyTimer_a79aa4213a84cd42a3d5c3599344995d6}{calc\+Abs\+Time}} (const struct timespec \&now, const std\+::chrono\+::milliseconds \&timeout) const
+\begin{DoxyCompactList}\small\item\em Calculates the a new time value based on the time now and the supplied millisecond offset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDobbyTimer_aecd95ebca9d2b38d40544e98d5b8acc2}\label{classDobbyTimer_aecd95ebca9d2b38d40544e98d5b8acc2}} 
+std\+::multiset$<$ \mbox{\hyperlink{structDobbyTimer_1_1tagTimerEntry}{Timer\+Entry}}, \mbox{\hyperlink{classDobbyTimer_1_1TimerEntryCompare}{Timer\+Entry\+Compare}} $>$ {\bfseries m\+Timers\+Queue}
+\item 
+\mbox{\Hypertarget{classDobbyTimer_a99223258f839c86bfb3fe2f1cccbb419}\label{classDobbyTimer_a99223258f839c86bfb3fe2f1cccbb419}} 
+std\+::recursive\+\_\+mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classDobbyTimer_a4ca09268d153c8c2ca15aeb81047ef50}\label{classDobbyTimer_a4ca09268d153c8c2ca15aeb81047ef50}} 
+std\+::thread {\bfseries m\+Thread}
+\item 
+\mbox{\Hypertarget{classDobbyTimer_a2962d3d82b9452d2edd23c9b0030f588}\label{classDobbyTimer_a2962d3d82b9452d2edd23c9b0030f588}} 
+int {\bfseries m\+Timer\+Fd}
+\item 
+\mbox{\Hypertarget{classDobbyTimer_a4fc10d905b5bd8754340380068e7cd8c}\label{classDobbyTimer_a4fc10d905b5bd8754340380068e7cd8c}} 
+int {\bfseries m\+Event\+Fd}
+\item 
+\mbox{\Hypertarget{classDobbyTimer_a0a260c5524fa5abb91189e1ee8e2254b}\label{classDobbyTimer_a0a260c5524fa5abb91189e1ee8e2254b}} 
+\mbox{\hyperlink{classAICommon_1_1IDGenerator}{AICommon\+::\+IDGenerator}}$<$ 6 $>$ {\bfseries m\+Id\+Generator}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility object that can be used to register a callback function to execute in the future. 
+
+Multiple callbacks can be registered via this object, internally it runs a thread with a single timerfd that wakes up at the correct time and then calls any handlers registered.
+
+All callbacks are processed in the same thread, so obviously one timer handler can block all the others, clients should bear this in mind.
+
+\begin{DoxyWarning}{Warning}
+Currently if you try and call \mbox{\hyperlink{classDobbyTimer_aff2937926dd0798374ce6205629afe24}{Dobby\+Timer\+::remove}} from inside the handler callback function it will return with an error. If you want to stop a repeating timer then return false from the handler.
+
+This object currently only supports a maximum of 63 timers. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDobbyTimer_abc3b17930cd005d1c77637a06c89c878}\label{classDobbyTimer_abc3b17930cd005d1c77637a06c89c878}} 
+\index{DobbyTimer@{DobbyTimer}!add@{add}}
+\index{add@{add}!DobbyTimer@{DobbyTimer}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily int Dobby\+Timer\+::add (\begin{DoxyParamCaption}\item[{const std\+::chrono\+::milliseconds \&}]{timeout,  }\item[{bool}]{one\+Shot,  }\item[{const std\+::function$<$ bool()$>$ \&}]{handler }\end{DoxyParamCaption})}
+
+
+
+Adds a new timer to the timer queue. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timeout} & The time after which to call the supplied handler. \\
+\hline
+\mbox{\texttt{ in}}  & {\em one\+Shot} & If true the timer is automatically removed after it times out the first time. \\
+\hline
+\mbox{\texttt{ in}}  & {\em handler} & The handler function to call when the timer times out.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success returns a (greater than zero) timer id integer which identifies the timer, on failure -\/1 is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyTimer_a79aa4213a84cd42a3d5c3599344995d6}\label{classDobbyTimer_a79aa4213a84cd42a3d5c3599344995d6}} 
+\index{DobbyTimer@{DobbyTimer}!calcAbsTime@{calcAbsTime}}
+\index{calcAbsTime@{calcAbsTime}!DobbyTimer@{DobbyTimer}}
+\doxysubsubsection{\texorpdfstring{calcAbsTime()}{calcAbsTime()}}
+{\footnotesize\ttfamily struct timespec Dobby\+Timer\+::calc\+Abs\+Time (\begin{DoxyParamCaption}\item[{const struct timespec \&}]{base,  }\item[{const std\+::chrono\+::milliseconds \&}]{offset }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calculates the a new time value based on the time now and the supplied millisecond offset. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em base} & The base time to calculate the new offset from \\
+\hline
+\mbox{\texttt{ in}}  & {\em offset} & The milliseconds offset\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a timespec that is the base value plus the offset. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyTimer_aff2937926dd0798374ce6205629afe24}\label{classDobbyTimer_aff2937926dd0798374ce6205629afe24}} 
+\index{DobbyTimer@{DobbyTimer}!remove@{remove}}
+\index{remove@{remove}!DobbyTimer@{DobbyTimer}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily bool Dobby\+Timer\+::remove (\begin{DoxyParamCaption}\item[{int}]{timer\+Id }\end{DoxyParamCaption})}
+
+
+
+Removes the given timer from the timer queue. 
+
+Once this method returns (successfully) you are guaranteed that the timer handler will not be called, i.\+e. this is synchronisation point.
+
+This method will fail if called from the context of a timer handler, if you want to cancel a repeating timer then just return false in the handler.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em timer\+Id} & The id of the timer to remove as returned by the \mbox{\hyperlink{classDobbyTimer_abc3b17930cd005d1c77637a06c89c878}{add()}} method\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the timer was found and was removed from the queue, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDobbyTimer_ad3ef6c3c89577747b6c239093513222a}\label{classDobbyTimer_ad3ef6c3c89577747b6c239093513222a}} 
+\index{DobbyTimer@{DobbyTimer}!timerThread@{timerThread}}
+\index{timerThread@{timerThread}!DobbyTimer@{DobbyTimer}}
+\doxysubsubsection{\texorpdfstring{timerThread()}{timerThread()}}
+{\footnotesize\ttfamily void Dobby\+Timer\+::timer\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The thread function that runs the timer poll loop. 
+
+This simply polls on an timerfd and eventfd. The timerfd is obviously for waking up and calling any installed timers at the right time. The eventfd is used to kill the poll loop at shutdown time. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+utils/source/Dobby\+Timer.\+h\item 
+utils/source/Dobby\+Timer.\+cpp\end{DoxyCompactItemize}

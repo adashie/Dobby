@@ -1,0 +1,193 @@
+\hypertarget{classHttpProxyPlugin}{}\doxysection{Http\+Proxy\+Plugin Class Reference}
+\label{classHttpProxyPlugin}\index{HttpProxyPlugin@{HttpProxyPlugin}}
+
+
+Used to set http proxy environment variables and optionally add additional root ca certificates to the container.  
+
+
+
+
+{\ttfamily \#include $<$Http\+Proxy\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Http\+Proxy\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Http\+Proxy\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a633539f87b777a91afb0953303bafcb2}\label{classHttpProxyPlugin_a633539f87b777a91afb0953303bafcb2}} 
+{\bfseries Http\+Proxy\+Plugin} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\item 
+std\+::string \mbox{\hyperlink{classHttpProxyPlugin_a9f1bffea063b23be97a0ccc883a3051b}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classHttpProxyPlugin_a12a525b986c7236174f281e8ed9ea086}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a9adcb194fa5323b324db499692690879}\label{classHttpProxyPlugin_a9adcb194fa5323b324db499692690879}} 
+bool \mbox{\hyperlink{classHttpProxyPlugin_a9adcb194fa5323b324db499692690879}{post\+Installation}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ run in host namespace {\itshape once} when container bundle is downloaded. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a6988aac586a38ff974626512844a509e}\label{classHttpProxyPlugin_a6988aac586a38ff974626512844a509e}} 
+bool \mbox{\hyperlink{classHttpProxyPlugin_a6988aac586a38ff974626512844a509e}{pre\+Creation}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ run in host namespace before container creation process. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a6d7a2b4338c614171691499832f97f43}\label{classHttpProxyPlugin_a6d7a2b4338c614171691499832f97f43}} 
+bool \mbox{\hyperlink{classHttpProxyPlugin_a6d7a2b4338c614171691499832f97f43}{post\+Halt}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDobby}{Dobby}} Hook -\/ Run in host namespace when container terminates. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classHttpProxyPlugin_aac9f42f6cf613b2dc065be6a3da7dfdb}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classHttpProxyPlugin_a76f1cbca35c108633b22e2f1f6226d04}{setup\+Http\+Proxy}} ()
+\begin{DoxyCompactList}\small\item\em Adds the httpproxy and no\+\_\+proxy environment variables to the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classHttpProxyPlugin_ac870c5dec857b67f100560902d5cbbdd}{add\+Proxy\+To\+Root\+CABundle}} ()
+\begin{DoxyCompactList}\small\item\em Adds the proxy\textquotesingle{}s CA cert to the bundle used by the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classHttpProxyPlugin_a74928591a60b73757ed55ca9b0a5838d}{cleanup}} ()
+\begin{DoxyCompactList}\small\item\em Cleans up any temp ca-\/certifice.\+crt files created for the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classHttpProxyPlugin_ac3a1dd7d3129e1eab854eb7a1842309a}{add\+CACertificate\+Mount}} ()
+\begin{DoxyCompactList}\small\item\em Adds a mount to the new ca-\/certificates.\+crt file created in the container\textquotesingle{}s bundle directory in the pre\+Creation hook. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a5a8e6baaec2963339ea8f216f2b8ad44}\label{classHttpProxyPlugin_a5a8e6baaec2963339ea8f216f2b8ad44}} 
+bool {\bfseries m\+Valid}
+\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a376d6a834272993ba8d26dafba68a427}\label{classHttpProxyPlugin_a376d6a834272993ba8d26dafba68a427}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a515d66f86e793bad5fb09aee0a7bb7c8}\label{classHttpProxyPlugin_a515d66f86e793bad5fb09aee0a7bb7c8}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a3c7527a0b34a43d55fb03ef5a5342ba1}\label{classHttpProxyPlugin_a3c7527a0b34a43d55fb03ef5a5342ba1}} 
+const std\+::string {\bfseries m\+Mounted\+CACerts\+Path}
+\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a8a5675225210bec442a02e7c71fb692d}\label{classHttpProxyPlugin_a8a5675225210bec442a02e7c71fb692d}} 
+const rt\+\_\+defs\+\_\+plugins\+\_\+http\+\_\+proxy\+\_\+data $\ast$ {\bfseries m\+Plugin\+Data}
+\item 
+\mbox{\Hypertarget{classHttpProxyPlugin_a2d99c2f3a2bb7976a0e278c98de084fc}\label{classHttpProxyPlugin_a2d99c2f3a2bb7976a0e278c98de084fc}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Used to set http proxy environment variables and optionally add additional root ca certificates to the container. 
+
+It sets the http\+\_\+proxy and no\+\_\+proxy environment variables based on the plugin data. And if a root CA certificate is included in the plugin data it will append that onto the end of the /etc/ssl/certs/ca-\/certificates.crt file. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHttpProxyPlugin_ac3a1dd7d3129e1eab854eb7a1842309a}\label{classHttpProxyPlugin_ac3a1dd7d3129e1eab854eb7a1842309a}} 
+\index{HttpProxyPlugin@{HttpProxyPlugin}!addCACertificateMount@{addCACertificateMount}}
+\index{addCACertificateMount@{addCACertificateMount}!HttpProxyPlugin@{HttpProxyPlugin}}
+\doxysubsubsection{\texorpdfstring{addCACertificateMount()}{addCACertificateMount()}}
+{\footnotesize\ttfamily bool Http\+Proxy\+Plugin\+::add\+CACertificate\+Mount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds a mount to the new ca-\/certificates.\+crt file created in the container\textquotesingle{}s bundle directory in the pre\+Creation hook. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHttpProxyPlugin_ac870c5dec857b67f100560902d5cbbdd}\label{classHttpProxyPlugin_ac870c5dec857b67f100560902d5cbbdd}} 
+\index{HttpProxyPlugin@{HttpProxyPlugin}!addProxyToRootCABundle@{addProxyToRootCABundle}}
+\index{addProxyToRootCABundle@{addProxyToRootCABundle}!HttpProxyPlugin@{HttpProxyPlugin}}
+\doxysubsubsection{\texorpdfstring{addProxyToRootCABundle()}{addProxyToRootCABundle()}}
+{\footnotesize\ttfamily bool Http\+Proxy\+Plugin\+::add\+Proxy\+To\+Root\+CABundle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds the proxy\textquotesingle{}s CA cert to the bundle used by the container. 
+
+It copies the existing /etc/ssl/certs/ca-\/certificates.crt file to the container bundle location and then appends the supplied .crt / .pem certificate to it.
+
+It then adds a bind mount to the container start-\/up so that we overlay the modified the file into the container.
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHttpProxyPlugin_a74928591a60b73757ed55ca9b0a5838d}\label{classHttpProxyPlugin_a74928591a60b73757ed55ca9b0a5838d}} 
+\index{HttpProxyPlugin@{HttpProxyPlugin}!cleanup@{cleanup}}
+\index{cleanup@{cleanup}!HttpProxyPlugin@{HttpProxyPlugin}}
+\doxysubsubsection{\texorpdfstring{cleanup()}{cleanup()}}
+{\footnotesize\ttfamily bool Http\+Proxy\+Plugin\+::cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Cleans up any temp ca-\/certifice.\+crt files created for the container. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHttpProxyPlugin_aac9f42f6cf613b2dc065be6a3da7dfdb}\label{classHttpProxyPlugin_aac9f42f6cf613b2dc065be6a3da7dfdb}} 
+\index{HttpProxyPlugin@{HttpProxyPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!HttpProxyPlugin@{HttpProxyPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Http\+Proxy\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classHttpProxyPlugin_a12a525b986c7236174f281e8ed9ea086}\label{classHttpProxyPlugin_a12a525b986c7236174f281e8ed9ea086}} 
+\index{HttpProxyPlugin@{HttpProxyPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!HttpProxyPlugin@{HttpProxyPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Http\+Proxy\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the bit flags for which hooks we\textquotesingle{}re going to use. 
+
+This plugin uses all the hooks so set all the flags 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classHttpProxyPlugin_a9f1bffea063b23be97a0ccc883a3051b}\label{classHttpProxyPlugin_a9f1bffea063b23be97a0ccc883a3051b}} 
+\index{HttpProxyPlugin@{HttpProxyPlugin}!name@{name}}
+\index{name@{name}!HttpProxyPlugin@{HttpProxyPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Http\+Proxy\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classHttpProxyPlugin_a76f1cbca35c108633b22e2f1f6226d04}\label{classHttpProxyPlugin_a76f1cbca35c108633b22e2f1f6226d04}} 
+\index{HttpProxyPlugin@{HttpProxyPlugin}!setupHttpProxy@{setupHttpProxy}}
+\index{setupHttpProxy@{setupHttpProxy}!HttpProxyPlugin@{HttpProxyPlugin}}
+\doxysubsubsection{\texorpdfstring{setupHttpProxy()}{setupHttpProxy()}}
+{\footnotesize\ttfamily bool Http\+Proxy\+Plugin\+::setup\+Http\+Proxy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds the httpproxy and no\+\_\+proxy environment variables to the container. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+Http\+Proxy/source/Http\+Proxy\+Plugin.\+h\item 
+rdk\+Plugins/\+Http\+Proxy/source/Http\+Proxy\+Plugin.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,413 @@
+\hypertarget{classSettings}{}\doxysection{Settings Class Reference}
+\label{classSettings}\index{Settings@{Settings}}
+
+
+Object containing the settings to pass to the \mbox{\hyperlink{classDobby}{Dobby}}.  
+
+
+
+
+{\ttfamily \#include $<$Settings.\+h$>$}
+
+
+
+Inheritance diagram for Settings\+:
+% FIG 0
+
+
+Collaboration diagram for Settings\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classSettings_ad571a67081a10de9d7cbf1645fd116fe}{workspace\+Dir}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the path to a directory used to store temporary data like runc bundles. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSettings_ad657694cdf16d07c6db47ccc678bc0e0}{persistent\+Dir}} () const override
+\begin{DoxyCompactList}\small\item\em Should return a path to a directory on a persistent storage mount. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSettings_ac520b26cb27d8a9d387e03d77b0d450f}{console\+Socket\+Path}} () const override
+\begin{DoxyCompactList}\small\item\em Location to create the socket used for capturing container logs. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classSettings_a3c05a4b2c3af34baac083d232253c041}{extra\+Env\+Variables}} () const override
+\begin{DoxyCompactList}\small\item\em A list of extra environment variables that will be set for all containers. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSettings_a2e52a3883933178a23e5d679139a4ab1}\label{classSettings_a2e52a3883933178a23e5d679139a4ab1}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{Hardware\+Access\+Settings}} $>$ \mbox{\hyperlink{classSettings_a2e52a3883933178a23e5d679139a4ab1}{gpu\+Access\+Settings}} () const override
+\begin{DoxyCompactList}\small\item\em Returns any extra details needed to access the GPU inside the container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSettings_a2335b62763908095e71fcc446c55f288}\label{classSettings_a2335b62763908095e71fcc446c55f288}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{Hardware\+Access\+Settings}} $>$ \mbox{\hyperlink{classSettings_a2335b62763908095e71fcc446c55f288}{vpu\+Access\+Settings}} () const override
+\begin{DoxyCompactList}\small\item\em Returns any extra details needed to access the VPU (video pipeline) inside the container. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classSettings_af64d90164b400975ae3de799eda5e5f0}{external\+Interfaces}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the set of external interface that container traffic maybe routed through. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSettings_a70598d993f65d8a7bae58a94320a6790}{address\+Range\+Str}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the \mbox{\hyperlink{classDobby}{Dobby}} network address range in string format. \end{DoxyCompactList}\item 
+in\+\_\+addr\+\_\+t \mbox{\hyperlink{classSettings_a29eb9d711fd3533853c862b4dfd47005}{address\+Range}} () const override
+\begin{DoxyCompactList}\small\item\em Returns the \mbox{\hyperlink{classDobby}{Dobby}} network address range in in\+\_\+addr\+\_\+t format. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classSettings_a4bd36f9c4930f9d30bde776a7cfa7926}{default\+Plugins}} () const override
+\begin{DoxyCompactList}\small\item\em Returns any default plugins the platform should run. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSettings_ad8d7f5cd233eb372ff5f8c87a07c305f}\label{classSettings_ad8d7f5cd233eb372ff5f8c87a07c305f}} 
+\mbox{\hyperlink{structIDobbySettings_1_1LogRelaySettings}{Log\+Relay\+Settings}} {\bfseries log\+Relay\+Settings} () const override
+\item 
+\mbox{\Hypertarget{classSettings_a08b09adf6e6b7d23ab005d050f887494}\label{classSettings_a08b09adf6e6b7d23ab005d050f887494}} 
+void \mbox{\hyperlink{classSettings_a08b09adf6e6b7d23ab005d050f887494}{dump}} (int ai\+Log\+Level=-\/1) const
+\begin{DoxyCompactList}\small\item\em Debugging function to dump the settings to the log -\/ info level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSettings_a4221bfb1973b31578e0511d0499c6d08}\label{classSettings_a4221bfb1973b31578e0511d0499c6d08}} 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSettings}{Settings}} $>$ \mbox{\hyperlink{classSettings_a4221bfb1973b31578e0511d0499c6d08}{from\+Json\+File}} (const std\+::string \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Sets the default values for all settings. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSettings_a4e8a54e782d8d9e8eccf158d62258832}\label{classSettings_a4e8a54e782d8d9e8eccf158d62258832}} 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classSettings}{Settings}} $>$ {\bfseries default\+Settings} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSettings_ab7169a6eefce79566dd07db3b1e5e967}\label{classSettings_ab7169a6eefce79566dd07db3b1e5e967}} 
+\mbox{\hyperlink{classSettings_ab7169a6eefce79566dd07db3b1e5e967}{Settings}} ()
+\begin{DoxyCompactList}\small\item\em Constructs the settings object with the default settings. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSettings_a1496f60952dd4f39ae7173cb359a56a1}\label{classSettings_a1496f60952dd4f39ae7173cb359a56a1}} 
+\mbox{\hyperlink{classSettings_a1496f60952dd4f39ae7173cb359a56a1}{Settings}} (const Json\+::\+Value \&settings)
+\begin{DoxyCompactList}\small\item\em Constructs the settings source the data from the supplied JSON object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSettings_a2109379b05c16983a39b001a5cf0ac26}\label{classSettings_a2109379b05c16983a39b001a5cf0ac26}} 
+void \mbox{\hyperlink{classSettings_a2109379b05c16983a39b001a5cf0ac26}{set\+Defaults}} ()
+\begin{DoxyCompactList}\small\item\em Sets the default values for all settings. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSettings_aa1c6c98ded059e5727417c21d547779a}{is\+Dir}} (const std\+::string \&path, int access\+Flags=0) const
+\begin{DoxyCompactList}\small\item\em Checks if path is a directory and has the given access flags. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSettings_a2d884377e9fa61f5697e11b558b64aa0}{get\+Group\+Id}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Returns the group id associated with the name. \end{DoxyCompactList}\item 
+std\+::set$<$ int $>$ \mbox{\hyperlink{classSettings_a7919d3b264f122523eeeaf50650e65bf}{get\+Group\+Ids}} (const Json\+::\+Value \&field) const
+\begin{DoxyCompactList}\small\item\em Processes a JSON array containing numbers and names of user groups. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSettings_a5c37edf7902ed14ec206e91566452ea9}{get\+Path\+From\+Env}} (const char $\ast$env, const char $\ast$fallback\+Path) const
+\begin{DoxyCompactList}\small\item\em Attempts to get and validate a path from environment vars. \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::string $>$ \mbox{\hyperlink{classSettings_a823fd7ec1b4bb23d175b821cf5240d63}{get\+Paths\+From\+Json}} (const Json\+::\+Value \&value) const
+\begin{DoxyCompactList}\small\item\em Attempts to read a path from the JSON object. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classSettings_a80c62eb00041edeffc15ff1f8488030d}{get\+Env\+Vars\+From\+Json}} (const Json\+::\+Value \&root, const Json\+::\+Path \&path) const
+\begin{DoxyCompactList}\small\item\em Returns a map of strings to strings as read from the JSON. \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::string $>$ \mbox{\hyperlink{classSettings_a3d13a434c98e1f9240d3aa13e634d829}{get\+Dev\+Nodes}} (const Json\+::\+Value \&root, const Json\+::\+Path \&path) const
+\begin{DoxyCompactList}\small\item\em Attempts to read the list of GPU device nodes that are needed for apps. \end{DoxyCompactList}\item 
+std\+::list$<$ \mbox{\hyperlink{structIDobbySettings_1_1ExtraMount}{Extra\+Mount}} $>$ \mbox{\hyperlink{classSettings_a494230c653effb35c2e67ab48bbedb0a}{get\+Extra\+Mounts}} (const Json\+::\+Value \&root, const Json\+::\+Path \&path) const
+\begin{DoxyCompactList}\small\item\em Attempts to read the mount JSON structure(s) from the object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSettings_ab806f9b14a2942d9a075cf521e460d1a}{process\+Mount\+Object}} (const Json\+::\+Value \&value, \mbox{\hyperlink{structIDobbySettings_1_1ExtraMount}{Extra\+Mount}} $\ast$mount) const
+\begin{DoxyCompactList}\small\item\em Processes a json \textquotesingle{}mount\textquotesingle{} object. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{Hardware\+Access\+Settings}} $>$ \mbox{\hyperlink{classSettings_aa6e6ac193dbe43da0760da20ec1ed3a4}{get\+Hardware\+Access}} (const Json\+::\+Value \&root, const Json\+::\+Path \&path) const
+\begin{DoxyCompactList}\small\item\em Processes a json \textquotesingle{}gpu\textquotesingle{} or \textquotesingle{}vpu\textquotesingle{} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSettings_a190979fa145e8258108bf933b74bc15a}\label{classSettings_a190979fa145e8258108bf933b74bc15a}} 
+void \mbox{\hyperlink{classSettings_a190979fa145e8258108bf933b74bc15a}{dump\+Hardware\+Access}} (int ai\+Log\+Level, const std\+::string \&name, const std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{Hardware\+Access\+Settings}} $>$ \&hw\+Access) const
+\begin{DoxyCompactList}\small\item\em Debugging function to dump the settings to access certain H/W. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSettings_a70dcc8f2a4c845d00be08e33c8345752}\label{classSettings_a70dcc8f2a4c845d00be08e33c8345752}} 
+std\+::string {\bfseries m\+Workspace\+Dir}
+\item 
+\mbox{\Hypertarget{classSettings_af27408799b533ec9f20c4ed6ad12cc64}\label{classSettings_af27408799b533ec9f20c4ed6ad12cc64}} 
+std\+::string {\bfseries m\+Persistent\+Dir}
+\item 
+\mbox{\Hypertarget{classSettings_ac7f2b178e0fd95031781dce5924b3a89}\label{classSettings_ac7f2b178e0fd95031781dce5924b3a89}} 
+std\+::string {\bfseries m\+Console\+Socket\+Path}
+\item 
+\mbox{\Hypertarget{classSettings_a946dc4c5bad6ce6dd4fcaaad710824b1}\label{classSettings_a946dc4c5bad6ce6dd4fcaaad710824b1}} 
+std\+::map$<$ std\+::string, std\+::string $>$ {\bfseries m\+Extra\+Env\+Vars}
+\item 
+\mbox{\Hypertarget{classSettings_a46518628539639fe87ef930f669a690b}\label{classSettings_a46518628539639fe87ef930f669a690b}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{Hardware\+Access\+Settings}} $>$ {\bfseries m\+Gpu\+Hardware\+Access}
+\item 
+\mbox{\Hypertarget{classSettings_a9543edf2505ffc910ab6f7cc5a95c067}\label{classSettings_a9543edf2505ffc910ab6f7cc5a95c067}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{Hardware\+Access\+Settings}} $>$ {\bfseries m\+Vpu\+Hardware\+Access}
+\item 
+\mbox{\Hypertarget{classSettings_a7dd1c05beb1b288fbaa1252cd30e8280}\label{classSettings_a7dd1c05beb1b288fbaa1252cd30e8280}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries m\+External\+Interfaces}
+\item 
+\mbox{\Hypertarget{classSettings_a98546379740e5e4fc4a73012cc27633a}\label{classSettings_a98546379740e5e4fc4a73012cc27633a}} 
+std\+::pair$<$ std\+::string, in\+\_\+addr\+\_\+t $>$ {\bfseries m\+Address\+Range}
+\item 
+\mbox{\Hypertarget{classSettings_a9953cd08705b494862db582e341f5abf}\label{classSettings_a9953cd08705b494862db582e341f5abf}} 
+std\+::vector$<$ std\+::string $>$ {\bfseries m\+Default\+Plugins}
+\item 
+\mbox{\Hypertarget{classSettings_afca9ca2abad7e26c37bb385de2512441}\label{classSettings_afca9ca2abad7e26c37bb385de2512441}} 
+\mbox{\hyperlink{structIDobbySettings_1_1LogRelaySettings}{Log\+Relay\+Settings}} {\bfseries m\+Log\+Relay\+Settings}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object containing the settings to pass to the \mbox{\hyperlink{classDobby}{Dobby}}. 
+
+Usually this is the parsed content of a JSON file and contains the platform specific details that \mbox{\hyperlink{classDobby}{Dobby}} needs to setup some stuff in the container. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSettings_a29eb9d711fd3533853c862b4dfd47005}\label{classSettings_a29eb9d711fd3533853c862b4dfd47005}} 
+\index{Settings@{Settings}!addressRange@{addressRange}}
+\index{addressRange@{addressRange}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{addressRange()}{addressRange()}}
+{\footnotesize\ttfamily in\+\_\+addr\+\_\+t Settings\+::address\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the \mbox{\hyperlink{classDobby}{Dobby}} network address range in in\+\_\+addr\+\_\+t format. 
+
+IPv4 address, masked with /24, i.\+e. address can be nnn.\+nnn.\+nnn.\+0 
+
+Implements \mbox{\hyperlink{classIDobbySettings_a5d990a1b2d08dacbb44c110e091591e0}{IDobby\+Settings}}.
+
+\mbox{\Hypertarget{classSettings_a70598d993f65d8a7bae58a94320a6790}\label{classSettings_a70598d993f65d8a7bae58a94320a6790}} 
+\index{Settings@{Settings}!addressRangeStr@{addressRangeStr}}
+\index{addressRangeStr@{addressRangeStr}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{addressRangeStr()}{addressRangeStr()}}
+{\footnotesize\ttfamily std\+::string Settings\+::address\+Range\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the \mbox{\hyperlink{classDobby}{Dobby}} network address range in string format. 
+
+IPv4 address, masked with /24, i.\+e. address can be nnn.\+nnn.\+nnn.\+0 
+
+Implements \mbox{\hyperlink{classIDobbySettings_a021a6f9309f0f09f9c95150be3477ed4}{IDobby\+Settings}}.
+
+\mbox{\Hypertarget{classSettings_ac520b26cb27d8a9d387e03d77b0d450f}\label{classSettings_ac520b26cb27d8a9d387e03d77b0d450f}} 
+\index{Settings@{Settings}!consoleSocketPath@{consoleSocketPath}}
+\index{consoleSocketPath@{consoleSocketPath}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{consoleSocketPath()}{consoleSocketPath()}}
+{\footnotesize\ttfamily std\+::string Settings\+::console\+Socket\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Location to create the socket used for capturing container logs. 
+
+This needs to be somewhere writable 
+
+Implements \mbox{\hyperlink{classIDobbySettings_a3ef9903fd8443533b562ee9cac2fbdea}{IDobby\+Settings}}.
+
+\mbox{\Hypertarget{classSettings_a4bd36f9c4930f9d30bde776a7cfa7926}\label{classSettings_a4bd36f9c4930f9d30bde776a7cfa7926}} 
+\index{Settings@{Settings}!defaultPlugins@{defaultPlugins}}
+\index{defaultPlugins@{defaultPlugins}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{defaultPlugins()}{defaultPlugins()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Settings\+::default\+Plugins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns any default plugins the platform should run. 
+
+It\textquotesingle{}s assumed the plugins will have an empty data section (i.\+e. \{\}) and that the default plugin options will always be suitable 
+
+Implements \mbox{\hyperlink{classIDobbySettings_a59a7969c12fe7f12a47da2507d544fb3}{IDobby\+Settings}}.
+
+\mbox{\Hypertarget{classSettings_af64d90164b400975ae3de799eda5e5f0}\label{classSettings_af64d90164b400975ae3de799eda5e5f0}} 
+\index{Settings@{Settings}!externalInterfaces@{externalInterfaces}}
+\index{externalInterfaces@{externalInterfaces}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{externalInterfaces()}{externalInterfaces()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Settings\+::external\+Interfaces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Returns the set of external interface that container traffic maybe routed through. 
+
+On every RDK platform this is \{ \char`\"{}eth0\char`\"{}, \char`\"{}wlan0\char`\"{} \} but it may change. 
+
+Implements \mbox{\hyperlink{classIDobbySettings_a3b79c94d6dac71bcd529eee7b6205647}{IDobby\+Settings}}.
+
+\mbox{\Hypertarget{classSettings_a3c05a4b2c3af34baac083d232253c041}\label{classSettings_a3c05a4b2c3af34baac083d232253c041}} 
+\index{Settings@{Settings}!extraEnvVariables@{extraEnvVariables}}
+\index{extraEnvVariables@{extraEnvVariables}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{extraEnvVariables()}{extraEnvVariables()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::string $>$ Settings\+::extra\+Env\+Variables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A list of extra environment variables that will be set for all containers. 
+
+This would typically define platform specific variables. 
+
+Implements \mbox{\hyperlink{classIDobbySettings_aa066f045cc7a8a4de6b7ef64510f6e90}{IDobby\+Settings}}.
+
+\mbox{\Hypertarget{classSettings_a3d13a434c98e1f9240d3aa13e634d829}\label{classSettings_a3d13a434c98e1f9240d3aa13e634d829}} 
+\index{Settings@{Settings}!getDevNodes@{getDevNodes}}
+\index{getDevNodes@{getDevNodes}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{getDevNodes()}{getDevNodes()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::string $>$ Settings\+::get\+Dev\+Nodes (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{root,  }\item[{const Json\+::\+Path \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to read the list of GPU device nodes that are needed for apps. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_a80c62eb00041edeffc15ff1f8488030d}\label{classSettings_a80c62eb00041edeffc15ff1f8488030d}} 
+\index{Settings@{Settings}!getEnvVarsFromJson@{getEnvVarsFromJson}}
+\index{getEnvVarsFromJson@{getEnvVarsFromJson}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{getEnvVarsFromJson()}{getEnvVarsFromJson()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::string $>$ Settings\+::get\+Env\+Vars\+From\+Json (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{root,  }\item[{const Json\+::\+Path \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns a map of strings to strings as read from the JSON. 
+
+This expects the json value to contain an array of strings, each string in the array should be formatted as a \char`\"{}$<$\+NAME$>$=$<$\+VALUE$>$\char`\"{} and follow the same rules as for standard environment variables.
+
+\begin{DoxyReturn}{Returns}
+a map of key value environment variable pairs. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_a494230c653effb35c2e67ab48bbedb0a}\label{classSettings_a494230c653effb35c2e67ab48bbedb0a}} 
+\index{Settings@{Settings}!getExtraMounts@{getExtraMounts}}
+\index{getExtraMounts@{getExtraMounts}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{getExtraMounts()}{getExtraMounts()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{structIDobbySettings_1_1ExtraMount}{Settings\+::\+Extra\+Mount}} $>$ Settings\+::get\+Extra\+Mounts (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{root,  }\item[{const Json\+::\+Path \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to read the mount JSON structure(s) from the object. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_a2d884377e9fa61f5697e11b558b64aa0}\label{classSettings_a2d884377e9fa61f5697e11b558b64aa0}} 
+\index{Settings@{Settings}!getGroupId@{getGroupId}}
+\index{getGroupId@{getGroupId}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{getGroupId()}{getGroupId()}}
+{\footnotesize\ttfamily int Settings\+::get\+Group\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns the group id associated with the name. 
+
+\begin{DoxyReturn}{Returns}
+the group id on success, -\/1 on error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_a7919d3b264f122523eeeaf50650e65bf}\label{classSettings_a7919d3b264f122523eeeaf50650e65bf}} 
+\index{Settings@{Settings}!getGroupIds@{getGroupIds}}
+\index{getGroupIds@{getGroupIds}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{getGroupIds()}{getGroupIds()}}
+{\footnotesize\ttfamily std\+::set$<$ int $>$ Settings\+::get\+Group\+Ids (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{field }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Processes a JSON array containing numbers and names of user groups. 
+
+\begin{DoxyReturn}{Returns}
+the set of user group ids in the field, or an empty set on error. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_aa6e6ac193dbe43da0760da20ec1ed3a4}\label{classSettings_aa6e6ac193dbe43da0760da20ec1ed3a4}} 
+\index{Settings@{Settings}!getHardwareAccess@{getHardwareAccess}}
+\index{getHardwareAccess@{getHardwareAccess}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{getHardwareAccess()}{getHardwareAccess()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{IDobby\+Settings\+::\+Hardware\+Access\+Settings}} $>$ Settings\+::get\+Hardware\+Access (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{root,  }\item[{const Json\+::\+Path \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Processes a json \textquotesingle{}gpu\textquotesingle{} or \textquotesingle{}vpu\textquotesingle{} object. 
+
+The JSON is expected to look like the following\+: \begin{DoxyVerb}{
+    "groupIds": [ "video" ],
+    "devNodes": [
+        "/dev/ion",
+        "/dev/rpc[0-7]"
+    ],
+    "extraEnvVariables": [
+        "ENABLE_MEDIAINFO=0"
+    ],
+    "extraMounts": [
+        {
+            "source": "/etc/xdg/gstomx.conf",
+            "destination": "/etc/xdg/gstomx.conf",
+            "type": "bind",
+            "options": [ "bind", "ro", "nosuid", "nodev", "noexec" ]
+        },
+        ...
+    ]
+}
+\end{DoxyVerb}
+ \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_a5c37edf7902ed14ec206e91566452ea9}\label{classSettings_a5c37edf7902ed14ec206e91566452ea9}} 
+\index{Settings@{Settings}!getPathFromEnv@{getPathFromEnv}}
+\index{getPathFromEnv@{getPathFromEnv}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{getPathFromEnv()}{getPathFromEnv()}}
+{\footnotesize\ttfamily std\+::string Settings\+::get\+Path\+From\+Env (\begin{DoxyParamCaption}\item[{const char $\ast$}]{env,  }\item[{const char $\ast$}]{fallback\+Path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to get and validate a path from environment vars. 
+
+If the env var is not set or points to an non-\/existing directory then the function falls back to {\itshape fallback\+Path}.
+
+Either way this function guarantees that the returned string will point to a valid directory.
+
+\begin{DoxyReturn}{Returns}
+a string containing the path to the directory. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_a823fd7ec1b4bb23d175b821cf5240d63}\label{classSettings_a823fd7ec1b4bb23d175b821cf5240d63}} 
+\index{Settings@{Settings}!getPathsFromJson@{getPathsFromJson}}
+\index{getPathsFromJson@{getPathsFromJson}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{getPathsFromJson()}{getPathsFromJson()}}
+{\footnotesize\ttfamily std\+::list$<$ std\+::string $>$ Settings\+::get\+Paths\+From\+Json (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Attempts to read a path from the JSON object. 
+
+The path(s) are expanded using the wordexp() function, meaning that glob and environment variable expansion are performed on the string stored in the json object.
+
+\begin{DoxyReturn}{Returns}
+a list of expanded paths in the json. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_aa1c6c98ded059e5727417c21d547779a}\label{classSettings_aa1c6c98ded059e5727417c21d547779a}} 
+\index{Settings@{Settings}!isDir@{isDir}}
+\index{isDir@{isDir}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{isDir()}{isDir()}}
+{\footnotesize\ttfamily bool Settings\+::is\+Dir (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{int}]{access\+Flags = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if path is a directory and has the given access flags. 
+
+\begin{DoxyReturn}{Returns}
+true if the path is a directory and accessible. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_ad657694cdf16d07c6db47ccc678bc0e0}\label{classSettings_ad657694cdf16d07c6db47ccc678bc0e0}} 
+\index{Settings@{Settings}!persistentDir@{persistentDir}}
+\index{persistentDir@{persistentDir}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{persistentDir()}{persistentDir()}}
+{\footnotesize\ttfamily std\+::string Settings\+::persistent\+Dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return a path to a directory on a persistent storage mount. 
+
+This is currently not used, but maybe in the future. 
+
+Implements \mbox{\hyperlink{classIDobbySettings_ae350ffa8f42db1af7a6f59ecddb8d13a}{IDobby\+Settings}}.
+
+\mbox{\Hypertarget{classSettings_ab806f9b14a2942d9a075cf521e460d1a}\label{classSettings_ab806f9b14a2942d9a075cf521e460d1a}} 
+\index{Settings@{Settings}!processMountObject@{processMountObject}}
+\index{processMountObject@{processMountObject}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{processMountObject()}{processMountObject()}}
+{\footnotesize\ttfamily bool Settings\+::process\+Mount\+Object (\begin{DoxyParamCaption}\item[{const Json\+::\+Value \&}]{value,  }\item[{\mbox{\hyperlink{structIDobbySettings_1_1ExtraMount}{Extra\+Mount}} $\ast$}]{mount }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Processes a json \textquotesingle{}mount\textquotesingle{} object. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSettings_ad571a67081a10de9d7cbf1645fd116fe}\label{classSettings_ad571a67081a10de9d7cbf1645fd116fe}} 
+\index{Settings@{Settings}!workspaceDir@{workspaceDir}}
+\index{workspaceDir@{workspaceDir}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{workspaceDir()}{workspaceDir()}}
+{\footnotesize\ttfamily std\+::string Settings\+::workspace\+Dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the path to a directory used to store temporary data like runc bundles. 
+
+This should be non-\/persistent storage and will be used for transient data. If the directory doesn\textquotesingle{}t exist the library will try and create it. If the directory (and any leading dirs) has to be created it will be created with 1755 permissions.
+
+Because of the way container setup works, this directory needs to be accessible -\/ but not writable -\/ by un-\/privileged processes. 
+
+Implements \mbox{\hyperlink{classIDobbySettings_a9f4d6f1ccd1ba9c04d268ce28e573c31}{IDobby\+Settings}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+settings/include/Settings.\+h\item 
+settings/source/Settings.\+cpp\end{DoxyCompactItemize}

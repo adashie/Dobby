@@ -1,0 +1,71 @@
+\hypertarget{structAI__IPC_1_1RemoteEntry}{}\doxysection{AI\+\_\+\+IPC\+::Remote\+Entry Struct Reference}
+\label{structAI__IPC_1_1RemoteEntry}\index{AI\_IPC::RemoteEntry@{AI\_IPC::RemoteEntry}}
+
+
+Remote entry, which can be either a signal or method.  
+
+
+
+
+{\ttfamily \#include $<$Ipc\+Common.\+h$>$}
+
+
+
+Inheritance diagram for AI\+\_\+\+IPC\+::Remote\+Entry\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_abefbeda8dc1e7ccc2389c1fbb28bbcf3}\label{structAI__IPC_1_1RemoteEntry_abefbeda8dc1e7ccc2389c1fbb28bbcf3}} 
+enum {\bfseries Type} \{ {\bfseries METHOD}
+, {\bfseries SIGNAL}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_a36bed88541a7e66bece753620f2d1806}\label{structAI__IPC_1_1RemoteEntry_a36bed88541a7e66bece753620f2d1806}} 
+bool {\bfseries is\+Valid} () const
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_a6e29da7a8159c467ddb975b6eeacc93f}\label{structAI__IPC_1_1RemoteEntry_a6e29da7a8159c467ddb975b6eeacc93f}} 
+{\bfseries operator bool} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_a63769c7a5798aa2c25aedae949ebe4cc}\label{structAI__IPC_1_1RemoteEntry_a63769c7a5798aa2c25aedae949ebe4cc}} 
+Type {\bfseries type}
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_af032c25d445fb095e2092850d0897968}\label{structAI__IPC_1_1RemoteEntry_af032c25d445fb095e2092850d0897968}} 
+std\+::string {\bfseries service}
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_a849461532fbac14903e02e2b8a8dc229}\label{structAI__IPC_1_1RemoteEntry_a849461532fbac14903e02e2b8a8dc229}} 
+std\+::string {\bfseries object}
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_aa7c01dae4c1948ec090c44b38322c4ec}\label{structAI__IPC_1_1RemoteEntry_aa7c01dae4c1948ec090c44b38322c4ec}} 
+std\+::string {\bfseries interface}
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_a1a6a76f540abe233256f97935beb8256}\label{structAI__IPC_1_1RemoteEntry_a1a6a76f540abe233256f97935beb8256}} 
+std\+::string {\bfseries name}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_ae946262e2cb913823cb17b30390d9f10}\label{structAI__IPC_1_1RemoteEntry_ae946262e2cb913823cb17b30390d9f10}} 
+{\bfseries Remote\+Entry} (Type type\+\_\+)
+\item 
+\mbox{\Hypertarget{structAI__IPC_1_1RemoteEntry_a160c1c3d99aaaace393dd319b8125a88}\label{structAI__IPC_1_1RemoteEntry_a160c1c3d99aaaace393dd319b8125a88}} 
+{\bfseries Remote\+Entry} (Type type\+\_\+, const std\+::string \&service\+\_\+, const std\+::string \&object\+\_\+, const std\+::string \&interface\+\_\+, const std\+::string \&name\+\_\+)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Remote entry, which can be either a signal or method. 
+
+A remote entry is identified by its type, object, interface and name. A remote instance is what we call here as object, which can be accessed though its interfaces.
+
+Both methods and signals are part of object interfaces. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Ipc\+Service/include/Ipc\+Common.\+h\end{DoxyCompactItemize}

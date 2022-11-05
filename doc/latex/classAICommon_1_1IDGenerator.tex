@@ -1,0 +1,101 @@
+\hypertarget{classAICommon_1_1IDGenerator}{}\doxysection{AICommon\+::IDGenerator$<$ N $>$ Class Template Reference}
+\label{classAICommon_1_1IDGenerator}\index{AICommon::IDGenerator$<$ N $>$@{AICommon::IDGenerator$<$ N $>$}}
+
+
+Class used to generate unique numbers.  
+
+
+
+
+{\ttfamily \#include $<$IDGenerator.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_a951ba6a53d8beaaf97ba42833ba7b556}\label{classAICommon_1_1IDGenerator_a951ba6a53d8beaaf97ba42833ba7b556}} 
+{\bfseries IDGenerator} (unsigned offset=0)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_a942d36b916612b5fe106897d159cc868}\label{classAICommon_1_1IDGenerator_a942d36b916612b5fe106897d159cc868}} 
+int {\bfseries get} ()
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_a33780e8f189f769be312a053684e3e2d}\label{classAICommon_1_1IDGenerator_a33780e8f189f769be312a053684e3e2d}} 
+bool {\bfseries put} (int id)
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_ad3e37c1af70e1788c8e33d0e8cae2758}\label{classAICommon_1_1IDGenerator_ad3e37c1af70e1788c8e33d0e8cae2758}} 
+void {\bfseries clear} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_ac65f40a23c215384d8a5daa5c7d9eb6a}\label{classAICommon_1_1IDGenerator_ac65f40a23c215384d8a5daa5c7d9eb6a}} 
+const unsigned {\bfseries m\+Offset}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_ac66a85c2f32caa34096151e92e4a2c5d}\label{classAICommon_1_1IDGenerator_ac66a85c2f32caa34096151e92e4a2c5d}} 
+unsigned {\bfseries m\+Lfsr}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_a25aec39a3eb9c3e0cbbd01cd6955171f}\label{classAICommon_1_1IDGenerator_a25aec39a3eb9c3e0cbbd01cd6955171f}} 
+std\+::mutex {\bfseries m\+Lock}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_a8ec265ed645a5af1c26c7d55d5434092}\label{classAICommon_1_1IDGenerator_a8ec265ed645a5af1c26c7d55d5434092}} 
+std\+::bitset$<$ m\+Size $>$ {\bfseries m\+Used}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_af67a6e4ff3b7d523845fa71ebd0f4592}\label{classAICommon_1_1IDGenerator_af67a6e4ff3b7d523845fa71ebd0f4592}} 
+static const unsigned {\bfseries m\+Size} = (1u $<$$<$ N)
+\item 
+static const unsigned {\bfseries m\+Polynomial}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$std\+::size\+\_\+t N$>$\newline
+class AICommon\+::\+IDGenerator$<$ N $>$}
+
+Class used to generate unique numbers. 
+
+Why? there a few places in the code were we create some resource and then return a unique \textquotesingle{}id\textquotesingle{} for it, this is typically done for resources created over dbus.
+
+This class is guaranteed to return unique id numbers in a non-\/linear sequence.
+
+The N template parameters refers to the number of bits in the generator range. Avoid large values for N, as for each entry we allocate a bit to tell if it\textquotesingle{}s in use or not, in addition in the worst case we have to iterate through all 2$^\wedge$N possible values to find a free one.
+
+The api has a get() and a put() operation, obviously get() returns a new id and put() releases the id back to the pool. The id\textquotesingle{}s returned are not sequential, instead they are created using a pseudo random repeating sequence (fibonacci LFSR).
+
+When the pool is exhausted get() will return -\/1. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classAICommon_1_1IDGenerator_a2d65349e3f9be628a4b991efb19252ce}\label{classAICommon_1_1IDGenerator_a2d65349e3f9be628a4b991efb19252ce}} 
+\index{AICommon::IDGenerator$<$ N $>$@{AICommon::IDGenerator$<$ N $>$}!mPolynomial@{mPolynomial}}
+\index{mPolynomial@{mPolynomial}!AICommon::IDGenerator$<$ N $>$@{AICommon::IDGenerator$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{mPolynomial}{mPolynomial}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+const unsigned \mbox{\hyperlink{classAICommon_1_1IDGenerator}{AICommon\+::\+IDGenerator}}$<$ N $>$\+::m\+Polynomial\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (N == 4)  ? 0x9     :}
+\DoxyCodeLine{                                        (N == 5)  ? 0x1B    :}
+\DoxyCodeLine{                                        (N == 6)  ? 0x36    :}
+\DoxyCodeLine{                                        (N == 7)  ? 0x5F    :}
+\DoxyCodeLine{                                        (N == 8)  ? 0xE1    :}
+\DoxyCodeLine{                                        (N == 9)  ? 0x1B0   :}
+\DoxyCodeLine{                                        (N == 10) ? 0x3A6   :}
+\DoxyCodeLine{                                        (N == 11) ? 0x574   :}
+\DoxyCodeLine{                                        (N == 12) ? 0xC48   :}
+\DoxyCodeLine{                                        (N == 13) ? 0x11D4  :}
+\DoxyCodeLine{                                        (N == 14) ? 0x214E  :}
+\DoxyCodeLine{                                        (N == 15) ? 0x41A6  :}
+\DoxyCodeLine{                                        (N == 16) ? 0x84BE  :}
+\DoxyCodeLine{                                        (N == 17) ? 0x1022E :}
+\DoxyCodeLine{                                        (N == 18) ? 0x20196 :}
+\DoxyCodeLine{                                        (N == 19) ? 0x4032F :}
+\DoxyCodeLine{                                        (N == 20) ? 0x80534 : 0}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App\+Infrastructure/\+Common/include/IDGenerator.\+h\end{DoxyCompactItemize}

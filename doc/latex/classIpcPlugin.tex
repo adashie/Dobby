@@ -1,0 +1,186 @@
+\hypertarget{classIpcPlugin}{}\doxysection{Ipc\+Plugin Class Reference}
+\label{classIpcPlugin}\index{IpcPlugin@{IpcPlugin}}
+
+
+IPC Plugin.  
+
+
+
+
+{\ttfamily \#include $<$Ipc\+Plugin.\+h$>$}
+
+
+
+Inheritance diagram for Ipc\+Plugin\+:
+% FIG 0
+
+
+Collaboration diagram for Ipc\+Plugin\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIpcPlugin_a36c4d88235b35ec880ab4b5028db3ffd}{Ipc\+Plugin}} (std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&container\+Config, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&utils, const std\+::string \&rootfs\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ called when plugin is loaded by Plugin\+Launcher. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classIpcPlugin_a656b4d3fda70c0de76ec7bc3646ef1e5}{name}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the name of the plugin. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classIpcPlugin_ad9537267782a2a3a6ae12e79ea7c70b2}{hook\+Hints}} () const override
+\begin{DoxyCompactList}\small\item\em Set the bit flags for which hooks we\textquotesingle{}re going to use. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIpcPlugin_aabf56d4d9427fbe735057ec415894283}\label{classIpcPlugin_aabf56d4d9427fbe735057ec415894283}} 
+bool \mbox{\hyperlink{classIpcPlugin_aabf56d4d9427fbe735057ec415894283}{post\+Installation}} () override
+\begin{DoxyCompactList}\small\item\em OCI Hook -\/ Run in host namespace. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classIpcPlugin_a8cdc0306eda27c3ad67c496d9b7b0ca9}{get\+Dependencies}} () const override
+\begin{DoxyCompactList}\small\item\em Should return the names of the plugins this plugin depends on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classIpcPlugin_a817e5722087d6fd7d3ccb1bfe032eefd}{add\+Socket\+And\+Env}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ utils, const std\+::string \&rootfs\+Path, std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ container\+Config, std\+::string bus\+Str, const std\+::string \&socket\+Path, const std\+::string \&env\+Var) const
+\begin{DoxyCompactList}\small\item\em Adds the bind mount of the socket. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classIpcPlugin_a3c8c8a4c75cf90e739ab56588a505aea}{socket\+Path\+From\+Address\+Simple}} (const std\+::string \&address) const
+\begin{DoxyCompactList}\small\item\em Utility function to extract the socket path from the dbus address string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_a168dd22d87b3d11e099840ecbfdfbf68}\label{classIpcPlugin_a168dd22d87b3d11e099840ecbfdfbf68}} 
+const std\+::string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_a32e7b20ae9afcba59ca977033f5be826}\label{classIpcPlugin_a32e7b20ae9afcba59ca977033f5be826}} 
+std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ {\bfseries m\+Container\+Config}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_a4ffcec05681fd8ece7e890eea087f37c}\label{classIpcPlugin_a4ffcec05681fd8ece7e890eea087f37c}} 
+const std\+::string {\bfseries m\+Rootfs\+Path}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_a146555b084c969c9dec3a444827b72f4}\label{classIpcPlugin_a146555b084c969c9dec3a444827b72f4}} 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ {\bfseries m\+Utils}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_ae09c9c9b48dea916892f8dc444318035}\label{classIpcPlugin_ae09c9c9b48dea916892f8dc444318035}} 
+const std\+::string {\bfseries m\+Dbus\+Run\+Dir}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_a02ccfc2a41330d09a77f77ba729ab74d}\label{classIpcPlugin_a02ccfc2a41330d09a77f77ba729ab74d}} 
+const std\+::string {\bfseries m\+Dbus\+System\+Socket\+Path}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_a58776b46a35ff7447f5cdeb77874773a}\label{classIpcPlugin_a58776b46a35ff7447f5cdeb77874773a}} 
+const std\+::string {\bfseries m\+Dbus\+Session\+Socket\+Path}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_a0828c1f5ddf31a5f9869a84f201abef6}\label{classIpcPlugin_a0828c1f5ddf31a5f9869a84f201abef6}} 
+const std\+::string {\bfseries m\+Dbus\+Debug\+Socket\+Path}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_a10b4c4f7651b41dd9cf9831e7919a3ea}\label{classIpcPlugin_a10b4c4f7651b41dd9cf9831e7919a3ea}} 
+const std\+::string {\bfseries m\+Dbus\+System\+Env\+Var}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_aadc107a746548b7a93692fae31572362}\label{classIpcPlugin_aadc107a746548b7a93692fae31572362}} 
+const std\+::string {\bfseries m\+Dbus\+Session\+Env\+Var}
+\item 
+\mbox{\Hypertarget{classIpcPlugin_ab155015dd84e268c25e2088e90793b2d}\label{classIpcPlugin_ab155015dd84e268c25e2088e90793b2d}} 
+const std\+::string {\bfseries m\+Dbus\+Debug\+Env\+Var}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+IPC Plugin. 
+
+Gives access to dbus inside container 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIpcPlugin_a36c4d88235b35ec880ab4b5028db3ffd}\label{classIpcPlugin_a36c4d88235b35ec880ab4b5028db3ffd}} 
+\index{IpcPlugin@{IpcPlugin}!IpcPlugin@{IpcPlugin}}
+\index{IpcPlugin@{IpcPlugin}!IpcPlugin@{IpcPlugin}}
+\doxysubsubsection{\texorpdfstring{IpcPlugin()}{IpcPlugin()}}
+{\footnotesize\ttfamily Ipc\+Plugin\+::\+Ipc\+Plugin (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$ \&}]{container\+Config,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$ \&}]{utils,  }\item[{const std\+::string \&}]{rootfs\+Path }\end{DoxyParamCaption})}
+
+
+
+Constructor -\/ called when plugin is loaded by Plugin\+Launcher. 
+
+Do not change the parameters for this constructor -\/ must match C methods created by REGISTER\+\_\+\+RDK\+\_\+\+PLUGIN macro
+
+Note plugin name is not case sensitive 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIpcPlugin_a817e5722087d6fd7d3ccb1bfe032eefd}\label{classIpcPlugin_a817e5722087d6fd7d3ccb1bfe032eefd}} 
+\index{IpcPlugin@{IpcPlugin}!addSocketAndEnv@{addSocketAndEnv}}
+\index{addSocketAndEnv@{addSocketAndEnv}!IpcPlugin@{IpcPlugin}}
+\doxysubsubsection{\texorpdfstring{addSocketAndEnv()}{addSocketAndEnv()}}
+{\footnotesize\ttfamily bool Ipc\+Plugin\+::add\+Socket\+And\+Env (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classDobbyRdkPluginUtils}{Dobby\+Rdk\+Plugin\+Utils}} $>$}]{utils,  }\item[{const std\+::string \&}]{rootfs\+Path,  }\item[{std\+::shared\+\_\+ptr$<$ rt\+\_\+dobby\+\_\+schema $>$}]{container\+Config,  }\item[{std\+::string}]{bus\+Str,  }\item[{const std\+::string \&}]{socket\+Path,  }\item[{const std\+::string \&}]{env\+Var }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adds the bind mount of the socket. 
+
+This also creates the mount point and sets the environment variables for the dbus code running inside the container. \mbox{\Hypertarget{classIpcPlugin_a8cdc0306eda27c3ad67c496d9b7b0ca9}\label{classIpcPlugin_a8cdc0306eda27c3ad67c496d9b7b0ca9}} 
+\index{IpcPlugin@{IpcPlugin}!getDependencies@{getDependencies}}
+\index{getDependencies@{getDependencies}!IpcPlugin@{IpcPlugin}}
+\doxysubsubsection{\texorpdfstring{getDependencies()}{getDependencies()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Ipc\+Plugin\+::get\+Dependencies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the names of the plugins this plugin depends on. 
+
+This can be used to determine the order in which the plugins should be processed when running hooks.
+
+\begin{DoxyReturn}{Returns}
+Names of the plugins this plugin depends on. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRdkPluginBase_a64a84c7c36adb8873c4da766f4ec18a1}{Rdk\+Plugin\+Base}}.
+
+\mbox{\Hypertarget{classIpcPlugin_ad9537267782a2a3a6ae12e79ea7c70b2}\label{classIpcPlugin_ad9537267782a2a3a6ae12e79ea7c70b2}} 
+\index{IpcPlugin@{IpcPlugin}!hookHints@{hookHints}}
+\index{hookHints@{hookHints}!IpcPlugin@{IpcPlugin}}
+\doxysubsubsection{\texorpdfstring{hookHints()}{hookHints()}}
+{\footnotesize\ttfamily unsigned Ipc\+Plugin\+::hook\+Hints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Set the bit flags for which hooks we\textquotesingle{}re going to use. 
+
+This plugin uses all the hooks so set all the flags 
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_aff3382d4f6fcb0e517b1c5e39efc7a59}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classIpcPlugin_a656b4d3fda70c0de76ec7bc3646ef1e5}\label{classIpcPlugin_a656b4d3fda70c0de76ec7bc3646ef1e5}} 
+\index{IpcPlugin@{IpcPlugin}!name@{name}}
+\index{name@{name}!IpcPlugin@{IpcPlugin}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string Ipc\+Plugin\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Should return the name of the plugin. 
+
+\begin{DoxyReturn}{Returns}
+string with the name of the hook. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classIDobbyRdkPlugin_a9c41f1227b331ccec63e7a3c11534e83}{IDobby\+Rdk\+Plugin}}.
+
+\mbox{\Hypertarget{classIpcPlugin_a3c8c8a4c75cf90e739ab56588a505aea}\label{classIpcPlugin_a3c8c8a4c75cf90e739ab56588a505aea}} 
+\index{IpcPlugin@{IpcPlugin}!socketPathFromAddressSimple@{socketPathFromAddressSimple}}
+\index{socketPathFromAddressSimple@{socketPathFromAddressSimple}!IpcPlugin@{IpcPlugin}}
+\doxysubsubsection{\texorpdfstring{socketPathFromAddressSimple()}{socketPathFromAddressSimple()}}
+{\footnotesize\ttfamily std\+::string Ipc\+Plugin\+::socket\+Path\+From\+Address\+Simple (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{address }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Utility function to extract the socket path from the dbus address string. 
+
+This uses basic string operations
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em address} & The dbus address trying to parse\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+on success the path to the dbus socket, on failure an empty string. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+rdk\+Plugins/\+IPC/source/Ipc\+Plugin.\+h\item 
+rdk\+Plugins/\+IPC/source/Ipc\+Plugin.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,177 @@
+\hypertarget{classIDobbySettings}{}\doxysection{IDobby\+Settings Class Reference}
+\label{classIDobbySettings}\index{IDobbySettings@{IDobbySettings}}
+
+
+\mbox{\hyperlink{structInterface}{Interface}} provided to the library at startup, contains the configuration options for \mbox{\hyperlink{classDobby}{Dobby}}.  
+
+
+
+
+{\ttfamily \#include $<$IDobby\+Settings.\+h$>$}
+
+
+
+Inheritance diagram for IDobby\+Settings\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structIDobbySettings_1_1ExtraMount}{Extra\+Mount}}
+\item 
+struct \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{Hardware\+Access\+Settings}}
+\item 
+struct \mbox{\hyperlink{structIDobbySettings_1_1LogRelaySettings}{Log\+Relay\+Settings}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbySettings_a9f4d6f1ccd1ba9c04d268ce28e573c31}{workspace\+Dir}} () const =0
+\begin{DoxyCompactList}\small\item\em Should return the path to a directory used to store temporary data like runc bundles. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbySettings_ae350ffa8f42db1af7a6f59ecddb8d13a}{persistent\+Dir}} () const =0
+\begin{DoxyCompactList}\small\item\em Should return a path to a directory on a persistent storage mount. \end{DoxyCompactList}\item 
+virtual std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classIDobbySettings_aa066f045cc7a8a4de6b7ef64510f6e90}{extra\+Env\+Variables}} () const =0
+\begin{DoxyCompactList}\small\item\em A list of extra environment variables that will be set for all containers. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbySettings_a3ef9903fd8443533b562ee9cac2fbdea}{console\+Socket\+Path}} () const =0
+\begin{DoxyCompactList}\small\item\em Location to create the socket used for capturing container logs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbySettings_a14ccca410e5a741ed194a315721d62cf}\label{classIDobbySettings_a14ccca410e5a741ed194a315721d62cf}} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{Hardware\+Access\+Settings}} $>$ \mbox{\hyperlink{classIDobbySettings_a14ccca410e5a741ed194a315721d62cf}{gpu\+Access\+Settings}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns any extra details needed to access the GPU inside the container. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbySettings_a4c06f4b8dcbd790c7dc1175ef4e262d5}\label{classIDobbySettings_a4c06f4b8dcbd790c7dc1175ef4e262d5}} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structIDobbySettings_1_1HardwareAccessSettings}{Hardware\+Access\+Settings}} $>$ \mbox{\hyperlink{classIDobbySettings_a4c06f4b8dcbd790c7dc1175ef4e262d5}{vpu\+Access\+Settings}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns any extra details needed to access the VPU (video pipeline) inside the container. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classIDobbySettings_a3b79c94d6dac71bcd529eee7b6205647}{external\+Interfaces}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the set of external interface that container traffic maybe routed through. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{classIDobbySettings_a021a6f9309f0f09f9c95150be3477ed4}{address\+Range\+Str}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the \mbox{\hyperlink{classDobby}{Dobby}} network address range in string format. \end{DoxyCompactList}\item 
+virtual in\+\_\+addr\+\_\+t \mbox{\hyperlink{classIDobbySettings_a5d990a1b2d08dacbb44c110e091591e0}{address\+Range}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns the \mbox{\hyperlink{classDobby}{Dobby}} network address range in in\+\_\+addr\+\_\+t format. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classIDobbySettings_a59a7969c12fe7f12a47da2507d544fb3}{default\+Plugins}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns any default plugins the platform should run. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIDobbySettings_a56bb74a5878b431e759228e52a848b9d}\label{classIDobbySettings_a56bb74a5878b431e759228e52a848b9d}} 
+virtual \mbox{\hyperlink{structIDobbySettings_1_1LogRelaySettings}{Log\+Relay\+Settings}} {\bfseries log\+Relay\+Settings} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structInterface}{Interface}} provided to the library at startup, contains the configuration options for \mbox{\hyperlink{classDobby}{Dobby}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIDobbySettings_a5d990a1b2d08dacbb44c110e091591e0}\label{classIDobbySettings_a5d990a1b2d08dacbb44c110e091591e0}} 
+\index{IDobbySettings@{IDobbySettings}!addressRange@{addressRange}}
+\index{addressRange@{addressRange}!IDobbySettings@{IDobbySettings}}
+\doxysubsubsection{\texorpdfstring{addressRange()}{addressRange()}}
+{\footnotesize\ttfamily virtual in\+\_\+addr\+\_\+t IDobby\+Settings\+::address\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the \mbox{\hyperlink{classDobby}{Dobby}} network address range in in\+\_\+addr\+\_\+t format. 
+
+IPv4 address, masked with /24, i.\+e. address can be nnn.\+nnn.\+nnn.\+0 
+
+Implemented in \mbox{\hyperlink{classSettings_a29eb9d711fd3533853c862b4dfd47005}{Settings}}.
+
+\mbox{\Hypertarget{classIDobbySettings_a021a6f9309f0f09f9c95150be3477ed4}\label{classIDobbySettings_a021a6f9309f0f09f9c95150be3477ed4}} 
+\index{IDobbySettings@{IDobbySettings}!addressRangeStr@{addressRangeStr}}
+\index{addressRangeStr@{addressRangeStr}!IDobbySettings@{IDobbySettings}}
+\doxysubsubsection{\texorpdfstring{addressRangeStr()}{addressRangeStr()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Settings\+::address\+Range\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the \mbox{\hyperlink{classDobby}{Dobby}} network address range in string format. 
+
+IPv4 address, masked with /24, i.\+e. address can be nnn.\+nnn.\+nnn.\+0 
+
+Implemented in \mbox{\hyperlink{classSettings_a70598d993f65d8a7bae58a94320a6790}{Settings}}.
+
+\mbox{\Hypertarget{classIDobbySettings_a3ef9903fd8443533b562ee9cac2fbdea}\label{classIDobbySettings_a3ef9903fd8443533b562ee9cac2fbdea}} 
+\index{IDobbySettings@{IDobbySettings}!consoleSocketPath@{consoleSocketPath}}
+\index{consoleSocketPath@{consoleSocketPath}!IDobbySettings@{IDobbySettings}}
+\doxysubsubsection{\texorpdfstring{consoleSocketPath()}{consoleSocketPath()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Settings\+::console\+Socket\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Location to create the socket used for capturing container logs. 
+
+This needs to be somewhere writable 
+
+Implemented in \mbox{\hyperlink{classSettings_ac520b26cb27d8a9d387e03d77b0d450f}{Settings}}.
+
+\mbox{\Hypertarget{classIDobbySettings_a59a7969c12fe7f12a47da2507d544fb3}\label{classIDobbySettings_a59a7969c12fe7f12a47da2507d544fb3}} 
+\index{IDobbySettings@{IDobbySettings}!defaultPlugins@{defaultPlugins}}
+\index{defaultPlugins@{defaultPlugins}!IDobbySettings@{IDobbySettings}}
+\doxysubsubsection{\texorpdfstring{defaultPlugins()}{defaultPlugins()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$std\+::string$>$ IDobby\+Settings\+::default\+Plugins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns any default plugins the platform should run. 
+
+It\textquotesingle{}s assumed the plugins will have an empty data section (i.\+e. \{\}) and that the default plugin options will always be suitable 
+
+Implemented in \mbox{\hyperlink{classSettings_a4bd36f9c4930f9d30bde776a7cfa7926}{Settings}}.
+
+\mbox{\Hypertarget{classIDobbySettings_a3b79c94d6dac71bcd529eee7b6205647}\label{classIDobbySettings_a3b79c94d6dac71bcd529eee7b6205647}} 
+\index{IDobbySettings@{IDobbySettings}!externalInterfaces@{externalInterfaces}}
+\index{externalInterfaces@{externalInterfaces}!IDobbySettings@{IDobbySettings}}
+\doxysubsubsection{\texorpdfstring{externalInterfaces()}{externalInterfaces()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$std\+::string$>$ IDobby\+Settings\+::external\+Interfaces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the set of external interface that container traffic maybe routed through. 
+
+On every RDK platform this is \{ \char`\"{}eth0\char`\"{}, \char`\"{}wlan0\char`\"{} \} but it may change. 
+
+Implemented in \mbox{\hyperlink{classSettings_af64d90164b400975ae3de799eda5e5f0}{Settings}}.
+
+\mbox{\Hypertarget{classIDobbySettings_aa066f045cc7a8a4de6b7ef64510f6e90}\label{classIDobbySettings_aa066f045cc7a8a4de6b7ef64510f6e90}} 
+\index{IDobbySettings@{IDobbySettings}!extraEnvVariables@{extraEnvVariables}}
+\index{extraEnvVariables@{extraEnvVariables}!IDobbySettings@{IDobbySettings}}
+\doxysubsubsection{\texorpdfstring{extraEnvVariables()}{extraEnvVariables()}}
+{\footnotesize\ttfamily virtual std\+::map$<$std\+::string, std\+::string$>$ IDobby\+Settings\+::extra\+Env\+Variables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A list of extra environment variables that will be set for all containers. 
+
+This would typically define platform specific variables. 
+
+Implemented in \mbox{\hyperlink{classSettings_a3c05a4b2c3af34baac083d232253c041}{Settings}}.
+
+\mbox{\Hypertarget{classIDobbySettings_ae350ffa8f42db1af7a6f59ecddb8d13a}\label{classIDobbySettings_ae350ffa8f42db1af7a6f59ecddb8d13a}} 
+\index{IDobbySettings@{IDobbySettings}!persistentDir@{persistentDir}}
+\index{persistentDir@{persistentDir}!IDobbySettings@{IDobbySettings}}
+\doxysubsubsection{\texorpdfstring{persistentDir()}{persistentDir()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Settings\+::persistent\+Dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Should return a path to a directory on a persistent storage mount. 
+
+This is currently not used, but maybe in the future. 
+
+Implemented in \mbox{\hyperlink{classSettings_ad657694cdf16d07c6db47ccc678bc0e0}{Settings}}.
+
+\mbox{\Hypertarget{classIDobbySettings_a9f4d6f1ccd1ba9c04d268ce28e573c31}\label{classIDobbySettings_a9f4d6f1ccd1ba9c04d268ce28e573c31}} 
+\index{IDobbySettings@{IDobbySettings}!workspaceDir@{workspaceDir}}
+\index{workspaceDir@{workspaceDir}!IDobbySettings@{IDobbySettings}}
+\doxysubsubsection{\texorpdfstring{workspaceDir()}{workspaceDir()}}
+{\footnotesize\ttfamily virtual std\+::string IDobby\+Settings\+::workspace\+Dir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Should return the path to a directory used to store temporary data like runc bundles. 
+
+This should be non-\/persistent storage and will be used for transient data. If the directory doesn\textquotesingle{}t exist the library will try and create it. If the directory (and any leading dirs) has to be created it will be created with 1755 permissions.
+
+Because of the way container setup works, this directory needs to be accessible -\/ but not writable -\/ by un-\/privileged processes. 
+
+Implemented in \mbox{\hyperlink{classSettings_ad571a67081a10de9d7cbf1645fd116fe}{Settings}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+settings/include/IDobby\+Settings.\+h\end{DoxyCompactItemize}

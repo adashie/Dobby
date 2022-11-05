@@ -1,0 +1,147 @@
+\hypertarget{namespaceTapInterface}{}\doxysection{Tap\+Interface Namespace Reference}
+\label{namespaceTapInterface}\index{TapInterface@{TapInterface}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespaceTapInterface_a697b8420362627240e974b220f500b7b}{platform\+Supports\+Tap\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if the platform has the TUN/\+TAP device driver and therefore can create tap devices. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceTapInterface_ae4b7267afb665dfc3ef740d464d7f505}{create\+Tap\+Interface}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Creates the \mbox{\hyperlink{classDobby}{Dobby}} tap device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceTapInterface_a540f8357cfb7b328a89bc88a90af6d1b}{destroy\+Tap\+Interface}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Destroys the \mbox{\hyperlink{classDobby}{Dobby}} tap device if it exists. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceTapInterface_af6d56fe54a98d5ed4ce957286fdd654c}\label{namespaceTapInterface_af6d56fe54a98d5ed4ce957286fdd654c}} 
+bool {\bfseries is\+Valid} ()
+\item 
+\mbox{\Hypertarget{namespaceTapInterface_a8f9d977d85926eb80c72c2356cae2075}\label{namespaceTapInterface_a8f9d977d85926eb80c72c2356cae2075}} 
+const std\+::string {\bfseries name} ()
+\item 
+bool \mbox{\hyperlink{namespaceTapInterface_a8f7564f1f965a5f3abf2dbcee8edd9c7}{up}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Brings an interface up. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceTapInterface_a49e63709109b22a9bb7858c9a6ebdd76}{down}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Takes an interface down. \end{DoxyCompactList}\item 
+std\+::array$<$ uint8\+\_\+t, 6 $>$ \mbox{\hyperlink{namespaceTapInterface_afb9cdee52fd9ad8144e2772b070e4977}{mac\+Address}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink)
+\begin{DoxyCompactList}\small\item\em Gets the MAC address of the tap device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceTapInterface_a6a59f2977a68f3b3732d78553502e7c7}{set\+MACAddress}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&netlink, const std\+::array$<$ uint8\+\_\+t, 6 $>$ \&address)
+\begin{DoxyCompactList}\small\item\em Sets the MAC address of the tap device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A set of function to create and destruct Tap devices. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceTapInterface_ae4b7267afb665dfc3ef740d464d7f505}\label{namespaceTapInterface_ae4b7267afb665dfc3ef740d464d7f505}} 
+\index{TapInterface@{TapInterface}!createTapInterface@{createTapInterface}}
+\index{createTapInterface@{createTapInterface}!TapInterface@{TapInterface}}
+\doxysubsubsection{\texorpdfstring{createTapInterface()}{createTapInterface()}}
+{\footnotesize\ttfamily bool Tap\+Interface\+::create\+Tap\+Interface (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Creates the \mbox{\hyperlink{classDobby}{Dobby}} tap device. 
+
+\begin{DoxyRemark}{Remarks}
+Based on implementation in iproute2 source code (iptuntap.\+c)
+\end{DoxyRemark}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceTapInterface_a540f8357cfb7b328a89bc88a90af6d1b}\label{namespaceTapInterface_a540f8357cfb7b328a89bc88a90af6d1b}} 
+\index{TapInterface@{TapInterface}!destroyTapInterface@{destroyTapInterface}}
+\index{destroyTapInterface@{destroyTapInterface}!TapInterface@{TapInterface}}
+\doxysubsubsection{\texorpdfstring{destroyTapInterface()}{destroyTapInterface()}}
+{\footnotesize\ttfamily bool Tap\+Interface\+::destroy\+Tap\+Interface (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Destroys the \mbox{\hyperlink{classDobby}{Dobby}} tap device if it exists. 
+
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceTapInterface_a49e63709109b22a9bb7858c9a6ebdd76}\label{namespaceTapInterface_a49e63709109b22a9bb7858c9a6ebdd76}} 
+\index{TapInterface@{TapInterface}!down@{down}}
+\index{down@{down}!TapInterface@{TapInterface}}
+\doxysubsubsection{\texorpdfstring{down()}{down()}}
+{\footnotesize\ttfamily bool Tap\+Interface\+::down (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Takes an interface down. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceTapInterface_afb9cdee52fd9ad8144e2772b070e4977}\label{namespaceTapInterface_afb9cdee52fd9ad8144e2772b070e4977}} 
+\index{TapInterface@{TapInterface}!macAddress@{macAddress}}
+\index{macAddress@{macAddress}!TapInterface@{TapInterface}}
+\doxysubsubsection{\texorpdfstring{macAddress()}{macAddress()}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, 6 $>$ Tap\+Interface\+::mac\+Address (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Gets the MAC address of the tap device. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceTapInterface_a697b8420362627240e974b220f500b7b}\label{namespaceTapInterface_a697b8420362627240e974b220f500b7b}} 
+\index{TapInterface@{TapInterface}!platformSupportsTapInterface@{platformSupportsTapInterface}}
+\index{platformSupportsTapInterface@{platformSupportsTapInterface}!TapInterface@{TapInterface}}
+\doxysubsubsection{\texorpdfstring{platformSupportsTapInterface()}{platformSupportsTapInterface()}}
+{\footnotesize\ttfamily bool Tap\+Interface\+::platform\+Supports\+Tap\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns true if the platform has the TUN/\+TAP device driver and therefore can create tap devices. 
+
+\begin{DoxyReturn}{Returns}
+true if supported. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceTapInterface_a6a59f2977a68f3b3732d78553502e7c7}\label{namespaceTapInterface_a6a59f2977a68f3b3732d78553502e7c7}} 
+\index{TapInterface@{TapInterface}!setMACAddress@{setMACAddress}}
+\index{setMACAddress@{setMACAddress}!TapInterface@{TapInterface}}
+\doxysubsubsection{\texorpdfstring{setMACAddress()}{setMACAddress()}}
+{\footnotesize\ttfamily bool Tap\+Interface\+::set\+MACAddress (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink,  }\item[{const std\+::array$<$ uint8\+\_\+t, 6 $>$ \&}]{address }\end{DoxyParamCaption})}
+
+
+
+Sets the MAC address of the tap device. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class. \\
+\hline
+\mbox{\texttt{ in}}  & {\em address} & MAC address to be set\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceTapInterface_a8f7564f1f965a5f3abf2dbcee8edd9c7}\label{namespaceTapInterface_a8f7564f1f965a5f3abf2dbcee8edd9c7}} 
+\index{TapInterface@{TapInterface}!up@{up}}
+\index{up@{up}!TapInterface@{TapInterface}}
+\doxysubsubsection{\texorpdfstring{up()}{up()}}
+{\footnotesize\ttfamily bool Tap\+Interface\+::up (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classNetlink}{Netlink}} $>$ \&}]{netlink }\end{DoxyParamCaption})}
+
+
+
+Brings an interface up. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em netlink} & Instance of the \mbox{\hyperlink{classNetlink}{Netlink}} class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, false on failure. 
+\end{DoxyReturn}
